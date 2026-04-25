@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L14 International Trade — Business Economics</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#faf8f4;
+  --bg2:#f2ede4;
+  --surface:#fff;
+  --border:#e8ddd0;
+  --border2:#d4c8b0;
+  --text:#1a1612;
+  --muted:#7a6e5e;
+  --accent:#245b74;
+  --accent-light:#e8f1f4;
+  --gold:#8a6a2a;
+  --gold-light:#f7f0e0;
+  --teal:#1a5c52;
+  --teal-light:#e8f4f1;
+  --red-light:#fdf2f0;
+  --red-border:#f0c4b8;
+  --red-text:#7a2015;
+  --red-label:#c0392b;
+  --ink:#2c2416
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7}
+.page{position:relative;max-width:860px;margin:0 auto;padding:0 2rem 6rem}
+.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;font-size:1rem;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s;z-index:10}
+.back-btn:hover{transform:translateY(-1px);background:var(--bg2)}
+.hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border2);margin-bottom:3rem;position:relative}
+.hero::before{content:'';position:absolute;top:0;left:-2rem;right:-2rem;bottom:0;background:linear-gradient(180deg,#e5eff2 0%,transparent 100%);z-index:-1}
+.lecture-tag{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:8px;margin-bottom:1rem}
+.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent)}
+h1{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:700;line-height:1.1;color:var(--ink);margin-bottom:1rem;letter-spacing:-.02em}
+.hero-sub{font-size:16px;color:var(--muted);max-width:620px;line-height:1.6;margin-bottom:1.5rem}
+.meta-row{display:flex;gap:1.5rem;flex-wrap:wrap}
+.meta-chip{font-family:'DM Mono',monospace;font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}
+.chip-trade{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}
+.chip-exam{background:var(--accent-light);color:var(--accent);border:1px solid #bfd3da}
+.chip-marks{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
+.alert-box{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin-bottom:2.5rem;font-size:13.5px;color:#173f4f}
+.alert-box strong{color:var(--accent)}
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem 2rem}
+.toc-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);grid-column:1/-1;margin-bottom:.5rem}
+.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:8px;padding:3px 0;transition:color .15s}
+.toc a:hover{color:var(--accent)}
+.toc a::before{content:attr(data-num);font-family:'DM Mono',monospace;font-size:10px;color:var(--border2);min-width:16px}
+.section{margin-bottom:3.5rem;animation:fadeUp .5s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.section-num{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
+h2{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:600;color:var(--ink);line-height:1.2;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--ink);margin-top:1.75rem;margin-bottom:.6rem;font-style:italic}
+p{margin-bottom:.9rem;color:var(--text)}
+.defn{background:var(--gold-light);border:1px solid #dcc888;border-radius:3px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}
+.defn-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.defn p{color:var(--ink);margin-bottom:0;font-size:14.5px}
+.defn strong{color:var(--gold)}
+.key-terms{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1.25rem 0}
+.term{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:.7rem 1rem}
+.term-word{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:2px}
+.term-def{font-size:12.5px;color:var(--muted);line-height:1.4}
+.compare-table{width:100%;border-collapse:collapse;font-size:13.5px;margin:1.25rem 0;border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.compare-table th{background:var(--bg2);padding:.65rem 1rem;text-align:left;font-weight:500;font-size:12px;font-family:'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border2)}
+.compare-table td{padding:.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table td:first-child{font-weight:500;color:var(--ink);width:170px}
+.eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.eval-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:.6rem;display:flex;align-items:center;gap:6px}
+.eval-label::before{content:'⊕';font-size:12px}
+.eval-box p{color:#1a4a42;font-size:14px;margin-bottom:.5rem}
+.eval-box p:last-child{margin-bottom:0}
+.mistake-box{background:var(--red-light);border:1px solid var(--red-border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.mistake-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--red-label);margin-bottom:.6rem;display:flex;align-items:center;gap:6px}
+.mistake-label::before{content:'✕';font-size:11px}
+.mistake-box p{color:var(--red-text);font-size:14px;margin-bottom:.5rem}
+.mistake-box p:last-child{margin-bottom:0}
+.exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0}
+.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center}
+.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px;font-size:10px}
+.exam-q-body{padding:1.25rem 1.5rem}
+.exam-q-body .q{font-style:italic;color:var(--ink);margin-bottom:1rem;font-size:15px}
+.answer-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:.4rem}
+.exam-q-body p{font-size:14px;margin-bottom:.6rem}
+.steps{margin:1.25rem 0}
+.step{display:flex;gap:1rem;margin-bottom:.75rem;align-items:flex-start}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--border2);line-height:1.2;min-width:28px;flex-shrink:0}
+.step-content{font-size:14px;color:var(--text);padding-top:2px}
+.step-content strong{color:var(--ink)}
+.diagram-box{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.diagram-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem}
+.diagram-box ul{padding-left:1.15rem}
+.diagram-box li{margin-bottom:.45rem}
+ul.standard{padding-left:1.2rem;margin:1rem 0 1.15rem}
+ul.standard li{margin-bottom:.45rem}
+.footer{text-align:center;font-family:'DM Mono',monospace;font-size:11px;color:var(--border2);letter-spacing:.08em;padding-top:2rem;border-top:1px solid var(--border)}
+@media(max-width:640px){h1{font-size:2.2rem}.toc{grid-template-columns:1fr}.key-terms{grid-template-columns:1fr}.page{padding:0 1.25rem 4rem}}
+
+.page-transition-init{opacity:0;transform:translateY(8px)}
+.page-transition-ready{opacity:1;transform:none}
+.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
+body{transition:opacity .22s ease,transform .22s ease}
+@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}
+</style>
+</head>
+<body>
+<div class="page">
+<a class="back-btn" href="index.html" aria-label="Back to Business Economics hub">←</a>
+
+<div class="hero">
+  <div class="lecture-tag">Lecture 14 · MAN00016C · University of York</div>
+  <h1>International Trade</h1>
+  <p class="hero-sub">Trading patterns, comparative advantage, gains from specialisation, terms of trade, protectionism, tariffs, welfare effects, and the role of the WTO in the world trading system.</p>
+  <div class="meta-row">
+    <span class="meta-chip chip-trade">International Economics</span>
+    <span class="meta-chip chip-exam">High exam relevance</span>
+    <span class="meta-chip chip-marks">Section A + B</span>
+  </div>
+</div>
+
+<div class="alert-box">
+  <strong>Past paper alert:</strong> this lecture feeds directly into multiple-choice questions on <em>comparative advantage</em>, <em>terms of trade</em>, <em>tariffs</em>, and <em>WTO rules</em>, plus longer explanations of why trade raises welfare and why protection creates efficiency losses.
+</div>
+
+<div class="toc">
+  <div class="toc-title">Contents</div>
+  <a href="#s1" data-num="01">Trade patterns and growth</a>
+  <a href="#s2" data-num="02">Why countries trade</a>
+  <a href="#s3" data-num="03">Comparative advantage</a>
+  <a href="#s4" data-num="04">Gains from trade</a>
+  <a href="#s5" data-num="05">Terms of trade</a>
+  <a href="#s6" data-num="06">Arguments for protection</a>
+  <a href="#s7" data-num="07">Methods of restricting trade</a>
+  <a href="#s8" data-num="08">Tariffs and welfare</a>
+  <a href="#s9" data-num="09">WTO and the world system</a>
+  <a href="#s10" data-num="10">Exam questions and evaluation</a>
+</div>
+
+<div class="section" id="s1">
+  <div class="section-num">Part 01</div>
+  <h2>Trade Patterns and the Growth of World Trade</h2>
+  <p>International trade is the exchange of goods and services across national borders. For business economics, the key point is that firms no longer compete only within domestic markets. Prices, output decisions, input sourcing, and competitive pressure are shaped by global demand and supply conditions.</p>
+  <p>The lecture begins by stressing that world trade has grown faster than world output for long periods. That means economies have become more open: a larger share of what countries produce is exported, and a larger share of what they consume uses imported goods, components, or services.</p>
+  <div class="defn">
+    <div class="defn-label">Trade openness</div>
+    <p><strong>Trade openness</strong> means a rising importance of exports and imports in national income. A more open economy is more exposed to foreign competition, foreign demand, and global shocks.</p>
+  </div>
+  <p>Trade patterns are not evenly distributed. Some countries are major exporters of manufactures, some specialise in commodities, some dominate commercial services, and the geography of trade changes over time as emerging economies industrialise and supply chains shift.</p>
+  <table class="compare-table">
+    <tr>
+      <th>Pattern</th>
+      <th>What it means</th>
+      <th>Business implication</th>
+    </tr>
+    <tr>
+      <td>Trade growth</td>
+      <td>Exports and imports rise faster than GDP</td>
+      <td>Domestic firms face stronger international competition</td>
+    </tr>
+    <tr>
+      <td>Changing geography</td>
+      <td>Different regions gain or lose trade share over time</td>
+      <td>Location decisions and market strategy become dynamic</td>
+    </tr>
+    <tr>
+      <td>Shift to services</td>
+      <td>Commercial services become more important</td>
+      <td>Trade is not only about physical goods</td>
+    </tr>
+  </table>
+  <div class="eval-box">
+    <div class="eval-label">Exam insight</div>
+    <p>Do not define international trade narrowly as “countries buying from each other.” The stronger answer links trade to <strong>specialisation</strong>, <strong>comparative cost differences</strong>, and <strong>integration of national economies</strong>.</p>
+  </div>
+</div>
+
+<div class="section" id="s2">
+  <div class="section-num">Part 02</div>
+  <h2>Why Countries Trade</h2>
+  <p>The core reason countries trade is that they are not identical. They differ in resource endowments, technology, climate, skills, scale, and opportunity costs. Trade allows countries to specialise more in activities where they are relatively efficient and obtain other goods more cheaply through exchange.</p>
+  <h3>Specialisation</h3>
+  <p>Specialisation means concentrating production in the goods or services where a country has a relative cost advantage. It does not mean producing only one thing; it means shifting resources toward areas of stronger relative efficiency.</p>
+  <div class="key-terms">
+    <div class="term"><div class="term-word">Absolute advantage</div><div class="term-def">A country can produce more output with the same resources, or the same output with fewer resources, than another country.</div></div>
+    <div class="term"><div class="term-word">Comparative advantage</div><div class="term-def">A country has a lower opportunity cost in producing one good relative to another good.</div></div>
+    <div class="term"><div class="term-word">Opportunity cost</div><div class="term-def">The amount of the next best alternative that must be given up to produce an extra unit of a good.</div></div>
+    <div class="term"><div class="term-word">Intra-industry trade</div><div class="term-def">Countries both import and export similar categories of goods, often because of product differentiation and economies of scale.</div></div>
+  </div>
+  <p>The lecture’s logic is that trade is beneficial even when one country is absolutely better at producing everything, provided comparative costs still differ. That is why comparative advantage, not absolute advantage, is the main theorem students are expected to remember.</p>
+</div>
+
+<div class="section" id="s3">
+  <div class="section-num">Part 03</div>
+  <h2>Comparative Advantage: The Core Exam Concept</h2>
+  <p>A country has a comparative advantage in good X compared with good Y if it can produce X at a <strong>lower opportunity cost</strong> than another country. This is the wording exam questions typically test.</p>
+  <div class="defn">
+    <div class="defn-label">Rule to memorise</div>
+    <p><strong>Comparative advantage is about relative sacrifice, not absolute productivity.</strong> Ask what must be given up to produce one more unit.</p>
+  </div>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Find the production possibilities or unit labour requirements.</strong> You need data for two goods.</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Compute opportunity cost.</strong> How many units of good Y are forgone to produce one more unit of good X?</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Compare countries.</strong> The lower opportunity cost producer has the comparative advantage.</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-content"><strong>Predict specialisation.</strong> Each country specialises relatively more in the good where it has comparative advantage.</div></div>
+  </div>
+  <table class="compare-table">
+    <tr>
+      <th>Question</th>
+      <th>Wrong approach</th>
+      <th>Correct approach</th>
+    </tr>
+    <tr>
+      <td>Who should export wine?</td>
+      <td>Choose the country that simply makes more wine</td>
+      <td>Choose the country with the lower opportunity cost of wine</td>
+    </tr>
+    <tr>
+      <td>Who should export cloth?</td>
+      <td>Choose the country with the lower labour hours in isolation</td>
+      <td>Compare labour hours relative to the alternative good</td>
+    </tr>
+    <tr>
+      <td>What matters?</td>
+      <td>Absolute efficiency only</td>
+      <td>Relative efficiency across goods</td>
+    </tr>
+  </table>
+  <div class="mistake-box">
+    <div class="mistake-label">Common mistake</div>
+    <p>Students often identify the country that is “best overall” and assume it should export everything. That misses the point. Comparative advantage is about <strong>relative efficiency</strong>, so both countries can gain if each specialises according to lower opportunity cost.</p>
+  </div>
+</div>
+
+<div class="section" id="s4">
+  <div class="section-num">Part 04</div>
+  <h2>Gains from Trade and Their Limits</h2>
+  <p>If countries specialise according to comparative advantage and then trade, total world output can rise. The gain comes from reallocating resources away from relatively inefficient uses and toward relatively efficient ones.</p>
+  <h3>Static gains</h3>
+  <ul class="standard">
+    <li>More output from existing resources because production is allocated more efficiently.</li>
+    <li>Lower prices and greater consumer choice from access to imports.</li>
+    <li>Competitive pressure on domestic firms to improve efficiency.</li>
+  </ul>
+  <h3>Dynamic gains</h3>
+  <ul class="standard">
+    <li>Greater economies of scale as firms serve larger markets.</li>
+    <li>More innovation through stronger competition and knowledge spillovers.</li>
+    <li>Access to a wider range of inputs, technologies, and capital goods.</li>
+  </ul>
+  <p>The lecture also points out that gains from trade are not unlimited. Specialisation can be constrained by transport costs, changing technology, strategic dependence on key imports, imperfect labour mobility, and the fact that countries may not want to become over-dependent on a narrow export base.</p>
+  <div class="eval-box">
+    <div class="eval-label">Balanced judgement</div>
+    <p>The theory predicts aggregate gains from trade, but those gains may be unevenly distributed. Some firms, workers, or regions gain strongly while others lose from import competition. That is one reason protection remains politically attractive even when total welfare falls.</p>
+  </div>
+</div>
+
+<div class="section" id="s5">
+  <div class="section-num">Part 05</div>
+  <h2>Terms of Trade</h2>
+  <p>The <strong>terms of trade</strong> measure the price of a country’s exports relative to the price of its imports. They show how many imports a country can obtain for a given volume of exports.</p>
+  <div class="defn">
+    <div class="defn-label">Formula</div>
+    <p><strong>Terms of trade index = export price index / import price index × 100</strong></p>
+  </div>
+  <p>If the terms of trade improve, export prices rise relative to import prices. That means a country can obtain more imports for the same quantity of exports. If the terms of trade deteriorate, the opposite happens.</p>
+  <table class="compare-table">
+    <tr>
+      <th>Movement</th>
+      <th>Meaning</th>
+      <th>Likely effect</th>
+    </tr>
+    <tr>
+      <td>Improvement</td>
+      <td>Export prices rise relative to import prices</td>
+      <td>Purchasing power of exports increases</td>
+    </tr>
+    <tr>
+      <td>Deterioration</td>
+      <td>Import prices rise relative to export prices</td>
+      <td>Country must export more to buy the same imports</td>
+    </tr>
+  </table>
+  <p>However, better terms of trade are not always unambiguously good. If export prices rise because domestic costs are becoming uncompetitive, export volumes may fall. Equally, a worsening terms of trade may coincide with higher competitiveness and stronger export growth if export prices fall because productivity has improved.</p>
+</div>
+
+<div class="section" id="s6">
+  <div class="section-num">Part 06</div>
+  <h2>Arguments for Restricting Trade</h2>
+  <p>The lecture then turns from the free-trade case to the case for protection. These arguments matter because exam questions often ask whether trade restrictions can be justified in principle, even if they reduce allocative efficiency.</p>
+  <ul class="standard">
+    <li><strong>Infant industry argument:</strong> new domestic industries may need temporary protection while they learn, build scale, and reduce average cost.</li>
+    <li><strong>Employment argument:</strong> import competition may reduce jobs in vulnerable sectors.</li>
+    <li><strong>Strategic or national security argument:</strong> countries may want domestic capacity in food, energy, defence, or critical technology.</li>
+    <li><strong>Anti-dumping argument:</strong> protection may be used against foreign firms selling below cost to gain market share.</li>
+    <li><strong>Balance of payments argument:</strong> countries facing persistent external deficits may want to reduce import demand.</li>
+  </ul>
+  <p>These arguments can be economically coherent, but the key issue is whether governments can identify the right industries and remove protection once the original justification disappears.</p>
+  <div class="mistake-box">
+    <div class="mistake-label">Common mistake</div>
+    <p>Do not write that protection is justified simply because “imports are bad for domestic firms.” Competition harming inefficient firms is not, by itself, an economic justification. You need a market-failure, strategic, or adjustment-cost argument.</p>
+  </div>
+</div>
+
+<div class="section" id="s7">
+  <div class="section-num">Part 07</div>
+  <h2>Methods of Restricting Trade</h2>
+  <p>Protection can be imposed in several ways. The lecture distinguishes between price-based restrictions and quantity-based restrictions.</p>
+  <table class="compare-table">
+    <tr>
+      <th>Method</th>
+      <th>Mechanism</th>
+      <th>Main effect</th>
+    </tr>
+    <tr>
+      <td>Tariff</td>
+      <td>Tax on imports</td>
+      <td>Raises domestic price and reduces imports</td>
+    </tr>
+    <tr>
+      <td>Quota</td>
+      <td>Direct quantitative limit on imports</td>
+      <td>Restricts import volume regardless of exact demand</td>
+    </tr>
+    <tr>
+      <td>Subsidy</td>
+      <td>Support to domestic producers</td>
+      <td>Improves domestic competitiveness without directly taxing imports</td>
+    </tr>
+    <tr>
+      <td>Administrative barriers</td>
+      <td>Standards, customs delays, regulations</td>
+      <td>Raises import costs indirectly</td>
+    </tr>
+  </table>
+  <p>A <strong>tariff</strong> is the most diagram-heavy method, so it tends to be the one used in exam questions. A tariff pushes domestic price above the world price, encourages domestic production, reduces domestic consumption, and compresses imports.</p>
+  <div class="diagram-box">
+    <div class="diagram-label">Tariff diagram logic</div>
+    <ul>
+      <li>World price under free trade is below the domestic equilibrium price.</li>
+      <li>Consumers buy at the world price, so imports fill the gap between domestic demand and domestic supply.</li>
+      <li>A tariff raises domestic price from <strong>Pw</strong> to <strong>Pt</strong>.</li>
+      <li>At the higher price, domestic supply rises and domestic demand falls.</li>
+      <li>Imports shrink because the gap between demand and supply becomes smaller.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section" id="s8">
+  <div class="section-num">Part 08</div>
+  <h2>Tariffs, Welfare Effects, and Efficiency Loss</h2>
+  <p>The standard tariff diagram is really a welfare diagram. It shows who gains, who loses, and why the country as a whole usually suffers a net efficiency loss from protection.</p>
+  <h3>Who gains and who loses?</h3>
+  <ul class="standard">
+    <li><strong>Domestic producers gain</strong> because they receive a higher price and sell more output.</li>
+    <li><strong>Government gains</strong> tariff revenue on remaining imports.</li>
+    <li><strong>Consumers lose</strong> because they pay a higher price and consume less.</li>
+  </ul>
+  <p>The consumer loss is larger than the producer gain plus tariff revenue. The missing amount is the <strong>deadweight efficiency loss</strong>.</p>
+  <div class="defn">
+    <div class="defn-label">Net welfare result</div>
+    <p><strong>Net cost of a tariff = production distortion loss + consumption distortion loss</strong></p>
+  </div>
+  <p>The production distortion occurs because higher-cost domestic output replaces lower-cost imports. The consumption distortion occurs because some mutually beneficial consumption disappears when price rises.</p>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Free trade price = Pw.</strong> Imports are bought from the world market at the lower price.</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Tariff raises price to Pt.</strong> Consumers contract demand and firms expand domestic supply.</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Transfer effects occur.</strong> Some consumer surplus moves to producers and government.</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-content"><strong>Efficiency loss remains.</strong> Two deadweight triangles represent the net national loss.</div></div>
+  </div>
+  <div class="eval-box">
+    <div class="eval-label">Important qualification</div>
+    <p>For a <strong>small country</strong> that cannot influence world prices, the standard result is a net welfare loss. For a <strong>large country</strong>, a tariff might improve the terms of trade by pushing foreign exporters to lower prices, but that argument is much more conditional and can trigger retaliation.</p>
+  </div>
+  <div class="mistake-box">
+    <div class="mistake-label">Common mistake</div>
+    <p>Do not say “tariff revenue means the tariff is beneficial overall.” Tariff revenue is only a transfer within the country. The mark-scoring point is that <strong>the two distortion losses remain after transfers are accounted for</strong>.</p>
+  </div>
+</div>
+
+<div class="section" id="s9">
+  <div class="section-num">Part 09</div>
+  <h2>The World Trading System and the WTO</h2>
+  <p>The lecture ends with the rules-based trading system. The World Trade Organization replaced the post-war GATT framework in 1995 and provides a legal and institutional structure for negotiating trade rules, reducing barriers, and settling disputes.</p>
+  <div class="key-terms">
+    <div class="term"><div class="term-word">GATT</div><div class="term-def">General Agreement on Tariffs and Trade, the post-1947 framework for reducing trade barriers.</div></div>
+    <div class="term"><div class="term-word">WTO</div><div class="term-def">World Trade Organization, established in 1995 to govern trade rules, negotiations, and dispute settlement.</div></div>
+    <div class="term"><div class="term-word">MFN</div><div class="term-def">Most-favoured-nation treatment: members should not discriminate between trading partners.</div></div>
+    <div class="term"><div class="term-word">National treatment</div><div class="term-def">Imported goods should be treated no less favourably than domestic goods once inside the market.</div></div>
+  </div>
+  <p>The broad economic case for the WTO is that rules reduce uncertainty. Firms are more willing to trade and invest when tariff commitments, dispute procedures, and non-discrimination principles are clearer.</p>
+  <table class="compare-table">
+    <tr>
+      <th>Function</th>
+      <th>Why it matters</th>
+    </tr>
+    <tr>
+      <td>Negotiation forum</td>
+      <td>Allows countries to bargain over lower trade barriers in formal rounds</td>
+    </tr>
+    <tr>
+      <td>Rule framework</td>
+      <td>Creates common expectations over tariffs, subsidies, and trade procedures</td>
+    </tr>
+    <tr>
+      <td>Dispute settlement</td>
+      <td>Reduces the risk that trade conflicts escalate into unilateral retaliation</td>
+    </tr>
+  </table>
+  <p>However, the system is not frictionless. Trade rounds can stall, enforcement can be politically difficult, and critics argue that the benefits of liberalisation are unevenly distributed across countries and sectors.</p>
+</div>
+
+<div class="section" id="s10">
+  <div class="section-num">Part 10</div>
+  <h2>Exam Questions, Model Answers, and Final Evaluation</h2>
+  <div class="exam-q">
+    <div class="exam-q-header">
+      <span>Section A style</span>
+      <span class="exam-q-marks">2 marks</span>
+    </div>
+    <div class="exam-q-body">
+      <p class="q">A country has a comparative advantage in producing good X if it can produce X:</p>
+      <p>A. with fewer workers than any other country.</p>
+      <p>B. at a lower opportunity cost than another country.</p>
+      <p>C. at a lower money wage than another country.</p>
+      <p>D. at a higher output level than another country.</p>
+      <div class="answer-label">Answer</div>
+      <p><strong>B. at a lower opportunity cost than another country.</strong></p>
+      <p>This is the precise definition. Comparative advantage is about relative sacrifice, not simply greater productivity.</p>
+    </div>
+  </div>
+
+  <div class="exam-q">
+    <div class="exam-q-header">
+      <span>Section A style</span>
+      <span class="exam-q-marks">2 marks</span>
+    </div>
+    <div class="exam-q-body">
+      <p class="q">If a tariff on an imported good is abolished and domestic price falls from Pt to Pw, what is the net efficiency gain to the country?</p>
+      <p>A. The increase in producer surplus only.</p>
+      <p>B. Tariff revenue only.</p>
+      <p>C. The two distortion triangles previously caused by the tariff.</p>
+      <p>D. The entire increase in consumer surplus.</p>
+      <div class="answer-label">Answer</div>
+      <p><strong>C. The two distortion triangles previously caused by the tariff.</strong></p>
+      <p>Transfers between consumers, producers, and government cancel out at the national level. The genuine efficiency gain is the removal of the production and consumption deadweight losses.</p>
+    </div>
+  </div>
+
+  <div class="exam-q">
+    <div class="exam-q-header">
+      <span>Section B style</span>
+      <span class="exam-q-marks">8 marks</span>
+    </div>
+    <div class="exam-q-body">
+      <p class="q">Explain why countries can gain from trade even if one country has an absolute advantage in producing every good.</p>
+      <div class="answer-label">Model answer</div>
+      <p>Absolute advantage means one country can produce every good more efficiently in direct productivity terms. But this does not remove the possibility of trade gains, because what matters for specialisation is comparative advantage, not absolute advantage.</p>
+      <p>Comparative advantage depends on opportunity cost. Even if one country is better at producing both goods, it will usually be relatively better at one of them. The other country will then have the lower opportunity cost in the second good. If each country specialises more in the good where its relative efficiency is greater, total world output can rise.</p>
+      <p>After specialisation, the countries trade. Because the terms of exchange lie between their domestic opportunity costs, both can consume beyond what they could achieve in autarky. Therefore both can gain from trade even when one country has an absolute advantage in all goods.</p>
+    </div>
+  </div>
+
+  <div class="exam-q">
+    <div class="exam-q-header">
+      <span>Section B style</span>
+      <span class="exam-q-marks">10 marks</span>
+    </div>
+    <div class="exam-q-body">
+      <p class="q">Evaluate the case for imposing a tariff on imported goods.</p>
+      <div class="answer-label">Model answer</div>
+      <p>A tariff is a tax on imports. It raises the domestic price of the imported good, reduces consumption, encourages domestic production, and cuts the volume of imports. Domestic producers gain and the government receives tariff revenue, but consumers lose from higher prices and reduced choice.</p>
+      <p>For a small country, the standard welfare analysis shows that the tariff causes a net efficiency loss. This arises from a production distortion, because higher-cost domestic production replaces lower-cost imports, and a consumption distortion, because some mutually beneficial consumption no longer takes place.</p>
+      <p>There are arguments in favour of tariffs in specific cases. Temporary protection may help infant industries grow, and strategic sectors may be protected for national security reasons. Governments may also use tariffs against dumping or during severe balance of payments pressure.</p>
+      <p>However, these arguments are conditional. Governments may protect the wrong industries, firms may become inefficient behind trade barriers, consumers bear the cost, and other countries may retaliate. Therefore the strongest evaluation is that tariffs can sometimes be defended in narrow circumstances, but as a general policy they reduce efficiency and lower national welfare.</p>
+    </div>
+  </div>
+
+  <div class="eval-box">
+    <div class="eval-label">High-level evaluation points</div>
+    <p><strong>Comparative advantage is powerful but simplified:</strong> it abstracts from transport costs, strategic behaviour, and adjustment problems.</p>
+    <p><strong>Trade raises aggregate welfare, not guaranteed equal welfare:</strong> some workers and regions can lose badly in the short run.</p>
+    <p><strong>Protection has visible beneficiaries and diffuse costs:</strong> producer gains are concentrated, but consumer losses are spread widely.</p>
+    <p><strong>Tariff diagrams assume a small country:</strong> if a country can affect world prices, the analysis becomes less straightforward.</p>
+    <p><strong>WTO rules reduce uncertainty but do not eliminate conflict:</strong> trade politics and stalled negotiations still matter.</p>
+  </div>
+
+  <div class="mistake-box">
+    <div class="mistake-label">Top mistakes</div>
+    <p><strong>1.</strong> Confusing comparative advantage with absolute advantage.</p>
+    <p><strong>2.</strong> Saying “trade is good because exports rise” without explaining efficiency and specialisation.</p>
+    <p><strong>3.</strong> Forgetting that terms of trade are a <strong>price ratio</strong>, not the trade balance.</p>
+    <p><strong>4.</strong> Treating tariff revenue as if it removes the deadweight loss.</p>
+    <p><strong>5.</strong> Listing protectionist arguments without evaluating whether they are temporary, targeted, or politically abused.</p>
+  </div>
+
+  <div class="defn">
+    <div class="defn-label">One-line memory aid</div>
+    <p><strong>Free trade is justified by comparative advantage and higher total welfare; protection is defended only where there is a strong argument that market outcomes, adjustment costs, or strategic interests make unrestricted trade too costly.</strong></p>
+  </div>
+</div>
+
+<div class="footer">
+  L14 INTERNATIONAL TRADE · BUSINESS ECONOMICS · UNIVERSITY OF YORK
+</div>
+</div>
+<script>
+(function(){
+  document.body.classList.add("page-transition-init");
+  window.addEventListener("load", function(){
+    requestAnimationFrame(function(){
+      document.body.classList.remove("page-transition-init");
+      document.body.classList.add("page-transition-ready");
+    });
+  });
+  document.addEventListener("click", function(event){
+    var link = event.target.closest("a[href]");
+    if (!link) return;
+    if (event.defaultPrevented || event.button !== 0) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (link.target && link.target !== "_self") return;
+    if (link.hasAttribute("download")) return;
+    var href = link.getAttribute("href");
+    if (!href || href.charAt(0) === "#") return;
+    if (/^(mailto:|tel:|javascript:)/i.test(href)) return;
+    var url = new URL(link.href, window.location.href);
+    if (url.origin !== window.location.origin) return;
+    if (url.pathname === window.location.pathname && url.search === window.location.search && url.hash) return;
+    event.preventDefault();
+    document.body.classList.remove("page-transition-ready");
+    document.body.classList.add("page-transition-leaving");
+    window.setTimeout(function(){ window.location.href = url.href; }, 180);
+  });
+})();
+</script>
+
+</body>
+</html>

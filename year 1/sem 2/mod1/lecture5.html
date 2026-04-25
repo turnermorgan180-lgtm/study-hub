@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L5 Costs of Production — Business Economics</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf8f4;--bg2:#f2ede4;--surface:#fff;--border:#e8d0b8;--border2:#d4c8b0;--text:#1a1612;--muted:#7a6e5e;--accent:#1a4a7a;--accent-light:#e8f0f8;--gold:#8a6a2a;--gold-light:#f7f0e0;--teal:#1a5c52;--teal-light:#e8f4f1;--red-light:#fdf2f0;--red-border:#f0c4b8;--red-text:#7a2015;--red-label:#c0392b;--ink:#2c2416}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7}
+.page{position:relative;max-width:860px;margin:0 auto;padding:0 2rem 6rem}
+.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;font-size:1rem;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s;z-index:10}
+.back-btn:hover{transform:translateY(-1px);background:var(--bg2)}
+.hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border2);margin-bottom:3rem;position:relative}
+.hero::before{content:'';position:absolute;top:0;left:-2rem;right:-2rem;bottom:0;background:linear-gradient(180deg,#eaf0f7 0%,transparent 100%);z-index:-1}
+.lecture-tag{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:8px;margin-bottom:1rem}
+.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent)}
+h1{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:700;line-height:1.1;color:var(--ink);margin-bottom:1rem;letter-spacing:-.02em}
+.hero-sub{font-size:16px;color:var(--muted);max-width:600px;line-height:1.6;margin-bottom:1.5rem}
+.meta-row{display:flex;gap:1.5rem;flex-wrap:wrap}
+.meta-chip{font-family:'DM Mono',monospace;font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}
+.chip-micro{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}
+.chip-exam{background:var(--accent-light);color:var(--accent);border:1px solid #b8d0e8}
+.chip-marks{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
+.alert-box{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin-bottom:2.5rem;font-size:13.5px;color:#0f2e52}
+.alert-box strong{color:var(--accent)}
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem 2rem}
+.toc-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);grid-column:1/-1;margin-bottom:.5rem}
+.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:8px;padding:3px 0;transition:color .15s}
+.toc a:hover{color:var(--accent)}
+.toc a::before{content:attr(data-num);font-family:'DM Mono',monospace;font-size:10px;color:var(--border2);min-width:16px}
+.section{margin-bottom:3.5rem;animation:fadeUp .5s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.section-num{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
+h2{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:600;color:var(--ink);line-height:1.2;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--ink);margin-top:1.75rem;margin-bottom:.6rem;font-style:italic}
+p{margin-bottom:.9rem;color:var(--text)}
+ul{padding-left:1.2rem;margin:1rem 0 1.15rem}
+li{margin-bottom:.45rem}
+.defn{background:var(--gold-light);border:1px solid #dcc888;border-radius:3px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}
+.defn-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.defn p{color:var(--ink);margin-bottom:0;font-size:14.5px}
+.defn strong{color:var(--gold)}
+.key-terms{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1.25rem 0}
+.term{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:.7rem 1rem}
+.term-word{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:2px}
+.term-def{font-size:12.5px;color:var(--muted);line-height:1.4}
+.compare-table{width:100%;border-collapse:collapse;font-size:13.5px;margin:1.25rem 0;border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.compare-table th{background:var(--bg2);padding:.65rem 1rem;text-align:left;font-weight:500;font-size:12px;font-family:'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border2)}
+.compare-table td{padding:.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table td:first-child{font-weight:500;color:var(--ink);width:165px}
+.eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.eval-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:.6rem;display:flex;align-items:center;gap:6px}
+.eval-label::before{content:'⊕';font-size:12px}
+.eval-box p{color:#1a4a42;font-size:14px;margin-bottom:.5rem}
+.eval-box p:last-child{margin-bottom:0}
+.mistake-box{background:var(--red-light);border:1px solid var(--red-border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.mistake-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--red-label);margin-bottom:.6rem;display:flex;align-items:center;gap:6px}
+.mistake-label::before{content:'✕';font-size:11px}
+.mistake-box p{color:var(--red-text);font-size:14px;margin-bottom:.5rem}
+.mistake-box p:last-child{margin-bottom:0}
+.exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0}
+.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center}
+.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px;font-size:10px}
+.exam-q-body{padding:1.25rem 1.5rem}
+.exam-q-body .q{font-style:italic;color:var(--ink);margin-bottom:1rem;font-size:15px}
+.answer-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:.4rem}
+.exam-q-body p{font-size:14px;margin-bottom:.6rem}
+.steps{margin:1.25rem 0}
+.step{display:flex;gap:1rem;margin-bottom:.75rem;align-items:flex-start}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--border2);line-height:1.2;min-width:28px;flex-shrink:0}
+.step-content{font-size:14px;color:var(--text);padding-top:2px}
+.step-content strong{color:var(--ink)}
+.logic-box{background:var(--accent-light);border-left:4px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin:1rem 0;font-size:14px;color:#0f2e52}
+.divider{border:none;border-top:1px solid var(--border);margin:2.5rem 0}
+.footer{text-align:center;font-family:'DM Mono',monospace;font-size:11px;color:var(--border2);letter-spacing:.08em;padding-top:2rem;border-top:1px solid var(--border)}
+@media(max-width:640px){h1{font-size:2.2rem}.toc{grid-template-columns:1fr}.key-terms{grid-template-columns:1fr}.page{padding:0 1.25rem 4rem}}
+
+.page-transition-init{opacity:0;transform:translateY(8px)}
+.page-transition-ready{opacity:1;transform:none}
+.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
+body{transition:opacity .22s ease,transform .22s ease}
+@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}
+</style>
+</head>
+<body>
+<div class="page">
+  <a class="back-btn" href="index.html" aria-label="Back to Business Economics hub">←</a>
+
+  <div class="hero">
+    <div class="lecture-tag">Lecture 5 · MAN00016C · University of York</div>
+    <h1>Costs of Production</h1>
+    <p class="hero-sub">Opportunity cost, relevant and irrelevant costs, short-run production, diminishing returns, short-run cost curves, long-run production, economies of scale, and LRAC — with the exam logic needed to explain why cost curves look the way they do.</p>
+    <div class="meta-row">
+      <span class="meta-chip chip-micro">Microeconomics</span>
+      <span class="meta-chip chip-exam">High exam relevance</span>
+      <span class="meta-chip chip-marks">Section A + B</span>
+    </div>
+  </div>
+
+  <div class="alert-box">
+    <strong>Past paper alert:</strong> Lecture 5 sits underneath pricing, profit maximisation, perfect competition, monopoly, and scale questions. Even where the paper does not explicitly say <em>costs of production</em>, it often tests the chain <strong>production conditions → cost curves → output decisions → evaluation</strong>.
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">Contents</div>
+    <a href="#s1" data-num="01">Opportunity cost and relevant cost</a>
+    <a href="#s2" data-num="02">Short run versus long run</a>
+    <a href="#s3" data-num="03">Short-run production function</a>
+    <a href="#s4" data-num="04">Diminishing returns</a>
+    <a href="#s5" data-num="05">Short-run cost concepts</a>
+    <a href="#s6" data-num="06">Total, average, and marginal cost curves</a>
+    <a href="#s7" data-num="07">Long-run production</a>
+    <a href="#s8" data-num="08">Economies and diseconomies of scale</a>
+    <a href="#s9" data-num="09">Long-run average cost</a>
+    <a href="#s10" data-num="10">Exam questions and model answers</a>
+    <a href="#s11" data-num="11">Evaluation and common mistakes</a>
+  </div>
+
+  <div class="section">
+    <div class="section-num">Key Definitions</div>
+    <h2>Terms to Know Cold</h2>
+    <div class="key-terms">
+      <div class="term"><div class="term-word">Opportunity cost</div><div class="term-def">The value of the next best alternative foregone when a choice is made.</div></div>
+      <div class="term"><div class="term-word">Sunk cost</div><div class="term-def">A past cost that cannot be recovered and should not affect the current decision.</div></div>
+      <div class="term"><div class="term-word">Short run</div><div class="term-def">A period in which at least one factor of production is fixed.</div></div>
+      <div class="term"><div class="term-word">Long run</div><div class="term-def">A period in which all factors of production are variable.</div></div>
+      <div class="term"><div class="term-word">Total physical product</div><div class="term-def">The total output produced from a given quantity of variable input.</div></div>
+      <div class="term"><div class="term-word">Marginal product</div><div class="term-def">The extra output gained from employing one more unit of the variable input.</div></div>
+      <div class="term"><div class="term-word">Fixed cost</div><div class="term-def">Cost that does not vary with output in the short run, such as rent on premises.</div></div>
+      <div class="term"><div class="term-word">Variable cost</div><div class="term-def">Cost that changes with output, such as labour or raw materials.</div></div>
+      <div class="term"><div class="term-word">Marginal cost</div><div class="term-def">The extra cost of producing one more unit of output.</div></div>
+      <div class="term"><div class="term-word">Economies of scale</div><div class="term-def">Falling long-run average cost as output expands.</div></div>
+    </div>
+  </div>
+
+  <div class="section" id="s1">
+    <div class="section-num">01</div>
+    <h2>Opportunity Cost and Relevant Cost</h2>
+    <p>The lecture opens with the economic meaning of cost. In economics, cost is not just money actually paid out. The deeper idea is <strong>opportunity cost</strong>: what must be given up in order to use resources in one way rather than another. If a firm uses a machine to produce product X, the cost is not only maintenance or electricity. It is also the value of the best alternative use sacrificed.</p>
+    <div class="defn">
+      <div class="defn-label">Core rule</div>
+      <p><strong>Relevant costs are future costs that change with the decision.</strong> Irrelevant costs are costs that do not change with the decision, especially <strong>sunk costs</strong>.</p>
+    </div>
+    <p>This distinction matters because firms often make poor decisions when they let past expenditure distort current choices. If a machine has already been bought, the original purchase price is sunk. The relevant economic cost of using it for one more year is the value of the next best alternative, such as selling it or using it elsewhere.</p>
+    <table class="compare-table">
+      <tr>
+        <th>Type of cost</th>
+        <th>Should it affect the current decision?</th>
+        <th>Reason</th>
+      </tr>
+      <tr>
+        <td>Opportunity cost</td>
+        <td>Yes</td>
+        <td>It captures the real sacrifice of choosing one action over another.</td>
+      </tr>
+      <tr>
+        <td>Sunk cost</td>
+        <td>No</td>
+        <td>It has already been incurred and cannot be altered now.</td>
+      </tr>
+      <tr>
+        <td>Avoidable future cost</td>
+        <td>Yes</td>
+        <td>It changes if the decision changes.</td>
+      </tr>
+    </table>
+    <div class="mistake-box">
+      <div class="mistake-label">Common mistake</div>
+      <p>Do not define opportunity cost as "the price paid." Price is only one possible cost. Opportunity cost is the next best alternative forgone, whether or not money changes hands.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s2">
+    <div class="section-num">02</div>
+    <h2>Short Run Versus Long Run</h2>
+    <p>The distinction between short run and long run is conceptual, not calendar-based. The short run is any period in which at least one factor is fixed. The long run is the period in which the firm can vary all factors, including plant size, machinery, and organisational structure.</p>
+    <ul>
+      <li><strong>Short run:</strong> some inputs fixed, so output adjustment mainly comes from changing variable inputs such as labour.</li>
+      <li><strong>Long run:</strong> all inputs variable, so the firm can redesign its whole production process.</li>
+      <li><strong>Implication:</strong> short-run cost curves differ from long-run cost curves because the firm’s flexibility is very different.</li>
+    </ul>
+    <div class="eval-box">
+      <div class="eval-label">Exam insight</div>
+      <p>When asked why short-run and long-run costs differ, the mark-winning phrase is that <strong>the long run allows full adjustment of all factors of production</strong>. Avoid saying only that the long run is "a long time."</p>
+    </div>
+  </div>
+
+  <div class="section" id="s3">
+    <div class="section-num">03</div>
+    <h2>The Short-Run Production Function</h2>
+    <p>In the short run, output depends on combining at least one fixed factor with more units of a variable factor. The lecture sequence on short-run production implies a standard production function story: as more labour is added to a fixed plant, total output first rises at an increasing rate, then at a diminishing rate, and may eventually stop growing or even fall.</p>
+    <div class="defn">
+      <div class="defn-label">Useful relationships</div>
+      <p><strong>Marginal product (MP)</strong> is the change in output from one more unit of variable input.<br><strong>Average product (AP)</strong> is output per unit of variable input.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Early stage:</strong> specialisation and division of labour can raise output quickly.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Middle stage:</strong> output still rises, but each extra worker adds less than before.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Late stage:</strong> congestion and overcrowding can cause marginal product to fall toward zero or below zero.</div></div>
+    </div>
+    <p>This is why the total physical product curve changes slope: the slope of TPP is the marginal product. Once MP starts falling, the TPP curve becomes flatter. If MP becomes zero, TPP reaches its maximum. If MP becomes negative, total output begins to fall.</p>
+    <div class="logic-box">
+      <strong>Exam logic:</strong> if a question asks "When does production stop growing?", the answer is <strong>when marginal product falls to zero</strong>. After that point, extra variable input adds no extra output.
+    </div>
+  </div>
+
+  <div class="section" id="s4">
+    <div class="section-num">04</div>
+    <h2>Diminishing Returns and Overcrowding</h2>
+    <p>The lecture outline explicitly includes <em>negative returns and overcrowding</em>. This is the law of diminishing marginal returns: once a firm keeps adding more of a variable input to fixed inputs, the marginal product of that variable input eventually declines.</p>
+    <p>The reason is intuitive. If the size of the factory, number of machines, or floor space is fixed, each extra worker has less fixed capital to work with. Workers begin to get in each other's way. That does not mean total output immediately falls. It means output rises more slowly.</p>
+    <table class="compare-table">
+      <tr>
+        <th>Stage</th>
+        <th>What happens to MP</th>
+        <th>What happens to TPP</th>
+      </tr>
+      <tr>
+        <td>Increasing returns</td>
+        <td>MP rising</td>
+        <td>TPP rises at an increasing rate</td>
+      </tr>
+      <tr>
+        <td>Diminishing returns</td>
+        <td>MP still positive but falling</td>
+        <td>TPP rises at a decreasing rate</td>
+      </tr>
+      <tr>
+        <td>Negative returns</td>
+        <td>MP negative</td>
+        <td>TPP falls</td>
+      </tr>
+    </table>
+    <div class="eval-box">
+      <div class="eval-label">Why it matters for costs</div>
+      <p>Diminishing returns are the key reason marginal cost eventually rises in the short run. If each extra worker adds less output, the firm must use more input per extra unit of output.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s5">
+    <div class="section-num">05</div>
+    <h2>Short-Run Cost Concepts</h2>
+    <p>The lecture then moves from production to cost. In the short run, some costs are fixed because some factors are fixed. Other costs vary with output because they are tied to variable inputs.</p>
+    <div class="defn">
+      <div class="defn-label">Core formulas</div>
+      <p><strong>TC = TFC + TVC</strong><br><strong>AFC = TFC / Q</strong><br><strong>AVC = TVC / Q</strong><br><strong>ATC = TC / Q = AFC + AVC</strong><br><strong>MC = ΔTC / ΔQ</strong></p>
+    </div>
+    <h3>Fixed cost</h3>
+    <p>Fixed cost does not change with output in the short run. If a furniture manufacturer pays rent on a workshop, that rent is paid whether output is zero or 100 tables. This is why the lecture includes a fixed-cost multiple-choice question: students must recognise that fixed cost is linked to the existence of fixed factors, not to whether a bill is paid weekly or monthly.</p>
+    <h3>Variable cost</h3>
+    <p>Variable cost changes with output. Extra labour, timber, electricity linked to production, or packaging costs are standard examples. Once output rises, variable costs rise too.</p>
+    <div class="mistake-box">
+      <div class="mistake-label">Common mistake</div>
+      <p>Do not say wages are always variable or always fixed. Salaried management may be fixed in the short run, while hourly production labour is typically variable. The classification depends on whether the cost changes with output in the period being analysed.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s6">
+    <div class="section-num">06</div>
+    <h2>Total, Average, and Marginal Cost Curves</h2>
+    <p>The structure of cost curves comes directly from the production logic above. Total fixed cost is constant. Total variable cost rises with output, usually first at a decreasing rate and then at an increasing rate as diminishing returns dominate. Total cost is simply the vertical sum of total fixed and total variable cost.</p>
+    <h3>Average cost curves</h3>
+    <p>Average fixed cost falls continuously as output rises because the same fixed cost is spread over more units. Average variable cost and average total cost are usually U-shaped. At low output, specialisation and better use of plant push average costs down. At higher output, diminishing returns push them up.</p>
+    <h3>Marginal cost</h3>
+    <p>Marginal cost is the cost of one extra unit. Because marginal product first rises and then falls, marginal cost typically first falls and then rises. When each extra worker adds a lot of output, the extra unit is cheap to produce. When each extra worker adds little output, the extra unit becomes expensive.</p>
+    <div class="logic-box">
+      <strong>Critical relationship:</strong> the <strong>MC curve cuts AVC and ATC at their minimum points</strong>. If marginal cost is below an average, it pulls the average down. If marginal cost is above an average, it pulls the average up.
+    </div>
+    <table class="compare-table">
+      <tr>
+        <th>Curve</th>
+        <th>Typical shape</th>
+        <th>Main reason</th>
+      </tr>
+      <tr>
+        <td>AFC</td>
+        <td>Continuously downward sloping</td>
+        <td>Fixed cost is spread over more units</td>
+      </tr>
+      <tr>
+        <td>AVC</td>
+        <td>U-shaped</td>
+        <td>Initially better use of variable inputs, later diminishing returns</td>
+      </tr>
+      <tr>
+        <td>ATC</td>
+        <td>U-shaped</td>
+        <td>AVC behaviour plus falling AFC</td>
+      </tr>
+      <tr>
+        <td>MC</td>
+        <td>U-shaped and steeper later</td>
+        <td>Inverse of marginal product behaviour</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="section" id="s7">
+    <div class="section-num">07</div>
+    <h2>Production in the Long Run</h2>
+    <p>Once the analysis moves to the long run, the firm is no longer constrained by fixed plant. It can choose its scale of operation, adopt new machinery, reorganise labour, relocate, or redesign the entire production process. This makes long-run production fundamentally different from short-run production.</p>
+    <p>In the long run the focus shifts away from overcrowding around a fixed plant and toward whether bigger scale lowers or raises unit cost. That is why the lecture transitions from long-run production directly into economies of scale.</p>
+    <div class="eval-box">
+      <div class="eval-label">Exam insight</div>
+      <p>If asked how a firm responds to persistent high demand, the strongest answer is often long-run rather than short-run: it may expand plant size rather than keep pushing labour into an already crowded fixed facility.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s8">
+    <div class="section-num">08</div>
+    <h2>Economies and Diseconomies of Scale</h2>
+    <p>Economies of scale exist when expanding output reduces long-run average cost. The lecture titles explicitly frame this as <em>Why Bigger can be Better</em>. The reason is that larger firms can spread costs, specialise, negotiate better, and use more efficient technology.</p>
+    <h3>Typical internal economies of scale</h3>
+    <ul>
+      <li><strong>Technical economies:</strong> larger machines or production systems may be more efficient.</li>
+      <li><strong>Managerial economies:</strong> specialist managers can improve coordination and productivity.</li>
+      <li><strong>Purchasing economies:</strong> bulk buying can lower input prices.</li>
+      <li><strong>Financial economies:</strong> large firms may borrow more cheaply.</li>
+      <li><strong>Marketing economies:</strong> advertising and distribution costs can be spread over more output.</li>
+    </ul>
+    <p>Diseconomies of scale begin when the firm becomes so large that coordination problems, bureaucracy, weak communication, and monitoring difficulties raise average costs. The lecture also mentions <em>external factors</em>, which points to the distinction between internal scale effects inside the firm and wider industry conditions outside it.</p>
+    <table class="compare-table">
+      <tr>
+        <th>Case</th>
+        <th>Effect on LRAC</th>
+        <th>Main intuition</th>
+      </tr>
+      <tr>
+        <td>Economies of scale</td>
+        <td>LRAC falls</td>
+        <td>Bigger scale improves efficiency</td>
+      </tr>
+      <tr>
+        <td>Constant returns to scale</td>
+        <td>LRAC flat</td>
+        <td>Unit cost roughly unchanged</td>
+      </tr>
+      <tr>
+        <td>Diseconomies of scale</td>
+        <td>LRAC rises</td>
+        <td>Complexity and coordination costs dominate</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="section" id="s9">
+    <div class="section-num">09</div>
+    <h2>Long-Run Average Cost and the Envelope Idea</h2>
+    <p>The LRAC curve shows the lowest possible average cost of producing each output when the firm can choose the optimal plant size. In textbook terms, LRAC is the <strong>envelope</strong> of a series of short-run average cost curves. Each SRAC corresponds to a different plant size. The firm chooses the plant that minimises unit cost for the required output.</p>
+    <div class="defn">
+      <div class="defn-label">Interpretation</div>
+      <p><strong>LRAC does not show one short-run plant being stretched forever.</strong> It shows the lowest attainable average cost once the firm is free to move between different short-run plants.</p>
+    </div>
+    <p>That is why LRAC is often flatter and smoother than SRAC. The firm can avoid producing every quantity on a suboptimal plant. At low output it may use a small plant. At medium output it may switch to a larger, more efficient plant. At very high output, diseconomies of scale may eventually push LRAC upward again.</p>
+    <div class="logic-box">
+      <strong>Exam description of the diagram:</strong> draw several U-shaped SRAC curves, then a smoother LRAC tangent to them from below. Explain that each tangency point represents the cheapest plant size for that output level.
+    </div>
+  </div>
+
+  <div class="section" id="s10">
+    <div class="section-num">10</div>
+    <h2>Exam Questions and Model Answers</h2>
+
+    <div class="exam-q">
+      <div class="exam-q-header">
+        <span>Exam Practice</span>
+        <span class="exam-q-marks">6 marks</span>
+      </div>
+      <div class="exam-q-body">
+        <p class="q">Explain why marginal cost rises in the short run after a certain point.</p>
+        <div class="answer-label">Model answer</div>
+        <p>In the short run at least one factor of production is fixed, such as plant size. As the firm adds more units of the variable factor, for example labour, total output initially rises quickly because of specialisation. However, beyond a certain point the law of diminishing marginal returns sets in, so each additional worker adds less extra output because the fixed factor becomes crowded.</p>
+        <p>Since each extra unit of output now requires relatively more variable input, the cost of producing one more unit rises. Therefore marginal cost rises. The key link is that falling marginal product implies rising marginal cost.</p>
+      </div>
+    </div>
+
+    <div class="exam-q">
+      <div class="exam-q-header">
+        <span>Exam Practice</span>
+        <span class="exam-q-marks">8 marks</span>
+      </div>
+      <div class="exam-q-body">
+        <p class="q">Distinguish between fixed cost, variable cost, and sunk cost, and explain why the distinction matters for decision-making.</p>
+        <div class="answer-label">Model answer</div>
+        <p>Fixed costs do not vary with output in the short run, because they are linked to fixed factors such as rent on a factory. Variable costs do vary with output, because they depend on variable inputs such as production labour or raw materials. Sunk costs are past costs that have already been incurred and cannot be recovered.</p>
+        <p>The distinction matters because firms should base decisions on relevant future costs, not on sunk costs. For example, if a machine has already been bought, the purchase price is sunk. The relevant cost of using it now is its opportunity cost, such as what could be earned by selling it or using it elsewhere. Confusing sunk cost with relevant cost leads to poor economic decisions.</p>
+      </div>
+    </div>
+
+    <div class="exam-q">
+      <div class="exam-q-header">
+        <span>Exam Practice</span>
+        <span class="exam-q-marks">10 marks</span>
+      </div>
+      <div class="exam-q-body">
+        <p class="q">Explain the causes of economies of scale and evaluate whether becoming larger always lowers average cost.</p>
+        <div class="answer-label">Model answer</div>
+        <p>Economies of scale occur when long-run average cost falls as output increases. Causes include technical economies from more efficient machinery, managerial economies from specialist staff, purchasing economies from bulk buying, financial economies from cheaper access to funds, and marketing economies from spreading promotional costs over larger output.</p>
+        <p>However, becoming larger does not always lower average cost. Beyond some point the firm may suffer diseconomies of scale. Communication becomes harder, bureaucracy expands, monitoring weakens, and decision-making slows down. External factors such as congestion or industry-wide input shortages may also push costs up. Therefore scale can reduce cost, but only up to the point where organisational complexity begins to dominate.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="s11">
+    <div class="section-num">11</div>
+    <h2>Evaluation and Common Mistakes</h2>
+    <h3>Evaluation points worth using</h3>
+    <div class="eval-box">
+      <div class="eval-label">Evaluation</div>
+      <p>Short-run cost theory is stylised. Real firms may automate, redesign jobs, outsource, or improve workflow before diminishing returns become severe.</p>
+      <p>Economies of scale are not guaranteed. Some firms stay deliberately small because flexibility, quality control, or niche positioning matters more than mass production.</p>
+      <p>Accounting cost and economic cost are not the same. Strong answers can improve by bringing in opportunity cost where appropriate.</p>
+    </div>
+    <h3>Frequent exam mistakes</h3>
+    <div class="mistake-box">
+      <div class="mistake-label">Avoid this</div>
+      <p>Do not confuse <strong>fixed cost</strong> with <strong>sunk cost</strong>. A fixed cost can still be relevant if it will be incurred in the future and changes across choices; a sunk cost is always past and irrecoverable.</p>
+      <p>Do not say diminishing returns mean total output falls immediately. Diminishing returns begin when marginal product starts to fall, even if total output is still rising.</p>
+      <p>Do not say MC cuts ATC because the curves "meet there." The reason is analytical: marginal values pull averages up or down.</p>
+      <p>Do not discuss long-run economies of scale using short-run overcrowding logic. Keep the two frameworks separate.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <div class="footer">Lecture 5 notes prepared for MAN00016C · Business Economics</div>
+</div>
+<script>
+(function(){
+  document.body.classList.add("page-transition-init");
+  window.addEventListener("load", function(){
+    requestAnimationFrame(function(){
+      document.body.classList.remove("page-transition-init");
+      document.body.classList.add("page-transition-ready");
+    });
+  });
+  document.addEventListener("click", function(event){
+    var link = event.target.closest("a[href]");
+    if (!link) return;
+    if (event.defaultPrevented || event.button !== 0) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (link.target && link.target !== "_self") return;
+    if (link.hasAttribute("download")) return;
+    var href = link.getAttribute("href");
+    if (!href || href.charAt(0) === "#") return;
+    if (/^(mailto:|tel:|javascript:)/i.test(href)) return;
+    var url = new URL(link.href, window.location.href);
+    if (url.origin !== window.location.origin) return;
+    if (url.pathname === window.location.pathname && url.search === window.location.search && url.hash) return;
+    event.preventDefault();
+    document.body.classList.remove("page-transition-ready");
+    document.body.classList.add("page-transition-leaving");
+    window.setTimeout(function(){ window.location.href = url.href; }, 180);
+  });
+})();
+</script>
+
+</body>
+</html>

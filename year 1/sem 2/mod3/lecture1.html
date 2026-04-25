@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lecture 1 Descriptive Statistics, Measures and Charts — Quantitative Analysis in Business Studies</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf8f4;--bg2:#f2ede4;--surface:#fff;--border:#e8ddd0;--border2:#d4c8b0;--text:#1a1612;--muted:#7a6e5e;--accent:#245b74;--accent-light:#e8f1f4;--gold:#8a6a2a;--gold-light:#f7f0e0;--teal:#1a5c52;--teal-light:#e8f4f1;--red-light:#fdf2f0;--red-border:#f0c4b8;--red-text:#7a2015;--red-label:#c0392b;--ink:#2c2416}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;transition:opacity .22s ease,transform .22s ease}
+.page{position:relative;max-width:860px;margin:0 auto;padding:0 2rem 6rem}
+.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;font-size:1rem;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s;z-index:10}
+.back-btn:hover{transform:translateY(-1px);background:var(--bg2)}
+.hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border2);margin-bottom:3rem;position:relative}
+.hero::before{content:'';position:absolute;top:0;left:-2rem;right:-2rem;bottom:0;background:linear-gradient(180deg,#e5eff2 0%,transparent 100%);z-index:-1}
+.lecture-tag,.meta-chip,.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label,.exam-q-header,.footer,.resource-path,.steps-label{font-family:'DM Mono',monospace}
+.lecture-tag{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;gap:8px;margin-bottom:1rem}
+.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent);margin-top:.6rem}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;color:var(--ink)}
+h1{font-size:3.2rem;line-height:1.1;margin-bottom:1rem}
+h2{font-size:2rem;margin-bottom:.6rem;border-bottom:1px solid var(--border);padding-bottom:.25rem}
+h3{font-size:1.5rem;margin-bottom:.45rem;font-style:italic}
+.hero-sub{font-size:16px;color:var(--muted);max-width:700px;margin-bottom:1.5rem}
+.meta-row{display:flex;gap:1rem;flex-wrap:wrap}
+.meta-chip{font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}
+.chip-topic{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}
+.chip-exam{background:var(--accent-light);color:var(--accent);border:1px solid #bfd3da}
+.chip-module{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
+.alert-box{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin-bottom:2rem;font-size:13.5px;color:#173f4f}
+.toc{background:var(--surface);border:1px solid var(--border);padding:1.5rem 1.75rem;margin-bottom:2rem;display:grid;grid-template-columns:1fr 1fr;gap:.45rem 2rem}
+.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label,.steps-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.toc-title{color:var(--muted);grid-column:1/-1}
+.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;gap:8px}
+.toc a::before{content:attr(data-num);color:var(--border2)}
+.section{margin-bottom:3rem}
+.section-num{color:var(--accent);margin-bottom:.35rem}
+p{margin-bottom:.9rem}
+.defn,.resource-list,.logic-box,.diagram-box,.steps,.compare-wrap{background:var(--surface);border:1px solid var(--border);border-radius:4px}
+.resource-list{padding:1rem 1.25rem;margin:1rem 0 1.25rem}
+.resource-list ul{margin:.2rem 0 0 1rem}
+.resource-path{font-size:11px;color:var(--muted)}
+.defn{background:var(--gold-light);border-color:#dcc888;padding:1rem 1.25rem;margin:1rem 0 1.25rem}
+.defn-label{color:var(--gold);margin-bottom:4px}
+.defn p{margin-bottom:0;font-size:14.5px}
+.logic-box,.diagram-box,.compare-wrap{padding:1rem 1.25rem;margin:1.25rem 0}
+.diagram-box{background:linear-gradient(180deg,#fcfaf6 0%,#f3efe7 100%)}
+.logic-step{padding:.75rem 0;border-top:1px dashed var(--border)}
+.logic-step:first-of-type{border-top:none;padding-top:.2rem}
+.steps{padding:1rem 1.25rem;margin:1.25rem 0}
+.step{display:grid;grid-template-columns:56px 1fr;gap:1rem;align-items:start;padding:.8rem 0;border-top:1px dashed var(--border)}
+.step:first-of-type{border-top:none;padding-top:.2rem}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:2rem;line-height:1;color:var(--accent)}
+.step p{margin:.2rem 0 0;color:var(--muted)}
+.compare-table{width:100%;border-collapse:collapse;font-size:14px}
+.compare-table th{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:left;padding:.75rem 0;border-bottom:1px solid var(--border2)}
+.compare-table td{padding:.8rem 0;border-top:1px solid var(--border)}
+.eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.mistake-box{background:var(--red-light);border:1px solid var(--red-border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.eval-label{color:var(--teal);margin-bottom:.6rem}
+.mistake-label{color:var(--red-label);margin-bottom:.6rem}
+.exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0}
+.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between}
+.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px}
+.exam-q-body{padding:1.25rem 1.5rem}
+.exam-q-body .q{font-style:italic;margin-bottom:1rem}
+.footer{text-align:center;font-size:11px;color:var(--border2);padding-top:1rem;border-top:1px solid var(--border)}
+.page-transition-init{opacity:0;transform:translateY(8px)}
+.page-transition-ready{opacity:1;transform:none}
+.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
+@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}
+@media (max-width:640px){h1{font-size:2.2rem}.toc{grid-template-columns:1fr}.step{grid-template-columns:44px 1fr}.page{padding:0 1.25rem 4rem}}
+</style>
+</head>
+<body>
+<div class="page">
+<a class="back-btn" href="index.html" aria-label="Back to Quantitative Analysis in Business Studies hub">←</a>
+<div class="hero">
+  <div class="lecture-tag">Lecture 1 · Quantitative Analysis in Business Studies · University of York</div>
+  <h1>Descriptive Statistics, Measures and Charts</h1>
+  <p class="hero-sub">Measures of centre and spread, chart selection, outliers, boxplots, and why the right summary depends on the shape of the data.</p>
+  <div class="meta-row"><span class="meta-chip chip-topic">Quant methods</span><span class="meta-chip chip-exam">Refined revision guide</span><span class="meta-chip chip-module">MAN00035C</span></div>
+</div>
+<div class="alert-box"><strong>Lecture focus:</strong> this page is designed to work like the longer revision guides in the other modules. It combines method, interpretation, and visual reasoning so you can revise the concept as well as the calculation.</div>
+<div class="toc"><div class="toc-title">Contents</div><a href="#s1" data-num="01">Why descriptive statistics matter</a><a href="#s2" data-num="02">Choosing a measure of centre</a><a href="#s3" data-num="03">Choosing a measure of spread</a><a href="#s4" data-num="04">Charts as diagnostic tools</a><a href="#s5" data-num="05">Standardisation and comparability</a><a href="#s6" data-num="06">How to write this in the exam</a></div>
+<div class="resource-list"><div class="defn-label">Tightening sources</div><ul><li><span class="resource-path">resources/Week 1 - Lecture Slides_v4.pdf</span></li><li><span class="resource-path">resources/Week 1 - Seminar Questions.docx</span></li><li><span class="resource-path">resources/Week 1 - Seminar Solutions (1).pdf</span></li></ul></div>
+<div class="defn"><div class="defn-label">Core quantitative rule</div><p>Describe the data first, but describe it intelligently. The right summary depends on data type, shape, and the presence of outliers.</p></div>
+<div class="diagram-box"><div class="diagram-label">Decision Map</div><div class="logic-box"><div class="diagram-label">Visual guide</div><div class="logic-step"><strong>Continuous data:</strong> use histogram, boxplot, mean, median, IQR, standard deviation.</div><div class="logic-step"><strong>Categorical data:</strong> use bar chart, frequencies, proportions, crosstabs.</div><div class="logic-step"><strong>Outliers present:</strong> trust median and IQR more than mean and range.</div><div class="logic-step"><strong>Need comparability:</strong> standardise using z-scores.</div></div></div>
+<div class="section" id="s1"><div class="section-num">Part 01</div><h2>Why descriptive statistics matter</h2><p>Descriptive statistics turn raw observations into a form that a manager can actually use. They answer first-order questions such as what a typical value looks like, how dispersed the data are, whether the distribution is symmetric or skewed, and whether any observations look unusual enough to investigate further.</p><p>That matters because business data are rarely neutral. A single outlier may signal a recording error, a fraud case, an exceptional customer, or a one-off shock. The stronger answer does not just report a statistic. It explains what that statistic says about the dataset and whether it is trustworthy as a summary of the whole sample.</p></div><div class="section" id="s2"><div class="section-num">Part 02</div><h2>Choosing a measure of centre</h2><p>The mean uses all observations and is therefore informative when the data are roughly balanced and free from severe distortion. The median instead focuses on the middle position and is usually safer when outliers or skew pull the mean away from what looks typical.</p><p>In exam terms, the scoring move is to justify the choice. If the distribution is fairly symmetric, the mean can be defended. If there are extreme values or a long tail, the median is usually the stronger summary. Saying that explicitly is better than reporting both and moving on.</p></div><div class="section" id="s3"><div class="section-num">Part 03</div><h2>Choosing a measure of spread</h2><p>Range, inter-quartile range, and standard deviation capture different things. The range uses only the extreme values and is therefore very sensitive to unusual observations. The inter-quartile range focuses on the middle fifty percent and is much more robust. Standard deviation measures typical distance from the mean and becomes especially useful later when we standardise observations or work with distributions.</p><p>A common exam trap is to forget that spread has to be interpreted relative to centre. A standard deviation of 10 means something very different when the mean is 12 than when the mean is 1,200. That is why the coefficient of variation becomes useful in relative-comparison questions.</p></div><div class="section" id="s4"><div class="section-num">Part 04</div><h2>Charts as diagnostic tools</h2><p>A chart is not decoration. It is a diagnostic device. Histograms and boxplots are useful for continuous data. Bar charts and crosstabs suit categorical data. Scatterplots suit pairs of continuous variables. If the graph type does not match the data type, the output may still exist, but it will not mean anything useful.</p><p>Boxplots are especially valuable because they combine centre, spread, and outlier detection in one compact visual. They are often the fastest way to discuss skew and unusually distant cases in a business dataset.</p></div><div class="section" id="s5"><div class="section-num">Part 05</div><h2>Standardisation and comparability</h2><p>A z-score expresses how far an observation sits from the mean in standard-deviation units. That makes it possible to compare values from different scales in a disciplined way. A value with z = 2 is two standard deviations above the mean regardless of whether the original variable was revenue, waiting time, or weight.</p><p>This is a bridge topic. Descriptive statistics here feed directly into the normal-distribution, confidence-interval, and testing material later in the module.</p></div><div class="section" id="s6"><div class="section-num">Part 06</div><h2>How to write this in the exam</h2><p>Start by naming the appropriate summary or graph. Then explain why it is appropriate for the shape and type of the data. Then interpret what it shows. If an outlier is present, do not ignore it. If skew is visible, say how that affects which summary you trust most.</p><p>Weak answers stop at computation. Strong answers translate the statistic into a statement about the business data.</p></div>
+<div class="compare-wrap"><div class="diagram-label">High-value Comparison</div><table class="compare-table"><thead><tr><th>Measure</th><th>Best Use</th><th>Main Risk</th></tr></thead><tbody><tr><td>Mean</td><td>Balanced continuous data</td><td>Pulled by outliers</td></tr><tr><td>Median</td><td>Skewed or outlier-heavy data</td><td>Ignores some magnitude information</td></tr><tr><td>IQR</td><td>Robust spread</td><td>Uses middle half only</td></tr><tr><td>Standard deviation</td><td>Distance from mean, standardisation</td><td>Depends on mean and sensitive to extremes</td></tr></tbody></table></div>
+<div class="eval-box"><div class="eval-label">Seminar angle</div><p>Week 1 makes you compute medians from frequency tables, five-number summaries, coefficients of variation, and z-scores. Those are not isolated drills. They are the basic language of the entire module.</p></div>
+<div class="mistake-box"><div class="mistake-label">Common mistake</div><p>A common mistake is to treat every summary as equally valid for every dataset. If the data are skewed, saying “the mean is 54” without qualification can be weaker than saying “the median is more representative because the distribution is right-skewed.”</p></div>
+<div class="exam-q"><div class="exam-q-header"><span>Assessment-style prompt</span><span class="exam-q-marks">10 marks</span></div><div class="exam-q-body"><p class="q">A retailer has weekly sales data with a few extremely high weeks caused by promotions. Explain which measures of centre and spread you would report, and justify your choice.</p><p>Do not stop at calculation. Show the correct method, explain the logic, and then state what the result means in a business or research context.</p></div></div>
+<div class="footer">Lecture 1 · Quantitative Analysis in Business Studies revision guide</div>
+</div>
+<script>(function(){document.body.classList.add('page-transition-init');window.addEventListener('load',function(){requestAnimationFrame(function(){document.body.classList.remove('page-transition-init');document.body.classList.add('page-transition-ready');});});document.addEventListener('click',function(event){var link=event.target.closest('a[href]');if(!link)return;if(event.defaultPrevented||event.button!==0)return;if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;if(link.target&&link.target!=='_self')return;if(link.hasAttribute('download'))return;var href=link.getAttribute('href');if(!href||href.charAt(0)==='#')return;if(/^(mailto:|tel:|javascript:)/i.test(href))return;var url=new URL(link.href,window.location.href);if(url.origin!==window.location.origin)return;if(url.pathname===window.location.pathname&&url.search===window.location.search&&url.hash)return;event.preventDefault();document.body.classList.remove('page-transition-ready');document.body.classList.add('page-transition-leaving');window.setTimeout(function(){window.location.href=url.href;},180);});})();</script>
+</body>
+</html>

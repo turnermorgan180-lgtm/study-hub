@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L11 Government Intervention — Business Economics</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf8f4;--bg2:#f2ede4;--surface:#fff;--border:#e8d0b8;--border2:#d4c8b0;--text:#1a1612;--muted:#7a6e5e;--accent:#1a4a7a;--accent-light:#e8f0f8;--gold:#8a6a2a;--gold-light:#f7f0e0;--teal:#1a5c52;--teal-light:#e8f4f1;--red-light:#fdf2f0;--red-border:#f0c4b8;--red-text:#7a2015;--red-label:#c0392b;--ink:#2c2416}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7}
+.page{position:relative;max-width:860px;margin:0 auto;padding:0 2rem 6rem}
+.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;font-size:1rem;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s;z-index:10}
+.back-btn:hover{transform:translateY(-1px);background:var(--bg2)}
+.hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border2);margin-bottom:3rem;position:relative}
+.hero::before{content:'';position:absolute;top:0;left:-2rem;right:-2rem;bottom:0;background:linear-gradient(180deg,#eaf0f7 0%,transparent 100%);z-index:-1}
+.lecture-tag{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:8px;margin-bottom:1rem}
+.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent)}
+h1{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:700;line-height:1.1;color:var(--ink);margin-bottom:1rem;letter-spacing:-.02em}
+.hero-sub{font-size:16px;color:var(--muted);max-width:560px;line-height:1.6;margin-bottom:1.5rem}
+.meta-row{display:flex;gap:1.5rem;flex-wrap:wrap}
+.meta-chip{font-family:'DM Mono',monospace;font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}
+.chip-micro{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}
+.chip-exam{background:var(--accent-light);color:var(--accent);border:1px solid #b8d0e8}
+.chip-marks{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
+.alert-box{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin-bottom:2.5rem;font-size:13.5px;color:#0f2e52}
+.alert-box strong{color:var(--accent)}
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem 2rem}
+.toc-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);grid-column:1/-1;margin-bottom:.5rem}
+.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:8px;padding:3px 0;transition:color .15s}
+.toc a:hover{color:var(--accent)}
+.toc a::before{content:attr(data-num);font-family:'DM Mono',monospace;font-size:10px;color:var(--border2);min-width:16px}
+.section{margin-bottom:3.5rem;animation:fadeUp .5s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.section-num{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
+h2{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:600;color:var(--ink);line-height:1.2;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--ink);margin-top:1.75rem;margin-bottom:.6rem;font-style:italic}
+p{margin-bottom:.9rem;color:var(--text)}
+.defn{background:var(--gold-light);border:1px solid #dcc888;border-radius:3px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}
+.defn-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.defn p{color:var(--ink);margin-bottom:0;font-size:14.5px}
+.defn strong{color:var(--gold)}
+.key-terms{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1.25rem 0}
+.term{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:.7rem 1rem}
+.term-word{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:2px}
+.term-def{font-size:12.5px;color:var(--muted);line-height:1.4}
+.compare-table{width:100%;border-collapse:collapse;font-size:13.5px;margin:1.25rem 0;border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.compare-table th{background:var(--bg2);padding:.65rem 1rem;text-align:left;font-weight:500;font-size:12px;font-family:'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border2)}
+.compare-table td{padding:.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table td:first-child{font-weight:500;color:var(--ink);width:140px}
+.eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.eval-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:.6rem;display:flex;align-items:center;gap:6px}
+.eval-label::before{content:'⊕';font-size:12px}
+.eval-box p{color:#1a4a42;font-size:14px;margin-bottom:.5rem}
+.eval-box p:last-child{margin-bottom:0}
+.mistake-box{background:var(--red-light);border:1px solid var(--red-border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.mistake-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--red-label);margin-bottom:.6rem;display:flex;align-items:center;gap:6px}
+.mistake-label::before{content:'✕';font-size:11px}
+.mistake-box p{color:var(--red-text);font-size:14px;margin-bottom:.5rem}
+.mistake-box p:last-child{margin-bottom:0}
+.exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0}
+.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center}
+.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px;font-size:10px}
+.exam-q-body{padding:1.25rem 1.5rem}
+.exam-q-body .q{font-style:italic;color:var(--ink);margin-bottom:1rem;font-size:15px}
+.answer-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:.4rem}
+.exam-q-body p{font-size:14px;margin-bottom:.6rem}
+.steps{margin:1.25rem 0}
+.step{display:flex;gap:1rem;margin-bottom:.75rem;align-items:flex-start}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--border2);line-height:1.2;min-width:28px;flex-shrink:0}
+.step-content{font-size:14px;color:var(--text);padding-top:2px}
+.step-content strong{color:var(--ink)}
+.logic-box{background:var(--accent-light);border-left:4px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin:1rem 0;font-size:14px;color:#0f2e52}
+.divider{border:none;border-top:1px solid var(--border);margin:2.5rem 0}
+.footer{text-align:center;font-family:'DM Mono',monospace;font-size:11px;color:var(--border2);letter-spacing:.08em;padding-top:2rem;border-top:1px solid var(--border)}
+@media(max-width:640px){h1{font-size:2.2rem}.toc{grid-template-columns:1fr}.key-terms{grid-template-columns:1fr}.page{padding:0 1.25rem 4rem}}
+
+.page-transition-init{opacity:0;transform:translateY(8px)}
+.page-transition-ready{opacity:1;transform:none}
+.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
+body{transition:opacity .22s ease,transform .22s ease}
+@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}
+</style>
+</head>
+<body>
+<div class="page">
+  <a class="back-btn" href="index.html" aria-label="Back to Business Economics hub">←</a>
+
+<div class="hero">
+  <div class="lecture-tag">Lecture 11 · MAN00016C · University of York</div>
+  <h1>Government Intervention<br>in the Market</h1>
+  <p class="hero-sub">Externalities, market power, deadweight welfare loss, social efficiency, equity, taxes, subsidies, regulation, and the case for laissez-faire — with the exact exam logic needed for market failure questions.</p>
+  <div class="meta-row">
+    <span class="meta-chip chip-micro">Microeconomics</span>
+    <span class="meta-chip chip-exam">High exam relevance</span>
+    <span class="meta-chip chip-marks">Section A + B</span>
+  </div>
+</div>
+
+<div class="alert-box">
+  <strong>Past paper alert:</strong> Government intervention links directly to Section A questions on <em>supply-side policy</em>, <em>market power</em>, and <em>trade intervention</em>. Even where Lecture 11 is not named explicitly, the logic of <strong>market failure → welfare loss → policy response → evaluation</strong> is examinable across monopoly, public policy, and macroeconomic intervention questions.
+</div>
+
+<div class="toc">
+  <div class="toc-title">Contents</div>
+  <a href="#s1" data-num="01">Why governments intervene</a>
+  <a href="#s2" data-num="02">Externalities: core logic</a>
+  <a href="#s3" data-num="03">Market power and welfare loss</a>
+  <a href="#s4" data-num="04">Negative production externalities</a>
+  <a href="#s5" data-num="05">Positive production externalities</a>
+  <a href="#s6" data-num="06">Negative consumption externalities</a>
+  <a href="#s7" data-num="07">Positive consumption externalities</a>
+  <a href="#s8" data-num="08">Policies to correct market failure</a>
+  <a href="#s9" data-num="09">Laissez-faire and government failure</a>
+  <a href="#s10" data-num="10">Exam questions and model answers</a>
+  <a href="#s11" data-num="11">Evaluation and common mistakes</a>
+</div>
+
+<div class="section">
+  <div class="section-num">Key Definitions</div>
+  <h2>Terms to Know Cold</h2>
+  <div class="key-terms">
+    <div class="term"><div class="term-word">Market failure</div><div class="term-def">A situation where the free market fails to allocate resources in a socially efficient way.</div></div>
+    <div class="term"><div class="term-word">Social efficiency</div><div class="term-def">Allocative efficiency from society’s point of view; achieved where marginal social benefit equals marginal social cost.</div></div>
+    <div class="term"><div class="term-word">Equity</div><div class="term-def">Fairness in the distribution of income, consumption, opportunity, or welfare.</div></div>
+    <div class="term"><div class="term-word">Externality</div><div class="term-def">A cost or benefit affecting a third party not directly involved in the market transaction.</div></div>
+    <div class="term"><div class="term-word">Marginal private cost (MPC)</div><div class="term-def">The extra cost borne by the producer or consumer making the decision.</div></div>
+    <div class="term"><div class="term-word">Marginal social cost (MSC)</div><div class="term-def">The full extra cost to society: MPC plus any marginal external cost.</div></div>
+    <div class="term"><div class="term-word">Marginal private benefit (MPB)</div><div class="term-def">The benefit enjoyed by the consumer or producer making the decision.</div></div>
+    <div class="term"><div class="term-word">Marginal social benefit (MSB)</div><div class="term-def">The full extra benefit to society: MPB plus any marginal external benefit.</div></div>
+    <div class="term"><div class="term-word">Deadweight welfare loss</div><div class="term-def">The loss of total consumer-plus-producer surplus caused by output being above or below the socially optimal level.</div></div>
+    <div class="term"><div class="term-word">Laissez-faire</div><div class="term-def">The view that markets should be left largely alone, with minimal government intervention.</div></div>
+  </div>
+</div>
+
+<div class="section" id="s1">
+  <div class="section-num">01</div>
+  <h2>Why Governments Intervene</h2>
+  <p>Government intervention begins from a simple idea: markets only work well when the decisions made by private individuals and firms line up with the interests of society as a whole. If private incentives and social welfare point in the same direction, the invisible hand works. If they diverge, the market can misallocate resources.</p>
+  <div class="defn">
+    <div class="defn-label">Core rule</div>
+    <p><strong>Social efficiency</strong> is achieved where <strong>MSB = MSC</strong>. If the last unit brings more benefit than cost, society wants more of it. If it creates more cost than benefit, society wants less of it.</p>
+  </div>
+  <p>The lecture gives two broad reasons for intervention. First, <strong>efficiency</strong>: government may act because the free market produces too much or too little of a good. Second, <strong>equity</strong>: even if a market outcome is efficient, it may still be socially unacceptable because it produces very unequal outcomes.</p>
+  <ul>
+    <li><strong>Efficiency motive:</strong> correct market failure and move output toward the socially optimal level.</li>
+    <li><strong>Equity motive:</strong> redistribute resources when the market delivers outcomes that are efficient but unfair.</li>
+  </ul>
+  <div class="eval-box">
+    <div class="eval-label">Exam insight</div>
+    <p>Do not define intervention as “government getting involved.” That is too weak. The proper answer is that government intervenes when free markets fail to deliver socially efficient or equitable outcomes.</p>
+  </div>
+</div>
+
+<div class="section" id="s2">
+  <div class="section-num">02</div>
+  <h2>Externalities: The Core Logic of Market Failure</h2>
+  <p>Externalities exist whenever part of the cost or benefit of an action falls on someone other than the decision-maker. That matters because market participants usually respond only to their own private incentives. If a firm dumps waste into a river, it considers its production cost, not the health cost imposed on the public. If a person gets vaccinated, they consider their own benefit, not the protection given to others.</p>
+  <div class="defn">
+    <div class="defn-label">Relationships</div>
+    <p><strong>MSC = MPC + MEC</strong><br><strong>MSB = MPB + MEB</strong></p>
+  </div>
+  <p>These relationships let you classify the problem immediately:</p>
+  <table class="compare-table">
+    <tr>
+      <th>Case</th>
+      <th>Relationship</th>
+      <th>Market result</th>
+      <th>Social implication</th>
+    </tr>
+    <tr>
+      <td>Negative externality</td>
+      <td>MSC &gt; MPC</td>
+      <td>Overproduction</td>
+      <td>Too many resources allocated</td>
+    </tr>
+    <tr>
+      <td>Positive externality</td>
+      <td>MSC &lt; MPC</td>
+      <td>Underproduction</td>
+      <td>Too few resources allocated</td>
+    </tr>
+    <tr>
+      <td>Negative consumption externality</td>
+      <td>MSB &lt; MPB</td>
+      <td>Overconsumption</td>
+      <td>Society gets too much of the activity</td>
+    </tr>
+    <tr>
+      <td>Positive consumption externality</td>
+      <td>MSB &gt; MPB</td>
+      <td>Underconsumption</td>
+      <td>Society gets too little of the activity</td>
+    </tr>
+  </table>
+  <div class="mistake-box">
+    <div class="mistake-label">Common mistake</div>
+    <p>Students often memorise “negative = bad” and “positive = good” but then fail to connect that to output. The mark-scoring step is stating whether the market produces <strong>too much</strong> or <strong>too little</strong> relative to the social optimum.</p>
+  </div>
+</div>
+
+<div class="section" id="s3">
+  <div class="section-num">03</div>
+  <h2>Market Power and Deadweight Welfare Loss</h2>
+  <p>Externalities are not the only source of market failure. Market power also matters. Under perfect competition, firms are price takers and the equilibrium tends toward the socially efficient level where price reflects marginal cost. Under monopoly, however, the firm restricts output to raise price and maximise profit.</p>
+  <p>The lecture’s logic is very direct. Assume there are <strong>no externalities</strong>, so:</p>
+  <ul>
+    <li><strong>MC = MSC</strong></li>
+    <li><strong>Price / AR = MSB</strong></li>
+  </ul>
+  <p>Now compare the outcomes:</p>
+  <ul>
+    <li><strong>Monopolist:</strong> chooses output where <strong>MR = MC</strong> → output Q1</li>
+    <li><strong>Social optimum:</strong> requires <strong>MSB = MSC</strong> → output Q2</li>
+  </ul>
+  <p>Because the monopolist faces a downward-sloping demand curve, MR lies below AR. That means the monopoly output is lower than the socially efficient output. Society gets too little output and pays too high a price.</p>
+  <div class="logic-box">
+    <div class="diagram-label">How to describe the diagram in an exam</div>
+    <ul>
+      <li>Vertical axis: costs, benefits, price, revenue.</li>
+      <li>Horizontal axis: quantity.</li>
+      <li>AR = demand = MSB, downward sloping.</li>
+      <li>MR lies below AR.</li>
+      <li>MC = MSC under the no-externality assumption.</li>
+      <li>The monopolist produces at MR = MC, giving Q1 and price P1 from the demand curve.</li>
+      <li>The socially efficient output is where AR = MC, giving Q2.</li>
+      <li>Therefore Q1 &lt; Q2 and a deadweight welfare loss exists between Q1 and Q2.</li>
+    </ul>
+  </div>
+  <p>Deadweight welfare loss is not just “high prices.” It is the <strong>loss of total surplus</strong> — consumer plus producer surplus — relative to the competitive benchmark.</p>
+</div>
+
+<div class="section" id="s4">
+  <div class="section-num">04</div>
+  <h2>Negative Production Externalities (MSC &gt; MPC)</h2>
+  <p>This occurs when production imposes uncompensated costs on others. The classic examples are pollution, noise, congestion, environmental damage, or public health costs created by a production process.</p>
+  <h3>The logic</h3>
+  <p>The firm makes decisions based on its own marginal private cost. But society bears an additional marginal external cost. Therefore the true cost to society is higher than the cost seen by the firm.</p>
+  <div class="defn">
+    <div class="defn-label">Relationship</div>
+    <p><strong>MSC = MPC + MEC<sub>p</sub></strong></p>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content"><strong>Free market equilibrium:</strong> output is set where MPB = MPC, giving quantity Q1.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content"><strong>Social perspective:</strong> the real cost is MSC, which lies above MPC.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content"><strong>Social optimum:</strong> occurs where MSB = MSC, giving quantity Q2.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content"><strong>Conclusion:</strong> Q1 &gt; Q2, so the market overproduces.</div>
+    </div>
+  </div>
+  <p>The missing-market idea matters here. No one “owns” the air or river, so the producer can use them as free dumping grounds. That is why the firm’s private cost understates the social cost.</p>
+  <div class="eval-box">
+    <div class="eval-label">Evaluation</div>
+    <p>In reality, measuring the exact external cost is difficult. Governments may know pollution exists, but not the precise monetary value of the damage. That makes it hard to set the perfectly corrective tax.</p>
+  </div>
+</div>
+
+<div class="section" id="s5">
+  <div class="section-num">05</div>
+  <h2>Positive Production Externalities (MSC &lt; MPC)</h2>
+  <p>This occurs when production creates benefits for third parties that the producer is not paid for. The lecture example is tree planting: a timber company benefits from selling wood, but society also benefits from carbon absorption and environmental improvement.</p>
+  <div class="defn">
+    <div class="defn-label">Relationship</div>
+    <p><strong>MSC = MPC − MEB<sub>p</sub></strong></p>
+  </div>
+  <p>That means the social cost curve lies below the private cost curve. The firm sees production as more costly than it really is from society’s perspective, because it is not rewarded for the external benefit it generates.</p>
+  <ul>
+    <li>Market equilibrium: MPB = MPC → Q1</li>
+    <li>Social optimum: MSB = MSC → Q2</li>
+    <li>Therefore: <strong>Q1 &lt; Q2</strong></li>
+  </ul>
+  <p>The result is underproduction. Society would like more of the activity than the market supplies.</p>
+  <div class="mistake-box">
+    <div class="mistake-label">Common mistake</div>
+    <p>Do not say “positive externalities make firms produce more.” That is wrong in the market-failure context. The issue is that although the activity is socially beneficial, the firm does <strong>not</strong> capture the full benefit, so it produces too little.</p>
+  </div>
+</div>
+
+<div class="section" id="s6">
+  <div class="section-num">06</div>
+  <h2>Negative Consumption Externalities (MSB &lt; MPB)</h2>
+  <p>This occurs when an individual gains private benefit from consuming a good, but imposes costs on others. Examples include alcohol abuse, passive smoking, reckless driving, or mobile-phone use while driving.</p>
+  <p>Here the problem is on the benefit side, not the cost side. The consumer values the good more highly than society does because they ignore the harm caused to third parties.</p>
+  <div class="defn">
+    <div class="defn-label">Relationship</div>
+    <p><strong>MSB = MPB − MEC<sub>c</sub></strong></p>
+  </div>
+  <ul>
+    <li>No production externality assumed, so MSC = MPC.</li>
+    <li>Market equilibrium occurs where MPB = MSC, giving Q1.</li>
+    <li>Social optimum occurs where MSB = MSC, giving Q2.</li>
+    <li>Because MSB lies below MPB, <strong>Q1 &gt; Q2</strong>.</li>
+  </ul>
+  <p>The market overconsumes the good relative to the socially desirable level.</p>
+  <div class="logic-box">
+    <div class="diagram-label">Exam wording</div>
+    <ul>
+      <li>Demand curve represents MPB.</li>
+      <li>MSB lies below demand because external costs reduce the benefit to society.</li>
+      <li>Supply curve represents MSC when no production externality is assumed.</li>
+      <li>The free market chooses Q1, while the social optimum is Q2.</li>
+      <li>Hence the good is overconsumed and there is welfare loss.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section" id="s7">
+  <div class="section-num">07</div>
+  <h2>Positive Consumption Externalities (MSB &gt; MPB)</h2>
+  <p>This occurs when the consumer enjoys a private benefit, but others also gain. Vaccination is the standard example: the individual gets protection, but society also benefits from reduced disease transmission.</p>
+  <div class="defn">
+    <div class="defn-label">Relationship</div>
+    <p><strong>MSB = MPB + MEB<sub>c</sub></strong></p>
+  </div>
+  <p>The demand curve reflects only MPB. The true social benefit curve lies above it. As a result, consumers buy too little relative to the socially efficient amount.</p>
+  <ul>
+    <li>Market equilibrium: MPB = MSC → Q1</li>
+    <li>Social optimum: MSB = MSC → Q2</li>
+    <li>Therefore: <strong>Q1 &lt; Q2</strong></li>
+  </ul>
+  <p>This is why governments often subsidise education, healthcare, public transport, or vaccination: they want to push consumption toward the higher social optimum.</p>
+  <div class="eval-box">
+    <div class="eval-label">Exam insight</div>
+    <p>When discussing merit goods, do not stop at “they are good for you.” The stronger answer is that the market underconsumes them because private decision-makers ignore wider social benefits.</p>
+  </div>
+</div>
+
+<div class="section" id="s8">
+  <div class="section-num">08</div>
+  <h2>Policies to Correct Market Failure</h2>
+  <p>Once you identify whether the problem is overproduction, underproduction, overconsumption, or underconsumption, the policy logic becomes clearer. Government aims to move the market quantity toward the social optimum.</p>
+  <table class="compare-table">
+    <tr>
+      <th>Problem</th>
+      <th>Policy direction</th>
+      <th>Typical tool</th>
+    </tr>
+    <tr>
+      <td>Negative externality</td>
+      <td>Reduce quantity</td>
+      <td>Indirect tax, regulation, legal penalties</td>
+    </tr>
+    <tr>
+      <td>Positive externality</td>
+      <td>Increase quantity</td>
+      <td>Subsidy, public provision, information campaigns</td>
+    </tr>
+    <tr>
+      <td>Monopoly power</td>
+      <td>Increase output / reduce price distortion</td>
+      <td>Competition policy, regulation, public ownership</td>
+    </tr>
+    <tr>
+      <td>Equity problem</td>
+      <td>Redistribute access or income</td>
+      <td>Transfers, progressive taxation, public services</td>
+    </tr>
+  </table>
+  <h3>Indirect taxes</h3>
+  <p>Used mainly for negative externalities. A tax raises the private cost faced by the firm or consumer, pushing private decision-making closer to the true social cost.</p>
+  <h3>Subsidies</h3>
+  <p>Used mainly for positive externalities. A subsidy lowers private cost or raises private benefit, encouraging more production or consumption.</p>
+  <h3>Regulation</h3>
+  <p>Rather than changing incentives through prices, regulation directly restricts behaviour. Examples include pollution limits, smoking bans, compulsory education, or safety laws.</p>
+  <h3>Public provision</h3>
+  <p>Sometimes government produces or funds the good directly, especially where underconsumption is severe or private provision is insufficient.</p>
+  <div class="mistake-box">
+    <div class="mistake-label">Common mistake</div>
+    <p>Never discuss policy without linking it to the original distortion. For example: “A subsidy increases output” is incomplete. The full chain is: <strong>positive externality → market underproduces → subsidy lowers private cost / raises private benefit → output rises toward Q2</strong>.</p>
+  </div>
+</div>
+
+<div class="section" id="s9">
+  <div class="section-num">09</div>
+  <h2>The Case for Laissez-faire</h2>
+  <p>The lecture does not present intervention as automatically correct. There is also a case for leaving markets alone. Supporters of laissez-faire argue that governments may lack the information, incentives, or administrative ability to improve on market outcomes.</p>
+  <ul>
+    <li>Governments may not know the exact size of an external cost or benefit.</li>
+    <li>Policies can be blunt and create unintended side effects.</li>
+    <li>Bureaucracy and compliance costs may reduce efficiency.</li>
+    <li>Political pressures may distort intervention toward special interests.</li>
+  </ul>
+  <div class="eval-box">
+    <div class="eval-label">High-level evaluation</div>
+    <p>The strongest judgement is balanced: market failure justifies intervention in principle, but government failure means the real question is not “intervene or not?” It is “which policy is least imperfect?”</p>
+  </div>
+</div>
+
+<div class="section" id="s10">
+  <div class="section-num">10</div>
+  <h2>Exam Questions and Model Answers</h2>
+  <div class="exam-q">
+    <div class="exam-q-header">
+      <span>Section A style question</span>
+      <span class="exam-q-marks">2 marks</span>
+    </div>
+    <div class="exam-q-body">
+      <p class="q">In a perfect market, social efficiency in any activity will be maximised where the activity’s:</p>
+      <p>A. marginal benefit equals marginal cost.</p>
+      <p>B. total benefit equals total cost.</p>
+      <p>C. marginal social benefit exceeds marginal social cost.</p>
+      <p>D. marginal social benefit equals marginal social cost.</p>
+      <p>E. total social benefit exceeds total social cost.</p>
+      <div class="answer-label">Answer</div>
+      <p><strong>D. marginal social benefit equals marginal social cost.</strong></p>
+      <p>This is the precise condition for allocative efficiency from society’s point of view. The optimum is where the last unit produced or consumed adds exactly as much benefit to society as it adds cost.</p>
+    </div>
+  </div>
+  <div class="exam-q">
+    <div class="exam-q-header">
+      <span>Section A style question</span>
+      <span class="exam-q-marks">2 marks</span>
+    </div>
+    <div class="exam-q-body">
+      <p class="q">Which one of the following is a definition of deadweight welfare loss under monopoly?</p>
+      <p>A. The loss in output compared with perfect competition.</p>
+      <p>B. The increase in price compared with perfect competition.</p>
+      <p>C. The loss of total consumer surplus compared with perfect competition.</p>
+      <p>D. The increase in total profit compared with perfect competition.</p>
+      <p>E. The loss of total consumer-plus-producer surplus compared with perfect competition.</p>
+      <div class="answer-label">Answer</div>
+      <p><strong>E. The loss of total consumer-plus-producer surplus compared with perfect competition.</strong></p>
+      <p>Deadweight loss is the lost welfare that disappears entirely when output is restricted below the socially efficient level. It is not just higher prices or lower consumer surplus on their own.</p>
+    </div>
+  </div>
+  <div class="exam-q">
+    <div class="exam-q-header">
+      <span>Section B style question</span>
+      <span class="exam-q-marks">8 marks</span>
+    </div>
+    <div class="exam-q-body">
+      <p class="q">Explain why a negative production externality leads to overproduction in a free market.</p>
+      <div class="answer-label">Model answer</div>
+      <p>A negative production externality occurs when production imposes a cost on third parties that the producer does not pay for. As a result, the producer’s marginal private cost is lower than the true marginal social cost. In diagram terms, the MSC curve lies above the MPC curve.</p>
+      <p>In a free market, the firm chooses output where marginal private benefit equals marginal private cost. This gives market equilibrium quantity Q1. However, the socially efficient level of output is where MSB equals MSC, which is a lower quantity Q2.</p>
+      <p>Because the producer ignores the external cost, the free market output exceeds the social optimum. Therefore Q1 is greater than Q2 and the good is overproduced. The extra units between Q2 and Q1 create more cost to society than benefit, which generates a deadweight welfare loss.</p>
+    </div>
+  </div>
+  <div class="exam-q">
+    <div class="exam-q-header">
+      <span>Section B style question</span>
+      <span class="exam-q-marks">10 marks</span>
+    </div>
+    <div class="exam-q-body">
+      <p class="q">Explain how a subsidy might be used to correct a positive consumption externality.</p>
+      <div class="answer-label">Model answer</div>
+      <p>A positive consumption externality exists when consuming a good creates benefits for third parties that are not taken into account by the individual consumer. This means marginal social benefit exceeds marginal private benefit, so the MSB curve lies above the MPB curve.</p>
+      <p>In the free market, consumers choose quantity where MPB equals MSC. This gives a market quantity Q1. However, the socially efficient level of consumption is where MSB equals MSC, which is a higher quantity Q2. The market therefore underconsumes the good.</p>
+      <p>A subsidy can be used to encourage additional consumption by lowering the effective price paid by consumers or by increasing the private benefit they receive. This shifts private incentives closer to social incentives and increases consumption toward Q2. If the subsidy is well targeted, it reduces the welfare loss caused by underconsumption.</p>
+      <p>Examples include subsidies for education, vaccines, or public transport, where the private user does not capture the full benefit to society.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="s11">
+  <div class="section-num">11</div>
+  <h2>Evaluation and Common Mistakes</h2>
+  <div class="eval-box">
+    <div class="eval-label">Evaluation points to use in essays</div>
+    <p><strong>Measurement problem:</strong> Governments rarely know the exact size of external costs or benefits, so policy may overshoot or undershoot.</p>
+    <p><strong>Administrative cost:</strong> Taxes, subsidies, and regulation can be expensive to implement and monitor.</p>
+    <p><strong>Unintended consequences:</strong> For example, heavy taxation may create black markets or evasion.</p>
+    <p><strong>Government failure:</strong> Intervention may be distorted by politics, lobbying, or weak information.</p>
+    <p><strong>Time horizon:</strong> Some benefits from intervention, such as education or environmental protection, appear only in the long run.</p>
+  </div>
+  <div class="mistake-box">
+    <div class="mistake-label">Top mistakes</div>
+    <p><strong>1.</strong> Confusing private and social curves.</p>
+    <p><strong>2.</strong> Forgetting to say whether output is too high or too low.</p>
+    <p><strong>3.</strong> Describing a policy without linking it back to the original distortion.</p>
+    <p><strong>4.</strong> Defining deadweight loss as “high prices” rather than lost total surplus.</p>
+    <p><strong>5.</strong> Assuming intervention is automatically good without evaluating government failure.</p>
+  </div>
+  <div class="defn">
+    <div class="defn-label">One-line memory aid</div>
+    <p><strong>Negative externality = market does too much.</strong><br><strong>Positive externality = market does too little.</strong><br><strong>Government tries to move Q from the market level to the social optimum where MSB = MSC.</strong></p>
+  </div>
+</div>
+
+<div class="footer">
+  L11 · Government Intervention · MAN00016C Business Economics · University of York · Revision Guide
+</div>
+
+</div>
+
+<script>
+(function(){
+  document.body.classList.add("page-transition-init");
+  window.addEventListener("load", function(){
+    requestAnimationFrame(function(){
+      document.body.classList.remove("page-transition-init");
+      document.body.classList.add("page-transition-ready");
+    });
+  });
+  document.addEventListener("click", function(event){
+    var link = event.target.closest("a[href]");
+    if (!link) return;
+    if (event.defaultPrevented || event.button !== 0) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (link.target && link.target !== "_self") return;
+    if (link.hasAttribute("download")) return;
+    var href = link.getAttribute("href");
+    if (!href || href.charAt(0) === "#") return;
+    if (/^(mailto:|tel:|javascript:)/i.test(href)) return;
+    var url = new URL(link.href, window.location.href);
+    if (url.origin !== window.location.origin) return;
+    if (url.pathname === window.location.pathname && url.search === window.location.search && url.hash) return;
+    event.preventDefault();
+    document.body.classList.remove("page-transition-ready");
+    document.body.classList.add("page-transition-leaving");
+    window.setTimeout(function(){ window.location.href = url.href; }, 180);
+  });
+})();
+</script>
+
+</body>
+
+</html>

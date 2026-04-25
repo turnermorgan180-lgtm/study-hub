@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Method Answers</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf8f4;--bg2:#f2ede4;--surface:#fff;--border:#e8ddd0;--border2:#d4c8b0;--text:#1a1612;--muted:#7a6e5e;--accent:#245b74;--accent-light:#e8f1f4;--gold:#8a6a2a;--gold-light:#f7f0e0;--teal:#1a5c52;--teal-light:#e8f4f1;--ink:#2c2416}
+*{box-sizing:border-box;margin:0;padding:0} body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;transition:opacity .22s ease,transform .22s ease}
+.page{position:relative;max-width:980px;margin:0 auto;padding:0 2rem 6rem}.back-btn,.action-btn,.source-link{border-radius:999px;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s}.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;font-size:1rem;z-index:10}.action-bar{position:absolute;top:1.5rem;right:0;display:flex;gap:.75rem;z-index:10;flex-wrap:wrap;justify-content:flex-end}.action-btn,.source-link{height:42px;padding:0 1rem;font-size:11px;letter-spacing:.08em;text-transform:uppercase}button.action-btn{cursor:pointer}.back-btn:hover,.action-btn:hover,.source-link:hover{transform:translateY(-1px);background:var(--bg2)}
+.hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border2);margin-bottom:2rem;position:relative}.hero::before{content:'';position:absolute;top:0;left:-2rem;right:-2rem;bottom:0;background:linear-gradient(180deg,#e5eff2 0%,transparent 100%);z-index:-1}.lecture-tag,.meta-chip,.section-num,.footer,.tiny{font-family:'DM Mono',monospace}.lecture-tag{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;gap:8px;margin-bottom:1rem}.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent);margin-top:.6rem}h1,h2,h3{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{font-size:3rem;line-height:1.08;margin-bottom:1rem}h2{font-size:1.85rem;margin-bottom:1rem;padding-bottom:.7rem;border-bottom:1px solid var(--border)}h3{font-size:1.2rem;margin-bottom:.55rem;font-style:italic}.hero-sub{font-size:16px;color:var(--muted);max-width:730px;margin-bottom:1.5rem}.meta-row{display:flex;gap:1rem;flex-wrap:wrap}.meta-chip{font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}.chip-a{background:var(--accent-light);color:var(--accent);border:1px solid #bfd3da}.chip-b{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}.chip-c{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}
+.alert-box,.card,.question-card,.source-card{background:var(--surface);border:1px solid var(--border);border-radius:4px}.alert-box{background:var(--accent-light);border-left:3px solid var(--accent);padding:1rem 1.25rem;margin-bottom:1.5rem}.section{margin-bottom:2rem}.section-num{color:var(--accent);margin-bottom:.35rem;font-size:10px;letter-spacing:.12em;text-transform:uppercase}.stat-grid,.source-grid,.list{display:grid;gap:1rem}.stat-grid{grid-template-columns:repeat(3,1fr);margin-bottom:1.5rem}.source-grid{grid-template-columns:repeat(2,1fr);margin-bottom:1rem}.stat{background:var(--surface);border:1px solid var(--border);padding:1rem;border-radius:4px;text-align:center}.stat-num{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--accent);line-height:1;margin-bottom:.2rem}.stat-label{font-size:12px;color:var(--muted)}.question-card{padding:1rem 1.15rem}.q-top{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start;margin-bottom:.55rem;flex-wrap:wrap}.q-num,.tiny{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}.topic-pill,.mark-pill,.year-pill{font-size:10px;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:3px 8px;display:inline-block}.topic-pill{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}.mark-pill,.year-pill{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}details{margin-top:.9rem}summary{cursor:pointer;color:var(--accent);font-weight:500}.answer-block{margin-top:.8rem;padding:1rem;background:var(--bg2);border:1px solid var(--border);border-radius:4px}p{margin-bottom:.9rem} ul{padding-left:1.15rem;margin:1rem 0} li{margin-bottom:.4rem}.timer-panel{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1rem 1.15rem;margin:1.25rem 0 1.75rem}.timer-top{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start;flex-wrap:wrap;margin-bottom:.85rem}.timer-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-family:'DM Mono',monospace}.timer-display{font-family:'Cormorant Garamond',serif;font-size:2.2rem;line-height:1;color:var(--ink)}.timer-copy{font-size:13px;color:var(--muted);max-width:560px}.timer-actions,.timer-presets{display:flex;gap:.6rem;flex-wrap:wrap}.timer-btn,.timer-preset{border-radius:999px;background:var(--surface);border:1px solid var(--border2);display:inline-flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;box-shadow:0 10px 20px rgba(0,0,0,.05);transition:transform .15s,background .15s;padding:0 .95rem;height:38px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}.timer-btn:hover,.timer-preset:hover{transform:translateY(-1px);background:var(--bg2)}.timer-preset.is-selected{background:var(--accent-light);border-color:#bfd3da}.locked-note{font-size:12px;color:var(--muted);margin-top:.8rem}.answers-locked details summary{opacity:.45}.answers-locked .timed-lockable{filter:blur(12px);pointer-events:none;user-select:none}.unlock-banner{display:none;margin-top:.8rem;padding:.8rem 1rem;border-radius:4px;background:var(--teal-light);border:1px solid #b8d8d3;color:var(--teal);font-size:12px}.answers-finished .unlock-banner{display:block}
+.footer{text-align:center;font-size:11px;color:var(--border2);padding-top:1rem;border-top:1px solid var(--border);margin-top:2rem}.page-transition-init{opacity:0;transform:translateY(8px)}.page-transition-ready{opacity:1;transform:none}.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}@media (max-width:760px){h1{font-size:2.2rem}.page{padding:0 1.25rem 4rem}.action-bar{position:static;margin-top:1rem}.stat-grid,.source-grid{grid-template-columns:1fr}.hero{padding-top:3.4rem}}@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}
+</style>
+</head>
+<body><div class="page"><a class="back-btn" href="../index.html" aria-label="Back to module hub">←</a><div class="action-bar"><button id="reroll" class="action-btn" type="button">Generate Fresh Set</button></div><div class="hero"><div class="lecture-tag">Quantitative Analysis in Business Studies · MAN00035C · University of York</div><h1>Method Answers</h1><p class="hero-sub">A local revision page for the method and interpretation marks in the Quantitative Analysis exam.</p><div class="meta-row"><span class="meta-chip chip-a">Method answers</span><span class="meta-chip chip-b">Closed + mock exam</span><span class="meta-chip chip-c">Randomised on load</span></div></div><div class="alert-box">This page turns the module’s most repeated quantitative methods into exam-style written answers: how to structure boxplot questions, Bayes questions, confidence-interval questions and distribution questions for full method marks.</div>
+<div class="source-grid"><a class="source-link" href="../resources/QAM%20Closed%20Exam%20Questions%202024-25.pdf">Closed exam paper</a><a class="source-link" href="../resources/QAM%20-%20Mock%20Exam%20Questions%20-%202024-2025.pdf">Mock exam paper</a><a class="source-link" href="../resources/QAM%20-%20Mock%20Exam%20Solutions%20-%202024-2025.pdf">Mock solutions</a><a class="source-link" href="../resources/Week%201%20-%20Seminar%20Questions.docx">Week 1 seminar questions</a></div>
+<div class="stat-grid"><div class="stat"><div class="stat-num">6</div><div class="stat-label">Method prompts in bank</div></div><div class="stat"><div class="stat-num">4</div><div class="stat-label">Questions per set</div></div><div class="stat"><div class="stat-num">Method</div><div class="stat-label">Marks focus</div></div></div>
+<div class="timer-panel" data-seconds="2700">
+  <div class="timer-top">
+    <div>
+      <div class="timer-label">Timed Mock Mode</div>
+      <div id="timer-display" class="timer-display">45:00</div>
+    </div>
+    <div class="timer-copy">Start a timed session to lock answer reveals until the clock ends. Use the presets if you want a shorter drill than the full default.</div>
+  </div>
+  <div class="timer-presets">
+    <button class="timer-preset" type="button" data-seconds="1500">25 min</button>
+    <button class="timer-preset" type="button" data-seconds="2700">45 min</button>
+    <button class="timer-preset" type="button" data-seconds="3600">60 min</button>
+    <button class="timer-preset" type="button" data-seconds="5400">90 min</button>
+    <button class="timer-preset" type="button" data-seconds="10800">180 min</button>
+  </div>
+  <div class="timer-actions" style="margin-top:.75rem;">
+    <button id="timer-start" class="timer-btn" type="button">Start</button>
+    <button id="timer-pause" class="timer-btn" type="button">Pause</button>
+    <button id="timer-reset" class="timer-btn" type="button">Reset</button>
+  </div>
+  <div class="locked-note">While timed mode is active, model answers stay locked. Walkthrough pages blur the worked content until the timer finishes.</div>
+  <div class="unlock-banner">Timed mode complete. Answers and walkthrough content are now unlocked.</div>
+</div>
+<div class="section"><div class="section-num">Live Drill</div><h2>Randomised Method / Interpretation Set</h2><div id="essay-list" class="list"></div></div>
+<div class="footer">Quantitative Analysis exam practice · method answers</div></div><script>(function(){document.body.classList.add('page-transition-init');window.addEventListener('load',function(){requestAnimationFrame(function(){document.body.classList.remove('page-transition-init');document.body.classList.add('page-transition-ready');});});document.addEventListener('click',function(event){var link=event.target.closest('a[href]');if(!link)return;if(event.defaultPrevented||event.button!==0)return;if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;if(link.target&&link.target!=='_self')return;if(link.hasAttribute('download'))return;var href=link.getAttribute('href');if(!href||href.charAt(0)==='#')return;if(/^(mailto:|tel:|javascript:)/i.test(href))return;var url=new URL(link.href,window.location.href);if(url.origin!==window.location.origin)return;if(url.pathname===window.location.pathname&&url.search===window.location.search&&url.hash)return;event.preventDefault();document.body.classList.remove('page-transition-ready');document.body.classList.add('page-transition-leaving');window.setTimeout(function(){window.location.href=url.href;},180);});})();(function(){
+  var panel = document.querySelector('.timer-panel');
+  if (!panel) return;
+  var display = document.getElementById('timer-display');
+  var startBtn = document.getElementById('timer-start');
+  var pauseBtn = document.getElementById('timer-pause');
+  var resetBtn = document.getElementById('timer-reset');
+  var presets = Array.prototype.slice.call(document.querySelectorAll('.timer-preset'));
+  var remaining = parseInt(panel.getAttribute('data-seconds'), 10) || 0;
+  var selected = remaining;
+  var active = false;
+  var intervalId = null;
+  function fmt(total){
+    var mins = Math.floor(total / 60);
+    var secs = total % 60;
+    return String(mins).padStart(2, '0') + ':' + String(secs).padStart(2, '0');
+  }
+  function render(){
+    display.textContent = fmt(remaining);
+  }
+  function setPreset(seconds){
+    selected = seconds;
+    remaining = seconds;
+    presets.forEach(function(btn){ btn.classList.toggle('is-selected', parseInt(btn.getAttribute('data-seconds'),10) === seconds); });
+    render();
+  }
+  function unlock(showBanner){
+    document.body.classList.remove('answers-locked');
+    document.body.classList.toggle('answers-finished', !!showBanner);
+  }
+  function lock(){
+    document.body.classList.add('answers-locked');
+    document.body.classList.remove('answers-unlocked');
+    document.querySelectorAll('details[open]').forEach(function(node){ node.open = false; });
+  }
+  function stopTimer(){
+    active = false;
+    if (intervalId) window.clearInterval(intervalId);
+    intervalId = null;
+  }
+  function tick(){
+    if (!active) return;
+    if (remaining <= 0){
+      stopTimer();
+      unlock(true);
+      render();
+      return;
+    }
+    remaining -= 1;
+    render();
+    if (remaining <= 0){
+      stopTimer();
+      unlock(true);
+      render();
+    }
+  }
+  presets.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      stopTimer();
+      setPreset(parseInt(btn.getAttribute('data-seconds'), 10));
+    });
+  });
+  startBtn.addEventListener('click', function(){
+    stopTimer();
+    if (remaining <= 0) remaining = selected;
+    lock();
+    active = true;
+    intervalId = window.setInterval(tick, 1000);
+    render();
+  });
+  pauseBtn.addEventListener('click', function(){ stopTimer(); });
+  resetBtn.addEventListener('click', function(){ stopTimer(); setPreset(selected); unlock(false); });
+  document.addEventListener('click', function(event){
+    if (!document.body.classList.contains('answers-locked')) return;
+    var summary = event.target.closest('summary');
+    if (summary){ event.preventDefault(); return; }
+  });
+  unlock(false);
+  setPreset(selected);
+})();
+
+const bank = [{"label":"Closed exam Q1","topic":"Five-number summary and boxplots","marks":"30 marks total","prompt":"How should you structure a full answer to a descriptive-statistics exam question asking for a five-number summary, boxplot, IQR and standard deviation?","answer":["Order the data first and list the five-number summary clearly: minimum, Q1, median, Q3 and maximum.","Then draw the boxplot using those exact statistics, calculate the IQR as Q3 minus Q1, and finish with the standard deviation and a brief interpretation of spread or skew."]},{"label":"Closed exam Q3","topic":"Bayes reasoning","marks":"15 marks","prompt":"What is the high-scoring method for a Bayes-theorem question in this module?","answer":["State the target conditional probability first, then write Bayes theorem before substituting numbers.","Compute the total probability of the observed signal in the denominator by combining the true-positive and false-positive branches, then interpret the result in words."]},{"label":"Closed exam Q6","topic":"Confidence intervals","marks":"10 marks","prompt":"What does a first-class confidence-interval answer need beyond the formula?","answer":["It needs the correct standard error, the correct critical value for the sample context, and a full verbal interpretation of the interval.","The strongest answer also comments on width: more confidence or more variability widens the interval, while larger samples narrow it."]},{"label":"Mock exam Q3","topic":"Binomial strategy","marks":"10 marks","prompt":"How should you approach “exactly r” versus “at least one” binomial questions under time pressure?","answer":["For exactly r, use the full binomial formula with the combination term.","For at least one, use the complement rule whenever possible, because it is faster and less error-prone."]},{"label":"Mock exam Q4","topic":"Z-scores and comparison","marks":"10 marks","prompt":"What is the correct logic behind comparing marks on different grading scales?","answer":["Convert both marks into z-scores so each result is measured in standard deviations relative to its own class mean.","The higher z-score indicates the better relative performance, even if the raw scales differ."]},{"label":"Mock exam Q5","topic":"Interval interpretation","marks":"15 marks","prompt":"What is the difference between a 95% and a 99% confidence interval in exam answers?","answer":["The 99% interval is wider because the critical value is larger.","The sample mean and standard error do not change; the difference is the confidence multiplier and the trade-off between confidence and precision."]}];function shuffle(a){const b=a.slice();for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}function render(){const selection=shuffle(bank).slice(0,4);document.getElementById('essay-list').innerHTML=selection.map((item,idx)=>'<article class="question-card"><div class="q-top"><div><div class="q-num">Question '+(idx+1)+'</div><span class="year-pill">'+item.label+'</span></div><div><span class="topic-pill">'+item.topic+'</span> <span class="mark-pill">'+item.marks+'</span></div></div><h3>'+item.prompt+'</h3><details><summary>Open model answer</summary><div class="answer-block">'+item.answer.map(p=>'<p>'+p+'</p>').join('')+'</div></details></article>').join('');}document.getElementById('reroll').addEventListener('click',render);render();</script></body></html>

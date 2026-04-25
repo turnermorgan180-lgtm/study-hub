@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random MCQ Drill</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf8f4;--bg2:#f2ede4;--surface:#fff;--border:#e8ddd0;--border2:#d4c8b0;--text:#1a1612;--muted:#7a6e5e;--accent:#245b74;--accent-light:#e8f1f4;--gold:#8a6a2a;--gold-light:#f7f0e0;--teal:#1a5c52;--teal-light:#e8f4f1;--ink:#2c2416}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;transition:opacity .22s ease,transform .22s ease}
+.page{position:relative;max-width:980px;margin:0 auto;padding:0 2rem 6rem}
+.back-btn,.action-btn,.source-link{border-radius:999px;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s}
+.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;font-size:1rem;z-index:10}
+.action-bar{position:absolute;top:1.5rem;right:0;display:flex;gap:.75rem;z-index:10;flex-wrap:wrap;justify-content:flex-end}
+.action-btn,.source-link{height:42px;padding:0 1rem;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+button.action-btn{cursor:pointer}
+.back-btn:hover,.action-btn:hover,.source-link:hover{transform:translateY(-1px);background:var(--bg2)}
+.hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border2);margin-bottom:2.3rem;position:relative}
+.hero::before{content:'';position:absolute;top:0;left:-2rem;right:-2rem;bottom:0;background:linear-gradient(180deg,#e5eff2 0%,transparent 100%);z-index:-1}
+.lecture-tag,.meta-chip,.section-num,.footer,.tiny{font-family:'DM Mono',monospace}
+.lecture-tag{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;gap:8px;margin-bottom:1rem}
+.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent);margin-top:.6rem}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;color:var(--ink)}
+h1{font-size:3rem;line-height:1.08;margin-bottom:1rem}
+h2{font-size:1.85rem;margin-bottom:1rem;padding-bottom:.7rem;border-bottom:1px solid var(--border)}
+h3{font-size:1.22rem;margin-bottom:.55rem;font-style:italic}
+.hero-sub{font-size:16px;color:var(--muted);max-width:720px;margin-bottom:1.5rem}
+.meta-row{display:flex;gap:1rem;flex-wrap:wrap}
+.meta-chip{font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}
+.chip-a{background:var(--accent-light);color:var(--accent);border:1px solid #bfd3da}
+.chip-b{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
+.chip-c{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}
+.alert-box,.card,.mcq-card,.essay-card,.source-card{background:var(--surface);border:1px solid var(--border);border-radius:4px}
+.alert-box{background:var(--accent-light);border-left:3px solid var(--accent);padding:1rem 1.25rem;margin-bottom:1.8rem}
+.section{margin-bottom:2.3rem}
+.section-num{color:var(--accent);margin-bottom:.35rem;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.stat-grid,.source-grid,.essay-list,.mcq-list{display:grid;gap:1rem}
+.stat-grid{grid-template-columns:repeat(3,1fr);margin-top:1.15rem}
+.source-grid{grid-template-columns:repeat(2,1fr)}
+.stat{background:var(--surface);border:1px solid var(--border);padding:1rem;border-radius:4px;text-align:center}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--accent);line-height:1;margin-bottom:.2rem}
+.stat-label{font-size:12px;color:var(--muted)}
+.mcq-card,.essay-card,.source-card{padding:1rem 1.15rem}
+.q-top{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start;margin-bottom:.55rem;flex-wrap:wrap}
+.q-num,.tiny{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.topic-pill,.mark-pill,.year-pill{font-size:10px;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:3px 8px;display:inline-block}
+.topic-pill{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
+.mark-pill,.year-pill{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}
+.options{display:grid;gap:.45rem;margin:.85rem 0 0;padding:0;list-style:none}
+.options li{padding:.65rem .8rem;border:1px solid var(--border);background:#fcfbf8;border-radius:4px}
+.answer-block{margin-top:.8rem;padding:1rem;background:var(--bg2);border:1px solid var(--border);border-radius:4px}
+details{margin-top:.9rem}
+summary{cursor:pointer;color:var(--accent);font-weight:500}
+ul{padding-left:1.15rem;margin:1rem 0}
+li{margin-bottom:.4rem}
+p{margin-bottom:.9rem}
+.timer-panel{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1rem 1.15rem;margin:1.25rem 0 1.75rem}.timer-top{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start;flex-wrap:wrap;margin-bottom:.85rem}.timer-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-family:'DM Mono',monospace}.timer-display{font-family:'Cormorant Garamond',serif;font-size:2.2rem;line-height:1;color:var(--ink)}.timer-copy{font-size:13px;color:var(--muted);max-width:560px}.timer-actions,.timer-presets{display:flex;gap:.6rem;flex-wrap:wrap}.timer-btn,.timer-preset{border-radius:999px;background:var(--surface);border:1px solid var(--border2);display:inline-flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;box-shadow:0 10px 20px rgba(0,0,0,.05);transition:transform .15s,background .15s;padding:0 .95rem;height:38px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}.timer-btn:hover,.timer-preset:hover{transform:translateY(-1px);background:var(--bg2)}.timer-preset.is-selected{background:var(--accent-light);border-color:#bfd3da}.locked-note{font-size:12px;color:var(--muted);margin-top:.8rem}.answers-locked details summary{opacity:.45}.answers-locked .timed-lockable{filter:blur(12px);pointer-events:none;user-select:none}.unlock-banner{display:none;margin-top:.8rem;padding:.8rem 1rem;border-radius:4px;background:var(--teal-light);border:1px solid #b8d8d3;color:var(--teal);font-size:12px}.answers-finished .unlock-banner{display:block}
+.footer{text-align:center;font-size:11px;color:var(--border2);padding-top:1rem;border-top:1px solid var(--border);margin-top:2rem}
+.page-transition-init{opacity:0;transform:translateY(8px)}
+.page-transition-ready{opacity:1;transform:none}
+.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
+@media (max-width:760px){h1{font-size:2.2rem}.page{padding:0 1.25rem 4rem}.action-bar{position:static;margin-top:1rem}.stat-grid,.source-grid{grid-template-columns:1fr}.hero{padding-top:3.4rem}}
+@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}
+</style>
+</head>
+<body>
+<div class="page">
+<a class="back-btn" href="../index.html" aria-label="Back to Business Economics hub">←</a>
+<div class="action-bar"><button id="reroll-paper" class="action-btn" type="button">Generate Fresh Paper</button></div>
+<div class="hero">
+  <div class="lecture-tag">Business Economics · MAN00016C · University of York</div>
+  <h1>Random MCQ Drill</h1>
+  <p class="hero-sub">A local Section A generator using the actual uploaded 2021–22 and 2022–23 Business Economics papers.</p>
+  <div class="meta-row">
+    <span class="meta-chip chip-a">Past-paper MCQs</span>
+    <span class="meta-chip chip-b">25 × 2 marks</span>
+    <span class="meta-chip chip-c">Randomised on load</span>
+  </div>
+</div>
+<div class="alert-box">
+  This drill now draws from the actual uploaded 2021–22 and 2022–23 Business Economics Section A papers. Each refresh samples 25 past-paper questions from the combined bank, with answer keys and exam-focused reasoning underneath.
+</div>
+<div class="source-grid" style="margin-bottom:1rem;">
+  <a class="source-link" href="../resources/Business%20Economics%202022-2023%20Exam%20Question.pdf">2022–23 paper PDF</a>
+<a class="source-link" href="../resources/Business%20Economics%202022-2023%20Exam%20Solution.pdf">2022–23 solution PDF</a>
+<a class="source-link" href="../resources/Business%20Economics%202021-2022%20Exam%20Question.pdf">2021–22 paper PDF</a>
+<a class="source-link" href="../resources/Business%20Economics%202021-2022%20Exam%20Solution.pdf">2021–22 solution PDF</a>
+
+</div>
+<div class="stat-grid">
+  <div class="stat"><div class="stat-num">48</div><div class="stat-label">Past-paper MCQs in bank</div></div>
+  <div class="stat"><div class="stat-num">25</div><div class="stat-label">Questions per drill</div></div>
+  <div class="stat"><div class="stat-num">2</div><div class="stat-label">Marks each</div></div>
+</div>
+<div class="timer-panel" data-seconds="2700">
+  <div class="timer-top">
+    <div>
+      <div class="timer-label">Timed Mock Mode</div>
+      <div id="timer-display" class="timer-display">45:00</div>
+    </div>
+    <div class="timer-copy">Start a timed session to lock answer reveals until the clock ends. Use the presets if you want a shorter drill than the full default.</div>
+  </div>
+  <div class="timer-presets">
+    <button class="timer-preset" type="button" data-seconds="1500">25 min</button>
+    <button class="timer-preset" type="button" data-seconds="2700">45 min</button>
+    <button class="timer-preset" type="button" data-seconds="3600">60 min</button>
+    <button class="timer-preset" type="button" data-seconds="5400">90 min</button>
+    <button class="timer-preset" type="button" data-seconds="10800">180 min</button>
+  </div>
+  <div class="timer-actions" style="margin-top:.75rem;">
+    <button id="timer-start" class="timer-btn" type="button">Start</button>
+    <button id="timer-pause" class="timer-btn" type="button">Pause</button>
+    <button id="timer-reset" class="timer-btn" type="button">Reset</button>
+  </div>
+  <div class="locked-note">While timed mode is active, model answers stay locked. Walkthrough pages blur the worked content until the timer finishes.</div>
+  <div class="unlock-banner">Timed mode complete. Answers and walkthrough content are now unlocked.</div>
+</div>
+<div class="section">
+  <div class="section-num">Live Drill</div>
+  <h2>Randomised Past-Paper MCQ Set</h2>
+  <div id="mcq-list" class="mcq-list"></div>
+</div>
+
+<div class="footer">Business Economics exam practice · Built from uploaded 2021–22 and 2022–23 papers</div>
+</div>
+<script>
+(function(){
+  document.body.classList.add('page-transition-init');
+  window.addEventListener('load', function(){
+    requestAnimationFrame(function(){
+      document.body.classList.remove('page-transition-init');
+      document.body.classList.add('page-transition-ready');
+    });
+  });
+  document.addEventListener('click', function(event){
+    var link = event.target.closest('a[href]');
+    if (!link) return;
+    if (event.defaultPrevented || event.button !== 0) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (link.target && link.target !== '_self') return;
+    if (link.hasAttribute('download')) return;
+    var href = link.getAttribute('href');
+    if (!href || href.charAt(0) === '#') return;
+    if (/^(mailto:|tel:|javascript:)/i.test(href)) return;
+    var url = new URL(link.href, window.location.href);
+    if (url.origin !== window.location.origin) return;
+    if (url.pathname === window.location.pathname && url.search === window.location.search && url.hash) return;
+    event.preventDefault();
+    document.body.classList.remove('page-transition-ready');
+    document.body.classList.add('page-transition-leaving');
+    window.setTimeout(function(){ window.location.href = url.href; }, 180);
+  });
+})();
+const questionBank = [{"year":"2022–23","q":1,"topic":"Game theory","question":"Tom and Sara are planning to go out. Tom prefers the theatre; Sara prefers the opera. Which statement is not correct?","options":["Both going to the opera is a Nash equilibrium.","Both going to the theatre is a Nash equilibrium.","Tom going to the theatre and Sara going to the opera is a Nash equilibrium.","There is at least one Nash equilibrium."],"answer":"C","explanation":"This is a coordination game with two Nash equilibria on the matched choices, not on the mismatched outcome."},{"year":"2022–23","q":2,"topic":"Consumer theory","question":"Sam only eats Brand A. If his budget increases, all of it is spent on Brand A, and prices do not change, what happens?","options":["Movement down along the ray of Brand A cereal.","Movement up along the ray of Brand A cereal.","The ray pivots towards the vertical axis.","The ray pivots towards the horizontal axis.","None of the above."],"answer":"B","explanation":"With unchanged prices, a higher budget shifts the consumer outward along the same consumption ray."},{"year":"2022–23","q":3,"topic":"Oligopoly","question":"An oligopolist may engage in short-run behaviour that results in lower profits if","options":["it lends credibility to the firm's threats.","it leads to a Nash equilibrium.","it is a dominant strategy.","it is not involved in a repeated game.","none of the above.","all of the above."],"answer":"A","explanation":"Firms may accept short-run sacrifice to make future threats credible in repeated strategic interaction."},{"year":"2022–23","q":4,"topic":"Monopolistic competition","question":"When a firm in monopolistic competition raises its price, it","options":["loses all of its customers.","loses many, but not all, of its customers.","loses no customers at all.","none of the above."],"answer":"B","explanation":"Product differentiation gives some market power, so demand falls but does not disappear entirely."},{"year":"2022–23","q":5,"topic":"Monopoly","question":"A monopolist makes a loss at its best output. Under what circumstance should it shut down?","options":["If AR at this output is below AC.","If AR at this output is below AVC.","If MR at this output is below AC.","If MR at this output is below AVC.","None of the above."],"answer":"B","explanation":"The short-run shutdown rule is based on covering average variable cost, not average total cost."},{"year":"2022–23","q":6,"topic":"Exchange rates","question":"To prevent the pound from depreciating against the euro, the Bank of England might","options":["buy the pound and increase foreign exchange reserves.","buy the pound and decrease foreign exchange reserves.","sell the pound and increase foreign exchange reserves.","sell the pound and decrease foreign exchange reserves.","none of the above.","all of the above."],"answer":"B","explanation":"Supporting the currency means buying pounds using foreign reserves, which reduces those reserves."},{"year":"2022–23","q":7,"topic":"Perfect competition","question":"If you were running a firm in a perfectly competitive industry, you would spend time deciding","options":["what price to charge.","how much of each input to use.","how much to spend on advertising.","how to prevent new firms entering.","none of the above.","all of the above."],"answer":"B","explanation":"A perfectly competitive firm is a price taker, so its main choice is cost-efficient input and output decisions."},{"year":"2022–23","q":8,"topic":"Unemployment","question":"The normal turnover of labour and time taken to find suitable jobs causes what type of unemployment even at potential GDP?","options":["Frictional.","Involuntary.","Structural.","Cyclical.","None of the above.","All of the above."],"answer":"A","explanation":"Frictional unemployment reflects search and matching time in the labour market."},{"year":"2022–23","q":9,"topic":"Labour markets","question":"A firm that employs almost all the labour force in a particular town is an example of","options":["positive externality.","monopsony power.","monopoly power.","negative externality.","public good.","none of the above.","all of the above."],"answer":"B","explanation":"A dominant employer has buying power in the labour market, which is monopsony power."},{"year":"2022–23","q":10,"topic":"Price discrimination","question":"A firm will find it difficult to engage in price discrimination if","options":["there are close substitutes.","there are many consumers.","the good is normal.","consumers are smart.","none of the above.","all of the above."],"answer":"D","explanation":"If consumers can identify and exploit arbitrage opportunities, separating markets becomes harder."},{"year":"2022–23","q":11,"topic":"Keynesian model","question":"If the marginal propensity to consume domestically produced goods is 0.7 and government spending rises by £100m, the simple multiplier implies national income changes by","options":["£70m.","£143m.","£170m.","£333m.","None of the above."],"answer":"D","explanation":"The multiplier is 1/(1-0.7)=3.33, so the total effect is about £333m."},{"year":"2022–23","q":12,"topic":"Trade policy","question":"Dumping surplus EU wheat at artificially low prices on the international market is an example of","options":["tariffs.","quotas.","exchange controls.","import licensing.","export subsidies.","none of the above.","all of the above."],"answer":"E","explanation":"Selling abroad at artificially supported prices is a form of export subsidy."},{"year":"2022–23","q":14,"topic":"Monopoly","question":"A monopoly firm has MR = £11, MC = £10, AC = £13 and AR = £15 at the current output. To maximise profit it should","options":["reduce price and increase output.","reduce price and reduce output.","increase price and increase output.","increase price and reduce output.","none of the above."],"answer":"A","explanation":"Because MR exceeds MC, output should rise; for a monopolist, selling more generally requires lowering price."},{"year":"2022–23","q":15,"topic":"Markets","question":"If demand for Good X rises due to higher income and supply also rises due to higher productivity, equilibrium price","options":["will fall, and quantity may rise or fall.","will fall, and quantity will rise.","may rise, fall or remain the same, and quantity will fall.","may rise, fall or remain the same, and quantity will rise.","none of the above."],"answer":"D","explanation":"Quantity rises unambiguously because both shifts raise it, while price depends on relative shift sizes."},{"year":"2022–23","q":17,"topic":"Consumer theory","question":"Consumer A has higher income than Consumer B, but identical preferences and prices. If both maximise utility, then","options":["MU from each good is higher for A and total utility is higher.","MU from each good is higher for A and total utility is lower.","MU from each good is lower for A and total utility is higher.","MU from each good is lower for A and total utility is lower.","none of the above."],"answer":"C","explanation":"Higher income allows more consumption, which lowers marginal utility at the optimum but raises total utility."},{"year":"2022–23","q":18,"topic":"Monopoly","question":"When a monopolist maximises profit, price exceeds marginal revenue because","options":["the firm must charge a price above marginal cost.","selling one extra unit does not affect price.","the firm must cut price on previous units to sell the extra unit.","diminishing returns directly determine price.","none of the above.","all of the above."],"answer":"C","explanation":"Under downward-sloping demand, an extra sale requires lowering price on all units, so MR lies below price."},{"year":"2022–23","q":19,"topic":"Perfect competition","question":"The short-run supply curve for a perfectly competitive firm is its","options":["ATC curve.","AVC curve.","MC curve above minimum ATC.","MC curve above minimum AVC.","none of the above."],"answer":"D","explanation":"The firm supplies where price equals MC, but only above the shutdown point at minimum AVC."},{"year":"2022–23","q":20,"topic":"Trade","question":"Allowing imports freely into a country may stimulate domestic producers to become more efficient. This benefit of trade is best classified as","options":["decreasing costs.","differences in demand.","increased competition.","trade as an engine of growth.","none of the above.","all of the above."],"answer":"C","explanation":"Import competition pressures domestic firms to raise efficiency."},{"year":"2022–23","q":21,"topic":"Exchange rates","question":"With a free-floating exchange rate, if UK interest rates rise relative to those abroad, then","options":["currency demand shifts right, currency supply shifts left, and the exchange rate appreciates.","currency demand shifts left, currency supply shifts right, and the exchange rate depreciates.","currency demand shifts left, currency supply shifts right, and the exchange rate appreciates.","currency demand shifts right, currency supply shifts left, and the exchange rate depreciates.","none of the above."],"answer":"A","explanation":"Higher relative interest rates attract capital inflow, increasing demand for pounds and supporting appreciation."},{"year":"2022–23","q":22,"topic":"Inflation","question":"If falling unemployment makes trade unions more militant and wages rise, this leads to","options":["demand-pull inflation.","cost-push inflation.","both A and B.","neither A nor B.","none of the above."],"answer":"B","explanation":"Higher wage costs shift supply left, creating cost-push inflation."},{"year":"2022–23","q":23,"topic":"European macro","question":"An optimal currency area is one which","options":["maximises member growth rates.","minimises fluctuations between member countries.","maximises trade between members.","minimises average inflation.","would involve a decrease in net benefits from a single currency if the area either grew or shrank.","none of the above.","all of the above."],"answer":"E","explanation":"The OCA idea is about the area size at which net benefits of sharing a currency are maximised."},{"year":"2022–23","q":24,"topic":"Collusion","question":"In a six-firm carpet industry colluding to keep prices high, collusion is most likely to break down if","options":["import duties on carpets rise.","new discount carpet retailers enter the market.","three small manufacturers merge.","one firm becomes dominant.","none of the above.","all of the above."],"answer":"B","explanation":"New aggressive downstream competition makes sustaining high-price collusion harder."},{"year":"2022–23","q":25,"topic":"Money and exchange rates","question":"If interest rates and exchange rates are market-determined, a reduction in money supply will result in","options":["a fall in both interest rates and exchange rates.","a rise in both interest rates and exchange rates.","a rise in interest rates and a fall in exchange rates.","a fall in interest rates and a rise in exchange rates.","none of the above."],"answer":"B","explanation":"Tighter money pushes interest rates up and tends to appreciate the currency."},{"year":"2021–22","q":1,"topic":"Consumer theory","question":"Are these statements true? (1) The substitution effect keeps real income constant. (2) The income effect is the effect of a change in real income.","options":["1 false, 2 false","1 false, 2 true","1 true, 2 true","1 true, 2 false"],"answer":"C","explanation":"Both statements are standard textbook definitions."},{"year":"2021–22","q":2,"topic":"Elasticity","question":"Products A and B have different demand elasticities. Which statement best describes them?","options":["A is more elastic and has relatively few substitutes, B has several substitutes.","A is less elastic and has several substitutes, B has relatively few substitutes.","A is more elastic and has several substitutes, B has relatively few substitutes.","A is less elastic and has relatively few substitutes, B has several substitutes."],"answer":"D","explanation":"In the original diagram A is the steeper, less elastic curve; B is flatter and more elastic."},{"year":"2021–22","q":3,"topic":"Government intervention","question":"If a maximum electricity price below equilibrium is increased next year, the deadweight loss","options":["increases.","decreases.","stays the same.","does not exist."],"answer":"B","explanation":"Raising the ceiling closer to equilibrium reduces the distortion and therefore the deadweight loss."},{"year":"2021–22","q":4,"topic":"Monopolistic competition","question":"The profit-maximisation condition for a firm in monopolistic competition is","options":["MR = MC.","MC = P.","MR = ATC.","TR is maximum."],"answer":"A","explanation":"The firm still chooses output where marginal revenue equals marginal cost."},{"year":"2021–22","q":5,"topic":"Market structures","question":"Free entry and no entry barriers apply to","options":["monopolistic competition only.","perfect competition only.","both monopolistic and perfect competition.","neither."],"answer":"C","explanation":"Both market structures assume free entry in the long run."},{"year":"2021–22","q":6,"topic":"Costs","question":"Increasing economies of scale are best defined as","options":["doubling inputs exactly doubles output.","large-scale production improves organisation of factors.","large-scale production leads to bigger profits.","large-scale production leads to lower cost per unit."],"answer":"D","explanation":"The defining feature is falling average cost as scale rises."},{"year":"2021–22","q":7,"topic":"Policy","question":"Government policies focused on increasing productive potential are called","options":["supply-side policies.","monetary policies.","demand-side policies.","fiscal policies."],"answer":"A","explanation":"Supply-side policy aims at productivity, capacity and labour-market performance."},{"year":"2021–22","q":8,"topic":"Perfect competition","question":"In perfect competition, firms are price takers and free entry is an assumption. Which is correct?","options":["Only statement (i).","Only statement (ii).","Both statements.","Neither statement."],"answer":"C","explanation":"Both are core assumptions of perfect competition."},{"year":"2021–22","q":9,"topic":"Monopoly","question":"Which statement is false about monopolies?","options":["A natural monopoly can arise when demand is insufficient for more than one firm.","There is free entry and no barriers.","Government action such as copyright can create monopoly.","Monopolies can make supernormal profit in the long run."],"answer":"B","explanation":"Free entry is not a feature of monopoly."},{"year":"2021–22","q":10,"topic":"Oligopoly","question":"In long-run Cournot oligopoly, consumers complain about market power and firms complain competition is fierce. Which is correct?","options":["Only (i).","Only (ii).","Both.","Neither."],"answer":"C","explanation":"Oligopoly can preserve market power while still producing tough strategic rivalry."},{"year":"2021–22","q":11,"topic":"Demand shifts","question":"A shift in demand could be caused by changes in","options":["tastes, the good's own price, and the price of complements.","income, production costs, and prices of other goods.","income, tastes, and prices of other goods.","income, tastes, and production costs."],"answer":"C","explanation":"Own price causes movement along demand; costs shift supply, not demand."},{"year":"2021–22","q":12,"topic":"Game theory","question":"John prefers movies, Jasmine prefers opera, but each prefers being together. Which statement is not correct?","options":["Both going to the opera is a Nash equilibrium.","Both going to the movies is a Nash equilibrium.","John to the movies and Jasmine to the opera is a Nash equilibrium.","There is at least one Nash equilibrium."],"answer":"C","explanation":"This is another coordination game with two matched-action Nash equilibria."},{"year":"2021–22","q":13,"topic":"Price discrimination","question":"A Volkswagen Tiguan costing much more in the UK than in France despite similar production and transport costs is an example of","options":["first-degree price discrimination.","second-degree price discrimination.","third-degree price discrimination.","no price discrimination."],"answer":"C","explanation":"The firm is charging different prices across segmented national markets."},{"year":"2021–22","q":14,"topic":"Money market","question":"A rise in interest rates causes what to happen to the demand-for-money curve?","options":["Movement up along it.","Shift left.","Shift right.","No effect."],"answer":"A","explanation":"Interest rate changes cause movement along the money-demand curve, not a shift of the whole curve."},{"year":"2021–22","q":15,"topic":"Public goods","question":"A good with low rivalry and low excludability is","options":["a pure private good.","a common good.","a public good.","a club good."],"answer":"C","explanation":"Low rivalry and low excludability define a public good."},{"year":"2021–22","q":16,"topic":"Trade","question":"Statement (i): countries specialise because of comparative advantage. Statement (ii): retaliation is imposing import restrictions to force domestic and world prices to align. Which is correct?","options":["(i) correct, (ii) incorrect.","(i) incorrect, (ii) correct.","Both correct.","Both incorrect."],"answer":"A","explanation":"Comparative advantage drives specialisation; the second statement is not a correct description of retaliation."},{"year":"2021–22","q":17,"topic":"Supply","question":"For the supply curve of coffee, what would an increase in the price of tea cause?","options":["Rightward shift.","Movement up along the curve.","Leftward shift.","Movement down along the curve."],"answer":"C","explanation":"If tea is a production substitute, a higher tea price draws resources away from coffee, shifting coffee supply left."},{"year":"2021–22","q":18,"topic":"Exchange rates","question":"Which is a disadvantage of fixed exchange rates?","options":["Little or no speculation.","Less volatility.","Certainty for business.","Inability to adjust to shocks and liquidity problems."],"answer":"D","explanation":"The loss of flexibility is the classic drawback of a fixed exchange-rate regime."},{"year":"2021–22","q":19,"topic":"Exchange rates","question":"The pound is expected to appreciate against the dollar when there is","options":["a rise in interest rates.","higher inflation in the UK than abroad.","a rise in UK incomes relative to the USA.","excess supply of pounds."],"answer":"A","explanation":"Higher interest rates attract capital inflows and support appreciation."},{"year":"2021–22","q":20,"topic":"Labour demand","question":"Which would shift a firm's labour-demand curve left?","options":["A rise in demand for the good.","A fall in employers' national insurance contributions.","A fall in labour productivity.","A rise in the wage rate."],"answer":"C","explanation":"Lower marginal productivity reduces the derived demand for labour."},{"year":"2021–22","q":21,"topic":"Welfare","question":"The difference between maximum willingness to pay and price is","options":["total benefits.","producer surplus.","deadweight loss.","consumer surplus."],"answer":"D","explanation":"Consumer surplus is willingness to pay minus actual price."},{"year":"2021–22","q":22,"topic":"Aggregate demand","question":"Aggregate demand/expenditure is best described by","options":["consumption only.","domestic consumption + investment + government expenditure + exports.","domestic consumption + savings + taxes + imports.","wages + rents + interest payments."],"answer":"B","explanation":"This is the expenditure-side macro identity closest to aggregate demand among the options provided."},{"year":"2021–22","q":23,"topic":"Factors of production","question":"Which is not a factor of production?","options":["capital.","labour.","machinery.","equilibrium."],"answer":"D","explanation":"Equilibrium is an outcome concept, not a productive input."},{"year":"2021–22","q":24,"topic":"Price taking","question":"If a firm is a price taker, then","options":["it can increase sales by reducing price.","it has significant monopoly power.","it has no ability to influence market price.","it can increase profit by raising price."],"answer":"C","explanation":"A price-taking firm accepts the market price as given."},{"year":"2021–22","q":25,"topic":"Costs","question":"Fixed cost is related to","options":["costs arising from a fixed input.","costs arising from a variable input.","costs arising from increasing production.","costs paid in pounds not dollars."],"answer":"A","explanation":"Fixed costs come from inputs that do not vary with short-run output."}];
+function shuffle(array){ const copy = array.slice(); for (let i = copy.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [copy[i], copy[j]] = [copy[j], copy[i]]; } return copy; }
+function renderMcqs(){
+  const selection = shuffle(questionBank).slice(0, 25);
+  document.getElementById('mcq-list').innerHTML = selection.map((item, index) => {
+    const letters = ['A','B','C','D','E','F','G'];
+    const options = item.options.map((option, i) => '<li><strong>' + letters[i] + '.</strong> ' + option + '</li>').join('');
+    return '<article class="mcq-card">' +
+      '<div class="q-top"><div><div class="q-num">Question ' + (index + 1) + '</div><span class="year-pill">' + item.year + ' · Q' + item.q + '</span></div><span class="topic-pill">' + item.topic + '</span></div>' +
+      '<h3>' + item.question + '</h3>' +
+      '<ul class="options">' + options + '</ul>' +
+      '<details><summary>Show answer and rationale</summary><div class="answer-block"><p><strong>Correct answer:</strong> ' + item.answer + '</p><p>' + item.explanation + '</p></div></details>' +
+      '</article>';
+  }).join('');
+}
+document.getElementById('reroll-paper').addEventListener('click', renderMcqs);
+renderMcqs();
+
+(function(){
+  var panel = document.querySelector('.timer-panel');
+  if (!panel) return;
+  var display = document.getElementById('timer-display');
+  var startBtn = document.getElementById('timer-start');
+  var pauseBtn = document.getElementById('timer-pause');
+  var resetBtn = document.getElementById('timer-reset');
+  var presets = Array.prototype.slice.call(document.querySelectorAll('.timer-preset'));
+  var remaining = parseInt(panel.getAttribute('data-seconds'), 10) || 0;
+  var selected = remaining;
+  var active = false;
+  var intervalId = null;
+  function fmt(total){
+    var mins = Math.floor(total / 60);
+    var secs = total % 60;
+    return String(mins).padStart(2, '0') + ':' + String(secs).padStart(2, '0');
+  }
+  function render(){
+    display.textContent = fmt(remaining);
+  }
+  function setPreset(seconds){
+    selected = seconds;
+    remaining = seconds;
+    presets.forEach(function(btn){ btn.classList.toggle('is-selected', parseInt(btn.getAttribute('data-seconds'),10) === seconds); });
+    render();
+  }
+  function unlock(showBanner){
+    document.body.classList.remove('answers-locked');
+    document.body.classList.toggle('answers-finished', !!showBanner);
+  }
+  function lock(){
+    document.body.classList.add('answers-locked');
+    document.body.classList.remove('answers-unlocked');
+    document.querySelectorAll('details[open]').forEach(function(node){ node.open = false; });
+  }
+  function stopTimer(){
+    active = false;
+    if (intervalId) window.clearInterval(intervalId);
+    intervalId = null;
+  }
+  function tick(){
+    if (!active) return;
+    if (remaining <= 0){
+      stopTimer();
+      unlock(true);
+      render();
+      return;
+    }
+    remaining -= 1;
+    render();
+    if (remaining <= 0){
+      stopTimer();
+      unlock(true);
+      render();
+    }
+  }
+  presets.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      stopTimer();
+      setPreset(parseInt(btn.getAttribute('data-seconds'), 10));
+    });
+  });
+  startBtn.addEventListener('click', function(){
+    stopTimer();
+    if (remaining <= 0) remaining = selected;
+    lock();
+    active = true;
+    intervalId = window.setInterval(tick, 1000);
+    render();
+  });
+  pauseBtn.addEventListener('click', function(){ stopTimer(); });
+  resetBtn.addEventListener('click', function(){ stopTimer(); setPreset(selected); unlock(false); });
+  document.addEventListener('click', function(event){
+    if (!document.body.classList.contains('answers-locked')) return;
+    var summary = event.target.closest('summary');
+    if (summary){ event.preventDefault(); return; }
+  });
+  unlock(false);
+  setPreset(selected);
+})();
+
+</script>
+</body>
+</html>

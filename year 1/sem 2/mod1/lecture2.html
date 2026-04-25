@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L2 The Working of Competitive Markets — Business Economics</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#faf8f4;
+  --bg2:#f2ede4;
+  --surface:#fff;
+  --border:#e8e0d0;
+  --border2:#d4c8b0;
+  --text:#1a1612;
+  --muted:#7a6e5e;
+  --accent:#2b5f87;
+  --accent-light:#e9f1f7;
+  --gold:#8a6a2a;
+  --gold-light:#f7f0e0;
+  --teal:#1a5c52;
+  --teal-light:#e8f4f1;
+  --red-light:#fdf2f0;
+  --red-border:#f0c4b8;
+  --red-text:#7a2015;
+  --red-label:#c0392b;
+  --ink:#2c2416
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7}
+.page{position:relative;max-width:860px;margin:0 auto;padding:0 2rem 6rem}
+.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;font-size:1rem;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s;z-index:10}
+.back-btn:hover{transform:translateY(-1px);background:var(--bg2)}
+.hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border2);margin-bottom:3rem;position:relative}
+.hero::before{content:'';position:absolute;top:0;left:-2rem;right:-2rem;bottom:0;background:linear-gradient(180deg,#e9f1f7 0%,transparent 100%);z-index:-1}
+.lecture-tag{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:8px;margin-bottom:1rem}
+.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent)}
+h1{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:700;line-height:1.1;color:var(--ink);margin-bottom:1rem;letter-spacing:-.02em}
+.hero-sub{font-size:16px;color:var(--muted);max-width:640px;line-height:1.6;margin-bottom:1.5rem}
+.meta-row{display:flex;gap:1.5rem;flex-wrap:wrap}
+.meta-chip{font-family:'DM Mono',monospace;font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}
+.chip-micro{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}
+.chip-exam{background:var(--accent-light);color:var(--accent);border:1px solid #bfd3e2}
+.chip-marks{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
+.alert-box{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin-bottom:2.5rem;font-size:13.5px;color:#183f5c}
+.alert-box strong{color:var(--accent)}
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem 2rem}
+.toc-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);grid-column:1/-1;margin-bottom:.5rem}
+.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:8px;padding:3px 0;transition:color .15s}
+.toc a:hover{color:var(--accent)}
+.toc a::before{content:attr(data-num);font-family:'DM Mono',monospace;font-size:10px;color:var(--border2);min-width:16px}
+.section{margin-bottom:3.5rem;animation:fadeUp .5s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.section-num{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
+h2{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:600;color:var(--ink);line-height:1.2;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--ink);margin-top:1.75rem;margin-bottom:.6rem;font-style:italic}
+p{margin-bottom:.9rem;color:var(--text)}
+.defn{background:var(--gold-light);border:1px solid #dcc888;border-radius:3px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}
+.defn-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.defn p{color:var(--ink);margin-bottom:0;font-size:14.5px}
+.defn strong{color:var(--gold)}
+.key-terms{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1.25rem 0}
+.term{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:.7rem 1rem}
+.term-word{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:2px}
+.term-def{font-size:12.5px;color:var(--muted);line-height:1.4}
+.compare-table{width:100%;border-collapse:collapse;font-size:13.5px;margin:1.25rem 0;border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.compare-table th{background:var(--bg2);padding:.65rem 1rem;text-align:left;font-weight:500;font-size:12px;font-family:'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border2)}
+.compare-table td{padding:.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table td:first-child{font-weight:500;color:var(--ink);width:180px}
+.eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.eval-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:.6rem;display:flex;align-items:center;gap:6px}
+.eval-label::before{content:'⊕';font-size:12px}
+.eval-box p{color:#1a4a42;font-size:14px;margin-bottom:.5rem}
+.eval-box p:last-child{margin-bottom:0}
+.mistake-box{background:var(--red-light);border:1px solid var(--red-border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.mistake-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--red-label);margin-bottom:.6rem;display:flex;align-items:center;gap:6px}
+.mistake-label::before{content:'✕';font-size:11px}
+.mistake-box p{color:var(--red-text);font-size:14px;margin-bottom:.5rem}
+.mistake-box p:last-child{margin-bottom:0}
+.exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0}
+.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center}
+.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px;font-size:10px}
+.exam-q-body{padding:1.25rem 1.5rem}
+.exam-q-body .q{font-style:italic;color:var(--ink);margin-bottom:1rem;font-size:15px}
+.answer-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:.4rem}
+.exam-q-body p{font-size:14px;margin-bottom:.6rem}
+.steps{margin:1.25rem 0}
+.step{display:flex;gap:1rem;margin-bottom:.75rem;align-items:flex-start}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--border2);line-height:1.2;min-width:28px;flex-shrink:0}
+.step-content{font-size:14px;color:var(--text);padding-top:2px}
+.step-content strong{color:var(--ink)}
+.diagram-box{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.diagram-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem}
+.diagram-box ul{padding-left:1.15rem}
+.diagram-box li{margin-bottom:.45rem}
+ul.standard{padding-left:1.2rem;margin:1rem 0 1.15rem}
+ul.standard li{margin-bottom:.45rem}
+.logic-box{background:var(--accent-light);border-left:4px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin:1rem 0;font-size:14px;color:#183f5c}
+.footer{text-align:center;font-family:'DM Mono',monospace;font-size:11px;color:var(--border2);letter-spacing:.08em;padding-top:2rem;border-top:1px solid var(--border)}
+@media(max-width:640px){h1{font-size:2.2rem}.toc{grid-template-columns:1fr}.key-terms{grid-template-columns:1fr}.page{padding:0 1.25rem 4rem}}
+
+.page-transition-init{opacity:0;transform:translateY(8px)}
+.page-transition-ready{opacity:1;transform:none}
+.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
+body{transition:opacity .22s ease,transform .22s ease}
+@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}
+</style>
+</head>
+<body>
+<div class="page">
+  <a class="back-btn" href="index.html" aria-label="Back to Business Economics hub">←</a>
+
+  <div class="hero">
+    <div class="lecture-tag">Lecture 2 · MAN00016C · University of York</div>
+    <h1>The Working of<br>Competitive Markets</h1>
+    <p class="hero-sub">Demand, supply, price adjustment, shortages, surpluses, market equilibrium, and curve shifts. This is the core competitive-market toolkit behind later topics in welfare, government intervention, and firm behaviour.</p>
+    <div class="meta-row">
+      <span class="meta-chip chip-micro">Microeconomics</span>
+      <span class="meta-chip chip-exam">High exam relevance</span>
+      <span class="meta-chip chip-marks">Section A foundations</span>
+    </div>
+  </div>
+
+  <div class="alert-box">
+    <strong>Past paper alert:</strong> even when questions are not labelled “competitive markets”, this lecture is being tested whenever you must explain <em>how price changes clear a market</em>, <em>how demand or supply shocks alter equilibrium</em>, or <em>why shortages and surpluses are temporary in a free market</em>.
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">Contents</div>
+    <a href="#s1" data-num="01">What makes a market competitive</a>
+    <a href="#s2" data-num="02">Demand and the demand curve</a>
+    <a href="#s3" data-num="03">Supply and the supply curve</a>
+    <a href="#s4" data-num="04">The price mechanism</a>
+    <a href="#s5" data-num="05">Equilibrium, shortage, surplus</a>
+    <a href="#s6" data-num="06">Demand shifts and new equilibrium</a>
+    <a href="#s7" data-num="07">Supply shifts and new equilibrium</a>
+    <a href="#s8" data-num="08">Combined shifts and exam logic</a>
+    <a href="#s9" data-num="09">Exam questions and model answers</a>
+    <a href="#s10" data-num="10">Evaluation and common mistakes</a>
+  </div>
+
+  <div class="section">
+    <div class="section-num">Key Definitions</div>
+    <h2>Terms to Know Cold</h2>
+    <div class="key-terms">
+      <div class="term"><div class="term-word">Demand</div><div class="term-def">The quantity consumers are willing and able to buy at each possible price over a given period.</div></div>
+      <div class="term"><div class="term-word">Supply</div><div class="term-def">The quantity firms are willing and able to sell at each possible price over a given period.</div></div>
+      <div class="term"><div class="term-word">Equilibrium</div><div class="term-def">The price and quantity where quantity demanded equals quantity supplied.</div></div>
+      <div class="term"><div class="term-word">Shortage</div><div class="term-def">A situation where quantity demanded exceeds quantity supplied at the current price.</div></div>
+      <div class="term"><div class="term-word">Surplus</div><div class="term-def">A situation where quantity supplied exceeds quantity demanded at the current price.</div></div>
+      <div class="term"><div class="term-word">Price mechanism</div><div class="term-def">The adjustment process through which prices respond to shortages and surpluses and move the market toward equilibrium.</div></div>
+      <div class="term"><div class="term-word">Change in quantity demanded / supplied</div><div class="term-def">A movement along the same curve caused only by a change in the good’s own price.</div></div>
+      <div class="term"><div class="term-word">Change in demand / supply</div><div class="term-def">A shift of the whole curve caused by a non-price determinant such as income or production costs.</div></div>
+    </div>
+  </div>
+
+  <div class="section" id="s1">
+    <div class="section-num">01</div>
+    <h2>What Makes a Market Competitive</h2>
+    <p>The lecture starts from a simple free-market idea: <strong>consumers are free to make demand decisions and firms are free to make supply decisions</strong>. No central planner tells buyers what to purchase or producers what to make. Instead, prices coordinate their actions.</p>
+    <div class="defn">
+      <div class="defn-label">Core logic</div>
+      <p>In a competitive market, <strong>price acts as the communication signal</strong> between consumers and firms. When demand and supply do not match, price changes transmit that information and incentivise adjustment.</p>
+    </div>
+    <p>This is why competitive-market analysis matters so much. It is the benchmark case for later lectures. Government intervention, monopoly, taxation, deadweight loss, and welfare analysis all make more sense once you understand how a decentralised market would work without those distortions.</p>
+    <div class="eval-box">
+      <div class="eval-label">Exam insight</div>
+      <p>Do not define a competitive market vaguely as “a market with many firms”. For this lecture, the mark-scoring emphasis is the <strong>adjustment process</strong>: free decisions by buyers and sellers are reconciled through price changes.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s2">
+    <div class="section-num">02</div>
+    <h2>Demand and the Demand Curve</h2>
+    <p>Demand shows the relationship between price and quantity demanded. Holding all else constant, a lower price usually leads to a greater quantity demanded, while a higher price reduces quantity demanded. That gives the demand curve its downward slope.</p>
+    <h3>What the curve means</h3>
+    <p>A point on the demand curve shows how much consumers would buy at one particular price. The whole curve shows planned purchases across many possible prices.</p>
+    <div class="diagram-box">
+      <div class="diagram-label">How to describe the diagram</div>
+      <ul>
+        <li>Price on the vertical axis, quantity on the horizontal axis.</li>
+        <li>Demand curve slopes downward from left to right.</li>
+        <li>A fall in price causes a <strong>movement along</strong> the demand curve.</li>
+        <li>A non-price change such as income or tastes causes the <strong>whole curve to shift</strong>.</li>
+      </ul>
+    </div>
+    <p>The lecture PDF explicitly identifies <strong>demand</strong> as one half of the equilibrium story. If demand rises while supply is unchanged, the immediate effect is a shortage at the old price. That is the starting point for the price mechanism.</p>
+    <div class="mistake-box">
+      <div class="mistake-label">Common mistake</div>
+      <p>Students often write “demand increases because price falls.” That is incorrect terminology. A fall in price causes an <strong>increase in quantity demanded</strong>, not an increase in demand. Demand itself changes only if a non-price determinant changes.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s3">
+    <div class="section-num">03</div>
+    <h2>Supply and the Supply Curve</h2>
+    <p>Supply shows the relationship between price and quantity supplied. In general, a higher price makes production more worthwhile, so firms offer more for sale. That gives the supply curve its upward slope.</p>
+    <h3>What shifts supply</h3>
+    <p>The extracted lecture material specifically highlights <strong>costs of production</strong> and <strong>changes in input availability</strong>. Lower costs allow firms to supply more at every price, shifting supply to the right. Higher costs shift supply to the left.</p>
+    <table class="compare-table">
+      <tr>
+        <th>Case</th>
+        <th>What changes</th>
+        <th>Graph effect</th>
+        <th>Market meaning</th>
+      </tr>
+      <tr>
+        <td>Price rises</td>
+        <td>Own price only</td>
+        <td>Movement up along S</td>
+        <td>Increase in quantity supplied</td>
+      </tr>
+      <tr>
+        <td>Costs fall</td>
+        <td>Non-price determinant</td>
+        <td>S shifts right</td>
+        <td>Increase in supply</td>
+      </tr>
+      <tr>
+        <td>Costs rise</td>
+        <td>Non-price determinant</td>
+        <td>S shifts left</td>
+        <td>Decrease in supply</td>
+      </tr>
+    </table>
+    <div class="defn">
+      <div class="defn-label">Source-derived distinction</div>
+      <p><strong>Change in quantity supplied</strong> means movement along the existing supply curve because the product’s price changes. <strong>Change in supply</strong> means a shift of the entire curve because some other determinant changes.</p>
+    </div>
+    <p>The source slide uses a potatoes example for the supply curve. The good itself is not important. The exam logic is. If production becomes cheaper, more is supplied at every price.</p>
+  </div>
+
+  <div class="section" id="s4">
+    <div class="section-num">04</div>
+    <h2>The Price Mechanism</h2>
+    <p>Price is the coordinating device in a competitive market. The lecture states that prices act as the communication tool between firms and consumers by responding to <strong>shortages</strong> and <strong>surpluses</strong>.</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Shortage appears:</strong> quantity demanded exceeds quantity supplied at the current price.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Price is bid up:</strong> buyers compete for limited output and firms see a profit incentive to expand supply.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Quantity demanded contracts:</strong> some consumers are priced out or reduce purchases.</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content"><strong>Quantity supplied expands:</strong> sellers produce and bring more to market.</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-content"><strong>Equilibrium is restored:</strong> the shortage disappears once demand and supply meet.</div></div>
+    </div>
+    <p>The same mechanism works in reverse for surplus. If price is above equilibrium, unsold stock accumulates. Sellers lower price to clear inventories. Quantity demanded rises and quantity supplied falls until the surplus disappears.</p>
+    <div class="logic-box">
+      The price mechanism is not just “price changes”. It is a full adjustment story:
+      <strong>imbalance → incentive to change price → movement along curves → restoration of equilibrium</strong>.
+    </div>
+  </div>
+
+  <div class="section" id="s5">
+    <div class="section-num">05</div>
+    <h2>Equilibrium, Shortage, and Surplus</h2>
+    <p>Equilibrium is the point where the plans of consumers and producers meet. The source PDF explicitly defines it this way and gives an illustrative example in which the equilibrium price is <strong>60p</strong>, with <strong>20p</strong> representing a shortage price and <strong>100p</strong> a surplus price.</p>
+    <div class="defn">
+      <div class="defn-label">Definition</div>
+      <p><strong>Equilibrium</strong> is the market-clearing price and quantity where <strong>Qd = Qs</strong>. At that price there is no tendency for price to change, provided the demand and supply curves do not shift.</p>
+    </div>
+    <table class="compare-table">
+      <tr>
+        <th>Market position</th>
+        <th>Relationship</th>
+        <th>What happens next</th>
+      </tr>
+      <tr>
+        <td>Price below equilibrium</td>
+        <td>Qd &gt; Qs</td>
+        <td>Shortage pushes price upward</td>
+      </tr>
+      <tr>
+        <td>At equilibrium</td>
+        <td>Qd = Qs</td>
+        <td>No pressure for price to change</td>
+      </tr>
+      <tr>
+        <td>Price above equilibrium</td>
+        <td>Qs &gt; Qd</td>
+        <td>Surplus pushes price downward</td>
+      </tr>
+    </table>
+    <div class="diagram-box">
+      <div class="diagram-label">Exam phrasing for the graph</div>
+      <ul>
+        <li>Equilibrium is found at the intersection of the demand and supply curves.</li>
+        <li>If the market price is below equilibrium, there is excess demand.</li>
+        <li>If the market price is above equilibrium, there is excess supply.</li>
+        <li>The equilibrium price is the market-clearing price because it eliminates shortage and surplus.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section" id="s6">
+    <div class="section-num">06</div>
+    <h2>Demand Shifts and the New Equilibrium</h2>
+    <p>The extracted slide text gives a direct example: <strong>consumer incomes rise</strong>, so the demand curve shifts right. At the original price, quantity demanded now exceeds quantity supplied, creating a shortage.</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Demand shifts right:</strong> consumers want more at every price.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Old price becomes too low:</strong> the market experiences excess demand.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Price rises:</strong> the shortage bids price upward.</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content"><strong>Move along supply:</strong> firms expand quantity supplied in response to the higher price.</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-content"><strong>New equilibrium:</strong> both equilibrium price and equilibrium quantity rise.</div></div>
+    </div>
+    <p>This is an important comparative-statics result. A <strong>rightward demand shift</strong> causes a movement <strong>along</strong> the supply curve to a new intersection. The supply curve itself does not move unless a supply determinant changes.</p>
+    <div class="eval-box">
+      <div class="eval-label">Exam shortcut</div>
+      <p>If demand increases and supply is unchanged, the safe answer is: <strong>equilibrium price rises and equilibrium quantity rises</strong>. Then explain why: a shortage at the initial price triggers upward price adjustment.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s7">
+    <div class="section-num">07</div>
+    <h2>Supply Shifts and the New Equilibrium</h2>
+    <p>The source also gives the reverse-side example: <strong>production costs rise</strong>, shifting supply left. At the old price firms no longer want to supply as much, so a shortage appears.</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Supply shifts left:</strong> less is supplied at every price because costs are higher.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Old price is unsustainable:</strong> quantity demanded now exceeds quantity supplied.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Price rises:</strong> the market rations demand and encourages remaining producers to supply more.</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content"><strong>Move along demand:</strong> consumers reduce purchases as the price increases.</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-content"><strong>New equilibrium:</strong> equilibrium price rises but equilibrium quantity falls.</div></div>
+    </div>
+    <p>This result is examined frequently because it requires precision. If supply falls, price does <strong>not</strong> fall. Students who memorise “left shift means less” but forget the shortage logic often get the sign on price wrong.</p>
+    <div class="mistake-box">
+      <div class="mistake-label">Common mistake</div>
+      <p>Do not say “supply shifts left so firms sell less and price falls.” If supply shifts left while demand is unchanged, the correct result is <strong>higher equilibrium price</strong> and <strong>lower equilibrium quantity</strong>.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s8">
+    <div class="section-num">08</div>
+    <h2>Combined Shifts and Exam Logic</h2>
+    <p>If both curves shift, the new equilibrium is still just the intersection of the two new curves. The difficulty is not the graphing. It is knowing which variable can be signed unambiguously.</p>
+    <table class="compare-table">
+      <tr>
+        <th>Shock combination</th>
+        <th>Price effect</th>
+        <th>Quantity effect</th>
+      </tr>
+      <tr>
+        <td>Demand rises, supply unchanged</td>
+        <td>Rises</td>
+        <td>Rises</td>
+      </tr>
+      <tr>
+        <td>Demand falls, supply unchanged</td>
+        <td>Falls</td>
+        <td>Falls</td>
+      </tr>
+      <tr>
+        <td>Supply rises, demand unchanged</td>
+        <td>Falls</td>
+        <td>Rises</td>
+      </tr>
+      <tr>
+        <td>Supply falls, demand unchanged</td>
+        <td>Rises</td>
+        <td>Falls</td>
+      </tr>
+      <tr>
+        <td>Demand rises and supply rises</td>
+        <td>Ambiguous</td>
+        <td>Rises</td>
+      </tr>
+      <tr>
+        <td>Demand falls and supply falls</td>
+        <td>Ambiguous</td>
+        <td>Falls</td>
+      </tr>
+    </table>
+    <p>When both curves shift in opposite directions, one variable is often certain and the other ambiguous. Strong exam answers explicitly say <strong>“the overall effect on price is indeterminate without knowing the relative size of the shifts”</strong> rather than guessing.</p>
+  </div>
+
+  <div class="section" id="s9">
+    <div class="section-num">09</div>
+    <h2>Exam Questions and Model Answers</h2>
+
+    <div class="exam-q">
+      <div class="exam-q-header">
+        <span>Section A Style</span>
+        <span class="exam-q-marks">6 marks</span>
+      </div>
+      <div class="exam-q-body">
+        <p class="q">Explain how a competitive market moves from shortage to equilibrium.</p>
+        <div class="answer-label">Model answer</div>
+        <p>A shortage exists when quantity demanded exceeds quantity supplied at the current price. Because buyers compete for limited output, price is bid up. The higher price reduces quantity demanded and increases quantity supplied, creating movements along the demand and supply curves. This process continues until quantity demanded equals quantity supplied. The market has then reached equilibrium, where there is no further pressure for price to change.</p>
+      </div>
+    </div>
+
+    <div class="exam-q">
+      <div class="exam-q-header">
+        <span>Section A Style</span>
+        <span class="exam-q-marks">8 marks</span>
+      </div>
+      <div class="exam-q-body">
+        <p class="q">Using a demand and supply diagram, explain the effect of a rise in consumer incomes on the market for a normal good.</p>
+        <div class="answer-label">Model answer</div>
+        <p>A rise in consumer incomes increases demand for a normal good, so the demand curve shifts right. At the original equilibrium price, quantity demanded now exceeds quantity supplied, creating a shortage. This shortage puts upward pressure on price. As price rises, there is a movement along the supply curve and firms increase quantity supplied. The new equilibrium therefore has a higher price and a higher quantity than before.</p>
+      </div>
+    </div>
+
+    <div class="exam-q">
+      <div class="exam-q-header">
+        <span>Section A Style</span>
+        <span class="exam-q-marks">8 marks</span>
+      </div>
+      <div class="exam-q-body">
+        <p class="q">Explain the difference between a change in supply and a change in quantity supplied.</p>
+        <div class="answer-label">Model answer</div>
+        <p>A change in quantity supplied is a movement along the same supply curve caused only by a change in the good’s own price. A change in supply is a shift of the entire supply curve caused by a non-price determinant, such as production costs, technology, or input availability. This distinction matters because the first leaves the curve in place, while the second changes the market equilibrium itself.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="s10">
+    <div class="section-num">10</div>
+    <h2>Evaluation and Common Mistakes</h2>
+    <h3>What strong answers do</h3>
+    <ul class="standard">
+      <li>Separate <strong>movements along curves</strong> from <strong>curve shifts</strong>.</li>
+      <li>State clearly whether the market starts in <strong>shortage</strong> or <strong>surplus</strong>.</li>
+      <li>Explain the full adjustment path, not just the final outcome.</li>
+      <li>Use equilibrium language precisely: <strong>market-clearing price</strong>, <strong>Qd = Qs</strong>, <strong>new intersection</strong>.</li>
+    </ul>
+    <div class="mistake-box">
+      <div class="mistake-label">Frequent errors</div>
+      <p>Confusing “demand rises” with “quantity demanded rises”; assuming every leftward shift lowers price; forgetting that shortage pushes price <strong>up</strong>; and describing equilibrium as “where firms make most profit” rather than where planned demand equals planned supply.</p>
+    </div>
+    <div class="eval-box">
+      <div class="eval-label">Bigger picture</div>
+      <p>The competitive-market model is powerful because it shows how decentralised choices can generate coordinated outcomes. But it is still a benchmark. Later lectures add externalities, market power, and government intervention precisely because real markets do not always adjust cleanly or efficiently.</p>
+    </div>
+  </div>
+
+  <div class="footer">Lecture 2 notes built for revision, short-answer precision, and diagram-based exam writing.</div>
+</div>
+<script>
+(function(){
+  document.body.classList.add("page-transition-init");
+  window.addEventListener("load", function(){
+    requestAnimationFrame(function(){
+      document.body.classList.remove("page-transition-init");
+      document.body.classList.add("page-transition-ready");
+    });
+  });
+  document.addEventListener("click", function(event){
+    var link = event.target.closest("a[href]");
+    if (!link) return;
+    if (event.defaultPrevented || event.button !== 0) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (link.target && link.target !== "_self") return;
+    if (link.hasAttribute("download")) return;
+    var href = link.getAttribute("href");
+    if (!href || href.charAt(0) === "#") return;
+    if (/^(mailto:|tel:|javascript:)/i.test(href)) return;
+    var url = new URL(link.href, window.location.href);
+    if (url.origin !== window.location.origin) return;
+    if (url.pathname === window.location.pathname && url.search === window.location.search && url.hash) return;
+    event.preventDefault();
+    document.body.classList.remove("page-transition-ready");
+    document.body.classList.add("page-transition-leaving");
+    window.setTimeout(function(){ window.location.href = url.href; }, 180);
+  });
+})();
+</script>
+
+</body>
+</html>

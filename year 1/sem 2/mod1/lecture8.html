@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L8 Profit Maximisation under Imperfect Competition — Business Economics</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf8f4;--bg2:#f2ede4;--surface:#fff;--border:#e8d0b8;--border2:#d4c8b0;--text:#1a1612;--muted:#7a6e5e;--accent:#1a4a7a;--accent-light:#e8f0f8;--gold:#8a6a2a;--gold-light:#f7f0e0;--teal:#1a5c52;--teal-light:#e8f4f1;--red-light:#fdf2f0;--red-border:#f0c4b8;--red-text:#7a2015;--red-label:#c0392b;--ink:#2c2416}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7}
+.page{position:relative;max-width:860px;margin:0 auto;padding:0 2rem 6rem}
+.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;font-size:1rem;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s;z-index:10}
+.back-btn:hover{transform:translateY(-1px);background:var(--bg2)}
+.hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border2);margin-bottom:3rem;position:relative}
+.hero::before{content:'';position:absolute;top:0;left:-2rem;right:-2rem;bottom:0;background:linear-gradient(180deg,#eaf0f7 0%,transparent 100%);z-index:-1}
+.lecture-tag{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:8px;margin-bottom:1rem}
+.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent)}
+h1{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:700;line-height:1.1;color:var(--ink);margin-bottom:1rem;letter-spacing:-.02em}
+.hero-sub{font-size:16px;color:var(--muted);max-width:620px;line-height:1.6;margin-bottom:1.5rem}
+.meta-row{display:flex;gap:1.5rem;flex-wrap:wrap}
+.meta-chip{font-family:'DM Mono',monospace;font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}
+.chip-micro{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}
+.chip-exam{background:var(--accent-light);color:var(--accent);border:1px solid #b8d0e8}
+.chip-marks{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
+.alert-box{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin-bottom:2.5rem;font-size:13.5px;color:#0f2e52}
+.alert-box strong{color:var(--accent)}
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem 2rem}
+.toc-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);grid-column:1/-1;margin-bottom:.5rem}
+.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:8px;padding:3px 0;transition:color .15s}
+.toc a:hover{color:var(--accent)}
+.toc a::before{content:attr(data-num);font-family:'DM Mono',monospace;font-size:10px;color:var(--border2);min-width:16px}
+.section{margin-bottom:3.5rem;animation:fadeUp .5s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.section-num{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
+h2{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:600;color:var(--ink);line-height:1.2;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--ink);margin-top:1.75rem;margin-bottom:.6rem;font-style:italic}
+p{margin-bottom:.9rem;color:var(--text)}
+.defn{background:var(--gold-light);border:1px solid #dcc888;border-radius:3px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}
+.defn-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.defn p{color:var(--ink);margin-bottom:0;font-size:14.5px}
+.defn strong{color:var(--gold)}
+.key-terms{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1.25rem 0}
+.term{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:.7rem 1rem}
+.term-word{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:2px}
+.term-def{font-size:12.5px;color:var(--muted);line-height:1.4}
+.compare-table{width:100%;border-collapse:collapse;font-size:13.5px;margin:1.25rem 0;border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.compare-table th{background:var(--bg2);padding:.65rem 1rem;text-align:left;font-weight:500;font-size:12px;font-family:'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border2)}
+.compare-table td{padding:.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table td:first-child{font-weight:500;color:var(--ink);width:170px}
+.eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.eval-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:.6rem;display:flex;align-items:center;gap:6px}
+.eval-label::before{content:'⊕';font-size:12px}
+.eval-box p{color:#1a4a42;font-size:14px;margin-bottom:.5rem}
+.eval-box p:last-child{margin-bottom:0}
+.mistake-box{background:var(--red-light);border:1px solid var(--red-border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.mistake-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--red-label);margin-bottom:.6rem;display:flex;align-items:center;gap:6px}
+.mistake-label::before{content:'✕';font-size:11px}
+.mistake-box p{color:var(--red-text);font-size:14px;margin-bottom:.5rem}
+.mistake-box p:last-child{margin-bottom:0}
+.exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0}
+.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center}
+.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px;font-size:10px}
+.exam-q-body{padding:1.25rem 1.5rem}
+.exam-q-body .q{font-style:italic;color:var(--ink);margin-bottom:1rem;font-size:15px}
+.answer-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:.4rem}
+.exam-q-body p{font-size:14px;margin-bottom:.6rem}
+.steps{margin:1.25rem 0}
+.step{display:flex;gap:1rem;margin-bottom:.75rem;align-items:flex-start}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--border2);line-height:1.2;min-width:28px;flex-shrink:0}
+.step-content{font-size:14px;color:var(--text);padding-top:2px}
+.step-content strong{color:var(--ink)}
+.diagram-box{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.diagram-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem}
+.diagram-box ul{padding-left:1.15rem}
+.diagram-box li{margin-bottom:.45rem}
+ul.standard{padding-left:1.2rem;margin:1rem 0 1.15rem}
+ul.standard li{margin-bottom:.45rem}
+.footer{text-align:center;font-family:'DM Mono',monospace;font-size:11px;color:var(--border2);letter-spacing:.08em;padding-top:2rem;border-top:1px solid var(--border)}
+@media(max-width:640px){h1{font-size:2.2rem}.toc{grid-template-columns:1fr}.key-terms{grid-template-columns:1fr}.page{padding:0 1.25rem 4rem}}
+
+.page-transition-init{opacity:0;transform:translateY(8px)}
+.page-transition-ready{opacity:1;transform:none}
+.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
+body{transition:opacity .22s ease,transform .22s ease}
+@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}
+</style>
+</head>
+<body>
+<div class="page">
+  <a class="back-btn" href="index.html" aria-label="Back to Business Economics hub">←</a>
+
+  <div class="hero">
+    <div class="lecture-tag">Lecture 8 · MAN00016C · University of York</div>
+    <h1>Profit Maximisation<br>under Imperfect Competition</h1>
+    <p class="hero-sub">Monopolistic competition, oligopoly, collusion, tacit collusion, entry, interdependence, and the welfare effects of imperfect market structures, organised in an exam-first format.</p>
+    <div class="meta-row">
+      <span class="meta-chip chip-micro">Microeconomics</span>
+      <span class="meta-chip chip-exam">High exam relevance</span>
+      <span class="meta-chip chip-marks">Section A + B</span>
+    </div>
+  </div>
+
+  <div class="alert-box">
+    <strong>Past paper alert:</strong> Lecture 8 sits between monopoly and game theory. It is the bridge topic for questions on <em>market structure</em>, <em>entry and abnormal profit</em>, <em>collusion</em>, and <em>consumer welfare</em>. The recurring exam logic is <strong>structure → firm behaviour → profit/output outcome → efficiency and welfare evaluation</strong>.
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">Contents</div>
+    <a href="#s1" data-num="01">Spectrum of imperfect competition</a>
+    <a href="#s2" data-num="02">Monopolistic competition</a>
+    <a href="#s3" data-num="03">Short run and long run profit</a>
+    <a href="#s4" data-num="04">Oligopoly and interdependence</a>
+    <a href="#s5" data-num="05">Competition vs collusion</a>
+    <a href="#s6" data-num="06">Cartels and tacit collusion</a>
+    <a href="#s7" data-num="07">Factors favouring collusion</a>
+    <a href="#s8" data-num="08">Consumer harms and possible benefits</a>
+    <a href="#s9" data-num="09">Exam questions and model answers</a>
+    <a href="#s10" data-num="10">Evaluation and common mistakes</a>
+  </div>
+
+  <div class="section">
+    <div class="section-num">Key Definitions</div>
+    <h2>Terms to Know Cold</h2>
+    <div class="key-terms">
+      <div class="term"><div class="term-word">Imperfect competition</div><div class="term-def">Any market structure where at least one firm has some price-setting power and firms are not pure price takers.</div></div>
+      <div class="term"><div class="term-word">Monopolistic competition</div><div class="term-def">A market with many firms, differentiated products, and relatively free entry and exit.</div></div>
+      <div class="term"><div class="term-word">Product differentiation</div><div class="term-def">Real or perceived differences between rival products, often created by branding, quality, design, or location.</div></div>
+      <div class="term"><div class="term-word">Abnormal profit</div><div class="term-def">Profit above normal profit; total revenue exceeds total cost including opportunity cost.</div></div>
+      <div class="term"><div class="term-word">Normal profit</div><div class="term-def">The minimum profit needed to keep a firm in the industry in the long run.</div></div>
+      <div class="term"><div class="term-word">Oligopoly</div><div class="term-def">A market dominated by a few large firms whose decisions are mutually interdependent.</div></div>
+      <div class="term"><div class="term-word">Interdependence</div><div class="term-def">A situation where one firm must consider likely rival reactions when setting price, output, or advertising.</div></div>
+      <div class="term"><div class="term-word">Collusion</div><div class="term-def">Cooperation between rival firms to raise joint profit, often by restricting output or coordinating price.</div></div>
+      <div class="term"><div class="term-word">Cartel</div><div class="term-def">A formal collusive agreement among firms, usually involving quotas, prices, or market sharing.</div></div>
+      <div class="term"><div class="term-word">Tacit collusion</div><div class="term-def">Collusion achieved without an explicit written agreement, often through signalling or repeated interaction.</div></div>
+    </div>
+  </div>
+
+  <div class="section" id="s1">
+    <div class="section-num">01</div>
+    <h2>The Spectrum of Imperfect Competition</h2>
+    <p>Lecture 8 is not about one single market structure. It covers the range between the competitive ideal and outright monopoly. The key point is that many real-world firms are neither powerless price takers nor pure monopolists. They operate in markets where some market power exists, but it is limited by substitutes, entry, and rival reaction.</p>
+    <table class="compare-table">
+      <tr>
+        <th>Structure</th>
+        <th>Number of firms</th>
+        <th>Control over price</th>
+        <th>Main strategic issue</th>
+      </tr>
+      <tr>
+        <td>Perfect competition</td>
+        <td>Very many</td>
+        <td>None</td>
+        <td>No individual firm power</td>
+      </tr>
+      <tr>
+        <td>Monopolistic competition</td>
+        <td>Many</td>
+        <td>Limited</td>
+        <td>Differentiation and entry</td>
+      </tr>
+      <tr>
+        <td>Oligopoly</td>
+        <td>Few</td>
+        <td>Significant but constrained</td>
+        <td>Interdependence and collusion</td>
+      </tr>
+      <tr>
+        <td>Monopoly</td>
+        <td>One</td>
+        <td>High</td>
+        <td>Profit versus regulation</td>
+      </tr>
+    </table>
+    <div class="defn">
+      <div class="defn-label">Exam rule</div>
+      <p>When comparing market structures, do not stop at firm numbers. Always link <strong>number of firms</strong>, <strong>product differentiation</strong>, <strong>entry barriers</strong>, and <strong>pricing power</strong> to the resulting behaviour and efficiency outcome.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s2">
+    <div class="section-num">02</div>
+    <h2>Monopolistic Competition</h2>
+    <p>Monopolistic competition combines competition with a degree of monopoly power. There are many sellers, but products are differentiated, so each firm faces a downward-sloping demand curve rather than a perfectly elastic one. A coffee shop, local restaurant, hairdresser, or clothing brand may have some pricing power because customers perceive differences.</p>
+    <h3>Main characteristics</h3>
+    <ul class="standard">
+      <li><strong>Many firms:</strong> no single seller dominates the whole market.</li>
+      <li><strong>Differentiated products:</strong> firms compete on brand, quality, design, location, or service.</li>
+      <li><strong>Some price-making power:</strong> each firm can raise or lower price to some degree without losing every customer.</li>
+      <li><strong>Relatively low barriers to entry:</strong> if firms earn abnormal profit, new firms can enter.</li>
+      <li><strong>Heavy non-price competition:</strong> advertising and branding are often central.</li>
+    </ul>
+    <p>The reason demand is downward sloping is that the product is not identical to rivals' products. But it is still fairly elastic because many close substitutes exist. That means firms have market power, but only in a weak form.</p>
+    <div class="eval-box">
+      <div class="eval-label">Exam insight</div>
+      <p>Do not describe monopolistic competition as “monopoly with many firms.” The better wording is that firms have <strong>mini-monopoly power over their own differentiated variety</strong>, but not over the whole industry.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s3">
+    <div class="section-num">03</div>
+    <h2>Short-Run and Long-Run Profit under Monopolistic Competition</h2>
+    <p>In the short run, a firm under monopolistic competition behaves like a profit maximiser facing a downward-sloping demand curve. It chooses output where <strong>MR = MC</strong>, then charges the price shown by the demand curve at that output. This can generate <strong>abnormal profit</strong> if average revenue exceeds average total cost.</p>
+    <div class="diagram-box">
+      <div class="diagram-label">How to describe the standard diagram</div>
+      <ul>
+        <li>Draw downward-sloping <strong>AR</strong> and lower <strong>MR</strong>.</li>
+        <li>Draw upward-sloping <strong>MC</strong> and U-shaped <strong>ATC</strong>.</li>
+        <li>Profit-maximising output is where <strong>MR = MC</strong>.</li>
+        <li>Price is read from the <strong>AR</strong> curve above that output.</li>
+        <li>If price exceeds ATC, the shaded rectangle is abnormal profit.</li>
+      </ul>
+    </div>
+    <p>In the long run, the story changes because entry is relatively easy. Abnormal profit attracts new firms. As new entrants offer similar differentiated products, each existing firm loses some customers. Its demand curve shifts leftward and becomes more elastic. Entry continues until abnormal profit is competed away.</p>
+    <div class="defn">
+      <div class="defn-label">Long-run result</div>
+      <p><strong>New entry shifts each firm's AR and MR leftwards until only normal profit remains.</strong> The firm still chooses output where MR = MC, but now AR is just tangent to ATC at the equilibrium output-price combination.</p>
+    </div>
+    <div class="mistake-box">
+      <div class="mistake-label">Common mistake</div>
+      <p>Students often say “entry shifts market demand left.” More accurate: <strong>industry supply rises, and each existing firm's own demand curve shifts left</strong> because customers are spread across more sellers.</p>
+    </div>
+    <p>The long-run outcome is important for evaluation. Firms usually do <strong>not</strong> produce at the minimum point of average cost, so excess capacity exists. In that sense, monopolistic competition is less productively efficient than perfect competition. But consumers gain from variety, innovation, and choice.</p>
+  </div>
+
+  <div class="section" id="s4">
+    <div class="section-num">04</div>
+    <h2>Oligopoly and Interdependence</h2>
+    <p>Oligopoly exists where a small number of large firms dominate the market. The defining feature is <strong>interdependence</strong>. Because there are only a few major players, each firm knows that its own actions will provoke responses from rivals. A price cut by one supermarket chain, airline, or mobile provider is unlikely to be ignored by the others.</p>
+    <h3>Typical features</h3>
+    <ul class="standard">
+      <li><strong>Few large firms:</strong> each has a noticeable market share.</li>
+      <li><strong>Barriers to entry:</strong> scale economies, branding, patents, or strategic behaviour keep rivals out.</li>
+      <li><strong>Strategic behaviour:</strong> firms must predict reactions before acting.</li>
+      <li><strong>Price rigidity is possible:</strong> firms may avoid price changes if retaliation is expected.</li>
+      <li><strong>Non-price competition matters:</strong> branding, advertising, loyalty schemes, quality, and service become central.</li>
+    </ul>
+    <p>Unlike monopoly or monopolistic competition, there is no single universal oligopoly model that always applies. Outcomes depend on whether firms compete aggressively, quietly follow one another, or actively collude. That uncertainty is exactly why game theory follows in Lecture 9.</p>
+    <div class="defn">
+      <div class="defn-label">Core idea</div>
+      <p>In oligopoly, profit maximisation is harder because a firm's optimal choice depends not only on demand and cost, but also on <strong>expected rival behaviour</strong>.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s5">
+    <div class="section-num">05</div>
+    <h2>Competition versus Collusion</h2>
+    <p>Oligopolistic firms face a strategic choice. They can <strong>compete</strong>, trying to win customers through price cuts or aggressive advertising, or they can <strong>collude</strong>, seeking to soften competition and raise joint profits. From the firms' viewpoint, collusion is attractive because price wars damage profit for everyone.</p>
+    <table class="compare-table">
+      <tr>
+        <th>Behaviour</th>
+        <th>Likely output</th>
+        <th>Likely price</th>
+        <th>Main effect</th>
+      </tr>
+      <tr>
+        <td>Competition</td>
+        <td>Higher</td>
+        <td>Lower</td>
+        <td>Consumers gain more</td>
+      </tr>
+      <tr>
+        <td>Collusion</td>
+        <td>Restricted</td>
+        <td>Higher</td>
+        <td>Firms gain more</td>
+      </tr>
+    </table>
+    <p>Economically, collusion tries to make the industry behave more like a monopoly. If the group can restrict output and keep members disciplined, joint profit rises. The problem is that every member also has an incentive to cheat by secretly cutting price or exceeding its quota.</p>
+    <div class="eval-box">
+      <div class="eval-label">Evaluation</div>
+      <p>Collusion is individually fragile even when it is jointly profitable. The tension between <strong>group interest</strong> and <strong>individual incentive to cheat</strong> is the key analytical point and links directly to prisoner’s-dilemma logic.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s6">
+    <div class="section-num">06</div>
+    <h2>Cartels and Tacit Collusion</h2>
+    <p>A <strong>cartel</strong> is a formal collusive agreement. Firms may agree prices, output quotas, market shares, or territorial division. If it works, the cartel can raise price above the competitive level and earn monopoly-style profit. The problem is enforcement. Each member wants others to stick to the agreement while it quietly undercuts them.</p>
+    <h3>Tacit collusion</h3>
+    <p>Not all collusion is explicit. Firms may reach similar outcomes without signing a formal agreement. This is <strong>tacit collusion</strong>. It can happen through price leadership, repeated interaction, stable expectations, or public signalling. The practical effect can still be weak competition, even if proving illegality is harder.</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Firms recognise mutual dependence.</strong> Aggressive rivalry lowers everyone’s profit.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><strong>They coordinate directly or indirectly.</strong> The aim is to avoid price wars.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Output is restricted.</strong> Relative to competition, less is supplied.</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content"><strong>Prices remain higher.</strong> Profit rises, but consumer surplus falls.</div></div>
+    </div>
+    <div class="mistake-box">
+      <div class="mistake-label">Common mistake</div>
+      <p>Do not claim tacit collusion is always legal or always illegal. The safer exam point is that <strong>explicit cartels are easier to classify and prosecute</strong>, while tacit collusion is harder to detect and prove.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s7">
+    <div class="section-num">07</div>
+    <h2>Factors Favouring Collusion</h2>
+    <p>Cartels and tacit collusion do not always succeed. They are more likely to work when market conditions make monitoring and discipline easier.</p>
+    <table class="compare-table">
+      <tr>
+        <th>Factor</th>
+        <th>Why it helps collusion</th>
+      </tr>
+      <tr>
+        <td>Few firms</td>
+        <td>Easier to communicate, observe, and monitor each member.</td>
+      </tr>
+      <tr>
+        <td>Similar costs and products</td>
+        <td>Makes it easier to agree on price and quota arrangements.</td>
+      </tr>
+      <tr>
+        <td>Stable demand</td>
+        <td>Reduces uncertainty, so cheating is easier to detect.</td>
+      </tr>
+      <tr>
+        <td>High barriers to entry</td>
+        <td>Stops outside firms from being attracted by high prices.</td>
+      </tr>
+      <tr>
+        <td>Transparent prices</td>
+        <td>Allows firms to identify undercutting quickly.</td>
+      </tr>
+      <tr>
+        <td>Repeated interaction</td>
+        <td>Supports punishment strategies against defectors.</td>
+      </tr>
+    </table>
+    <p>By contrast, collusion is less likely to hold when firms are numerous, costs differ widely, demand is volatile, or entry is easy. In those conditions it is harder to distinguish cheating from normal market fluctuation, and harder to keep the agreement intact.</p>
+  </div>
+
+  <div class="section" id="s8">
+    <div class="section-num">08</div>
+    <h2>Oligopoly and the Consumer: Downsides and Possible Benefits</h2>
+    <p>The lecture does not present oligopoly as automatically good or automatically bad. The default criticism is that weak competition can mean higher prices, restricted output, less choice, and possible allocative inefficiency. If oligopolists collude, the market can move closer to monopoly behaviour and generate deadweight welfare loss.</p>
+    <h3>The downsides</h3>
+    <ul class="standard">
+      <li><strong>Higher prices:</strong> especially where collusion or coordinated behaviour exists.</li>
+      <li><strong>Lower output:</strong> firms restrict supply relative to a more competitive benchmark.</li>
+      <li><strong>Reduced consumer surplus:</strong> some surplus is transferred to producers and some is lost entirely.</li>
+      <li><strong>Potential X-inefficiency:</strong> weak competitive pressure may reduce cost discipline.</li>
+      <li><strong>Barriers to entry:</strong> consumers may face fewer alternatives over time.</li>
+    </ul>
+    <h3>Potential benefits</h3>
+    <ul class="standard">
+      <li><strong>Economies of scale:</strong> large firms may achieve lower unit costs.</li>
+      <li><strong>Research and development:</strong> large profits may fund innovation.</li>
+      <li><strong>Dynamic efficiency:</strong> firms with market power may invest heavily in new technology, design, or branding.</li>
+      <li><strong>Price stability:</strong> some oligopolies avoid constant price wars, which can reduce uncertainty.</li>
+    </ul>
+    <div class="eval-box">
+      <div class="eval-label">Balanced judgement</div>
+      <p>The strongest evaluation is conditional: <strong>oligopoly is harmful when market power is used to restrict competition, but it may deliver benefits when scale, innovation, and long-run investment outweigh static inefficiency</strong>.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s9">
+    <div class="section-num">09</div>
+    <h2>Exam Questions and Model Answers</h2>
+
+    <div class="exam-q">
+      <div class="exam-q-header">
+        <span>Section A Practice</span>
+        <span class="exam-q-marks">6 marks</span>
+      </div>
+      <div class="exam-q-body">
+        <p class="q">Explain why abnormal profit under monopolistic competition tends to disappear in the long run.</p>
+        <div class="answer-label">Model answer</div>
+        <p>In monopolistic competition, firms may earn abnormal profit in the short run because they face downward-sloping demand and choose output where MR = MC. However, barriers to entry are low. Abnormal profit attracts new firms into the market. Entry increases the number of close substitutes, so the demand curve facing each existing firm shifts left and becomes more elastic. As a result, price and sales fall for each firm. This process continues until only normal profit remains, where average revenue just covers average total cost.</p>
+      </div>
+    </div>
+
+    <div class="exam-q">
+      <div class="exam-q-header">
+        <span>Section B Practice</span>
+        <span class="exam-q-marks">10 marks</span>
+      </div>
+      <div class="exam-q-body">
+        <p class="q">Discuss whether oligopoly is likely to benefit or harm consumers.</p>
+        <div class="answer-label">Model answer structure</div>
+        <p>Begin by defining oligopoly as a market dominated by a few interdependent firms. Explain the consumer harm case first: firms may collude explicitly or tacitly, restrict output, and keep prices above competitive levels. This reduces consumer surplus and can create deadweight welfare loss.</p>
+        <p>Then add the counterargument. Large firms may exploit economies of scale, fund R&amp;D, and innovate more than fragmented competitive industries. Consumers may therefore benefit from lower long-run costs, better technology, and more stable supply.</p>
+        <p>Conclude conditionally: oligopoly harms consumers when market power is used anti-competitively, but can benefit them when scale and innovation are passed on through lower costs or better products.</p>
+      </div>
+    </div>
+
+    <div class="exam-q">
+      <div class="exam-q-header">
+        <span>MCQ Logic</span>
+        <span class="exam-q-marks">Fast recall</span>
+      </div>
+      <div class="exam-q-body">
+        <p class="q">As new firms enter a monopolistically competitive industry, what happens to the demand curve facing each existing firm?</p>
+        <div class="answer-label">Best answer</div>
+        <p>It shifts leftward and becomes more elastic, because each firm now faces more close substitutes and a smaller share of the market.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="s10">
+    <div class="section-num">10</div>
+    <h2>Evaluation and Common Mistakes</h2>
+    <div class="mistake-box">
+      <div class="mistake-label">Common mistake</div>
+      <p>Do not confuse <strong>monopolistic competition</strong> with <strong>oligopoly</strong>. The former has many firms and low entry barriers; the latter has few dominant firms and strategic interdependence.</p>
+      <p>Do not write “oligopoly means firms always collude.” They may collude, but they may also compete aggressively.</p>
+      <p>Do not say “abnormal profit continues forever” under monopolistic competition. That ignores the role of entry.</p>
+    </div>
+    <div class="eval-box">
+      <div class="eval-label">What pushes answers up a grade</div>
+      <p>Top answers move beyond description. They compare short-run and long-run outcomes, distinguish explicit from tacit collusion, and evaluate consumer effects using both <strong>static efficiency</strong> and <strong>dynamic efficiency</strong>.</p>
+      <p>If you are asked to assess collusion, always include the idea that collusion may be profitable collectively but unstable individually because firms have incentives to cheat.</p>
+    </div>
+    <div class="defn">
+      <div class="defn-label">One-line summary</div>
+      <p><strong>Monopolistic competition explains how entry erodes abnormal profit; oligopoly explains how interdependence and possible collusion shape profit, prices, and welfare.</strong></p>
+    </div>
+  </div>
+
+  <div class="footer">Lecture 8 notes · Business Economics · Built to match the module lecture-page format</div>
+</div>
+<script>
+(function(){
+  document.body.classList.add("page-transition-init");
+  window.addEventListener("load", function(){
+    requestAnimationFrame(function(){
+      document.body.classList.remove("page-transition-init");
+      document.body.classList.add("page-transition-ready");
+    });
+  });
+  document.addEventListener("click", function(event){
+    var link = event.target.closest("a[href]");
+    if (!link) return;
+    if (event.defaultPrevented || event.button !== 0) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (link.target && link.target !== "_self") return;
+    if (link.hasAttribute("download")) return;
+    var href = link.getAttribute("href");
+    if (!href || href.charAt(0) === "#") return;
+    if (/^(mailto:|tel:|javascript:)/i.test(href)) return;
+    var url = new URL(link.href, window.location.href);
+    if (url.origin !== window.location.origin) return;
+    if (url.pathname === window.location.pathname && url.search === window.location.search && url.hash) return;
+    event.preventDefault();
+    document.body.classList.remove("page-transition-ready");
+    document.body.classList.add("page-transition-leaving");
+    window.setTimeout(function(){ window.location.href = url.href; }, 180);
+  });
+})();
+</script>
+
+</body>
+</html>

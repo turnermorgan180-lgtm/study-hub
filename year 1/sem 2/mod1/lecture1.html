@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L1 Economics and the World of Business — Business Economics</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#faf8f4;
+  --bg2:#f2ede4;
+  --surface:#fff;
+  --border:#e8e0d0;
+  --border2:#d4c8b0;
+  --text:#1a1612;
+  --muted:#7a6e5e;
+  --accent:#2b5f87;
+  --accent-light:#e9f1f7;
+  --gold:#8a6a2a;
+  --gold-light:#f7f0e0;
+  --teal:#1a5c52;
+  --teal-light:#e8f4f1;
+  --red-light:#fdf2f0;
+  --red-border:#f0c4b8;
+  --red-text:#7a2015;
+  --red-label:#c0392b;
+  --ink:#2c2416
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7}
+.page{position:relative;max-width:860px;margin:0 auto;padding:0 2rem 6rem}
+.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;font-size:1rem;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s;z-index:10}
+.back-btn:hover{transform:translateY(-1px);background:var(--bg2)}
+.hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border2);margin-bottom:3rem;position:relative}
+.hero::before{content:'';position:absolute;top:0;left:-2rem;right:-2rem;bottom:0;background:linear-gradient(180deg,#e9f1f7 0%,transparent 100%);z-index:-1}
+.lecture-tag{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:8px;margin-bottom:1rem}
+.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent)}
+h1{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:700;line-height:1.1;color:var(--ink);margin-bottom:1rem;letter-spacing:-.02em}
+.hero-sub{font-size:16px;color:var(--muted);max-width:640px;line-height:1.6;margin-bottom:1.5rem}
+.meta-row{display:flex;gap:1.5rem;flex-wrap:wrap}
+.meta-chip{font-family:'DM Mono',monospace;font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}
+.chip-foundation{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}
+.chip-exam{background:var(--accent-light);color:var(--accent);border:1px solid #bfd3e2}
+.chip-business{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
+.alert-box{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin-bottom:2.5rem;font-size:13.5px;color:#183f5c}
+.alert-box strong{color:var(--accent)}
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem 2rem}
+.toc-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);grid-column:1/-1;margin-bottom:.5rem}
+.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:8px;padding:3px 0;transition:color .15s}
+.toc a:hover{color:var(--accent)}
+.toc a::before{content:attr(data-num);font-family:'DM Mono',monospace;font-size:10px;color:var(--border2);min-width:16px}
+.section{margin-bottom:3.5rem;animation:fadeUp .5s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.section-num{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
+h2{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:600;color:var(--ink);line-height:1.2;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--ink);margin-top:1.75rem;margin-bottom:.6rem;font-style:italic}
+p{margin-bottom:.9rem;color:var(--text)}
+ul{margin:.7rem 0 1rem 1.2rem}
+li{margin-bottom:.45rem}
+.defn{background:var(--gold-light);border:1px solid #dcc888;border-radius:3px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}
+.defn-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.defn p{color:var(--ink);margin-bottom:0;font-size:14.5px}
+.defn strong{color:var(--gold)}
+.key-terms{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1.25rem 0}
+.term{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:.7rem 1rem}
+.term-word{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:2px}
+.term-def{font-size:12.5px;color:var(--muted);line-height:1.4}
+.compare-table{width:100%;border-collapse:collapse;font-size:13.5px;margin:1.25rem 0;border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.compare-table th{background:var(--bg2);padding:.65rem 1rem;text-align:left;font-weight:500;font-size:12px;font-family:'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border2)}
+.compare-table td{padding:.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table td:first-child{font-weight:500;color:var(--ink);width:170px}
+.eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.eval-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:.6rem;display:flex;align-items:center;gap:6px}
+.eval-label::before{content:'⊕';font-size:12px}
+.eval-box p{color:#1a4a42;font-size:14px;margin-bottom:.5rem}
+.eval-box p:last-child{margin-bottom:0}
+.mistake-box{background:var(--red-light);border:1px solid var(--red-border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.mistake-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--red-label);margin-bottom:.6rem;display:flex;align-items:center;gap:6px}
+.mistake-label::before{content:'✕';font-size:11px}
+.mistake-box p{color:var(--red-text);font-size:14px;margin-bottom:.5rem}
+.mistake-box p:last-child{margin-bottom:0}
+.exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0}
+.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center}
+.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px;font-size:10px}
+.exam-q-body{padding:1.25rem 1.5rem}
+.exam-q-body .q{font-style:italic;color:var(--ink);margin-bottom:1rem;font-size:15px}
+.answer-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:.4rem}
+.exam-q-body p{font-size:14px;margin-bottom:.6rem}
+.steps{margin:1.25rem 0}
+.step{display:flex;gap:1rem;margin-bottom:.75rem;align-items:flex-start}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--border2);line-height:1.2;min-width:28px;flex-shrink:0}
+.step-content{font-size:14px;color:var(--text);padding-top:2px}
+.step-content strong{color:var(--ink)}
+.logic-box{background:var(--accent-light);border-left:4px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin:1rem 0;font-size:14px;color:#183f5c}
+.footer{text-align:center;font-family:'DM Mono',monospace;font-size:11px;color:var(--border2);letter-spacing:.08em;padding-top:2rem;border-top:1px solid var(--border)}
+@media (max-width:720px){
+  .page{padding:0 1.15rem 4rem}
+  .back-btn{left:1rem}
+  h1{font-size:2.4rem}
+  .toc,.key-terms{grid-template-columns:1fr}
+  .hero::before{left:-1.15rem;right:-1.15rem}
+}
+
+.page-transition-init{opacity:0;transform:translateY(8px)}
+.page-transition-ready{opacity:1;transform:none}
+.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
+body{transition:opacity .22s ease,transform .22s ease}
+@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}
+</style>
+</head>
+<body>
+<div class="page">
+  <a class="back-btn" href="index.html" aria-label="Back to Business Economics hub">←</a>
+
+  <section class="hero">
+    <div class="lecture-tag">Lecture 01</div>
+    <h1>Economics and the World of Business</h1>
+    <p class="hero-sub">Lecture 1 sets up the whole module: scarcity creates choice, choice creates opportunity cost, and firms operate inside both microeconomic markets and the wider macroeconomic environment. The exam gain is not just memorising definitions, but being able to explain how these foundations shape business decisions.</p>
+    <div class="meta-row">
+      <div class="meta-chip chip-foundation">core concepts</div>
+      <div class="meta-chip chip-exam">exam framing</div>
+      <div class="meta-chip chip-business">firm perspective</div>
+    </div>
+  </section>
+
+  <div class="alert-box">
+    <strong>Lecture focus:</strong> treat this page as the vocabulary and logic base for later topics. Scarcity, opportunity cost, marginal thinking, economic systems, and the circular flow all reappear throughout the module.
+  </div>
+
+  <nav class="toc" aria-label="Contents">
+    <div class="toc-title">Contents</div>
+    <a href="#s1" data-num="01">Scarcity and the economic problem</a>
+    <a href="#s2" data-num="02">Factors of production</a>
+    <a href="#s3" data-num="03">Opportunity cost and rational choice</a>
+    <a href="#s4" data-num="04">Microeconomics and macroeconomics</a>
+    <a href="#s5" data-num="05">Growth and alternative goals</a>
+    <a href="#s6" data-num="06">Economic systems</a>
+    <a href="#s7" data-num="07">The economic view of the firm</a>
+    <a href="#s8" data-num="08">Circular flow of income</a>
+    <a href="#s9" data-num="09">Data in practice</a>
+    <a href="#s10" data-num="10">Exam practice</a>
+  </nav>
+
+  <div class="section">
+    <div class="section-num">Key terms</div>
+    <h2>Core Vocabulary</h2>
+    <div class="key-terms">
+      <div class="term"><div class="term-word">Scarcity</div><div class="term-def">The excess of wants over what can actually be produced with available resources.</div></div>
+      <div class="term"><div class="term-word">Opportunity cost</div><div class="term-def">The value of the next best alternative forgone when a choice is made.</div></div>
+      <div class="term"><div class="term-word">Marginal analysis</div><div class="term-def">Decision-making based on the additional cost and additional benefit of one more unit.</div></div>
+      <div class="term"><div class="term-word">Microeconomics</div><div class="term-def">The study of individual markets, firms, prices, and consumer choices.</div></div>
+      <div class="term"><div class="term-word">Macroeconomics</div><div class="term-def">The study of the whole economy using aggregates such as growth, inflation, and unemployment.</div></div>
+      <div class="term"><div class="term-word">Mixed economy</div><div class="term-def">An economy combining market allocation with government provision and intervention.</div></div>
+      <div class="term"><div class="term-word">Factors of production</div><div class="term-def">Land, labour, capital, and enterprise: the inputs used to produce goods and services.</div></div>
+      <div class="term"><div class="term-word">Circular flow</div><div class="term-def">A model showing how income, spending, and resources move between households and firms.</div></div>
+    </div>
+  </div>
+
+  <section class="section" id="s1">
+    <div class="section-num">01</div>
+    <h2>Scarcity and the Economic Problem</h2>
+    <p>The lecture begins with the basic gap at the heart of economics: wants are effectively unlimited, but resources are limited. Individuals want more income, time, and consumption. Firms want expansion, market share, investment funds, and skilled labour. Governments want to improve services, infrastructure, security, and welfare. None of them can fully satisfy every objective at once.</p>
+    <div class="defn">
+      <div class="defn-label">Definition</div>
+      <p><strong>Economics</strong> studies how society manages scarce resources and chooses between competing uses for them.</p>
+    </div>
+    <p>Scarcity applies across the whole economy, but it looks slightly different for different decision-makers:</p>
+    <table class="compare-table">
+      <tr>
+        <th>Decision-maker</th>
+        <th>Main constraint</th>
+        <th>Typical choice problem</th>
+      </tr>
+      <tr>
+        <td>Individuals</td>
+        <td>Limited income and limited time</td>
+        <td>What to buy, what to postpone, and how to divide time between work and leisure</td>
+      </tr>
+      <tr>
+        <td>Firms</td>
+        <td>Limited capital, labour, technology, and market knowledge</td>
+        <td>Which product to launch, which market to enter, and how much to produce</td>
+      </tr>
+      <tr>
+        <td>Governments</td>
+        <td>Limited tax revenue and borrowing capacity</td>
+        <td>How to allocate spending between health, education, transport, defence, and welfare</td>
+      </tr>
+    </table>
+    <div class="eval-box">
+      <div class="eval-label">Exam insight</div>
+      <p>A strong definition of scarcity does not mean “there is not enough of everything.” It means resources are insufficient to satisfy all wants at zero sacrifice, so choices must be made.</p>
+    </div>
+  </section>
+
+  <section class="section" id="s2">
+    <div class="section-num">02</div>
+    <h2>Factors of Production</h2>
+    <p>To solve the scarcity problem, economies use resources to produce goods and services. The lecture classifies these resources into four factors of production. You should know both the labels and the business examples.</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Land:</strong> all natural resources and raw materials, such as oil, gas, minerals, and agricultural land.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Labour:</strong> human effort, both physical and mental. The lecture stresses that quality matters as much as quantity, which links to human capital.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Capital:</strong> man-made aids to production, including machinery, IT systems, buildings, and infrastructure.</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content"><strong>Enterprise:</strong> the coordinating and risk-bearing role that combines the other factors to produce for profit.</div></div>
+    </div>
+    <p>Enterprise matters because production does not organise itself. Entrepreneurs and business leaders spot opportunities, take risks, and decide how best to combine labour, capital, and natural resources. That is why enterprise is treated as a separate factor rather than simply another form of labour.</p>
+    <div class="mistake-box">
+      <div class="mistake-label">Common mistake</div>
+      <p>Students often confuse <strong>capital</strong> with money. In economics, capital means productive assets such as machines, buildings, and technology, not just finance sitting in a bank account.</p>
+    </div>
+  </section>
+
+  <section class="section" id="s3">
+    <div class="section-num">03</div>
+    <h2>Opportunity Cost and Rational Choice</h2>
+    <p>Because resources are scarce, every decision involves sacrifice. If a firm uses its budget to develop one product, it cannot use the same resources to enter another market at the same time. If a student spends an evening revising economics, that time cannot also be spent working or socialising.</p>
+    <div class="defn">
+      <div class="defn-label">Definition</div>
+      <p><strong>Opportunity cost</strong> is the value of the next best alternative given up when a choice is made.</p>
+    </div>
+    <p>The lecture also introduces the rational decision-making framework used throughout economics. Rationality does not mean being emotionless. It means comparing additional benefits with additional costs and choosing the option that improves net gain.</p>
+    <ul>
+      <li><strong>Marginal benefit:</strong> the extra satisfaction, revenue, or advantage from one more unit.</li>
+      <li><strong>Marginal cost:</strong> the extra sacrifice or expense from one more unit.</li>
+      <li><strong>Decision rule:</strong> continue an activity while marginal benefit is at least as great as marginal cost.</li>
+    </ul>
+    <div class="logic-box">
+      A consumer may compare ten extra minutes of sleep against the cost of a rushed morning. A firm compares the marginal revenue from one more unit of output with the marginal cost of labour and materials needed to produce it.
+    </div>
+    <div class="exam-q">
+      <div class="exam-q-header">
+        <span>Worked example</span>
+        <span class="exam-q-marks">2 marks</span>
+      </div>
+      <div class="exam-q-body">
+        <p class="q">If a firm can produce either 6 units of X or 12 units of Y per hour, what is the opportunity cost of 1 unit of X?</p>
+        <div class="answer-label">Answer method</div>
+        <p>Producing 6 units of X means giving up 12 units of Y. Divide both sides by 6. The opportunity cost of <strong>1 unit of X is 2 units of Y</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="s4">
+    <div class="section-num">04</div>
+    <h2>Microeconomics and Macroeconomics</h2>
+    <p>Lecture 1 separates economics into two branches. This distinction matters because business economics sits between them: firms make decisions in individual markets, but they do so inside a wider national and global economy.</p>
+    <table class="compare-table">
+      <tr>
+        <th>Branch</th>
+        <th>Main focus</th>
+        <th>Typical examples</th>
+      </tr>
+      <tr>
+        <td>Microeconomics</td>
+        <td>Individual parts of the economy</td>
+        <td>Demand and supply in a specific market, pricing decisions, cost structures, consumer behaviour, competition</td>
+      </tr>
+      <tr>
+        <td>Macroeconomics</td>
+        <td>The economy as a whole</td>
+        <td>GDP growth, inflation, unemployment, interest rates, trade balance, fiscal and monetary policy</td>
+      </tr>
+    </table>
+    <p>Micro asks why the price of a product changes or why one firm gains market share. Macro asks why national spending is rising, why inflation is persistent, or why unemployment has increased. Firms need both perspectives because profits depend on market-level strategy and economy-wide conditions.</p>
+    <div class="eval-box">
+      <div class="eval-label">Exam insight</div>
+      <p>If asked to classify an issue, look for the scale. A problem about one market or one firm is usually micro. A problem about national aggregates such as unemployment, interest rates, or overall growth is macro.</p>
+    </div>
+  </section>
+
+  <section class="section" id="s5">
+    <div class="section-num">05</div>
+    <h2>Growth and Alternative Goals</h2>
+    <p>The lecture contrasts traditional economics with a broader critique of growth. The traditional view treats GDP growth as the main sign of success. The logic is that if firms expand, profits rise, and output increases, then jobs, wages, and living standards should also improve.</p>
+    <p>That argument explains why many policy debates focus on deregulation, investment, productivity, and business expansion. However, the lecture also introduces a challenge to this view: growth alone does not guarantee social welfare or environmental sustainability.</p>
+    <div class="defn">
+      <div class="defn-label">Alternative lens</div>
+      <p>Kate Raworth's <strong>Doughnut</strong> framework argues that success should mean operating between a <strong>social foundation</strong> below which people should not fall and an <strong>environmental ceiling</strong> beyond which ecological damage becomes unsustainable.</p>
+    </div>
+    <table class="compare-table">
+      <tr>
+        <th>Approach</th>
+        <th>Central objective</th>
+        <th>Main limitation</th>
+      </tr>
+      <tr>
+        <td>Traditional growth model</td>
+        <td>Expand GDP, output, and consumption</td>
+        <td>Can ignore inequality, environmental damage, and non-market welfare</td>
+      </tr>
+      <tr>
+        <td>Doughnut approach</td>
+        <td>Meet human needs within ecological limits</td>
+        <td>Harder to measure with one simple indicator than GDP</td>
+      </tr>
+    </table>
+    <div class="mistake-box">
+      <div class="mistake-label">Common mistake</div>
+      <p>Do not state that the lecture rejects growth altogether. The stronger point is that GDP growth is an incomplete measure of success if it is detached from distributional and environmental consequences.</p>
+    </div>
+  </section>
+
+  <section class="section" id="s6">
+    <div class="section-num">06</div>
+    <h2>Economic Systems</h2>
+    <p>How resources are allocated depends partly on the type of economic system. The lecture distinguishes planned, market, and mixed economies. This is another foundational topic because later chapters on government intervention make more sense once you know what a pure market would do on its own.</p>
+    <table class="compare-table">
+      <tr>
+        <th>System</th>
+        <th>Who decides?</th>
+        <th>Main strength / weakness</th>
+      </tr>
+      <tr>
+        <td>Planned economy</td>
+        <td>Government determines output targets, prices, and resource allocation</td>
+        <td>Can direct resources to priorities, but may suffer from weak incentives and poor information</td>
+      </tr>
+      <tr>
+        <td>Market economy</td>
+        <td>Consumers and firms decide through demand, supply, and prices</td>
+        <td>Strong incentives and flexibility, but may create inequality and market failure</td>
+      </tr>
+      <tr>
+        <td>Mixed economy</td>
+        <td>Private markets dominate many sectors, while government provides key services and regulation</td>
+        <td>Attempts to combine efficiency with social protection and correction of market failure</td>
+      </tr>
+    </table>
+    <p>Most modern economies are mixed. Groceries, clothing, and electronics are usually allocated through markets, while healthcare, education, transport infrastructure, and regulation involve government more directly.</p>
+  </section>
+
+  <section class="section" id="s7">
+    <div class="section-num">07</div>
+    <h2>The Economic View of the Firm</h2>
+    <p>The lecture frames the firm as sitting between revenues and costs. Business economics therefore studies the forces that raise revenue, reduce cost, or change the balance between the two. That analysis draws on both microeconomics and macroeconomics.</p>
+    <div class="defn">
+      <div class="defn-label">Business economics</div>
+      <p>The objective is to understand how firms can improve their performance by responding to <strong>micro influences</strong> such as market demand and competition, and <strong>macro influences</strong> such as growth, inflation, and policy.</p>
+    </div>
+    <h3>Why government still matters</h3>
+    <p>The lecture briefly introduces the state's “carrot and stick” role. If business activity imposes wider costs, government may tax, regulate, or restrict it. If activity creates social benefits, government may subsidise or support it. These interventions change the firm's cost and revenue conditions.</p>
+    <ul>
+      <li><strong>Taxes:</strong> increase the cost of activities judged socially harmful, such as pollution.</li>
+      <li><strong>Subsidies and grants:</strong> lower the effective cost of activities judged socially desirable, such as greener production.</li>
+      <li><strong>Regulation:</strong> limits what firms may do even when the market would otherwise permit it.</li>
+    </ul>
+    <div class="eval-box">
+      <div class="eval-label">Link forward</div>
+      <p>This is the bridge into later lectures on market failure and intervention. Lecture 1 does not explore full welfare analysis, but it establishes why firms cannot be studied as isolated profit machines.</p>
+    </div>
+  </section>
+
+  <section class="section" id="s8">
+    <div class="section-num">08</div>
+    <h2>Circular Flow of Income</h2>
+    <p>The circular flow model shows the “twin” relationship between households and firms. In the goods market, households demand goods and services while firms supply them. In the factor market, firms demand labour and other inputs while households supply them. Money flows one way; real resources and outputs flow the other way.</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Households supply factors of production</strong> such as labour, land, and capital services.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Firms pay income</strong> in the form of wages, rent, interest, and profit-related returns.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Households spend income on goods and services</strong>, creating revenue for firms.</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content"><strong>Firms use that revenue to continue production</strong>, so income and output keep circulating.</div></div>
+    </div>
+    <p>If households spend more, firms receive more revenue and may raise output. Higher output then creates more income for households, which can increase spending again. This simple model helps explain why economists focus so heavily on flows rather than only on one-off transactions.</p>
+    <div class="logic-box">
+      In exam language: households are both <strong>consumers in the product market</strong> and <strong>suppliers in the factor market</strong>. Firms are both <strong>suppliers in the product market</strong> and <strong>demanders in the factor market</strong>.
+    </div>
+  </section>
+
+  <section class="section" id="s9">
+    <div class="section-num">09</div>
+    <h2>Data in Practice</h2>
+    <p>The final part of the lecture shifts from theory to evidence. Economics uses data to identify patterns, compare firms or countries, and judge whether conditions are improving or deteriorating. The deck distinguishes three common data structures.</p>
+    <table class="compare-table">
+      <tr>
+        <th>Type of data</th>
+        <th>Meaning</th>
+        <th>Example</th>
+      </tr>
+      <tr>
+        <td>Time series</td>
+        <td>The same variable measured over time</td>
+        <td>Share prices, inflation rates, or annual GDP from 2000 to 2024</td>
+      </tr>
+      <tr>
+        <td>Cross-sectional</td>
+        <td>Different subjects measured at one point in time</td>
+        <td>Profits of several supermarket firms in the same year</td>
+      </tr>
+      <tr>
+        <td>Panel data</td>
+        <td>The same set of subjects observed over multiple periods</td>
+        <td>Several firms' sales figures tracked each year for a decade</td>
+      </tr>
+    </table>
+    <p>The lecture's G20 example reinforces a business point: long-run economic expansion tends to support sales, profits, and employment, but growth also places pressure on energy use and natural resources. Businesses therefore face both an opportunity and a constraint. Expansion can raise demand, yet the environmental cost of that expansion may eventually reshape policy, consumer behaviour, and firm strategy.</p>
+  </section>
+
+  <section class="section" id="s10">
+    <div class="section-num">10</div>
+    <h2>Exam Practice</h2>
+    <div class="exam-q">
+      <div class="exam-q-header">
+        <span>Exam-style question</span>
+        <span class="exam-q-marks">6 marks</span>
+      </div>
+      <div class="exam-q-body">
+        <p class="q">Explain why scarcity means that all economic decision-makers face opportunity cost.</p>
+        <div class="answer-label">Answer structure</div>
+        <p>Start by defining scarcity as limited resources relative to unlimited wants. Then explain that because resources have alternative uses, choosing one option necessarily means giving up another. Apply this to at least two agents, such as households choosing between goods and firms choosing between investment projects. Finish by defining opportunity cost as the value of the next best alternative forgone.</p>
+      </div>
+    </div>
+
+    <div class="exam-q">
+      <div class="exam-q-header">
+        <span>Exam-style question</span>
+        <span class="exam-q-marks">8 marks</span>
+      </div>
+      <div class="exam-q-body">
+        <p class="q">Distinguish between microeconomics and macroeconomics, and explain why both matter to a firm.</p>
+        <div class="answer-label">Answer structure</div>
+        <p>Define microeconomics as the study of individual markets and macroeconomics as the study of the whole economy using aggregates. Then explain that firms make pricing, output, and competitive decisions in specific markets, but those decisions are affected by economy-wide variables such as inflation, interest rates, growth, and unemployment.</p>
+      </div>
+    </div>
+
+    <div class="eval-box">
+      <div class="eval-label">Revision priorities</div>
+      <p>Memorise the four factors of production, the meaning of opportunity cost, the micro/macro distinction, and the logic of the circular flow. Those are the highest-yield building blocks from this lecture.</p>
+    </div>
+  </section>
+
+  <footer class="footer">Business Economics • Lecture 1 • Economics and the World of Business</footer>
+</div>
+<script>
+(function(){
+  document.body.classList.add("page-transition-init");
+  window.addEventListener("load", function(){
+    requestAnimationFrame(function(){
+      document.body.classList.remove("page-transition-init");
+      document.body.classList.add("page-transition-ready");
+    });
+  });
+  document.addEventListener("click", function(event){
+    var link = event.target.closest("a[href]");
+    if (!link) return;
+    if (event.defaultPrevented || event.button !== 0) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (link.target && link.target !== "_self") return;
+    if (link.hasAttribute("download")) return;
+    var href = link.getAttribute("href");
+    if (!href || href.charAt(0) === "#") return;
+    if (/^(mailto:|tel:|javascript:)/i.test(href)) return;
+    var url = new URL(link.href, window.location.href);
+    if (url.origin !== window.location.origin) return;
+    if (url.pathname === window.location.pathname && url.search === window.location.search && url.hash) return;
+    event.preventDefault();
+    document.body.classList.remove("page-transition-ready");
+    document.body.classList.add("page-transition-leaving");
+    window.setTimeout(function(){ window.location.href = url.href; }, 180);
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L3 Business in a Market Environment — Business Economics</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#faf8f4;
+  --bg2:#f2ede4;
+  --surface:#fff;
+  --border:#e8e0d0;
+  --border2:#d4c8b0;
+  --text:#1a1612;
+  --muted:#7a6e5e;
+  --accent:#2c6a5d;
+  --accent-light:#e8f4f1;
+  --gold:#8a6a2a;
+  --gold-light:#f7f0e0;
+  --teal:#1a5c52;
+  --teal-light:#e8f4f1;
+  --red-light:#fdf2f0;
+  --red-border:#f0c4b8;
+  --red-text:#7a2015;
+  --red-label:#c0392b;
+  --ink:#2c2416
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7}
+.page{position:relative;max-width:860px;margin:0 auto;padding:0 2rem 6rem}
+.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;font-size:1rem;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s;z-index:10}
+.back-btn:hover{transform:translateY(-1px);background:var(--bg2)}
+.hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border2);margin-bottom:3rem;position:relative}
+.hero::before{content:'';position:absolute;top:0;left:-2rem;right:-2rem;bottom:0;background:linear-gradient(180deg,#ebf3ef 0%,transparent 100%);z-index:-1}
+.lecture-tag{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:8px;margin-bottom:1rem}
+.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent)}
+h1{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:700;line-height:1.1;color:var(--ink);margin-bottom:1rem;letter-spacing:-.02em}
+.hero-sub{font-size:16px;color:var(--muted);max-width:620px;line-height:1.6;margin-bottom:1.5rem}
+.meta-row{display:flex;gap:1.5rem;flex-wrap:wrap}
+.meta-chip{font-family:'DM Mono',monospace;font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}
+.chip-micro{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}
+.chip-exam{background:#eef5ea;color:#546f2b;border:1px solid #cedebf}
+.chip-marks{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
+.alert-box{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin-bottom:2.5rem;font-size:13.5px;color:#17453c}
+.alert-box strong{color:var(--accent)}
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem 2rem}
+.toc-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);grid-column:1/-1;margin-bottom:.5rem}
+.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:8px;padding:3px 0;transition:color .15s}
+.toc a:hover{color:var(--accent)}
+.toc a::before{content:attr(data-num);font-family:'DM Mono',monospace;font-size:10px;color:var(--border2);min-width:16px}
+.section{margin-bottom:3.5rem;animation:fadeUp .5s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.section-num{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
+h2{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:600;color:var(--ink);line-height:1.2;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--ink);margin-top:1.75rem;margin-bottom:.6rem;font-style:italic}
+p{margin-bottom:.9rem;color:var(--text)}
+.defn{background:var(--gold-light);border:1px solid #dcc888;border-radius:3px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}
+.defn-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.defn p{color:var(--ink);margin-bottom:0;font-size:14.5px}
+.defn strong{color:var(--gold)}
+.key-terms{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1.25rem 0}
+.term{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:.7rem 1rem}
+.term-word{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:2px}
+.term-def{font-size:12.5px;color:var(--muted);line-height:1.4}
+.compare-table{width:100%;border-collapse:collapse;font-size:13.5px;margin:1.25rem 0;border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.compare-table th{background:var(--bg2);padding:.65rem 1rem;text-align:left;font-weight:500;font-size:12px;font-family:'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border2)}
+.compare-table td{padding:.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table td:first-child{font-weight:500;color:var(--ink);width:170px}
+.eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.eval-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:.6rem;display:flex;align-items:center;gap:6px}
+.eval-label::before{content:'⊕';font-size:12px}
+.eval-box p{color:#1a4a42;font-size:14px;margin-bottom:.5rem}
+.eval-box p:last-child{margin-bottom:0}
+.mistake-box{background:var(--red-light);border:1px solid var(--red-border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.mistake-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--red-label);margin-bottom:.6rem;display:flex;align-items:center;gap:6px}
+.mistake-label::before{content:'✕';font-size:11px}
+.mistake-box p{color:var(--red-text);font-size:14px;margin-bottom:.5rem}
+.mistake-box p:last-child{margin-bottom:0}
+.exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0}
+.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center}
+.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px;font-size:10px}
+.exam-q-body{padding:1.25rem 1.5rem}
+.exam-q-body .q{font-style:italic;color:var(--ink);margin-bottom:1rem;font-size:15px}
+.answer-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:.4rem}
+.exam-q-body p{font-size:14px;margin-bottom:.6rem}
+.steps{margin:1.25rem 0}
+.step{display:flex;gap:1rem;margin-bottom:.75rem;align-items:flex-start}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--border2);line-height:1.2;min-width:28px;flex-shrink:0}
+.step-content{font-size:14px;color:var(--text);padding-top:2px}
+.step-content strong{color:var(--ink)}
+.diagram-box{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.diagram-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem}
+.diagram-box ul{padding-left:1.15rem}
+.diagram-box li{margin-bottom:.45rem}
+ul.standard{padding-left:1.2rem;margin:1rem 0 1.15rem}
+ul.standard li{margin-bottom:.45rem}
+.footer{text-align:center;font-family:'DM Mono',monospace;font-size:11px;color:var(--border2);letter-spacing:.08em;padding-top:2rem;border-top:1px solid var(--border)}
+@media(max-width:640px){h1{font-size:2.2rem}.toc{grid-template-columns:1fr}.key-terms{grid-template-columns:1fr}.page{padding:0 1.25rem 4rem}}
+
+.page-transition-init{opacity:0;transform:translateY(8px)}
+.page-transition-ready{opacity:1;transform:none}
+.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
+body{transition:opacity .22s ease,transform .22s ease}
+@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}
+</style>
+</head>
+<body>
+<div class="page">
+  <a class="back-btn" href="index.html" aria-label="Back to Business Economics hub">←</a>
+
+  <div class="hero">
+    <div class="lecture-tag">Lecture 3 · MAN00016C · University of York</div>
+    <h1>Business in a<br>Market Environment</h1>
+    <p class="hero-sub">Perfect competition, demand responsiveness, price elasticity, other elasticities, time-based market adjustment, product life-cycle pricing, speculation, uncertainty, and advertising as business tools in competitive markets.</p>
+    <div class="meta-row">
+      <span class="meta-chip chip-micro">Microeconomics</span>
+      <span class="meta-chip chip-exam">High exam relevance</span>
+      <span class="meta-chip chip-marks">Section A + B</span>
+    </div>
+  </div>
+
+  <div class="alert-box">
+    <strong>Past paper alert:</strong> Lecture 3 is a toolkit lecture. Questions may test <em>PED calculations</em>, <em>revenue effects of price changes</em>, <em>cross and income elasticity</em>, or the logic of <em>short run versus long run market adjustment</em>. The scoring pattern is usually definition or formula, direction of change, then business application.
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">Contents</div>
+    <a href="#s1" data-num="01">Competitive markets and price taking</a>
+    <a href="#s2" data-num="02">Price elasticity of demand</a>
+    <a href="#s3" data-num="03">Measuring elasticity and slope</a>
+    <a href="#s4" data-num="04">Determinants of PED</a>
+    <a href="#s5" data-num="05">PED and business decision making</a>
+    <a href="#s6" data-num="06">Other elasticities</a>
+    <a href="#s7" data-num="07">Time dimension of market adjustment</a>
+    <a href="#s8" data-num="08">Product life cycle and pricing</a>
+    <a href="#s9" data-num="09">Speculation, risk, uncertainty, advertising</a>
+    <a href="#s10" data-num="10">Exam questions and model answers</a>
+    <a href="#s11" data-num="11">Evaluation and common mistakes</a>
+  </div>
+
+  <div class="section">
+    <div class="section-num">Key Definitions</div>
+    <h2>Terms to Know Cold</h2>
+    <div class="key-terms">
+      <div class="term"><div class="term-word">Price taker</div><div class="term-def">A firm that must accept the market price because its own output is too small to influence price.</div></div>
+      <div class="term"><div class="term-word">Price elasticity of demand</div><div class="term-def">The responsiveness of quantity demanded to a change in price.</div></div>
+      <div class="term"><div class="term-word">Elastic demand</div><div class="term-def">Demand where quantity demanded changes by a greater percentage than price.</div></div>
+      <div class="term"><div class="term-word">Inelastic demand</div><div class="term-def">Demand where quantity demanded changes by a smaller percentage than price.</div></div>
+      <div class="term"><div class="term-word">Unit elastic demand</div><div class="term-def">Demand where quantity demanded changes by the same percentage as price, leaving total revenue unchanged.</div></div>
+      <div class="term"><div class="term-word">Cross elasticity of demand</div><div class="term-def">The responsiveness of demand for one good to a change in the price of another good.</div></div>
+      <div class="term"><div class="term-word">Income elasticity of demand</div><div class="term-def">The responsiveness of demand to a change in consumer income.</div></div>
+      <div class="term"><div class="term-word">Short run</div><div class="term-def">A period in which at least one factor of production is fixed and firms cannot fully adjust capacity.</div></div>
+      <div class="term"><div class="term-word">Long run</div><div class="term-def">A period in which firms can vary all inputs and entry or exit can occur.</div></div>
+      <div class="term"><div class="term-word">Speculation</div><div class="term-def">Buying or selling based on expectations about future prices rather than current use value alone.</div></div>
+    </div>
+  </div>
+
+  <div class="section" id="s1">
+    <div class="section-num">01</div>
+    <h2>Competitive Markets and Price Taking</h2>
+    <p>The lecture starts by grounding elasticity inside the logic of <strong>competitive markets</strong>. Under perfect competition, an individual firm is so small relative to the whole market that it cannot set price. The market price is determined by industry demand and industry supply, and each firm simply decides how much to sell at that price.</p>
+    <div class="defn">
+      <div class="defn-label">Core rule</div>
+      <p><strong>For a perfectly competitive firm, the demand curve facing the individual firm is horizontal at the market price.</strong> The firm is a <strong>price taker</strong>, not a price maker.</p>
+    </div>
+    <p>This matters for Lecture 3 because the <strong>market demand curve</strong> can still slope downward even when the <strong>firm-level demand curve</strong> is perfectly elastic. That contrast explains why responsiveness depends on the level of analysis:</p>
+    <table class="compare-table">
+      <tr>
+        <th>Curve</th>
+        <th>Shape</th>
+        <th>Reason</th>
+      </tr>
+      <tr>
+        <td>Market demand</td>
+        <td>Downward sloping</td>
+        <td>Consumers buy more when price falls and less when price rises.</td>
+      </tr>
+      <tr>
+        <td>Firm demand under perfect competition</td>
+        <td>Horizontal</td>
+        <td>At the market price the firm can sell what it wants, but a tiny price increase loses all customers.</td>
+      </tr>
+    </table>
+    <div class="eval-box">
+      <div class="eval-label">Exam insight</div>
+      <p>If asked why the individual firm’s demand curve is horizontal, do not say “because demand is elastic” and stop there. The proper reason is that the firm is one of many sellers of a homogeneous product and therefore has no market power.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s2">
+    <div class="section-num">02</div>
+    <h2>Price Elasticity of Demand</h2>
+    <p>Price elasticity of demand measures how strongly consumers respond to a price change. It is a <strong>percentage concept</strong>, so it compares proportional changes rather than absolute changes. That lets us compare responsiveness across different products and different starting prices.</p>
+    <div class="defn">
+      <div class="defn-label">Formula</div>
+      <p><strong>PED = % change in quantity demanded / % change in price</strong></p>
+    </div>
+    <p>Because price and quantity demanded usually move in opposite directions, PED is often negative. In exam writing, however, it is common to focus on the <strong>absolute value</strong> when classifying demand.</p>
+    <table class="compare-table">
+      <tr>
+        <th>Value of PED</th>
+        <th>Classification</th>
+        <th>Meaning</th>
+      </tr>
+      <tr>
+        <td>|PED| &gt; 1</td>
+        <td>Elastic</td>
+        <td>Quantity responds more than proportionately to price.</td>
+      </tr>
+      <tr>
+        <td>|PED| = 1</td>
+        <td>Unit elastic</td>
+        <td>Quantity responds in the same proportion as price.</td>
+      </tr>
+      <tr>
+        <td>|PED| &lt; 1</td>
+        <td>Inelastic</td>
+        <td>Quantity responds less than proportionately to price.</td>
+      </tr>
+      <tr>
+        <td>|PED| = 0</td>
+        <td>Perfectly inelastic</td>
+        <td>Quantity does not change when price changes.</td>
+      </tr>
+      <tr>
+        <td>|PED| = infinity</td>
+        <td>Perfectly elastic</td>
+        <td>Any tiny price rise causes quantity demanded to drop to zero.</td>
+      </tr>
+    </table>
+    <div class="mistake-box">
+      <div class="mistake-label">Common mistake</div>
+      <p>Do not confuse “steep demand curve” with “always inelastic” without qualification. Elasticity also depends on the location on the curve and whether you are dealing with a straight-line demand schedule or a special case like the perfectly competitive firm.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s3">
+    <div class="section-num">03</div>
+    <h2>Measuring Elasticity and Why It Is Not the Same as Slope</h2>
+    <p>The lecture explicitly distinguishes <strong>slope</strong> from <strong>elasticity</strong>. Slope measures the change in quantity per unit change in price in absolute terms. Elasticity measures proportional responsiveness. Two curves can have the same slope but different elasticities if they are observed at different price and quantity combinations.</p>
+    <h3>The arc method</h3>
+    <p>To avoid getting different answers depending on which point is treated as the starting value, Lecture 3 includes the <strong>arc elasticity</strong> approach, which uses the midpoint between the two observations.</p>
+    <div class="defn">
+      <div class="defn-label">Arc elasticity</div>
+      <p><strong>PED = (change in Q / average Q) / (change in P / average P)</strong></p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Find the change in quantity</strong> between the two observations.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Divide by the average quantity</strong> to get the percentage quantity change.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Find the change in price</strong> and divide by the average price.</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content"><strong>Divide the two percentages</strong> and classify the result as elastic, inelastic, or unit elastic.</div></div>
+    </div>
+    <div class="diagram-box">
+      <div class="diagram-label">Exam wording for the curve point issue</div>
+      <ul>
+        <li>On a straight-line demand curve, elasticity changes as you move down the curve.</li>
+        <li>Demand is more elastic at higher prices and lower quantities.</li>
+        <li>Demand is more inelastic at lower prices and higher quantities.</li>
+        <li>Midpoint or arc elasticity is used to avoid directional bias.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section" id="s4">
+    <div class="section-num">04</div>
+    <h2>The Determinants of Price Elasticity of Demand</h2>
+    <p>The lecture then shifts from definition to explanation: why are some products bought with high price sensitivity and others with low price sensitivity? The answer is not random. Several structural features shape how easily consumers can change behaviour.</p>
+    <table class="compare-table">
+      <tr>
+        <th>Determinant</th>
+        <th>If strong</th>
+        <th>Effect on PED</th>
+      </tr>
+      <tr>
+        <td>Availability of substitutes</td>
+        <td>Many close alternatives</td>
+        <td>Demand becomes more elastic.</td>
+      </tr>
+      <tr>
+        <td>Necessity versus luxury</td>
+        <td>Necessary good</td>
+        <td>Demand tends to be more inelastic.</td>
+      </tr>
+      <tr>
+        <td>Share of income</td>
+        <td>Large part of household budget</td>
+        <td>Demand tends to be more elastic.</td>
+      </tr>
+      <tr>
+        <td>Time period</td>
+        <td>Longer adjustment period</td>
+        <td>Demand becomes more elastic.</td>
+      </tr>
+      <tr>
+        <td>Habit or addiction</td>
+        <td>Strong dependence</td>
+        <td>Demand tends to be more inelastic in the short run.</td>
+      </tr>
+      <tr>
+        <td>Brand loyalty</td>
+        <td>Strong attachment</td>
+        <td>Demand may be less elastic.</td>
+      </tr>
+    </table>
+    <p>The PDF outline also points to question slides on products like holidays, which is typical exam logic: <strong>luxuries with many substitutes</strong> usually have high elasticity because consumers can delay purchase, switch destination, or choose a cheaper option.</p>
+    <div class="eval-box">
+      <div class="eval-label">Business link</div>
+      <p>Firms try to influence these determinants. Branding, product differentiation, loyalty schemes, and advertising are not just marketing decoration. They are attempts to make demand less price sensitive and therefore give the firm more pricing freedom.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s5">
+    <div class="section-num">05</div>
+    <h2>Price Elasticity of Demand and Business Decision Making</h2>
+    <p>This is the core applied part of the lecture. PED matters because firms do not change price for its own sake. They care about the effect on <strong>revenue</strong>, market share, and profit. Lecture 3 repeatedly links elasticity to pricing decisions.</p>
+    <div class="defn">
+      <div class="defn-label">Revenue rule</div>
+      <p><strong>If demand is elastic, a price cut raises total revenue and a price rise lowers total revenue. If demand is inelastic, a price rise raises total revenue and a price cut lowers total revenue. If demand is unit elastic, total revenue is unchanged.</strong></p>
+    </div>
+    <table class="compare-table">
+      <tr>
+        <th>Demand condition</th>
+        <th>Price rises</th>
+        <th>Price falls</th>
+      </tr>
+      <tr>
+        <td>Elastic</td>
+        <td>Total revenue falls</td>
+        <td>Total revenue rises</td>
+      </tr>
+      <tr>
+        <td>Inelastic</td>
+        <td>Total revenue rises</td>
+        <td>Total revenue falls</td>
+      </tr>
+      <tr>
+        <td>Unit elastic</td>
+        <td>Total revenue unchanged</td>
+        <td>Total revenue unchanged</td>
+      </tr>
+    </table>
+    <h3>Why firms care</h3>
+    <ul class="standard">
+      <li><strong>Pricing strategy:</strong> firms with inelastic demand have more scope to increase price without losing much sales volume.</li>
+      <li><strong>Promotions and discounts:</strong> where demand is elastic, temporary price cuts can drive a strong quantity response.</li>
+      <li><strong>Tax pass-through:</strong> the effect of indirect tax depends partly on how responsive consumers are.</li>
+      <li><strong>Forecasting:</strong> firms need elasticity estimates to predict the result of pricing changes before implementing them.</li>
+    </ul>
+    <div class="mistake-box">
+      <div class="mistake-label">Common mistake</div>
+      <p>Students often jump straight from PED to profit. The lecture’s cleaner logic is <strong>price change → quantity response → revenue effect</strong>. Profit also depends on costs, so do not treat revenue and profit as identical.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s6">
+    <div class="section-num">06</div>
+    <h2>Other Elasticities</h2>
+    <p>Lecture 3 expands beyond PED because businesses need more than one responsiveness measure. Cross elasticity and income elasticity are especially useful for predicting what happens when the wider market environment changes.</p>
+    <h3>Cross elasticity of demand</h3>
+    <div class="defn">
+      <div class="defn-label">Formula</div>
+      <p><strong>XED = % change in demand for good A / % change in price of good B</strong></p>
+    </div>
+    <ul class="standard">
+      <li><strong>Positive XED:</strong> the goods are substitutes, such as tea and coffee.</li>
+      <li><strong>Negative XED:</strong> the goods are complements, such as printers and ink cartridges.</li>
+      <li><strong>Near zero XED:</strong> the goods are unrelated.</li>
+    </ul>
+    <h3>Income elasticity of demand</h3>
+    <div class="defn">
+      <div class="defn-label">Formula</div>
+      <p><strong>YED = % change in demand / % change in income</strong></p>
+    </div>
+    <ul class="standard">
+      <li><strong>Positive YED:</strong> normal goods; demand rises as income rises.</li>
+      <li><strong>High positive YED:</strong> luxury goods; demand rises more than proportionately.</li>
+      <li><strong>Negative YED:</strong> inferior goods; demand falls as income rises.</li>
+    </ul>
+    <div class="eval-box">
+      <div class="eval-label">Applied use</div>
+      <p>Cross elasticity helps identify competitive threats and complementary product strategies. Income elasticity helps firms forecast which products are most exposed to recession, wage growth, or wider macroeconomic changes.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s7">
+    <div class="section-num">07</div>
+    <h2>The Time Dimension of Market Adjustment</h2>
+    <p>The PDF outline shows a substantial section on how markets adjust over time. This is important because the market response to a shock is rarely identical in the <strong>short run</strong> and the <strong>long run</strong>. Consumers need time to switch habits, and firms need time to expand or reduce capacity.</p>
+    <h3>Short run versus long run</h3>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>A shock occurs</strong>, such as a change in demand, cost conditions, or expectations.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Short-run response is limited</strong> because capacity, contracts, and habits are partly fixed.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Long-run response is larger</strong> because firms can enter or exit, consumers can fully substitute, and production plans can change.</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content"><strong>A new equilibrium emerges</strong> once adjustment is more complete.</div></div>
+    </div>
+    <p>That is why many goods are more price elastic in the long run than in the short run. Petrol demand, for example, may be fairly inelastic immediately because people still need to commute. Over time, though, households can buy different cars, move location, or use other transport.</p>
+    <div class="diagram-box">
+      <div class="diagram-label">Exam logic for housing or other asset markets</div>
+      <ul>
+        <li>Short-run supply is often inelastic because stock is fixed.</li>
+        <li>Long-run supply is more elastic because builders can respond.</li>
+        <li>Expectations about future prices can shift demand now, especially in speculative markets.</li>
+        <li>The same market can therefore show different price and quantity adjustment over time.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section" id="s8">
+    <div class="section-num">08</div>
+    <h2>The Product Life Cycle and Pricing</h2>
+    <p>Slides 59 to 64 in the PDF outline connect elasticity to the <strong>product life cycle</strong>. The key idea is that the right pricing strategy depends on the stage the product is in, because customer awareness, the number of substitutes, and competitive intensity all change over time.</p>
+    <table class="compare-table">
+      <tr>
+        <th>PLC stage</th>
+        <th>Typical demand conditions</th>
+        <th>Pricing implication</th>
+      </tr>
+      <tr>
+        <td>Introduction</td>
+        <td>Low awareness, few direct rivals, high uncertainty</td>
+        <td>Firm may use skimming if early buyers are less price sensitive, or penetration pricing if scale and market share matter more.</td>
+      </tr>
+      <tr>
+        <td>Growth</td>
+        <td>Demand rising, new rivals entering</td>
+        <td>Price may be adjusted to defend share while exploiting expanding demand.</td>
+      </tr>
+      <tr>
+        <td>Maturity</td>
+        <td>High competition, many substitutes</td>
+        <td>Demand often becomes more price sensitive; discounting and differentiation become more important.</td>
+      </tr>
+      <tr>
+        <td>Decline</td>
+        <td>Demand weakening, market contracting</td>
+        <td>Firms may cut price to clear stock, harvest profit from loyal buyers, or exit.</td>
+      </tr>
+    </table>
+    <div class="eval-box">
+      <div class="eval-label">Strategic point</div>
+      <p>The lecture’s deeper message is that elasticity is not fixed forever. The same product can face different responsiveness as it moves from novelty to mass adoption to commoditised maturity.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s9">
+    <div class="section-num">09</div>
+    <h2>Speculation, Risk, Uncertainty, and Advertising</h2>
+    <p>The final part of the lecture brings in forces that complicate the clean textbook model of supply and demand. Expectations about future prices, imperfect information, and deliberate persuasion can all alter how markets behave.</p>
+    <h3>Speculation and price expectations</h3>
+    <p>If people expect a future price rise, demand may increase now because buyers want to purchase before the rise occurs. In asset markets like housing, this can amplify current price increases. Likewise, if firms expect falling prices, they may delay buying or investment.</p>
+    <h3>Risk and uncertainty</h3>
+    <p>Risk means outcomes vary but probabilities can at least be estimated. Uncertainty means the future is harder to quantify. In business, uncertainty affects investment, inventory, pricing, and entry decisions. More uncertainty can make firms cautious, especially where sunk costs are high.</p>
+    <h3>The economic goals of advertising</h3>
+    <ul class="standard">
+      <li><strong>Increase demand</strong> by shifting the demand curve outward.</li>
+      <li><strong>Reduce price sensitivity</strong> by building loyalty and perceived differentiation.</li>
+      <li><strong>Provide information</strong> so consumers recognise product features or quality.</li>
+      <li><strong>Defend market share</strong> against rivals and substitutes.</li>
+    </ul>
+    <div class="mistake-box">
+      <div class="mistake-label">Common mistake</div>
+      <p>Do not write that advertising always raises welfare or always manipulates consumers. In economics it can do both helpful and distortive things: it can inform, differentiate, create artificial loyalty, or reduce search costs depending on context.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s10">
+    <div class="section-num">10</div>
+    <h2>Exam Questions and Model Answers</h2>
+    <div class="exam-q">
+      <div class="exam-q-header">
+        <span>Section A style</span>
+        <span class="exam-q-marks">2 marks</span>
+      </div>
+      <div class="exam-q-body">
+        <p class="q">If the price of a product rises by 10% and quantity demanded falls by 20%, the PED is:</p>
+        <p>A. 0.5</p>
+        <p>B. 1</p>
+        <p>C. 2</p>
+        <p>D. -2</p>
+        <div class="answer-label">Answer</div>
+        <p><strong>D. -2</strong></p>
+        <p>PED = -20% / 10% = -2. In absolute value demand is elastic because the quantity response is more than proportional.</p>
+      </div>
+    </div>
+    <div class="exam-q">
+      <div class="exam-q-header">
+        <span>Section A style</span>
+        <span class="exam-q-marks">2 marks</span>
+      </div>
+      <div class="exam-q-body">
+        <p class="q">If demand is inelastic, a rise in price will usually:</p>
+        <p>A. reduce total revenue</p>
+        <p>B. increase total revenue</p>
+        <p>C. leave total revenue unchanged</p>
+        <p>D. make demand elastic</p>
+        <div class="answer-label">Answer</div>
+        <p><strong>B. increase total revenue</strong></p>
+        <p>When demand is inelastic, quantity falls by less than the price rises, so price multiplied by quantity increases.</p>
+      </div>
+    </div>
+    <div class="exam-q">
+      <div class="exam-q-header">
+        <span>Section A style</span>
+        <span class="exam-q-marks">2 marks</span>
+      </div>
+      <div class="exam-q-body">
+        <p class="q">A positive cross elasticity of demand between two goods suggests that they are:</p>
+        <p>A. inferior goods</p>
+        <p>B. complements</p>
+        <p>C. substitutes</p>
+        <p>D. unrelated goods</p>
+        <div class="answer-label">Answer</div>
+        <p><strong>C. substitutes</strong></p>
+        <p>If the price of one rises and demand for the other rises too, consumers are switching between them.</p>
+      </div>
+    </div>
+    <div class="exam-q">
+      <div class="exam-q-header">
+        <span>Section B style</span>
+        <span class="exam-q-marks">8 marks</span>
+      </div>
+      <div class="exam-q-body">
+        <p class="q">Explain why the individual firm under perfect competition faces a perfectly elastic demand curve.</p>
+        <div class="answer-label">Model answer</div>
+        <p>Under perfect competition there are many firms selling an identical product, and each firm produces only a tiny share of total market output. Because of this, the individual firm has no influence over the market price. The market price is set by overall industry demand and supply.</p>
+        <p>If the firm charges the market price, consumers are willing to buy from it because its product is identical to that of rivals. If it tries to charge even slightly more, buyers switch immediately to other sellers offering the same product at the lower market price. Therefore the firm can sell any quantity at the market price, but none at a higher price.</p>
+        <p>This means the demand curve facing the individual firm is horizontal. It is perfectly elastic at the market price because the firm is a price taker with no market power.</p>
+      </div>
+    </div>
+    <div class="exam-q">
+      <div class="exam-q-header">
+        <span>Section B style</span>
+        <span class="exam-q-marks">10 marks</span>
+      </div>
+      <div class="exam-q-body">
+        <p class="q">Explain how knowledge of price elasticity of demand helps a business make pricing decisions.</p>
+        <div class="answer-label">Model answer</div>
+        <p>Price elasticity of demand tells the firm how strongly quantity demanded is likely to respond when price changes. That matters because a business usually wants to predict how a proposed price change will affect sales revenue and market performance.</p>
+        <p>If demand is elastic, consumers are highly responsive to price. In that case a price rise causes a more than proportionate fall in quantity demanded, so total revenue falls. A price cut, by contrast, increases total revenue because the gain in volume outweighs the lower price per unit. If demand is inelastic, the opposite logic applies: a price rise increases total revenue because quantity falls only slightly.</p>
+        <p>Firms therefore use PED estimates when setting prices, planning promotions, deciding whether to discount, and judging how aggressively they can pass higher costs on to consumers. The usefulness is practical rather than purely theoretical: elasticity helps managers forecast likely outcomes before committing to a pricing strategy.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="s11">
+    <div class="section-num">11</div>
+    <h2>Evaluation and Common Mistakes</h2>
+    <div class="eval-box">
+      <div class="eval-label">Evaluation points to use</div>
+      <p><strong>Elasticity changes over time:</strong> short-run and long-run responsiveness can differ sharply.</p>
+      <p><strong>Elasticity is estimate, not certainty:</strong> businesses work with survey data, past behaviour, and assumptions, so pricing decisions still involve risk.</p>
+      <p><strong>Revenue is not profit:</strong> an increase in total revenue may still reduce profit if costs rise faster.</p>
+      <p><strong>Advertising can shift elasticity:</strong> firms are not passive recipients of demand conditions; they try to shape them.</p>
+      <p><strong>Expectations matter:</strong> speculative buying can make current demand depend on future beliefs, not just current income and price.</p>
+    </div>
+    <div class="mistake-box">
+      <div class="mistake-label">Top mistakes</div>
+      <p><strong>1.</strong> Forgetting that PED uses percentages, not absolute changes.</p>
+      <p><strong>2.</strong> Treating slope and elasticity as identical concepts.</p>
+      <p><strong>3.</strong> Saying a price rise always raises revenue or always lowers revenue without classifying elasticity first.</p>
+      <p><strong>4.</strong> Mixing up substitutes and complements in cross elasticity questions.</p>
+      <p><strong>5.</strong> Ignoring time when discussing market adjustment or responsiveness.</p>
+    </div>
+    <div class="defn">
+      <div class="defn-label">One-line memory aid</div>
+      <p><strong>Lecture 3 logic:</strong> classify the market, measure responsiveness, apply it to revenue and strategy, then evaluate how time, expectations, and information change the result.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    L3 · Business in a Market Environment · MAN00016C Business Economics · University of York · Revision Guide
+  </div>
+</div>
+<script>
+(function(){
+  document.body.classList.add("page-transition-init");
+  window.addEventListener("load", function(){
+    requestAnimationFrame(function(){
+      document.body.classList.remove("page-transition-init");
+      document.body.classList.add("page-transition-ready");
+    });
+  });
+  document.addEventListener("click", function(event){
+    var link = event.target.closest("a[href]");
+    if (!link) return;
+    if (event.defaultPrevented || event.button !== 0) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (link.target && link.target !== "_self") return;
+    if (link.hasAttribute("download")) return;
+    var href = link.getAttribute("href");
+    if (!href || href.charAt(0) === "#") return;
+    if (/^(mailto:|tel:|javascript:)/i.test(href)) return;
+    var url = new URL(link.href, window.location.href);
+    if (url.origin !== window.location.origin) return;
+    if (url.pathname === window.location.pathname && url.search === window.location.search && url.hash) return;
+    event.preventDefault();
+    document.body.classList.remove("page-transition-ready");
+    document.body.classList.add("page-transition-leaving");
+    window.setTimeout(function(){ window.location.href = url.href; }, 180);
+  });
+})();
+</script>
+
+</body>
+</html>

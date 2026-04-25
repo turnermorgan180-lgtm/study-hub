@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L7 Perfect Competition and Monopoly — Business Economics</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#faf8f4;
+  --bg2:#f2ede4;
+  --surface:#fff;
+  --border:#e8d0b8;
+  --border2:#d4c8b0;
+  --text:#1a1612;
+  --muted:#7a6e5e;
+  --accent:#1a4a7a;
+  --accent-light:#e8f0f8;
+  --gold:#8a6a2a;
+  --gold-light:#f7f0e0;
+  --teal:#1a5c52;
+  --teal-light:#e8f4f1;
+  --red-light:#fdf2f0;
+  --red-border:#f0c4b8;
+  --red-text:#7a2015;
+  --red-label:#c0392b;
+  --ink:#2c2416
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7}
+.page{position:relative;max-width:860px;margin:0 auto;padding:0 2rem 6rem}
+.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;font-size:1rem;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s;z-index:10}
+.back-btn:hover{transform:translateY(-1px);background:var(--bg2)}
+.hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border2);margin-bottom:3rem;position:relative}
+.hero::before{content:'';position:absolute;top:0;left:-2rem;right:-2rem;bottom:0;background:linear-gradient(180deg,#eaf0f7 0%,transparent 100%);z-index:-1}
+.lecture-tag{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:8px;margin-bottom:1rem}
+.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent)}
+h1{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:700;line-height:1.1;color:var(--ink);margin-bottom:1rem;letter-spacing:-.02em}
+.hero-sub{font-size:16px;color:var(--muted);max-width:620px;line-height:1.6;margin-bottom:1.5rem}
+.meta-row{display:flex;gap:1.5rem;flex-wrap:wrap}
+.meta-chip{font-family:'DM Mono',monospace;font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}
+.chip-micro{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}
+.chip-exam{background:var(--accent-light);color:var(--accent);border:1px solid #b8d0e8}
+.chip-marks{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
+.alert-box{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin-bottom:2.5rem;font-size:13.5px;color:#0f2e52}
+.alert-box strong{color:var(--accent)}
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem 2rem}
+.toc-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);grid-column:1/-1;margin-bottom:.5rem}
+.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:8px;padding:3px 0;transition:color .15s}
+.toc a:hover{color:var(--accent)}
+.toc a::before{content:attr(data-num);font-family:'DM Mono',monospace;font-size:10px;color:var(--border2);min-width:16px}
+.section{margin-bottom:3.5rem;animation:fadeUp .5s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.section-num{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
+h2{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:600;color:var(--ink);line-height:1.2;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--ink);margin-top:1.75rem;margin-bottom:.6rem;font-style:italic}
+p{margin-bottom:.9rem;color:var(--text)}
+ul.standard{padding-left:1.2rem;margin:1rem 0 1.15rem}
+ul.standard li{margin-bottom:.45rem}
+.defn{background:var(--gold-light);border:1px solid #dcc888;border-radius:3px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}
+.defn-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.defn p{color:var(--ink);margin-bottom:0;font-size:14.5px}
+.defn strong{color:var(--gold)}
+.key-terms{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1.25rem 0}
+.term{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:.7rem 1rem}
+.term-word{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:2px}
+.term-def{font-size:12.5px;color:var(--muted);line-height:1.4}
+.compare-table{width:100%;border-collapse:collapse;font-size:13.5px;margin:1.25rem 0;border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.compare-table th{background:var(--bg2);padding:.65rem 1rem;text-align:left;font-weight:500;font-size:12px;font-family:'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border2)}
+.compare-table td{padding:.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table td:first-child{font-weight:500;color:var(--ink);width:160px}
+.eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.eval-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:.6rem;display:flex;align-items:center;gap:6px}
+.eval-label::before{content:'⊕';font-size:12px}
+.eval-box p{color:#1a4a42;font-size:14px;margin-bottom:.5rem}
+.eval-box p:last-child{margin-bottom:0}
+.mistake-box{background:var(--red-light);border:1px solid var(--red-border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.mistake-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--red-label);margin-bottom:.6rem;display:flex;align-items:center;gap:6px}
+.mistake-label::before{content:'✕';font-size:11px}
+.mistake-box p{color:var(--red-text);font-size:14px;margin-bottom:.5rem}
+.mistake-box p:last-child{margin-bottom:0}
+.exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0}
+.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center}
+.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px;font-size:10px}
+.exam-q-body{padding:1.25rem 1.5rem}
+.exam-q-body .q{font-style:italic;color:var(--ink);margin-bottom:1rem;font-size:15px}
+.answer-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:.4rem}
+.exam-q-body p{font-size:14px;margin-bottom:.6rem}
+.steps{margin:1.25rem 0}
+.step{display:flex;gap:1rem;margin-bottom:.75rem;align-items:flex-start}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--border2);line-height:1.2;min-width:28px;flex-shrink:0}
+.step-content{font-size:14px;color:var(--text);padding-top:2px}
+.step-content strong{color:var(--ink)}
+.diagram-box{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.diagram-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem}
+.diagram-box ul{padding-left:1.15rem}
+.diagram-box li{margin-bottom:.45rem}
+.logic-box{background:var(--accent-light);border-left:4px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin:1rem 0;font-size:14px;color:#0f2e52}
+.footer{text-align:center;font-family:'DM Mono',monospace;font-size:11px;color:var(--border2);letter-spacing:.08em;padding-top:2rem;border-top:1px solid var(--border)}
+@media(max-width:640px){h1{font-size:2.2rem}.toc{grid-template-columns:1fr}.key-terms{grid-template-columns:1fr}.page{padding:0 1.25rem 4rem}}
+
+.page-transition-init{opacity:0;transform:translateY(8px)}
+.page-transition-ready{opacity:1;transform:none}
+.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
+body{transition:opacity .22s ease,transform .22s ease}
+@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}
+</style>
+</head>
+<body>
+<div class="page">
+  <a class="back-btn" href="index.html" aria-label="Back to Business Economics hub">←</a>
+
+  <div class="hero">
+    <div class="lecture-tag">Lecture 7 · MAN00016C · University of York</div>
+    <h1>Perfect Competition<br>and Monopoly</h1>
+    <p class="hero-sub">Alternative market structures, price-taking versus price-making behaviour, short-run and long-run equilibrium, barriers to entry, and contestable markets — the core microeconomics needed for firm theory questions.</p>
+    <div class="meta-row">
+      <span class="meta-chip chip-micro">Microeconomics</span>
+      <span class="meta-chip chip-exam">High exam relevance</span>
+      <span class="meta-chip chip-marks">Section A + B</span>
+    </div>
+  </div>
+
+  <div class="alert-box">
+    <strong>Past paper alert:</strong> this lecture underpins questions on <em>profit maximisation</em>, <em>market power</em>, <em>barriers to entry</em>, and <em>efficiency</em>. The exam usually rewards a tight chain of reasoning: <strong>market structure → demand conditions → pricing power → equilibrium output → profit and efficiency implications</strong>.
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">Contents</div>
+    <a href="#s1" data-num="01">Market structure overview</a>
+    <a href="#s2" data-num="02">Determinants of competition</a>
+    <a href="#s3" data-num="03">Perfect competition: assumptions</a>
+    <a href="#s4" data-num="04">Short-run perfect competition</a>
+    <a href="#s5" data-num="05">Long-run perfect competition</a>
+    <a href="#s6" data-num="06">Monopoly and monopoly power</a>
+    <a href="#s7" data-num="07">Barriers to entry</a>
+    <a href="#s8" data-num="08">Monopoly equilibrium</a>
+    <a href="#s9" data-num="09">Contestable markets</a>
+    <a href="#s10" data-num="10">Exam questions and model answers</a>
+    <a href="#s11" data-num="11">Evaluation and common mistakes</a>
+  </div>
+
+  <div class="section">
+    <div class="section-num">Key Definitions</div>
+    <h2>Terms to Know Cold</h2>
+    <div class="key-terms">
+      <div class="term"><div class="term-word">Market structure</div><div class="term-def">The competitive environment in which firms operate, shaped by the number of firms, entry conditions, and product characteristics.</div></div>
+      <div class="term"><div class="term-word">Price taker</div><div class="term-def">A firm with no control over market price; it accepts the price determined by the market.</div></div>
+      <div class="term"><div class="term-word">Price maker</div><div class="term-def">A firm with some control over price because it faces a downward-sloping demand curve.</div></div>
+      <div class="term"><div class="term-word">Perfect competition</div><div class="term-def">A theoretical market structure with many firms, free entry and exit, homogeneous products, and perfect knowledge.</div></div>
+      <div class="term"><div class="term-word">Monopoly</div><div class="term-def">A market with a single seller, usually protected by substantial barriers to entry.</div></div>
+      <div class="term"><div class="term-word">Marginal revenue (MR)</div><div class="term-def">The extra revenue gained from selling one more unit of output.</div></div>
+      <div class="term"><div class="term-word">Supernormal profit</div><div class="term-def">Profit above normal profit; earned when average revenue exceeds average cost at the chosen output.</div></div>
+      <div class="term"><div class="term-word">Normal profit</div><div class="term-def">The minimum profit required to keep a firm in its current industry in the long run.</div></div>
+      <div class="term"><div class="term-word">Barrier to entry</div><div class="term-def">Any obstacle that makes it difficult or costly for new firms to enter a market.</div></div>
+      <div class="term"><div class="term-word">Contestable market</div><div class="term-def">A market in which the threat of entry is strong enough to discipline incumbent firms, even if few firms currently operate.</div></div>
+    </div>
+  </div>
+
+  <div class="section" id="s1">
+    <div class="section-num">01</div>
+    <h2>Market Structure: The Spectrum from Competitive to Concentrated</h2>
+    <p>The lecture begins with a simple idea: firm behaviour is not random. It depends on the degree of competition in the market. If a firm faces many rivals and easy entry, it behaves very differently from a firm protected by strong barriers and weak substitutes.</p>
+    <p>The four structures presented are <strong>perfect competition</strong>, <strong>monopolistic competition</strong>, <strong>oligopoly</strong>, and <strong>monopoly</strong>. They run from most competitive to least competitive. The lecture’s emphasis is on the two endpoints because they make the underlying logic clearest.</p>
+    <table class="compare-table">
+      <tr>
+        <th>Structure</th>
+        <th>Firms</th>
+        <th>Entry</th>
+        <th>Product</th>
+        <th>Demand curve faced by firm</th>
+      </tr>
+      <tr>
+        <td>Perfect competition</td>
+        <td>Very many</td>
+        <td>Unrestricted</td>
+        <td>Homogeneous</td>
+        <td>Horizontal; firm is a price taker</td>
+      </tr>
+      <tr>
+        <td>Monopolistic competition</td>
+        <td>Many</td>
+        <td>Unrestricted</td>
+        <td>Differentiated</td>
+        <td>Downward sloping but relatively elastic</td>
+      </tr>
+      <tr>
+        <td>Oligopoly</td>
+        <td>Few</td>
+        <td>Restricted</td>
+        <td>Can be homogeneous or differentiated</td>
+        <td>Downward sloping; shape depends on rival reactions</td>
+      </tr>
+      <tr>
+        <td>Monopoly</td>
+        <td>One</td>
+        <td>Restricted or blocked</td>
+        <td>Unique</td>
+        <td>Downward sloping and relatively inelastic</td>
+      </tr>
+    </table>
+    <div class="eval-box">
+      <div class="eval-label">Exam insight</div>
+      <p>When comparing market structures, do not stop at listing features. The marks usually come from linking structure to <strong>pricing power</strong>, <strong>elasticity of demand</strong>, and <strong>profit conditions</strong>.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s2">
+    <div class="section-num">02</div>
+    <h2>What Determines the Degree of Competition?</h2>
+    <p>The lecture identifies four practical determinants of competition. These explain why some firms constantly innovate and promote, while others can remain dominant with far less pressure.</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Number of firms:</strong> more firms usually means more rivalry for customers and market share.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Freedom of entry and exit:</strong> if new firms can enter easily, incumbents cannot rely on protected profits for long.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Nature of the product:</strong> homogeneous products push competition toward price, while differentiation gives firms some market power.</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content"><strong>Shape of the demand curve:</strong> the more elastic the demand faced by the firm, the less control it has over price.</div></div>
+    </div>
+    <div class="defn">
+      <div class="defn-label">Core idea</div>
+      <p><strong>Competition is not just about the number of firms.</strong> It is also about how easy it is to enter, how close substitutes are, and how strongly buyers react to price changes.</p>
+    </div>
+    <p>This is why Tesco is not a monopoly even if it is large. It operates in an <strong>oligopolistic</strong> setting because other major supermarkets exist and consumer demand can shift across rivals.</p>
+  </div>
+
+  <div class="section" id="s3">
+    <div class="section-num">03</div>
+    <h2>Perfect Competition: The Theoretical Ideal</h2>
+    <p>Perfect competition is presented as a benchmark rather than a common real-world market. It helps economists understand what happens when no firm has any individual market power.</p>
+    <h3>The four core assumptions</h3>
+    <ul class="standard">
+      <li><strong>Price takers:</strong> each firm is so small relative to the market that it cannot influence price.</li>
+      <li><strong>Freedom of entry and exit:</strong> there are no barriers preventing firms entering in the long run.</li>
+      <li><strong>Homogeneous products:</strong> products are identical, so consumers are indifferent between sellers.</li>
+      <li><strong>Perfect knowledge:</strong> consumers and producers know prices, quality, and available techniques.</li>
+    </ul>
+    <div class="logic-box">
+      Under perfect competition, the individual firm faces a perfectly elastic demand curve at the market price. That gives the standard relationship <strong>P = AR = MR</strong>.
+    </div>
+    <p>The key implication is immediate. If one firm tries to charge above the market price, buyers switch instantly to identical rivals. If it charges below, it sacrifices revenue unnecessarily because it could have sold the same output at the market price.</p>
+  </div>
+
+  <div class="section" id="s4">
+    <div class="section-num">04</div>
+    <h2>Short-Run Equilibrium in Perfect Competition</h2>
+    <p>In the short run, the number of firms is fixed. Existing firms cannot be joined immediately by new rivals, so any supernormal profit can persist temporarily.</p>
+    <h3>Price determination</h3>
+    <p>The lecture separates the <strong>industry</strong> from the <strong>firm</strong>. The industry price is set by market demand and market supply. The individual firm then takes that price as given.</p>
+    <h3>Profit maximisation</h3>
+    <div class="defn">
+      <div class="defn-label">Rule</div>
+      <p><strong>The firm maximises profit where MR = MC.</strong> Under perfect competition, that means <strong>P = AR = MR = MC</strong> at the chosen output.</p>
+    </div>
+    <p>If average revenue lies above average cost at that output, the firm earns <strong>supernormal profit</strong>. The profit area is the usual rectangle: <strong>(AR - AC) × Q</strong>.</p>
+    <div class="diagram-box">
+      <div class="diagram-label">How to Describe the Short-Run Diagram</div>
+      <ul>
+        <li>Industry equilibrium gives the market price <strong>Pe</strong>.</li>
+        <li>The firm faces a horizontal AR = MR line at <strong>Pe</strong>.</li>
+        <li>The firm chooses output where <strong>MC cuts MR</strong>.</li>
+        <li>Read <strong>AC</strong> at that output to judge whether profit, loss, or normal profit is being made.</li>
+      </ul>
+    </div>
+    <div class="mistake-box">
+      <div class="mistake-label">Common mistake</div>
+      <p>Students often say firms in perfect competition produce where <strong>price equals average cost</strong>. That is only the long-run equilibrium condition. In the short run, the actual decision rule is still <strong>MR = MC</strong>.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s5">
+    <div class="section-num">05</div>
+    <h2>Long-Run Equilibrium in Perfect Competition</h2>
+    <p>The lecture then explains the classic adjustment process. Supernormal profits attract new firms. As entry occurs, industry supply shifts right, the market price falls, and incumbent firms lose their excess profit.</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Supernormal profit exists.</strong> Existing firms are earning more than normal return.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Entry occurs.</strong> New firms are attracted because barriers are absent.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Industry supply increases.</strong> The market supply curve shifts right.</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content"><strong>Price falls.</strong> Each firm’s AR = MR line shifts downward.</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-content"><strong>Only normal profit remains.</strong> Entry stops once there is no longer any incentive to join.</div></div>
+    </div>
+    <div class="defn">
+      <div class="defn-label">Long-run equilibrium condition</div>
+      <p><strong>LRAC = AC = MC = MR = AR</strong></p>
+    </div>
+    <p>This means the firm operates at the minimum point of long-run average cost, so productive efficiency is achieved. It is one reason perfect competition is often treated as a benchmark for efficiency.</p>
+    <div class="eval-box">
+      <div class="eval-label">Evaluation</div>
+      <p>Perfect competition is analytically useful, but many real markets do not meet its assumptions. Product differentiation, imperfect information, and barriers to entry mean the model works best as a benchmark, not as a literal description of most industries.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s6">
+    <div class="section-num">06</div>
+    <h2>Monopoly and the Meaning of Monopoly Power</h2>
+    <p>A monopoly is formally a market with one firm, but the lecture is careful here: whether a firm counts as a monopolist depends on how narrowly the market is defined. A train operator may be the only rail provider on one route but still faces competition from cars, coaches, or air travel.</p>
+    <p>That means monopoly is not just about counting firms. It is about the <strong>closeness of substitutes</strong> and the extent to which consumers can switch away.</p>
+    <div class="defn">
+      <div class="defn-label">Practical definition</div>
+      <p><strong>Monopoly power is strongest when substitutes are weak and barriers to entry are high.</strong> The firm then faces a relatively inelastic demand curve and gains real control over price.</p>
+    </div>
+    <p>Unlike the perfectly competitive firm, the monopolist faces the whole market demand curve. That curve is downward sloping, so selling more requires a lower price. As a result, <strong>MR lies below AR</strong>.</p>
+  </div>
+
+  <div class="section" id="s7">
+    <div class="section-num">07</div>
+    <h2>Barriers to Entry: Why Monopoly Can Survive</h2>
+    <p>Without entry barriers, high profit would attract rivals and the monopoly position would collapse. The lecture groups barriers into structural, strategic, and legal forms.</p>
+    <table class="compare-table">
+      <tr>
+        <th>Type</th>
+        <th>Barrier</th>
+        <th>Why it matters</th>
+      </tr>
+      <tr>
+        <td>Structural</td>
+        <td>Economies of scale</td>
+        <td>Large incumbent firms may have much lower average costs than entrants, creating natural monopoly conditions.</td>
+      </tr>
+      <tr>
+        <td>Structural</td>
+        <td>Economies of scope</td>
+        <td>Multi-product firms can spread costs across products and undercut specialists.</td>
+      </tr>
+      <tr>
+        <td>Structural</td>
+        <td>Brand loyalty / product differentiation</td>
+        <td>Consumers are reluctant to switch to unknown entrants.</td>
+      </tr>
+      <tr>
+        <td>Strategic</td>
+        <td>Lower incumbent costs</td>
+        <td>Established firms often have supplier links, experience, and cheaper finance.</td>
+      </tr>
+      <tr>
+        <td>Strategic</td>
+        <td>Control of inputs or outlets</td>
+        <td>Exclusive contracts or vertical integration can lock rivals out.</td>
+      </tr>
+      <tr>
+        <td>Legal</td>
+        <td>Patents, licences, tariffs</td>
+        <td>Law can directly protect the incumbent from competition.</td>
+      </tr>
+      <tr>
+        <td>Strategic</td>
+        <td>Threat of takeover</td>
+        <td>Potential entrants may stay out if they expect to be bought out or crushed quickly.</td>
+      </tr>
+    </table>
+    <p>The lecture’s multiple-choice example is useful: an <strong>upward-sloping long-run average cost curve</strong> would <em>not</em> normally be described as a barrier to entry. The others clearly can be.</p>
+  </div>
+
+  <div class="section" id="s8">
+    <div class="section-num">08</div>
+    <h2>Monopoly Equilibrium: Price-Making with Constraints</h2>
+    <p>The monopolist is a price maker, but not an all-powerful one. It cannot choose any price it likes because it is still constrained by the market demand curve. Raising price reduces quantity sold.</p>
+    <div class="defn">
+      <div class="defn-label">Rule</div>
+      <p><strong>The monopolist maximises profit where MR = MC, then uses the demand curve to read off the price.</strong></p>
+    </div>
+    <p>This is the standard contrast with perfect competition:</p>
+    <ul class="standard">
+      <li><strong>Perfect competition:</strong> price is given first, then output is chosen.</li>
+      <li><strong>Monopoly:</strong> output is chosen where MR = MC, then price is taken from AR / demand.</li>
+    </ul>
+    <div class="diagram-box">
+      <div class="diagram-label">Monopoly Diagram Logic</div>
+      <ul>
+        <li>AR = demand slopes downward.</li>
+        <li>MR lies below AR.</li>
+        <li>Set <strong>MR = MC</strong> to get equilibrium quantity.</li>
+        <li>Move vertically to the AR curve to find the profit-maximising price.</li>
+      </ul>
+    </div>
+    <p>Compared with perfect competition, monopoly usually means <strong>higher price</strong>, <strong>lower output</strong>, and weaker pressure to keep costs down. That is the starting point for standard welfare evaluation, even though those welfare diagrams are covered more explicitly elsewhere in the module.</p>
+  </div>
+
+  <div class="section" id="s9">
+    <div class="section-num">09</div>
+    <h2>Contestable Markets: When the Threat of Entry Matters</h2>
+    <p>The lecture does not stop at actual market concentration. It introduces contestable market theory, which argues that the <strong>threat</strong> of entry can discipline firms even when only one firm is currently operating.</p>
+    <p>The university catering example captures the intuition: a campus cafe may appear to be a monopoly, but if the university can easily replace it with another contractor, prices and service quality remain under pressure.</p>
+    <div class="defn">
+      <div class="defn-label">Perfect contestability</div>
+      <p><strong>A market is perfectly contestable when entry and exit costs are zero.</strong> In that case, firms must behave competitively or risk rapid entry by rivals.</p>
+    </div>
+    <p>This theory is particularly important for natural monopolies. Even if only one firm can efficiently operate at minimum efficient scale, that firm may still price cautiously if entry and exit are easy enough.</p>
+    <div class="eval-box">
+      <div class="eval-label">Evaluation</div>
+      <p>Contestability is a useful corrective to simple concentration measures, but the zero-cost entry and exit condition is very strong. In many real industries, sunk costs, legal barriers, and brand loyalty mean the threat of entry is weaker than the theory assumes.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s10">
+    <div class="section-num">10</div>
+    <h2>Exam Questions and Model Answers</h2>
+    <div class="exam-q">
+      <div class="exam-q-header">
+        <span>Exam Practice</span>
+        <span class="exam-q-marks">6 marks</span>
+      </div>
+      <div class="exam-q-body">
+        <p class="q">Explain why a perfectly competitive firm faces a horizontal demand curve.</p>
+        <div class="answer-label">Model answer</div>
+        <p>In perfect competition there are many firms selling an identical product, and each firm is very small relative to total market output. As a result, one firm cannot influence the market price. If it charges above the ruling price, consumers switch to identical rivals and the firm loses all sales. If it charges below the market price, it can sell its output but gives up revenue unnecessarily. Therefore the firm accepts the market price and faces a perfectly elastic, horizontal demand curve where price, average revenue, and marginal revenue are equal.</p>
+      </div>
+    </div>
+
+    <div class="exam-q">
+      <div class="exam-q-header">
+        <span>Exam Practice</span>
+        <span class="exam-q-marks">8 marks</span>
+      </div>
+      <div class="exam-q-body">
+        <p class="q">Explain how supernormal profits are eliminated in the long run under perfect competition.</p>
+        <div class="answer-label">Model answer</div>
+        <p>Supernormal profits attract new firms because entry is free in perfect competition. As new firms enter, industry supply shifts to the right, causing the market price to fall. Since each firm is a price taker, its average revenue falls with the market price. This process continues until price just equals average cost at the profit-maximising output, leaving firms with only normal profit. At that point there is no incentive for further entry, so long-run equilibrium is restored.</p>
+      </div>
+    </div>
+
+    <div class="exam-q">
+      <div class="exam-q-header">
+        <span>Exam Practice</span>
+        <span class="exam-q-marks">10 marks</span>
+      </div>
+      <div class="exam-q-body">
+        <p class="q">Assess whether a monopoly will always behave badly for consumers.</p>
+        <div class="answer-label">Model answer</div>
+        <p>A monopoly often charges a higher price and produces less output than a competitive industry because it faces a downward-sloping demand curve and maximises profit where MR = MC. High barriers to entry also weaken competitive pressure. However, monopoly does not automatically imply poor outcomes in every case. A natural monopoly may exploit major economies of scale, allowing one firm to supply the market at lower average cost than multiple firms. In addition, if the market is contestable, the threat of entry may force the monopolist to price more competitively. A balanced answer should therefore distinguish between monopoly structure and monopoly behaviour, and should evaluate how strong the barriers, substitutes, and regulatory constraints actually are.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="s11">
+    <div class="section-num">11</div>
+    <h2>Evaluation and Common Mistakes</h2>
+    <div class="mistake-box">
+      <div class="mistake-label">Common mistake</div>
+      <p>Writing that a monopoly can set any price it wants. It cannot. The demand curve still constrains the firm, and higher prices reduce quantity demanded.</p>
+      <p>Confusing the short run with the long run in perfect competition. Supernormal profit can exist in the short run but is competed away in the long run.</p>
+      <p>Defining monopoly only by “one firm” without discussing market definition and outside substitutes.</p>
+    </div>
+    <div class="eval-box">
+      <div class="eval-label">What strong answers do</div>
+      <p>Strong answers move beyond listing assumptions. They explain how assumptions shape the demand curve faced by the firm, how that changes the pricing rule, and how entry conditions determine whether profit persists.</p>
+      <p>Where evaluation is needed, the strongest route is usually to contrast <strong>theoretical models</strong> with <strong>real markets</strong>: perfect competition is a benchmark, monopoly power depends on market definition, and contestability depends on how easy entry really is.</p>
+    </div>
+  </div>
+
+  <div class="footer">Lecture 7 notes · Perfect competition, monopoly, and contestability</div>
+</div>
+<script>
+(function(){
+  document.body.classList.add("page-transition-init");
+  window.addEventListener("load", function(){
+    requestAnimationFrame(function(){
+      document.body.classList.remove("page-transition-init");
+      document.body.classList.add("page-transition-ready");
+    });
+  });
+  document.addEventListener("click", function(event){
+    var link = event.target.closest("a[href]");
+    if (!link) return;
+    if (event.defaultPrevented || event.button !== 0) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (link.target && link.target !== "_self") return;
+    if (link.hasAttribute("download")) return;
+    var href = link.getAttribute("href");
+    if (!href || href.charAt(0) === "#") return;
+    if (/^(mailto:|tel:|javascript:)/i.test(href)) return;
+    var url = new URL(link.href, window.location.href);
+    if (url.origin !== window.location.origin) return;
+    if (url.pathname === window.location.pathname && url.search === window.location.search && url.hash) return;
+    event.preventDefault();
+    document.body.classList.remove("page-transition-ready");
+    document.body.classList.add("page-transition-leaving");
+    window.setTimeout(function(){ window.location.href = url.href; }, 180);
+  });
+})();
+</script>
+
+</body>
+</html>

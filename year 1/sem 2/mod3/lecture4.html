@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lecture 4 Sampling, the Central Limit Theorem and Confidence Intervals — Quantitative Analysis in Business Studies</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf8f4;--bg2:#f2ede4;--surface:#fff;--border:#e8ddd0;--border2:#d4c8b0;--text:#1a1612;--muted:#7a6e5e;--accent:#245b74;--accent-light:#e8f1f4;--gold:#8a6a2a;--gold-light:#f7f0e0;--teal:#1a5c52;--teal-light:#e8f4f1;--red-light:#fdf2f0;--red-border:#f0c4b8;--red-text:#7a2015;--red-label:#c0392b;--ink:#2c2416}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;transition:opacity .22s ease,transform .22s ease}
+.page{position:relative;max-width:860px;margin:0 auto;padding:0 2rem 6rem}
+.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;font-size:1rem;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s;z-index:10}
+.back-btn:hover{transform:translateY(-1px);background:var(--bg2)}
+.hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border2);margin-bottom:3rem;position:relative}
+.hero::before{content:'';position:absolute;top:0;left:-2rem;right:-2rem;bottom:0;background:linear-gradient(180deg,#e5eff2 0%,transparent 100%);z-index:-1}
+.lecture-tag,.meta-chip,.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label,.exam-q-header,.footer,.resource-path,.steps-label{font-family:'DM Mono',monospace}
+.lecture-tag{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;gap:8px;margin-bottom:1rem}
+.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent);margin-top:.6rem}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;color:var(--ink)}
+h1{font-size:3.2rem;line-height:1.1;margin-bottom:1rem}
+h2{font-size:2rem;margin-bottom:.6rem;border-bottom:1px solid var(--border);padding-bottom:.25rem}
+h3{font-size:1.5rem;margin-bottom:.45rem;font-style:italic}
+.hero-sub{font-size:16px;color:var(--muted);max-width:700px;margin-bottom:1.5rem}
+.meta-row{display:flex;gap:1rem;flex-wrap:wrap}
+.meta-chip{font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}
+.chip-topic{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}
+.chip-exam{background:var(--accent-light);color:var(--accent);border:1px solid #bfd3da}
+.chip-module{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
+.alert-box{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin-bottom:2rem;font-size:13.5px;color:#173f4f}
+.toc{background:var(--surface);border:1px solid var(--border);padding:1.5rem 1.75rem;margin-bottom:2rem;display:grid;grid-template-columns:1fr 1fr;gap:.45rem 2rem}
+.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label,.steps-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.toc-title{color:var(--muted);grid-column:1/-1}
+.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;gap:8px}
+.toc a::before{content:attr(data-num);color:var(--border2)}
+.section{margin-bottom:3rem}
+.section-num{color:var(--accent);margin-bottom:.35rem}
+p{margin-bottom:.9rem}
+.defn,.resource-list,.logic-box,.diagram-box,.steps,.compare-wrap{background:var(--surface);border:1px solid var(--border);border-radius:4px}
+.resource-list{padding:1rem 1.25rem;margin:1rem 0 1.25rem}
+.resource-list ul{margin:.2rem 0 0 1rem}
+.resource-path{font-size:11px;color:var(--muted)}
+.defn{background:var(--gold-light);border-color:#dcc888;padding:1rem 1.25rem;margin:1rem 0 1.25rem}
+.defn-label{color:var(--gold);margin-bottom:4px}
+.defn p{margin-bottom:0;font-size:14.5px}
+.logic-box,.diagram-box,.compare-wrap{padding:1rem 1.25rem;margin:1.25rem 0}
+.diagram-box{background:linear-gradient(180deg,#fcfaf6 0%,#f3efe7 100%)}
+.logic-step{padding:.75rem 0;border-top:1px dashed var(--border)}
+.logic-step:first-of-type{border-top:none;padding-top:.2rem}
+.steps{padding:1rem 1.25rem;margin:1.25rem 0}
+.step{display:grid;grid-template-columns:56px 1fr;gap:1rem;align-items:start;padding:.8rem 0;border-top:1px dashed var(--border)}
+.step:first-of-type{border-top:none;padding-top:.2rem}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:2rem;line-height:1;color:var(--accent)}
+.step p{margin:.2rem 0 0;color:var(--muted)}
+.compare-table{width:100%;border-collapse:collapse;font-size:14px}
+.compare-table th{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:left;padding:.75rem 0;border-bottom:1px solid var(--border2)}
+.compare-table td{padding:.8rem 0;border-top:1px solid var(--border)}
+.eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.mistake-box{background:var(--red-light);border:1px solid var(--red-border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.eval-label{color:var(--teal);margin-bottom:.6rem}
+.mistake-label{color:var(--red-label);margin-bottom:.6rem}
+.exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0}
+.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between}
+.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px}
+.exam-q-body{padding:1.25rem 1.5rem}
+.exam-q-body .q{font-style:italic;margin-bottom:1rem}
+.footer{text-align:center;font-size:11px;color:var(--border2);padding-top:1rem;border-top:1px solid var(--border)}
+.page-transition-init{opacity:0;transform:translateY(8px)}
+.page-transition-ready{opacity:1;transform:none}
+.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
+@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}
+@media (max-width:640px){h1{font-size:2.2rem}.toc{grid-template-columns:1fr}.step{grid-template-columns:44px 1fr}.page{padding:0 1.25rem 4rem}}
+</style>
+</head>
+<body>
+<div class="page">
+<a class="back-btn" href="index.html" aria-label="Back to Quantitative Analysis in Business Studies hub">←</a>
+<div class="hero">
+  <div class="lecture-tag">Lecture 4 · Quantitative Analysis in Business Studies · University of York</div>
+  <h1>Sampling, the Central Limit Theorem and Confidence Intervals</h1>
+  <p class="hero-sub">Population and sample logic, sampling design, standard error, the CLT, interval estimation, and sample-size planning.</p>
+  <div class="meta-row"><span class="meta-chip chip-topic">Quant methods</span><span class="meta-chip chip-exam">Refined revision guide</span><span class="meta-chip chip-module">MAN00035C</span></div>
+</div>
+<div class="alert-box"><strong>Lecture focus:</strong> this page is designed to work like the longer revision guides in the other modules. It combines method, interpretation, and visual reasoning so you can revise the concept as well as the calculation.</div>
+<div class="toc"><div class="toc-title">Contents</div><a href="#s1" data-num="01">Population, sample, and inference</a><a href="#s2" data-num="02">Sampling design and data quality</a><a href="#s3" data-num="03">The Central Limit Theorem</a><a href="#s4" data-num="04">Standard error and precision</a><a href="#s5" data-num="05">Confidence intervals for means and proportions</a><a href="#s6" data-num="06">Sample-size design</a></div>
+<div class="resource-list"><div class="defn-label">Tightening sources</div><ul><li><span class="resource-path">resources/Week 4 - Lecture Slides_v52.pdf</span></li><li><span class="resource-path">resources/Week 4 - Seminar Questions.docx</span></li><li><span class="resource-path">resources/Week 4 - Seminar Solutions.pdf</span></li></ul></div>
+<div class="defn"><div class="defn-label">Core quantitative rule</div><p>Confidence interval = estimate ± critical value x standard error. Standard error falls with sample size, so larger samples usually give more precise inference.</p></div>
+<div class="diagram-box"><div class="diagram-label">Inference Flow</div><div class="steps"><div class="step"><div class="step-num">1</div><div><strong>Take a sample.</strong><p>Quality starts with sampling design.</p></div></div><div class="step"><div class="step-num">2</div><div><strong>Estimate the statistic.</strong><p>Mean or proportion from the sample.</p></div></div><div class="step"><div class="step-num">3</div><div><strong>Compute standard error.</strong><p>This captures sampling uncertainty.</p></div></div><div class="step"><div class="step-num">4</div><div><strong>Build the interval.</strong><p>Estimate ± critical value x standard error.</p></div></div></div></div>
+<div class="section" id="s1"><div class="section-num">Part 01</div><h2>Population, sample, and inference</h2><p>Inferential statistics exists because decision-makers usually cannot observe the entire population. Instead they observe a sample and use it to estimate or test something about the wider population.</p><p>This creates an unavoidable uncertainty gap. Confidence intervals and statistical tests are the formal tools used to manage that uncertainty rather than ignore it.</p></div><div class="section" id="s2"><div class="section-num">Part 02</div><h2>Sampling design and data quality</h2><p>The quality of inference starts before any formula appears. Random sampling supports generalisation because every unit has a known and ideally equal chance of selection. Poorly designed surveys, convenience samples, and leading questions can bias the evidence before analysis begins.</p><p>A strong answer therefore treats sampling design as part of quantitative analysis, not just as background detail.</p></div><div class="section" id="s3"><div class="section-num">Part 03</div><h2>The Central Limit Theorem</h2><p>The Central Limit Theorem is one of the key bridges between raw data and inference. It says that for sufficiently large samples, the distribution of sample means is approximately normal even if the original population is not.</p><p>That matters because normality of the sampling distribution makes interval estimation and many test procedures feasible. The theorem is not saying the original data become normal. It is about the behaviour of sample means across repeated samples.</p></div><div class="section" id="s4"><div class="section-num">Part 04</div><h2>Standard error and precision</h2><p>The standard error measures how much a sample statistic would typically vary from sample to sample. It is smaller than the standard deviation because it reflects uncertainty in the estimate, not raw variation in the underlying observations.</p><p>The exam-relevant consequence is simple: larger samples reduce the standard error, which tightens intervals and strengthens precision.</p></div><div class="section" id="s5"><div class="section-num">Part 05</div><h2>Confidence intervals for means and proportions</h2><p>A confidence interval combines an estimate with a margin of error. The margin depends on the critical value and the standard error. Higher confidence increases the critical value and makes the interval wider. Larger samples decrease the standard error and make the interval narrower.</p><p>For means and proportions alike, a stronger answer states what the interval suggests about plausible population values rather than just quoting the two endpoints.</p></div><div class="section" id="s6"><div class="section-num">Part 06</div><h2>Sample-size design</h2><p>Sample-size formulas reverse the confidence-interval logic. Instead of starting with data and asking how precise the interval is, they start with the desired precision and confidence level and ask how much data are needed.</p><p>This is highly practical in business settings because it links research design to resource planning. The cost of collecting more observations is traded off against the gain in precision.</p></div>
+<div class="compare-wrap"><div class="diagram-label">High-value Comparison</div><table class="compare-table"><thead><tr><th>Change</th><th>Effect on Interval</th><th>Why</th></tr></thead><tbody><tr><td>Larger sample</td><td>Narrower</td><td>Standard error falls</td></tr><tr><td>Higher confidence</td><td>Wider</td><td>Critical value rises</td></tr><tr><td>More variability</td><td>Wider</td><td>Standard error rises</td></tr></tbody></table></div>
+<div class="eval-box"><div class="eval-label">Seminar angle</div><p>Week 4 is one of the most repeatedly useful weeks because confidence intervals, sample-size questions, and CLT interpretation all recur naturally in coursework and exam settings.</p></div>
+<div class="mistake-box"><div class="mistake-label">Common mistake</div><p>The most common error is to say a 95 percent confidence interval means there is a 95 percent chance the true value lies in that one interval. The correct interpretation is about the reliability of the method across repeated samples.</p></div>
+<div class="exam-q"><div class="exam-q-header"><span>Assessment-style prompt</span><span class="exam-q-marks">10 marks</span></div><div class="exam-q-body"><p class="q">Explain how confidence intervals and sample-size calculations are linked, and why a manager might want a larger sample before making a decision.</p><p>Do not stop at calculation. Show the correct method, explain the logic, and then state what the result means in a business or research context.</p></div></div>
+<div class="footer">Lecture 4 · Quantitative Analysis in Business Studies revision guide</div>
+</div>
+<script>(function(){document.body.classList.add('page-transition-init');window.addEventListener('load',function(){requestAnimationFrame(function(){document.body.classList.remove('page-transition-init');document.body.classList.add('page-transition-ready');});});document.addEventListener('click',function(event){var link=event.target.closest('a[href]');if(!link)return;if(event.defaultPrevented||event.button!==0)return;if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;if(link.target&&link.target!=='_self')return;if(link.hasAttribute('download'))return;var href=link.getAttribute('href');if(!href||href.charAt(0)==='#')return;if(/^(mailto:|tel:|javascript:)/i.test(href))return;var url=new URL(link.href,window.location.href);if(url.origin!==window.location.origin)return;if(url.pathname===window.location.pathname&&url.search===window.location.search&&url.hash)return;event.preventDefault();document.body.classList.remove('page-transition-ready');document.body.classList.add('page-transition-leaving');window.setTimeout(function(){window.location.href=url.href;},180);});})();</script>
+</body>
+</html>

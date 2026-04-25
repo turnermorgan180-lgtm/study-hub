@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L17 Business Activity, Unemployment and Inflation — Business Economics</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf8f4;--bg2:#f2ede4;--surface:#fff;--border:#e8ddd0;--border2:#d4c8b0;--text:#1a1612;--muted:#7a6e5e;--accent:#245b74;--accent-light:#e8f1f4;--gold:#8a6a2a;--gold-light:#f7f0e0;--teal:#1a5c52;--teal-light:#e8f4f1;--red-light:#fdf2f0;--red-border:#f0c4b8;--red-text:#7a2015;--red-label:#c0392b;--ink:#2c2416}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7}
+.page{position:relative;max-width:860px;margin:0 auto;padding:0 2rem 6rem}.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;font-size:1rem;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s;z-index:10}
+.back-btn:hover{transform:translateY(-1px);background:var(--bg2)}
+.hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border2);margin-bottom:3rem;position:relative}.hero::before{content:'';position:absolute;top:0;left:-2rem;right:-2rem;bottom:0;background:linear-gradient(180deg,#e5eff2 0%,transparent 100%);z-index:-1}
+.lecture-tag,.meta-chip,.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label,.exam-q-header,.footer{font-family:'DM Mono',monospace}.lecture-tag{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;gap:8px;margin-bottom:1rem}.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent);margin-top:.6rem}
+h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)} h1{font-size:3.2rem;line-height:1.1;margin-bottom:1rem} h2{font-size:1.9rem;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)} h3{font-size:1.25rem;margin-top:1.5rem;margin-bottom:.6rem;font-style:italic}
+.hero-sub{font-size:16px;color:var(--muted);max-width:660px;margin-bottom:1.5rem}.meta-row{display:flex;gap:1rem;flex-wrap:wrap}.meta-chip{font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}.chip-macro{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}.chip-exam{background:var(--accent-light);color:var(--accent);border:1px solid #bfd3da}.chip-marks{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
+.alert-box{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin-bottom:2.5rem}
+.toc{background:var(--surface);border:1px solid var(--border);padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem 2rem}.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase}.toc-title{color:var(--muted);grid-column:1/-1}.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;gap:8px}.toc a::before{content:attr(data-num);color:var(--border2)}
+.section{margin-bottom:3.5rem}.section-num{color:var(--accent);margin-bottom:.4rem} p{margin-bottom:.9rem} ul{padding-left:1.15rem;margin:1rem 0} li{margin-bottom:.45rem}
+.defn{background:var(--gold-light);border:1px solid #dcc888;border-radius:4px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}
+.key-terms{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1.25rem 0}.term{background:var(--surface);border:1px solid var(--border);padding:.7rem 1rem}.term-def{font-size:12.5px;color:var(--muted)}
+.compare-table{width:100%;border-collapse:collapse;font-size:13.5px;margin:1.25rem 0;border:1px solid var(--border)} .compare-table th{background:var(--bg2);padding:.65rem 1rem;text-align:left;font-weight:500;font-size:12px;font-family:'DM Mono',monospace;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border2)} .compare-table td{padding:.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top}
+.eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.mistake-box{background:var(--red-light);border:1px solid var(--red-border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.diagram-box{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.steps{margin:1.25rem 0}.step{display:flex;gap:1rem;margin-bottom:.75rem}.step-num{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--border2);min-width:28px}.step-content{font-size:14px}
+.exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0}.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between}.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px}.exam-q-body{padding:1.25rem 1.5rem}.exam-q-body .q{font-style:italic;margin-bottom:1rem}
+.footer{text-align:center;font-size:11px;color:var(--border2);padding-top:1rem;border-top:1px solid var(--border)}
+@media (max-width:640px){h1{font-size:2.2rem}.toc,.key-terms{grid-template-columns:1fr}.page{padding:0 1.25rem 4rem}}
+
+.page-transition-init{opacity:0;transform:translateY(8px)}
+.page-transition-ready{opacity:1;transform:none}
+.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
+body{transition:opacity .22s ease,transform .22s ease}
+@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}
+</style>
+</head>
+<body>
+<div class="page">
+<a class="back-btn" href="index.html" aria-label="Back to Business Economics hub">←</a>
+<div class="hero">
+  <div class="lecture-tag">Lecture 17 · MAN00016C · University of York</div>
+  <h1>Business Activity, Unemployment and Inflation</h1>
+  <p class="hero-sub">Business cycles, output gaps, unemployment types, inflation mechanisms, the AD/AS framework, and why macro instability matters for firms, households, and policy.</p>
+  <div class="meta-row">
+    <span class="meta-chip chip-macro">Macroeconomics</span>
+    <span class="meta-chip chip-exam">High exam relevance</span>
+    <span class="meta-chip chip-marks">Section A + B</span>
+  </div>
+</div>
+
+<div class="alert-box">
+  This topic is usually tested through the <strong>AD/AS model</strong>. The mark-winning answer names the shock, states which curve shifts, explains the new equilibrium for output and prices, and then links that to unemployment or inflation.
+</div>
+
+<div class="toc">
+  <div class="toc-title">Contents</div>
+  <a href="#s1" data-num="01">Business activity and cycles</a>
+  <a href="#s2" data-num="02">Unemployment types</a>
+  <a href="#s3" data-num="03">Inflation types</a>
+  <a href="#s4" data-num="04">Aggregate demand</a>
+  <a href="#s5" data-num="05">Aggregate supply</a>
+  <a href="#s6" data-num="06">Using AD/AS in exams</a>
+  <a href="#s7" data-num="07">Trade-offs and evaluation</a>
+  <a href="#s8" data-num="08">Exam question</a>
+</div>
+
+<div class="section">
+  <div class="section-num">Key Definitions</div>
+  <h2>Terms to Know Cold</h2>
+  <div class="key-terms">
+    <div class="term"><div class="term-word">Business cycle</div><div class="term-def">Fluctuations in real output around the long-run trend.</div></div>
+    <div class="term"><div class="term-word">Output gap</div><div class="term-def">The difference between actual output and potential output.</div></div>
+    <div class="term"><div class="term-word">Demand-pull inflation</div><div class="term-def">Inflation caused by excessive aggregate demand.</div></div>
+    <div class="term"><div class="term-word">Cost-push inflation</div><div class="term-def">Inflation caused by rising production costs or negative supply shocks.</div></div>
+    <div class="term"><div class="term-word">Cyclical unemployment</div><div class="term-def">Joblessness caused by weak aggregate demand over the cycle.</div></div>
+    <div class="term"><div class="term-word">Structural unemployment</div><div class="term-def">Mismatch between worker skills or location and available jobs.</div></div>
+  </div>
+</div>
+
+<div class="section" id="s1">
+  <div class="section-num">Part 01</div>
+  <h2>Business Activity Moves Through the Cycle</h2>
+  <p>Economic activity does not grow smoothly. Periods of expansion can be followed by slowdown or recession, then recovery. For firms this affects sales, confidence, inventory decisions, hiring, and investment. For macroeconomics it matters because unstable output creates unemployment when demand is weak and inflation pressure when demand is excessive.</p>
+  <div class="defn">
+    <div class="defn-label">Core rule</div>
+    <p><strong>When actual output falls below potential output, the economy has a negative output gap.</strong> That is usually associated with spare capacity and cyclical unemployment.</p>
+  </div>
+</div>
+
+<div class="section" id="s2">
+  <div class="section-num">Part 02</div>
+  <h2>Unemployment Is Not One Single Problem</h2>
+  <p>Economists separate unemployment into types because the policy response depends on the cause. Cyclical unemployment reflects insufficient aggregate demand. Structural unemployment reflects mismatch. Frictional unemployment arises while workers move between jobs. Seasonal unemployment reflects predictable annual patterns.</p>
+  <table class="compare-table">
+    <tr><th>Type</th><th>Main cause</th><th>Best policy angle</th></tr>
+    <tr><td>Cyclical</td><td>Low aggregate demand</td><td>Demand management</td></tr>
+    <tr><td>Structural</td><td>Skill or regional mismatch</td><td>Training and labour-market adjustment</td></tr>
+    <tr><td>Frictional</td><td>Search time</td><td>Information and matching improvements</td></tr>
+    <tr><td>Seasonal</td><td>Regular demand changes</td><td>Limited direct fix</td></tr>
+  </table>
+</div>
+
+<div class="section" id="s3">
+  <div class="section-num">Part 03</div>
+  <h2>Inflation Can Come From Demand or Supply</h2>
+  <p>Demand-pull inflation happens when aggregate demand grows faster than the economy's productive capacity. Cost-push inflation happens when costs rise, such as wages, imported energy, or taxes on production. Exam answers need to distinguish these because the AD/AS diagram shifts are different.</p>
+  <div class="mistake-box">
+    <div class="mistake-label">Common mistake</div>
+    <p>Do not describe all inflation as “too much money chasing too few goods.” That fits demand-pull inflation better than cost-push inflation.</p>
+  </div>
+</div>
+
+<div class="section" id="s4">
+  <div class="section-num">Part 04</div>
+  <h2>Aggregate Demand and Why It Shifts</h2>
+  <p>Aggregate demand is total planned spending on domestic output: consumption, investment, government spending, and net exports. It shifts when interest rates change, confidence changes, fiscal policy changes, or foreign demand changes.</p>
+  <ul>
+    <li>Lower interest rates tend to raise consumption and investment.</li>
+    <li>Higher confidence can increase private spending.</li>
+    <li>A depreciation can improve net exports.</li>
+    <li>Tighter fiscal policy can reduce aggregate demand.</li>
+  </ul>
+</div>
+
+<div class="section" id="s5">
+  <div class="section-num">Part 05</div>
+  <h2>Aggregate Supply and the Inflation Side of the Model</h2>
+  <p>Short-run aggregate supply can shift left if production costs rise or supply chains are disrupted. That reduces output and raises the price level at the same time. Long-run aggregate supply reflects productive capacity and can shift right with better productivity, investment, or labour-force growth.</p>
+  <div class="diagram-box">
+    <div class="diagram-label">In diagram terms</div>
+    <ul>
+      <li>A rightward shift in AD raises output and the price level in the short run.</li>
+      <li>A leftward shift in SRAS lowers output and raises the price level.</li>
+      <li>A rightward shift in LRAS raises potential output and reduces inflation pressure over time.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section" id="s6">
+  <div class="section-num">Part 06</div>
+  <h2>How to Use AD/AS in an Exam</h2>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Name the shock.</strong> For example, lower interest rates, higher oil prices, or a fiscal expansion.</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Shift the correct curve.</strong> AD, SRAS, or LRAS.</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content"><strong>State the new outcome.</strong> Explain output, employment, and the price level.</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-content"><strong>Evaluate.</strong> Bring in time lags, expectations, or conflicting policy objectives.</div></div>
+  </div>
+  <div class="eval-box">
+    <div class="eval-label">Exam insight</div>
+    <p>The stronger answer always links a fall in output to <strong>higher cyclical unemployment</strong>. Do not treat labour-market outcomes as an optional afterthought.</p>
+  </div>
+</div>
+
+<div class="section" id="s7">
+  <div class="section-num">Part 07</div>
+  <h2>Trade-Offs, Policy and Evaluation</h2>
+  <p>Stabilising the economy is difficult because policies that reduce inflation may weaken growth, while policies that lift demand may increase inflation pressure. Expectations matter as well: if firms and workers expect persistent inflation, wage and price setting can keep inflation going.</p>
+  <p>The best evaluation therefore recognises that there is no universal policy fix. Demand-side tools work best for cyclical weakness, while supply-side reforms matter more for structural unemployment and long-run inflation control.</p>
+</div>
+
+<div class="section" id="s8">
+  <div class="section-num">Part 08</div>
+  <h2>Exam Practice</h2>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Section B Style Prompt</span><span class="exam-q-marks">15 marks</span></div>
+    <div class="exam-q-body">
+      <p class="q">Using an AD/AS diagram, explain how an increase in oil prices could affect unemployment and inflation.</p>
+      <p>Classify the shock as cost-push inflation and shift SRAS left. Explain that the price level rises while output falls, which increases cyclical unemployment. Then evaluate by discussing temporary versus persistent shocks, wage responses, and possible policy trade-offs between inflation control and output stabilisation.</p>
+    </div>
+  </div>
+</div>
+
+<div class="footer">Lecture 17 notes · Business activity, unemployment and inflation</div>
+</div>
+<script>
+(function(){
+  document.body.classList.add("page-transition-init");
+  window.addEventListener("load", function(){
+    requestAnimationFrame(function(){
+      document.body.classList.remove("page-transition-init");
+      document.body.classList.add("page-transition-ready");
+    });
+  });
+  document.addEventListener("click", function(event){
+    var link = event.target.closest("a[href]");
+    if (!link) return;
+    if (event.defaultPrevented || event.button !== 0) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (link.target && link.target !== "_self") return;
+    if (link.hasAttribute("download")) return;
+    var href = link.getAttribute("href");
+    if (!href || href.charAt(0) === "#") return;
+    if (/^(mailto:|tel:|javascript:)/i.test(href)) return;
+    var url = new URL(link.href, window.location.href);
+    if (url.origin !== window.location.origin) return;
+    if (url.pathname === window.location.pathname && url.search === window.location.search && url.hash) return;
+    event.preventDefault();
+    document.body.classList.remove("page-transition-ready");
+    document.body.classList.add("page-transition-leaving");
+    window.setTimeout(function(){ window.location.href = url.href; }, 180);
+  });
+})();
+</script>
+
+</body>
+</html>

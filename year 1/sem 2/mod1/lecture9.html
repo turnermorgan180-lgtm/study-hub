@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L9 Game Theory — Business Economics</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf8f4;--bg2:#f2ede4;--surface:#fff;--border:#e8d0b8;--border2:#d4c8b0;--text:#1a1612;--muted:#7a6e5e;--accent:#1a4a7a;--accent-light:#e8f0f8;--gold:#8a6a2a;--gold-light:#f7f0e0;--teal:#1a5c52;--teal-light:#e8f4f1;--red-light:#fdf2f0;--red-border:#f0c4b8;--red-text:#7a2015;--red-label:#c0392b;--ink:#2c2416}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7}
+.page{position:relative;max-width:860px;margin:0 auto;padding:0 2rem 6rem}
+.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;font-size:1rem;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s;z-index:10}
+.back-btn:hover{transform:translateY(-1px);background:var(--bg2)}
+.hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border2);margin-bottom:3rem;position:relative}
+.hero::before{content:'';position:absolute;top:0;left:-2rem;right:-2rem;bottom:0;background:linear-gradient(180deg,#eaf0f7 0%,transparent 100%);z-index:-1}
+.lecture-tag{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:8px;margin-bottom:1rem}
+.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent)}
+h1{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:700;line-height:1.1;color:var(--ink);margin-bottom:1rem;letter-spacing:-.02em}
+.hero-sub{font-size:16px;color:var(--muted);max-width:560px;line-height:1.6;margin-bottom:1.5rem}
+.meta-row{display:flex;gap:1.5rem;flex-wrap:wrap}
+.meta-chip{font-family:'DM Mono',monospace;font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}
+.chip-micro{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}
+.chip-exam{background:var(--accent-light);color:var(--accent);border:1px solid #b8d0e8}
+.chip-marks{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
+.alert-box{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin-bottom:2.5rem;font-size:13.5px;color:#0f2e52}
+.alert-box strong{color:var(--accent)}
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem 2rem}
+.toc-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);grid-column:1/-1;margin-bottom:.5rem}
+.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:8px;padding:3px 0;transition:color .15s}
+.toc a:hover{color:var(--accent)}
+.toc a::before{content:attr(data-num);font-family:'DM Mono',monospace;font-size:10px;color:var(--border2);min-width:16px}
+.section{margin-bottom:3.5rem;animation:fadeUp .5s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.section-num{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
+h2{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:600;color:var(--ink);line-height:1.2;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--ink);margin-top:1.75rem;margin-bottom:.6rem;font-style:italic}
+p{margin-bottom:.9rem;color:var(--text)}
+.defn{background:var(--gold-light);border:1px solid #dcc888;border-radius:3px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}
+.defn-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.defn p{color:var(--ink);margin-bottom:0;font-size:14.5px}
+.defn strong{color:var(--gold)}
+.key-terms{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1.25rem 0}
+.term{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:.7rem 1rem}
+.term-word{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:2px}
+.term-def{font-size:12.5px;color:var(--muted);line-height:1.4}
+.matrix-wrap{margin:1.5rem 0;overflow-x:auto}
+.matrix-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem}
+.matrix{border-collapse:collapse;width:100%;max-width:540px;font-size:14px}
+.matrix th,.matrix td{border:1px solid var(--border2);padding:.65rem 1rem;text-align:center}
+.matrix th{background:var(--bg2);font-weight:500;font-size:13px;color:var(--ink)}
+.matrix .row-header{background:var(--bg2);font-weight:500;text-align:left;font-size:13px}
+.matrix .nash{background:#e8f4f1;font-weight:500;color:var(--teal)}
+.matrix .pareto{background:var(--gold-light);color:var(--gold);font-weight:500}
+.corner{background:var(--bg)!important;border:none!important}
+.compare-table{width:100%;border-collapse:collapse;font-size:13.5px;margin:1.25rem 0;border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.compare-table th{background:var(--bg2);padding:.65rem 1rem;text-align:left;font-weight:500;font-size:12px;font-family:'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border2)}
+.compare-table td{padding:.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table td:first-child{font-weight:500;color:var(--ink);width:140px}
+.eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.eval-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:.6rem;display:flex;align-items:center;gap:6px}
+.eval-label::before{content:'⊕';font-size:12px}
+.eval-box p{color:#1a4a42;font-size:14px;margin-bottom:.5rem}
+.eval-box p:last-child{margin-bottom:0}
+.mistake-box{background:var(--red-light);border:1px solid var(--red-border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.mistake-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--red-label);margin-bottom:.6rem;display:flex;align-items:center;gap:6px}
+.mistake-label::before{content:'✕';font-size:11px}
+.mistake-box p{color:var(--red-text);font-size:14px;margin-bottom:.5rem}
+.mistake-box p:last-child{margin-bottom:0}
+.exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0}
+.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center}
+.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px;font-size:10px}
+.exam-q-body{padding:1.25rem 1.5rem}
+.exam-q-body .q{font-style:italic;color:var(--ink);margin-bottom:1rem;font-size:15px}
+.answer-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:.4rem}
+.exam-q-body p{font-size:14px;margin-bottom:.6rem}
+.steps{margin:1.25rem 0}
+.step{display:flex;gap:1rem;margin-bottom:.75rem;align-items:flex-start}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--border2);line-height:1.2;min-width:28px;flex-shrink:0}
+.step-content{font-size:14px;color:var(--text);padding-top:2px}
+.step-content strong{color:var(--ink)}
+.game-tree{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.5rem;margin:1.5rem 0;overflow-x:auto}
+.game-tree svg{display:block;margin:0 auto}
+.divider{border:none;border-top:1px solid var(--border);margin:2.5rem 0}
+.footer{text-align:center;font-family:'DM Mono',monospace;font-size:11px;color:var(--border2);letter-spacing:.08em;padding-top:2rem;border-top:1px solid var(--border)}
+@media(max-width:640px){h1{font-size:2.2rem}.toc{grid-template-columns:1fr}.key-terms{grid-template-columns:1fr}.page{padding:0 1.25rem 4rem}}
+
+.page-transition-init{opacity:0;transform:translateY(8px)}
+.page-transition-ready{opacity:1;transform:none}
+.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
+body{transition:opacity .22s ease,transform .22s ease}
+@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}
+</style>
+</head>
+<body>
+<div class="page">
+  <a class="back-btn" href="index.html" aria-label="Back to Business Economics hub">←</a>
+
+<div class="hero">
+  <div class="lecture-tag">Lecture 9 · MAN00016C · University of York</div>
+  <h1>Game<br>Theory</h1>
+  <p class="hero-sub">Nash equilibrium, dominant strategies, the prisoner’s dilemma, sequential games, credible threats, and repeated games — with direct application to oligopoly behaviour.</p>
+  <div class="meta-row">
+    <span class="meta-chip chip-micro">Microeconomics</span>
+    <span class="meta-chip chip-exam">High exam relevance</span>
+    <span class="meta-chip chip-marks">Section A + B</span>
+  </div>
+</div>
+
+<div class="alert-box">
+  <strong>Past paper alert:</strong> Game theory appears in Section B of <em>both</em> past papers. The 2021–22 paper (Q31) asks you to find Nash equilibria in a payoff matrix (6 marks). The 2022–23 paper (Q27) is a full sequential game with game tree, Nash equilibrium, and credible threat analysis — worth 12 marks. This topic demands method, not just knowledge.
+</div>
+
+<div class="toc">
+  <div class="toc-title">Contents</div>
+  <a href="#s1" data-num="01">What is a game?</a>
+  <a href="#s2" data-num="02">Nash equilibrium</a>
+  <a href="#s3" data-num="03">Dominant strategies</a>
+  <a href="#s4" data-num="04">The prisoner’s dilemma</a>
+  <a href="#s5" data-num="05">Sequential games &amp; game trees</a>
+  <a href="#s6" data-num="06">First-mover advantage</a>
+  <a href="#s7" data-num="07">Credible threats &amp; promises</a>
+  <a href="#s8" data-num="08">Repeated games &amp; cooperation</a>
+  <a href="#s9" data-num="09">Exam questions &amp; model answers</a>
+  <a href="#s10" data-num="10">Evaluation &amp; common mistakes</a>
+</div>
+
+<div class="section">
+  <div class="section-num">Key Definitions</div>
+  <h2>Terms to Know Cold</h2>
+  <div class="key-terms">
+    <div class="term"><div class="term-word">Game</div><div class="term-def">An interaction between rational players where each player’s outcome depends on the decisions of all players, not just their own.</div></div>
+    <div class="term"><div class="term-word">Strategy</div><div class="term-def">A complete plan of action telling a player what to do at every possible decision point in the game.</div></div>
+    <div class="term"><div class="term-word">Payoff</div><div class="term-def">The benefit a player receives from a given outcome. For firms this is typically profit; for individuals it may be utility or income.</div></div>
+    <div class="term"><div class="term-word">Nash equilibrium</div><div class="term-def">A set of strategies where no player can improve their payoff by changing strategy unilaterally, given what all other players are doing.</div></div>
+    <div class="term"><div class="term-word">Dominant strategy</div><div class="term-def">A strategy that gives the highest payoff regardless of what any other player does. A rational player will always play it if one exists.</div></div>
+    <div class="term"><div class="term-word">Prisoner’s dilemma</div><div class="term-def">A game where individually rational choices lead to a collectively worse outcome. The Nash equilibrium is Pareto inferior to the cooperative outcome.</div></div>
+    <div class="term"><div class="term-word">Credible threat</div><div class="term-def">A threat the threatening player would actually carry out, because doing so is in their own interest when the time comes. Non-credible threats can be ignored.</div></div>
+    <div class="term"><div class="term-word">Grim trigger</div><div class="term-def">Cooperate initially; if the rival defects even once, punish forever. Creates the strongest possible deterrent against cheating in repeated games.</div></div>
+  </div>
+</div>
+
+<div class="section" id="s1">
+  <div class="section-num">Part 01</div>
+  <h2>What Is a Game?</h2>
+  <p>Game theory studies strategic interaction — situations where each player’s outcome depends not only on their own decision, but on everyone else’s. It is the primary tool for analysing oligopoly, where firms are few enough that each must think about how rivals will respond.</p>
+  <div class="defn">
+    <div class="defn-label">Core assumption</div>
+    <p>All players are assumed to be <strong>rational</strong> — they aim to maximise their own payoff, and they know that rivals do the same. This mutual awareness of rationality is what makes strategic thinking necessary.</p>
+  </div>
+  <p><strong>Players</strong> — who makes decisions (firms, individuals). <strong>Strategies</strong> — the complete set of actions available. <strong>Payoffs</strong> — the outcome received for every possible combination of strategies.</p>
+  <p>Games are classified by <strong>timing</strong>: simultaneous (players choose at the same time, without observing rivals) vs sequential (players move in turn, later players observe earlier decisions). And by <strong>repetition</strong>: one-shot vs repeated — which dramatically changes incentives.</p>
+</div>
+
+<div class="section" id="s2">
+  <div class="section-num">Part 02</div>
+  <h2>Nash Equilibrium</h2>
+  <div class="defn">
+    <div class="defn-label">Definition</div>
+    <p>A <strong>Nash equilibrium</strong> is a combination of strategies such that each player is choosing the best response to the other players’ strategies. No player has any incentive to deviate unilaterally.</p>
+  </div>
+  <p>The key word is <em>unilaterally</em>. Nash equilibrium does not mean both players are happy — it means neither can do better by switching alone. Players could both be better off switching simultaneously (a Pareto improvement), but no individual has the incentive to go first.</p>
+  <h3>How to find Nash equilibria — the method</h3>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Find Player 1’s best response</strong> to each of Player 2’s strategies. Mark the higher payoff in each column.</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Find Player 2’s best response</strong> to each of Player 1’s strategies. Mark the higher payoff in each row.</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Any cell where both players’ best responses coincide</strong> is a Nash equilibrium. There may be zero, one, or multiple Nash equilibria.</div></div>
+  </div>
+  <div class="eval-box">
+    <div class="eval-label">Economic intuition</div>
+    <p>Think of Nash equilibrium as a stable resting point. If both players are at their Nash strategies, neither has reason to move. Rational players will tend toward it through anticipating each other’s behaviour. Named after John Nash, who proved every finite game has at least one Nash equilibrium.</p>
+  </div>
+</div>
+
+<div class="section" id="s3">
+  <div class="section-num">Part 03</div>
+  <h2>Dominant Strategies</h2>
+  <div class="defn">
+    <div class="defn-label">Definition</div>
+    <p>A <strong>dominant strategy</strong> gives the highest payoff regardless of what any rival does. A rational player will always play their dominant strategy — it eliminates the need to predict the rival’s move.</p>
+  </div>
+  <h3>Example — pricing game (from your lecture)</h3>
+  <p>Firm X and Firm Y each choose between £2.00 or £1.80. Payoffs (£m):</p>
+  <div class="matrix-wrap">
+    <div class="matrix-label">Payoff matrix — (Firm X profit, Firm Y profit) in £m</div>
+    <table class="matrix">
+      <tr><th class="corner"></th><th>Firm Y: £2.00</th><th>Firm Y: £1.80</th></tr>
+      <tr><td class="row-header">Firm X: £2.00</td><td class="pareto">(10, 10) ← Pareto optimal</td><td>(6, 12)</td></tr>
+      <tr><td class="row-header">Firm X: £1.80</td><td>(12, 6)</td><td class="nash">(8, 8) ← Nash equilibrium</td></tr>
+    </table>
+  </div>
+  <p><strong>£1.80 is the dominant strategy for both firms.</strong> If Y charges £2.00: X prefers £1.80 (£12m > £10m). If Y charges £1.80: X prefers £1.80 (£8m > £6m). The logic is symmetric for Y. Both charge £1.80 → Nash equilibrium of (£8m, £8m). Yet both charging £2.00 yields (£10m, £10m) — better for both. This is the prisoner’s dilemma in a business context.</p>
+</div>
+
+<div class="section" id="s4">
+  <div class="section-num">Part 04</div>
+  <h2>The Prisoner’s Dilemma</h2>
+  <p>The prisoner’s dilemma is the most important result in game theory. Individually rational behaviour produces a collectively irrational outcome — with implications for oligopoly, environmental policy, arms races, and beyond.</p>
+  <h3>Nigel and Amanda (your lecture example)</h3>
+  <div class="matrix-wrap">
+    <div class="matrix-label">Prisoner’s dilemma — sentences in years (Nigel, Amanda)</div>
+    <table class="matrix">
+      <tr><th class="corner"></th><th>Amanda: Silent</th><th>Amanda: Confess</th></tr>
+      <tr><td class="row-header">Nigel: Silent</td><td class="pareto">(1yr, 1yr) ← Pareto optimal</td><td>(10yrs, 3mths)</td></tr>
+      <tr><td class="row-header">Nigel: Confess</td><td>(3mths, 10yrs)</td><td class="nash">(3yrs, 3yrs) ← Nash equilibrium</td></tr>
+    </table>
+  </div>
+  <p>Confessing is the dominant strategy for both. Each prisoner reasons: whatever the other does, I am better off confessing. Both confess → (3yrs, 3yrs). Yet both staying silent yields (1yr, 1yr) — better for both. Individually rational play is collectively self-defeating.</p>
+  <h3>Application to oligopoly</h3>
+  <p>Replace confess/silent with undercut/maintain price. Each firm has a dominant strategy to undercut. Both undercutting produces a low-price Nash equilibrium. Both maintaining a high price would be better for both — but each fears the rival will undercut while they hold firm. This is why oligopoly prices tend toward competitive levels even without antitrust enforcement.</p>
+  <div class="eval-box">
+    <div class="eval-label">Pareto optimality vs Nash equilibrium</div>
+    <p>The Pareto optimal outcome (both silent; both price high) is not a Nash equilibrium — it requires trust that individually rational players cannot sustain in a one-shot game. The Nash equilibrium (both confess; both undercut) is Pareto inferior. Both players could be better off, but neither will unilaterally cooperate. Always make this distinction explicit in exam answers.</p>
+  </div>
+</div>
+
+<div class="section" id="s5">
+  <div class="section-num">Part 05</div>
+  <h2>Sequential Games &amp; Game Trees</h2>
+  <div class="defn">
+    <div class="defn-label">Definition</div>
+    <p>A <strong>sequential game</strong> is one where players decide one after another, with later players able to observe earlier decisions. A <strong>game tree</strong> maps the sequence of choices and resulting payoffs. Solve using <strong>backward induction</strong> — start from the end and work backwards.</p>
+  </div>
+  <h3>How to read and solve a game tree</h3>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Decision nodes</strong> show where a player chooses. The first mover’s node is on the left. Branches represent available actions.</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Terminal nodes</strong> (end points) show payoffs as (first mover, second mover).</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Backward induction:</strong> at each second-mover node, identify which branch gives the second mover the higher payoff — this is what they will rationally choose.</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-content"><strong>The first mover</strong> anticipates the second mover’s rational response and picks the branch that maximises their own payoff given those anticipated responses.</div></div>
+  </div>
+  <h3>Boeing vs Airbus — your lecture example</h3>
+  <p>Boeing moves first, choosing 400-seater or 500-seater. Only one firm can profitably produce each type. If both choose the same: each loses £10m.</p>
+  <div class="game-tree">
+    <svg width="540" height="210" viewBox="0 0 540 210" font-family="DM Sans,sans-serif" font-size="13">
+      <circle cx="72" cy="105" r="20" fill="#e8f0f8" stroke="#1a4a7a" stroke-width="1.5"/>
+      <text x="72" y="109" text-anchor="middle" font-weight="500" fill="#1a4a7a" font-size="11">Boeing</text>
+      <line x1="92" y1="95" x2="210" y2="50" stroke="#d4c8b0" stroke-width="1.5"/>
+      <text x="145" y="60" text-anchor="middle" fill="#7a6e5e" font-size="11">400-seater</text>
+      <line x1="92" y1="115" x2="210" y2="160" stroke="#d4c8b0" stroke-width="1.5"/>
+      <text x="145" y="152" text-anchor="middle" fill="#7a6e5e" font-size="11">500-seater</text>
+      <circle cx="228" cy="50" r="20" fill="#e8f4f1" stroke="#1a5c52" stroke-width="1.5"/>
+      <text x="228" y="54" text-anchor="middle" font-weight="500" fill="#1a5c52" font-size="11">Airbus</text>
+      <circle cx="228" cy="160" r="20" fill="#e8f4f1" stroke="#1a5c52" stroke-width="1.5"/>
+      <text x="228" y="164" text-anchor="middle" font-weight="500" fill="#1a5c52" font-size="11">Airbus</text>
+      <line x1="248" y1="40" x2="345" y2="18" stroke="#d4c8b0" stroke-width="1.5"/>
+      <text x="292" y="18" text-anchor="middle" fill="#7a6e5e" font-size="11">400-seater</text>
+      <line x1="248" y1="58" x2="345" y2="84" stroke="#1a5c52" stroke-width="2" stroke-dasharray="0"/>
+      <text x="292" y="84" text-anchor="middle" fill="#1a5c52" font-size="11" font-weight="500">500-seater ✓</text>
+      <line x1="248" y1="150" x2="345" y2="126" stroke="#1a5c52" stroke-width="2"/>
+      <text x="292" y="122" text-anchor="middle" fill="#1a5c52" font-size="11" font-weight="500">400-seater ✓</text>
+      <line x1="248" y1="168" x2="345" y2="192" stroke="#d4c8b0" stroke-width="1.5"/>
+      <text x="292" y="194" text-anchor="middle" fill="#7a6e5e" font-size="11">500-seater</text>
+      <rect x="350" y="6" width="178" height="24" rx="3" fill="#fdf2f0" stroke="#f0c4b8"/>
+      <text x="439" y="22" text-anchor="middle" fill="#7a2015" font-size="12">(−£10m, −£10m)</text>
+      <rect x="350" y="72" width="178" height="24" rx="3" fill="#e8f4f1" stroke="#b8d8d3"/>
+      <text x="439" y="88" text-anchor="middle" fill="#1a5c52" font-size="12" font-weight="500">(£50m, £30m) ← Nash</text>
+      <rect x="350" y="114" width="178" height="24" rx="3" fill="#e8f4f1" stroke="#b8d8d3"/>
+      <text x="439" y="130" text-anchor="middle" fill="#1a5c52" font-size="12">(£30m, £50m)</text>
+      <rect x="350" y="180" width="178" height="24" rx="3" fill="#fdf2f0" stroke="#f0c4b8"/>
+      <text x="439" y="196" text-anchor="middle" fill="#7a2015" font-size="12">(−£10m, −£10m)</text>
+    </svg>
+  </div>
+  <p><strong>Backward induction:</strong> If Boeing plays 400-seater → Airbus picks 500-seater (£30m > −£10m). If Boeing plays 500-seater → Airbus picks 400-seater (£50m > −£10m). Boeing anticipates: 400-seater → earns £50m; 500-seater → earns £30m. Boeing picks <strong>400-seater</strong>. Nash equilibrium: (400-seater, 500-seater) with payoffs (£50m, £30m).</p>
+</div>
+
+<div class="section" id="s6">
+  <div class="section-num">Part 06</div>
+  <h2>First-Mover Advantage</h2>
+  <div class="defn">
+    <div class="defn-label">Definition</div>
+    <p><strong>First-mover advantage</strong> occurs when acting first in a sequential game secures a more favourable outcome. By committing early, the first mover shapes the choice set available to rivals and forces them into a less profitable best response.</p>
+  </div>
+  <p>In Boeing/Airbus, Boeing captures the more profitable 400-seater market (£50m) because it moves first. Airbus is forced to accept £30m. First-mover advantage depends on: speed of R&D, ability to build capacity quickly, securing key resources, and establishing brand loyalty before rivals arrive.</p>
+  <div class="eval-box">
+    <div class="eval-label">Evaluation — first vs second mover</div>
+    <p>Being first is not always advantageous. Sometimes a second-mover advantage exists — observing the rival’s move and responding optimally can be better, especially when technology is uncertain or the first mover must bear high development costs. Google was not the first search engine; Facebook was not the first social network. The second mover learned from the pioneer’s mistakes and executed better.</p>
+  </div>
+</div>
+
+<div class="section" id="s7">
+  <div class="section-num">Part 07</div>
+  <h2>Credible Threats &amp; Promises</h2>
+  <div class="defn">
+    <div class="defn-label">Definition</div>
+    <p>A <strong>credible threat</strong> is one the threatening player would actually carry out, because doing so is in their own interest. A <strong>non-credible threat</strong> would not be carried out — the threatened player can safely ignore it.</p>
+  </div>
+  <p><strong>The credibility test:</strong> look ahead in the game tree. At the node where the threat must be executed, would the threatening player actually benefit from following through? If yes → credible. If no → non-credible.</p>
+  <h3>New-Entrant vs Incumbent (2022–23 exam, Q27)</h3>
+  <p>Incumbent threatens to fight regardless of how New-Entrant enters. If New-Entrant enters aggressively: Incumbent earns £1m (acquiesce) vs £0.75m (fight) → she prefers to acquiesce. The threat is <strong>non-credible</strong> in this branch. New-Entrant, solving by backward induction, enters aggressively, earns £2m, and correctly ignores the threat.</p>
+  <table class="compare-table">
+    <tr><th>Type</th><th>Definition</th><th>Effect on rival</th><th>Example</th></tr>
+    <tr><td>Credible threat</td><td>Would actually be carried out — benefits the threatening player</td><td>Rival changes behaviour</td><td>Incumbent with excess capacity threatening to flood market</td></tr>
+    <tr><td>Non-credible threat</td><td>Would not be carried out — too costly to execute</td><td>Rational rival ignores it</td><td>Incumbent threatening to fight when fighting costs more than accommodating</td></tr>
+    <tr><td>Credible promise</td><td>Would be honoured — breaking it is more costly</td><td>Supports cooperation</td><td>Long-term supply contracts with financial penalty clauses</td></tr>
+  </table>
+  <div class="eval-box">
+    <div class="eval-label">Making threats credible — commitment devices</div>
+    <p>Firms can make otherwise non-credible threats credible through irreversible commitments. An incumbent that visibly invests in large excess capacity is credibly threatening to flood the market — the capacity already exists and its cost is sunk, so using it costs little. A price guarantee ("we match any lower price") publicly commits the firm to fighting price cuts, making that response credible without needing to be tested.</p>
+  </div>
+</div>
+
+<div class="section" id="s8">
+  <div class="section-num">Part 08</div>
+  <h2>Repeated Games &amp; Cooperation</h2>
+  <p>The prisoner’s dilemma assumes a one-shot game. When the game is repeated — as in real oligopolies where firms interact continuously — cooperation may become sustainable, because firms can reward cooperation and punish defection over time.</p>
+  <h3>The grim trigger strategy</h3>
+  <div class="defn">
+    <div class="defn-label">Definition</div>
+    <p><strong>Grim trigger:</strong> cooperate in every period as long as the rival cooperates. If the rival defects even once, switch to the Nash equilibrium (defect) <em>forever</em>. The permanent punishment creates the strongest possible deterrent.</p>
+  </div>
+  <p>It works because the prospect of losing cooperative profits permanently outweighs the one-period gain from defecting. It is most effective when: players are patient (value future profits highly), the game is expected to continue indefinitely, and defection is observable.</p>
+  <h3>Tit-for-tat</h3>
+  <p>A softer strategy: cooperate first, then do whatever the rival did last period. Tit-for-tat is nice (starts cooperative), retaliatory (punishes cheating immediately), forgiving (returns to cooperation if the rival does), and clear (the rival can easily understand and anticipate it).</p>
+  <h3>Finitely repeated games — unravelling</h3>
+  <p>If the game has a known, fixed end date, cooperation unravels. In the final round there is no future punishment, so both players defect. But anticipating this, both defect in the second-to-last round too. By backward induction, defection unravels to round one. Cooperation cannot be sustained in finitely repeated games — at least in theory.</p>
+  <h3>Application — tacit collusion in oligopoly</h3>
+  <p>Repeated game logic explains why oligopolies often maintain high prices without explicit illegal agreements. Each firm understands that cutting price today triggers retaliation, eliminating the short-run gain. The prospect of future price wars sustains tacit cooperation — called <em>tacit collusion</em>.</p>
+  <div class="eval-box">
+    <div class="eval-label">Evaluation — when does cooperation break down?</div>
+    <p>Cooperation is more fragile when: firms have high discount rates (prioritise short-run gains), markets are growing rapidly (temptation to grab share is high), there are many firms making monitoring difficult, demand is falling (less to lose from a price war), or there is a detectable end to the relationship.</p>
+    <p>The 2008 financial crisis illustrates this: firms facing existential pressure defected on tacit pricing agreements — cooperation is most fragile precisely when the stakes are highest.</p>
+  </div>
+</div>
+
+<div class="section" id="s9">
+  <div class="section-num">Part 09</div>
+  <h2>Exam Questions &amp; Model Answers</h2>
+
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Section B — 2021–22 paper, Q31</span><span class="exam-q-marks">6 marks</span></div>
+    <div class="exam-q-body">
+      <p class="q">Find all (pure) Nash equilibria in the payoff matrix: Red/Blue vs Apple/Pear with payoffs (3,3), (6,0), (0,6), (5,5).</p>
+      <div class="matrix-wrap">
+        <table class="matrix">
+          <tr><th class="corner"></th><th>Player 2: Apple</th><th>Player 2: Pear</th></tr>
+          <tr><td class="row-header">Player 1: Red</td><td class="nash">(3, 3) ← Nash</td><td>(6, 0)</td></tr>
+          <tr><td class="row-header">Player 1: Blue</td><td>(0, 6)</td><td class="pareto">(5, 5) Pareto optimal</td></tr>
+        </table>
+      </div>
+      <div class="answer-label">Model answer</div>
+      <p><strong>Player 1’s best responses:</strong> If P2 plays Apple → P1 gets 3 (Red) or 0 (Blue) → Red. If P2 plays Pear → P1 gets 6 (Red) or 5 (Blue) → Red. Red is P1’s dominant strategy.</p>
+      <p><strong>Player 2’s best responses:</strong> If P1 plays Red → P2 gets 3 (Apple) or 0 (Pear) → Apple. If P1 plays Blue → P2 gets 6 (Apple) or 5 (Pear) → Apple. Apple is P2’s dominant strategy.</p>
+      <p><strong>Nash equilibrium: (Red, Apple) with payoff (3, 3).</strong> This is the unique pure Nash equilibrium. (Blue, Pear) with payoff (5, 5) is Pareto superior but not a Nash equilibrium — either player would deviate to Red/Apple to improve their individual payoff. This illustrates the prisoner’s dilemma: individually rational play produces a collectively suboptimal outcome.</p>
+    </div>
+  </div>
+
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Section B — 2022–23 paper, Q27 (parts b & c)</span><span class="exam-q-marks">8 marks</span></div>
+    <div class="exam-q-body">
+      <p class="q">Mr New-Entrant enters aggressively: payoffs (£2m, £1m) if Incumbent acquiesces; (£0.75m, £0.75m) if fights. Enters passively: (£0.5m, £0.5m) if acquiesces; (£1m, £2m) if fights. (b) What is the Nash equilibrium? (c) Is Incumbent’s threat to always fight credible?</p>
+      <div class="answer-label">Part b — Nash equilibrium (4 marks)</div>
+      <p>Solving by backward induction. If New-Entrant enters <em>aggressively</em>: Incumbent earns £1m (acquiesce) vs £0.75m (fight) → Incumbent acquiesces. If New-Entrant enters <em>passively</em>: Incumbent earns £0.5m (acquiesce) vs £2m (fight) → Incumbent fights. New-Entrant anticipates this: aggressive → £2m; passive → £1m. New-Entrant enters aggressively.</p>
+      <p><strong>Most likely Nash equilibrium: (Aggressive entry, Acquiesce) with payoffs (£2m, £1m).</strong></p>
+      <div class="answer-label">Part c — credibility (4 marks)</div>
+      <p>Incumbent threatens to fight regardless. The credibility test: would she actually fight if entry is aggressive? If entry is aggressive: fight yields £0.75m vs acquiesce yields £1m → Incumbent prefers to acquiesce. She would not follow through. The threat is <strong>non-credible</strong> for the aggressive branch. New-Entrant correctly ignores it and enters aggressively. A rational player should not allow a non-credible threat to influence their decision.</p>
+    </div>
+  </div>
+
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Section A MCQ — Battle of the Sexes (2021–22, Q12)</span><span class="exam-q-marks">2 marks</span></div>
+    <div class="exam-q-body">
+      <p class="q">John prefers opera with Jasmine over movies alone. Jasmine prefers movies with John over opera alone. Which is NOT a Nash equilibrium? (a) Both opera (b) Both movies (c) John to movies, Jasmine to opera (d) At least one Nash equilibrium exists.</p>
+      <div class="answer-label">Answer — C</div>
+      <p>If John is at movies and Jasmine is at opera (each at their individually preferred venue, alone), John would deviate — he prefers opera <em>with Jasmine</em> over movies alone. Since he can improve by switching unilaterally, this is not a Nash equilibrium. Both-opera (A) and both-movies (B) are Nash equilibria — at each, neither player benefits from deviating alone. Option D is trivially true. C is the incorrect statement.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="s10">
+  <div class="section-num">Part 10</div>
+  <h2>Evaluation &amp; Common Mistakes</h2>
+
+  <div class="eval-box">
+    <div class="eval-label">Evaluation — assumptions of game theory</div>
+    <p>Game theory assumes complete rationality — all players maximise their payoff and know rivals do too. In reality, bounded rationality and behavioural factors (fairness norms, reciprocity) cause players to cooperate even in one-shot games. Experimental economics consistently shows cooperation rates above the Nash prediction.</p>
+    <p>Game theory also assumes players know the full payoff matrix. In practice, firms rarely know rivals’ exact cost structures or profitability. Incomplete information substantially complicates the analysis — this is an active area of economic research.</p>
+  </div>
+
+  <div class="eval-box">
+    <div class="eval-label">Evaluation — multiple Nash equilibria</div>
+    <p>Many games have multiple Nash equilibria (Battle of the Sexes has two). Game theory cannot always predict which will be reached. Selection depends on focal points, communication, historical precedent, and social norms — factors outside the standard model. Knowing the equilibrium set is not enough to predict behaviour.</p>
+  </div>
+
+  <div class="mistake-box">
+    <div class="mistake-label">Mistake 1 — Confusing Nash equilibrium with the best outcome</div>
+    <p>Nash equilibrium is the stable outcome, not the best one. In the prisoner’s dilemma, the Nash equilibrium is worse for both players than the cooperative outcome. Always distinguish Nash equilibrium (individually stable) from Pareto optimum (collectively best).</p>
+  </div>
+
+  <div class="mistake-box">
+    <div class="mistake-label">Mistake 2 — Assuming a dominant strategy always exists</div>
+    <p>Not every game has a dominant strategy. When the best choice depends on the rival’s move, you must find Nash equilibria by checking best responses cell by cell. Never assume dominance before checking every row and column.</p>
+  </div>
+
+  <div class="mistake-box">
+    <div class="mistake-label">Mistake 3 — Applying one-shot logic to repeated games</div>
+    <p>Concluding "both players will defect" ignores whether the game is repeated. In infinitely repeated games, cooperation can be sustained through credible punishment strategies. Always establish the game’s repetition structure before drawing behavioural conclusions.</p>
+  </div>
+
+  <div class="mistake-box">
+    <div class="mistake-label">Mistake 4 — Not checking credibility at the right node</div>
+    <p>A threat sounds plausible but may be non-credible. The test is always: at the specific node where the threat must be executed, does carrying it out benefit the threatening player? Check the payoffs at that node only — do not rely on intuition or the firm’s general reputation.</p>
+  </div>
+
+  <div class="mistake-box">
+    <div class="mistake-label">Mistake 5 — Drawing game trees incorrectly</div>
+    <p>First mover’s node goes on the left. Branches represent actions, not outcomes. Payoffs go at terminal nodes on the right as (first mover, second mover). Solve right to left (backward induction), never left to right. Label every node and payoff clearly — the examiner awards marks for structure, not just the final answer.</p>
+  </div>
+</div>
+
+<hr class="divider">
+<div class="footer">L9 · Game Theory · MAN00016C Business Economics · University of York · Revision Guide</div>
+
+</div>
+<script>
+(function(){
+  document.body.classList.add("page-transition-init");
+  window.addEventListener("load", function(){
+    requestAnimationFrame(function(){
+      document.body.classList.remove("page-transition-init");
+      document.body.classList.add("page-transition-ready");
+    });
+  });
+  document.addEventListener("click", function(event){
+    var link = event.target.closest("a[href]");
+    if (!link) return;
+    if (event.defaultPrevented || event.button !== 0) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (link.target && link.target !== "_self") return;
+    if (link.hasAttribute("download")) return;
+    var href = link.getAttribute("href");
+    if (!href || href.charAt(0) === "#") return;
+    if (/^(mailto:|tel:|javascript:)/i.test(href)) return;
+    var url = new URL(link.href, window.location.href);
+    if (url.origin !== window.location.origin) return;
+    if (url.pathname === window.location.pathname && url.search === window.location.search && url.hash) return;
+    event.preventDefault();
+    document.body.classList.remove("page-transition-ready");
+    document.body.classList.add("page-transition-leaving");
+    window.setTimeout(function(){ window.location.href = url.href; }, 180);
+  });
+})();
+</script>
+
+</body>
+</html>

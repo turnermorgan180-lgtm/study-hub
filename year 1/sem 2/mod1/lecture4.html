@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L4 Demand and the Consumer — Business Economics</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf8f4;--bg2:#f2ede4;--surface:#fff;--border:#e8ddd0;--border2:#d4c8b0;--text:#1a1612;--muted:#7a6e5e;--accent:#20606a;--accent-light:#e7f3f2;--gold:#8a6a2a;--gold-light:#f7f0e0;--teal:#1a5c52;--teal-light:#e8f4f1;--red-light:#fdf2f0;--red-border:#f0c4b8;--red-text:#7a2015;--red-label:#c0392b;--ink:#2c2416}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7}
+.page{position:relative;max-width:860px;margin:0 auto;padding:0 2rem 6rem}
+.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;font-size:1rem;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s;z-index:10}
+.back-btn:hover{transform:translateY(-1px);background:var(--bg2)}
+.hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border2);margin-bottom:3rem;position:relative}
+.hero::before{content:'';position:absolute;top:0;left:-2rem;right:-2rem;bottom:0;background:linear-gradient(180deg,#e7f3f2 0%,transparent 100%);z-index:-1}
+.lecture-tag{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:8px;margin-bottom:1rem}
+.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent)}
+h1{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:700;line-height:1.1;color:var(--ink);margin-bottom:1rem;letter-spacing:-.02em}
+.hero-sub{font-size:16px;color:var(--muted);max-width:600px;line-height:1.6;margin-bottom:1.5rem}
+.meta-row{display:flex;gap:1.5rem;flex-wrap:wrap}
+.meta-chip{font-family:'DM Mono',monospace;font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}
+.chip-micro{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}
+.chip-exam{background:var(--accent-light);color:var(--accent);border:1px solid #b7d7d9}
+.chip-marks{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
+.alert-box{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin-bottom:2.5rem;font-size:13.5px;color:#18484d}
+.alert-box strong{color:var(--accent)}
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem 2rem}
+.toc-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);grid-column:1/-1;margin-bottom:.5rem}
+.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:8px;padding:3px 0;transition:color .15s}
+.toc a:hover{color:var(--accent)}
+.toc a::before{content:attr(data-num);font-family:'DM Mono',monospace;font-size:10px;color:var(--border2);min-width:16px}
+.section{margin-bottom:3.5rem;animation:fadeUp .5s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.section-num{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
+h2{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:600;color:var(--ink);line-height:1.2;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--ink);margin-top:1.75rem;margin-bottom:.6rem;font-style:italic}
+p{margin-bottom:.9rem;color:var(--text)}
+ul.standard{padding-left:1.2rem;margin:1rem 0 1.15rem}
+ul.standard li{margin-bottom:.45rem}
+.defn{background:var(--gold-light);border:1px solid #dcc888;border-radius:3px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}
+.defn-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.defn p{color:var(--ink);margin-bottom:0;font-size:14.5px}
+.defn strong{color:var(--gold)}
+.key-terms{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1.25rem 0}
+.term{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:.7rem 1rem}
+.term-word{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:2px}
+.term-def{font-size:12.5px;color:var(--muted);line-height:1.4}
+.compare-table{width:100%;border-collapse:collapse;font-size:13.5px;margin:1.25rem 0;border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.compare-table th{background:var(--bg2);padding:.65rem 1rem;text-align:left;font-weight:500;font-size:12px;font-family:'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border2)}
+.compare-table td{padding:.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table td:first-child{font-weight:500;color:var(--ink);width:165px}
+.eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.eval-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:.6rem;display:flex;align-items:center;gap:6px}
+.eval-label::before{content:'⊕';font-size:12px}
+.eval-box p{color:#1a4a42;font-size:14px;margin-bottom:.5rem}
+.eval-box p:last-child{margin-bottom:0}
+.mistake-box{background:var(--red-light);border:1px solid var(--red-border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.mistake-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--red-label);margin-bottom:.6rem;display:flex;align-items:center;gap:6px}
+.mistake-label::before{content:'✕';font-size:11px}
+.mistake-box p{color:var(--red-text);font-size:14px;margin-bottom:.5rem}
+.mistake-box p:last-child{margin-bottom:0}
+.exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0}
+.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center}
+.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px;font-size:10px}
+.exam-q-body{padding:1.25rem 1.5rem}
+.exam-q-body .q{font-style:italic;color:var(--ink);margin-bottom:1rem;font-size:15px}
+.answer-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:.4rem}
+.exam-q-body p{font-size:14px;margin-bottom:.6rem}
+.steps{margin:1.25rem 0}
+.step{display:flex;gap:1rem;margin-bottom:.75rem;align-items:flex-start}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--border2);line-height:1.2;min-width:28px;flex-shrink:0}
+.step-content{font-size:14px;color:var(--text);padding-top:2px}
+.step-content strong{color:var(--ink)}
+.logic-box{background:var(--accent-light);border-left:4px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin:1rem 0;font-size:14px;color:#18484d}
+.footer{text-align:center;font-family:'DM Mono',monospace;font-size:11px;color:var(--border2);letter-spacing:.08em;padding-top:2rem;border-top:1px solid var(--border)}
+@media(max-width:640px){h1{font-size:2.2rem}.toc{grid-template-columns:1fr}.key-terms{grid-template-columns:1fr}.page{padding:0 1.25rem 4rem}}
+
+.page-transition-init{opacity:0;transform:translateY(8px)}
+.page-transition-ready{opacity:1;transform:none}
+.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
+body{transition:opacity .22s ease,transform .22s ease}
+@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}
+</style>
+</head>
+<body>
+<div class="page">
+  <a class="back-btn" href="index.html" aria-label="Back to Business Economics hub">←</a>
+
+  <div class="hero">
+    <div class="lecture-tag">Lecture 4 · MAN00016C · University of York</div>
+    <h1>Demand and<br>the Consumer</h1>
+    <p class="hero-sub">The law of demand, individual and market demand, income and substitution effects, consumer surplus, shifts versus movements, and the exam logic needed to analyse consumer behaviour and demand-side shocks.</p>
+    <div class="meta-row">
+      <span class="meta-chip chip-micro">Microeconomics</span>
+      <span class="meta-chip chip-exam">High exam relevance</span>
+      <span class="meta-chip chip-marks">Section A + B</span>
+    </div>
+  </div>
+
+  <div class="alert-box">
+    <strong>Past paper alert:</strong> Lecture 4 sits underneath questions on <em>consumer sovereignty</em>, <em>price changes</em>, <em>elasticity-style demand logic</em>, and <em>market adjustment</em>. Even where the paper asks about advertising, pricing, or competition, the core scoring chain is usually <strong>price or non-price change → effect on willingness to buy → movement or shift in demand → business implication</strong>.
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">Contents</div>
+    <a href="#s1" data-num="01">Why demand matters</a>
+    <a href="#s2" data-num="02">The law of demand</a>
+    <a href="#s3" data-num="03">Movements vs shifts</a>
+    <a href="#s4" data-num="04">Determinants of demand</a>
+    <a href="#s5" data-num="05">Individual and market demand</a>
+    <a href="#s6" data-num="06">Utility and diminishing marginal utility</a>
+    <a href="#s7" data-num="07">Income and substitution effects</a>
+    <a href="#s8" data-num="08">Consumer surplus and willingness to pay</a>
+    <a href="#s9" data-num="09">Special cases and exceptions</a>
+    <a href="#s10" data-num="10">Exam questions and model answers</a>
+    <a href="#s11" data-num="11">Evaluation and common mistakes</a>
+  </div>
+
+  <div class="section">
+    <div class="section-num">Key Definitions</div>
+    <h2>Terms to Know Cold</h2>
+    <div class="key-terms">
+      <div class="term"><div class="term-word">Demand</div><div class="term-def">The quantity consumers are willing and able to buy at different prices over a given time period.</div></div>
+      <div class="term"><div class="term-word">Effective demand</div><div class="term-def">Demand backed by both willingness to buy and the purchasing power to pay.</div></div>
+      <div class="term"><div class="term-word">Law of demand</div><div class="term-def">Ceteris paribus, a rise in price reduces quantity demanded and a fall in price increases quantity demanded.</div></div>
+      <div class="term"><div class="term-word">Movement along demand</div><div class="term-def">A change in quantity demanded caused only by a change in the good’s own price.</div></div>
+      <div class="term"><div class="term-word">Shift in demand</div><div class="term-def">A change in demand caused by a non-price determinant such as income, tastes, or the price of related goods.</div></div>
+      <div class="term"><div class="term-word">Normal good</div><div class="term-def">A good for which demand rises when consumer income rises.</div></div>
+      <div class="term"><div class="term-word">Inferior good</div><div class="term-def">A good for which demand falls when consumer income rises.</div></div>
+      <div class="term"><div class="term-word">Substitute</div><div class="term-def">A rival good that can be used instead, so a higher price of one raises demand for the other.</div></div>
+      <div class="term"><div class="term-word">Complement</div><div class="term-def">A good consumed jointly with another, so a higher price of one reduces demand for the other.</div></div>
+      <div class="term"><div class="term-word">Consumer surplus</div><div class="term-def">The difference between what consumers are willing to pay and what they actually pay.</div></div>
+    </div>
+  </div>
+
+  <div class="section" id="s1">
+    <div class="section-num">01</div>
+    <h2>Why Demand Matters</h2>
+    <p>Demand is the demand-side foundation of microeconomics. Firms cannot decide sensibly on output, pricing, promotion, or market entry unless they understand what drives consumers to buy. A business may be technically efficient, but if it misreads demand it will still overproduce, underprice, or fail to match what customers actually value.</p>
+    <div class="defn">
+      <div class="defn-label">Core idea</div>
+      <p><strong>Demand is not desire on its own.</strong> It is desire backed by purchasing power. Economics is concerned with <strong>effective demand</strong>, not abstract wants with no ability to pay.</p>
+    </div>
+    <p>The lecture’s business logic is straightforward. Consumers face scarcity, so they choose. Firms respond to those choices. Markets then coordinate those decisions through price. That is why the consumer sits at the centre of market activity: firms survive only if they can anticipate and satisfy demand better than rivals.</p>
+    <div class="eval-box">
+      <div class="eval-label">Exam insight</div>
+      <p>When asked what determines sales, do not jump straight to price. Strong answers distinguish between <strong>price effects</strong> and <strong>non-price determinants</strong> such as income, tastes, demographics, expectations, and related-goods prices.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s2">
+    <div class="section-num">02</div>
+    <h2>The Law of Demand</h2>
+    <p>The demand curve slopes downward because, other things equal, lower prices make the good attractive to more consumers and encourage existing consumers to buy more. Higher prices do the reverse. This is summarised in the law of demand.</p>
+    <div class="defn">
+      <div class="defn-label">Law of demand</div>
+      <p><strong>Ceteris paribus, price and quantity demanded are inversely related.</strong></p>
+    </div>
+    <p>The phrase <em>ceteris paribus</em> matters. It means we hold other determinants of demand constant. If income, tastes, or the price of substitutes change at the same time, then we are no longer observing the pure effect of the good’s own price.</p>
+    <h3>Why the curve slopes down</h3>
+    <ul class="standard">
+      <li><strong>Diminishing marginal utility:</strong> additional units of a good usually generate less extra satisfaction than earlier units.</li>
+      <li><strong>Substitution effect:</strong> when a good becomes cheaper relative to others, consumers switch toward it.</li>
+      <li><strong>Income effect:</strong> a lower price increases real purchasing power, allowing more consumption.</li>
+      <li><strong>Market entry effect:</strong> lower prices may bring in consumers who were previously priced out.</li>
+    </ul>
+    <div class="mistake-box">
+      <div class="mistake-label">Common mistake</div>
+      <p>Students often say “price causes demand to fall.” More precise wording is needed: a higher price causes <strong>quantity demanded</strong> to fall. The demand curve itself only shifts when a non-price determinant changes.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s3">
+    <div class="section-num">03</div>
+    <h2>Movements Along the Curve vs Shifts of the Curve</h2>
+    <p>This is one of the highest-value distinctions in introductory microeconomics. Examiners repeatedly reward students who separate a <strong>movement along demand</strong> from a <strong>shift in demand</strong>.</p>
+    <table class="compare-table">
+      <tr>
+        <th>Change</th>
+        <th>Cause</th>
+        <th>Diagram result</th>
+        <th>Language to use</th>
+      </tr>
+      <tr>
+        <td>Extension / contraction</td>
+        <td>Change in the good's own price</td>
+        <td>Movement along the same demand curve</td>
+        <td>Quantity demanded rises or falls</td>
+      </tr>
+      <tr>
+        <td>Increase / decrease in demand</td>
+        <td>Change in a non-price determinant</td>
+        <td>Entire demand curve shifts right or left</td>
+        <td>Demand rises or falls</td>
+      </tr>
+    </table>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Ask what changed.</strong> If it is the good’s own price, think movement along the curve.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Ask whether preferences or conditions changed.</strong> If so, think shift of the whole curve.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Use the right terminology.</strong> “Demand increased” and “quantity demanded increased” are not interchangeable.</div></div>
+    </div>
+    <div class="logic-box">
+      A fall in the price of coffee causes an <strong>extension of demand</strong> for coffee. A rise in income that makes people buy more coffee at every price causes an <strong>increase in demand</strong> for coffee.
+    </div>
+  </div>
+
+  <div class="section" id="s4">
+    <div class="section-num">04</div>
+    <h2>Main Determinants of Demand</h2>
+    <p>Non-price determinants explain why consumers may want more or less of a product even when its price has not changed. These factors are central to business strategy because firms can sometimes influence them through branding, product quality, positioning, and advertising.</p>
+    <table class="compare-table">
+      <tr>
+        <th>Determinant</th>
+        <th>If it rises or improves</th>
+        <th>Typical demand effect</th>
+      </tr>
+      <tr>
+        <td>Income</td>
+        <td>Higher purchasing power</td>
+        <td>Demand rises for normal goods, falls for inferior goods</td>
+      </tr>
+      <tr>
+        <td>Tastes and preferences</td>
+        <td>Product becomes more desirable</td>
+        <td>Demand shifts right</td>
+      </tr>
+      <tr>
+        <td>Price of substitutes</td>
+        <td>Rival product becomes dearer</td>
+        <td>Demand shifts right</td>
+      </tr>
+      <tr>
+        <td>Price of complements</td>
+        <td>Jointly used product becomes dearer</td>
+        <td>Demand shifts left</td>
+      </tr>
+      <tr>
+        <td>Population / demographics</td>
+        <td>More relevant consumers enter the market</td>
+        <td>Demand usually rises</td>
+      </tr>
+      <tr>
+        <td>Expectations</td>
+        <td>Consumers expect future price rises or shortages</td>
+        <td>Current demand may rise</td>
+      </tr>
+    </table>
+    <h3>Normal and inferior goods</h3>
+    <p>A normal good has positive income-demand relationship: higher income increases demand. An inferior good has negative income-demand relationship: as income rises, consumers switch away toward preferred alternatives. Inferior does not mean low quality; it means income-related purchasing behaviour.</p>
+    <h3>Substitutes and complements</h3>
+    <p>Substitutes compete for the same consumer need, such as tea and coffee. Complements are jointly consumed, such as printers and ink or cars and petrol. These cross-market links matter because one firm’s pricing can affect demand in another market.</p>
+  </div>
+
+  <div class="section" id="s5">
+    <div class="section-num">05</div>
+    <h2>Individual Demand and Market Demand</h2>
+    <p>An individual demand curve shows how one consumer’s purchases respond to price. Market demand adds together all individual demands horizontally at each price. This gives the total quantity demanded in the whole market.</p>
+    <div class="defn">
+      <div class="defn-label">Aggregation rule</div>
+      <p><strong>Market demand = horizontal sum of all individual demand curves.</strong> At each price, add quantities, not prices.</p>
+    </div>
+    <p>The distinction matters because market demand can change either because existing consumers alter their buying behaviour or because the number and composition of consumers changes. A growing student population, for example, can shift demand for budget housing, cafes, and public transport even if each individual’s preferences stay unchanged.</p>
+    <div class="eval-box">
+      <div class="eval-label">Business application</div>
+      <p>Firms care about aggregate market demand, but pricing and segmentation decisions often depend on differences across individual consumers. A product can face one broad market demand curve while still containing distinct groups with different willingness to pay.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s6">
+    <div class="section-num">06</div>
+    <h2>Utility and Diminishing Marginal Utility</h2>
+    <p>Consumer theory starts from the idea of utility: the satisfaction a consumer gains from consuming goods and services. While utility is not directly observable in practice, it is a useful way to explain why consumers make trade-offs.</p>
+    <div class="defn">
+      <div class="defn-label">Key distinction</div>
+      <p><strong>Total utility</strong> is the satisfaction from all units consumed. <strong>Marginal utility</strong> is the extra satisfaction from one additional unit.</p>
+    </div>
+    <p>The standard assumption is diminishing marginal utility. The first unit of a good usually gives substantial satisfaction, but each extra unit adds less than the previous one. This helps explain why consumers will only buy additional units at lower prices.</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Early units are highly valued.</strong> A hungry consumer values the first sandwich strongly.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Additional units add less satisfaction.</strong> By the third or fourth sandwich, the extra benefit is much lower.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Willingness to pay falls.</strong> The consumer will buy more only if price drops enough to match lower marginal utility.</div></div>
+    </div>
+    <p>This is one route to the downward-sloping demand curve. If consumers value successive units less and less, their willingness to pay for extra units also declines.</p>
+  </div>
+
+  <div class="section" id="s7">
+    <div class="section-num">07</div>
+    <h2>Income and Substitution Effects</h2>
+    <p>When the price of a good changes, consumer behaviour adjusts for two related reasons. First, the good becomes relatively cheaper or more expensive compared with alternatives. Second, the consumer’s real purchasing power changes. These are the substitution and income effects.</p>
+    <h3>Substitution effect</h3>
+    <p>If the price of a good falls, consumers tend to substitute toward it and away from relatively more expensive alternatives. This effect reinforces the law of demand for most goods.</p>
+    <h3>Income effect</h3>
+    <p>If the price of a good falls, the consumer can afford more with the same money income. Real income rises. For normal goods this tends to increase quantity demanded further. For inferior goods the income effect works in the opposite direction, although usually not strongly enough to overturn the law of demand.</p>
+    <div class="logic-box">
+      <strong>Normal good:</strong> substitution effect and income effect both push in the same direction after a price fall.<br>
+      <strong>Inferior good:</strong> substitution effect still raises quantity demanded after a price fall, but the income effect partly offsets it.
+    </div>
+    <div class="mistake-box">
+      <div class="mistake-label">Common mistake</div>
+      <p>Do not write that lower prices “increase money income.” They do not. They increase <strong>real income</strong> or purchasing power, because the same nominal income now buys more.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s8">
+    <div class="section-num">08</div>
+    <h2>Consumer Surplus and Willingness to Pay</h2>
+    <p>Consumer surplus measures the gain consumers receive from market exchange. Many buyers would have been willing to pay more than the market price, but they only need to pay the equilibrium price. The gap is surplus.</p>
+    <div class="defn">
+      <div class="defn-label">Definition</div>
+      <p><strong>Consumer surplus = willingness to pay − actual price paid.</strong> On a diagram, it is the area below the demand curve and above the market price up to the quantity purchased.</p>
+    </div>
+    <p>This concept matters because it links demand to welfare. A fall in price usually increases consumer surplus. A successful innovation can increase consumer surplus by giving consumers more value than they expected at the price charged. Equally, taxes, shortages, or monopoly pricing may reduce it.</p>
+    <h3>Why businesses should care</h3>
+    <ul class="standard">
+      <li>Large consumer surplus may signal scope for price discrimination.</li>
+      <li>Firms want to understand how much value consumers perceive relative to price.</li>
+      <li>Policy-makers use consumer surplus when evaluating gains and losses from market changes.</li>
+    </ul>
+    <div class="eval-box">
+      <div class="eval-label">Exam insight</div>
+      <p>Consumer surplus is not the same as profit. It is a benefit to consumers, not producers. In welfare questions, keep consumer surplus and producer surplus clearly separate.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s9">
+    <div class="section-num">09</div>
+    <h2>Special Cases and Exceptions</h2>
+    <p>The law of demand is powerful, but it is not literally universal in every imaginable case. A strong student knows the general rule and can also state why unusual cases are exceptions rather than the norm.</p>
+    <table class="compare-table">
+      <tr>
+        <th>Case</th>
+        <th>Why it is unusual</th>
+        <th>Exam-safe interpretation</th>
+      </tr>
+      <tr>
+        <td>Giffen good</td>
+        <td>A strongly inferior good where the negative income effect outweighs the substitution effect</td>
+        <td>Theoretical exception; rare in practice</td>
+      </tr>
+      <tr>
+        <td>Veblen good</td>
+        <td>Higher price may itself signal prestige or exclusivity</td>
+        <td>Relevant to luxury branding and status consumption</td>
+      </tr>
+      <tr>
+        <td>Expectation-driven demand</td>
+        <td>Consumers buy more after a price rise if they expect further rises</td>
+        <td>Short-run speculative behaviour, not the normal demand rule</td>
+      </tr>
+    </table>
+    <p>These cases should be used carefully. In most exam questions, unless prestige goods or unusual household behaviour is explicitly mentioned, the normal downward-sloping demand assumption still applies.</p>
+  </div>
+
+  <div class="section" id="s10">
+    <div class="section-num">10</div>
+    <h2>Exam Questions and Model Answers</h2>
+
+    <div class="exam-q">
+      <div class="exam-q-header">
+        <span>Section A style question</span>
+        <span class="exam-q-marks">2 marks</span>
+      </div>
+      <div class="exam-q-body">
+        <p class="q">A fall in the price of a good, holding all other influences constant, will normally cause:</p>
+        <p>A. an increase in demand.</p>
+        <p>B. a fall in demand.</p>
+        <p>C. an extension of demand.</p>
+        <p>D. a shift to the left of demand.</p>
+        <p>E. a fall in consumer surplus.</p>
+        <div class="answer-label">Answer</div>
+        <p><strong>C. an extension of demand.</strong></p>
+        <p>The good’s own price has changed, so this is a movement along the same demand curve. “Increase in demand” would only be correct if a non-price determinant shifted the whole curve rightward.</p>
+      </div>
+    </div>
+
+    <div class="exam-q">
+      <div class="exam-q-header">
+        <span>Section A style question</span>
+        <span class="exam-q-marks">2 marks</span>
+      </div>
+      <div class="exam-q-body">
+        <p class="q">If tea and coffee are substitutes, then a rise in the price of tea is most likely to:</p>
+        <p>A. reduce demand for coffee.</p>
+        <p>B. increase demand for coffee.</p>
+        <p>C. reduce quantity demanded of coffee.</p>
+        <p>D. increase supply of coffee.</p>
+        <p>E. leave the coffee market unchanged.</p>
+        <div class="answer-label">Answer</div>
+        <p><strong>B. increase demand for coffee.</strong></p>
+        <p>Because tea and coffee compete in consumption, a higher tea price makes coffee relatively more attractive. The coffee demand curve shifts right.</p>
+      </div>
+    </div>
+
+    <div class="exam-q">
+      <div class="exam-q-header">
+        <span>Section B style question</span>
+        <span class="exam-q-marks">8 marks</span>
+      </div>
+      <div class="exam-q-body">
+        <p class="q">Explain why a demand curve normally slopes downward.</p>
+        <div class="answer-label">Model answer</div>
+        <p>A demand curve normally slopes downward because, ceteris paribus, consumers buy more when the price is lower and less when the price is higher. One reason is diminishing marginal utility: additional units of the good give less extra satisfaction, so consumers are only willing to buy more units if price falls.</p>
+        <p>A second reason is the substitution effect. If the good becomes cheaper relative to alternatives, consumers switch toward it and away from substitutes. A third reason is the income effect. A lower price increases real purchasing power, so for most goods consumers can afford to buy more.</p>
+        <p>These forces together create an inverse relationship between price and quantity demanded, which is shown by a downward-sloping demand curve.</p>
+      </div>
+    </div>
+
+    <div class="exam-q">
+      <div class="exam-q-header">
+        <span>Section B style question</span>
+        <span class="exam-q-marks">10 marks</span>
+      </div>
+      <div class="exam-q-body">
+        <p class="q">Explain the difference between a movement along a demand curve and a shift of the demand curve.</p>
+        <div class="answer-label">Model answer</div>
+        <p>A movement along a demand curve happens when the product’s own price changes. If price falls, there is an extension of demand and quantity demanded increases. If price rises, there is a contraction of demand and quantity demanded falls. The demand curve itself does not move.</p>
+        <p>A shift of the demand curve happens when a non-price determinant changes. Examples include income, tastes, the price of substitutes or complements, expectations, or the number of consumers. An increase in demand means consumers want to buy more at every price, so the curve shifts right. A decrease in demand means consumers want to buy less at every price, so the curve shifts left.</p>
+        <p>This distinction matters because it changes both the wording and the diagram analysis. Price changes alter <strong>quantity demanded</strong>. Non-price changes alter <strong>demand</strong>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="s11">
+    <div class="section-num">11</div>
+    <h2>Evaluation and Common Mistakes</h2>
+    <div class="eval-box">
+      <div class="eval-label">Evaluation points to use in essays</div>
+      <p><strong>Ceteris paribus is a simplification:</strong> in real markets many determinants change at once, making pure demand analysis harder.</p>
+      <p><strong>Consumer behaviour is not perfectly rational:</strong> habits, branding, framing, and social influence can shape demand beyond standard textbook logic.</p>
+      <p><strong>Different consumers behave differently:</strong> one market demand curve hides variation across income groups, ages, and preferences.</p>
+      <p><strong>Expectations matter:</strong> today’s demand may respond not just to current conditions but to anticipated future prices, shortages, or income changes.</p>
+      <p><strong>Short run vs long run:</strong> consumers may take time to adjust fully to price and income changes.</p>
+    </div>
+    <div class="mistake-box">
+      <div class="mistake-label">Top mistakes</div>
+      <p><strong>1.</strong> Confusing “demand” with “quantity demanded.”</p>
+      <p><strong>2.</strong> Forgetting that demand must be backed by ability to pay.</p>
+      <p><strong>3.</strong> Saying an income rise increases demand for every good.</p>
+      <p><strong>4.</strong> Mixing up substitutes and complements.</p>
+      <p><strong>5.</strong> Defining consumer surplus as business profit.</p>
+    </div>
+    <div class="defn">
+      <div class="defn-label">One-line memory aid</div>
+      <p><strong>Own price changes move you along demand.</strong><br><strong>Other influences shift demand.</strong><br><strong>The consumer buys more when the extra benefit justifies the price.</strong></p>
+    </div>
+  </div>
+
+  <div class="footer">
+    L4 · Demand and the Consumer · MAN00016C Business Economics · University of York · Revision Guide
+  </div>
+</div>
+<script>
+(function(){
+  document.body.classList.add("page-transition-init");
+  window.addEventListener("load", function(){
+    requestAnimationFrame(function(){
+      document.body.classList.remove("page-transition-init");
+      document.body.classList.add("page-transition-ready");
+    });
+  });
+  document.addEventListener("click", function(event){
+    var link = event.target.closest("a[href]");
+    if (!link) return;
+    if (event.defaultPrevented || event.button !== 0) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (link.target && link.target !== "_self") return;
+    if (link.hasAttribute("download")) return;
+    var href = link.getAttribute("href");
+    if (!href || href.charAt(0) === "#") return;
+    if (/^(mailto:|tel:|javascript:)/i.test(href)) return;
+    var url = new URL(link.href, window.location.href);
+    if (url.origin !== window.location.origin) return;
+    if (url.pathname === window.location.pathname && url.search === window.location.search && url.hash) return;
+    event.preventDefault();
+    document.body.classList.remove("page-transition-ready");
+    document.body.classList.add("page-transition-leaving");
+    window.setTimeout(function(){ window.location.href = url.href; }, 180);
+  });
+})();
+</script>
+
+</body>
+</html>

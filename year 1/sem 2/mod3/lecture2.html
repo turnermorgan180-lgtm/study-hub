@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lecture 2 Probability and Expected Value — Quantitative Analysis in Business Studies</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf8f4;--bg2:#f2ede4;--surface:#fff;--border:#e8ddd0;--border2:#d4c8b0;--text:#1a1612;--muted:#7a6e5e;--accent:#245b74;--accent-light:#e8f1f4;--gold:#8a6a2a;--gold-light:#f7f0e0;--teal:#1a5c52;--teal-light:#e8f4f1;--red-light:#fdf2f0;--red-border:#f0c4b8;--red-text:#7a2015;--red-label:#c0392b;--ink:#2c2416}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;transition:opacity .22s ease,transform .22s ease}
+.page{position:relative;max-width:860px;margin:0 auto;padding:0 2rem 6rem}
+.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;font-size:1rem;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s;z-index:10}
+.back-btn:hover{transform:translateY(-1px);background:var(--bg2)}
+.hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border2);margin-bottom:3rem;position:relative}
+.hero::before{content:'';position:absolute;top:0;left:-2rem;right:-2rem;bottom:0;background:linear-gradient(180deg,#e5eff2 0%,transparent 100%);z-index:-1}
+.lecture-tag,.meta-chip,.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label,.exam-q-header,.footer,.resource-path,.steps-label{font-family:'DM Mono',monospace}
+.lecture-tag{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;gap:8px;margin-bottom:1rem}
+.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent);margin-top:.6rem}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;color:var(--ink)}
+h1{font-size:3.2rem;line-height:1.1;margin-bottom:1rem}
+h2{font-size:2rem;margin-bottom:.6rem;border-bottom:1px solid var(--border);padding-bottom:.25rem}
+h3{font-size:1.5rem;margin-bottom:.45rem;font-style:italic}
+.hero-sub{font-size:16px;color:var(--muted);max-width:700px;margin-bottom:1.5rem}
+.meta-row{display:flex;gap:1rem;flex-wrap:wrap}
+.meta-chip{font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}
+.chip-topic{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}
+.chip-exam{background:var(--accent-light);color:var(--accent);border:1px solid #bfd3da}
+.chip-module{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
+.alert-box{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin-bottom:2rem;font-size:13.5px;color:#173f4f}
+.toc{background:var(--surface);border:1px solid var(--border);padding:1.5rem 1.75rem;margin-bottom:2rem;display:grid;grid-template-columns:1fr 1fr;gap:.45rem 2rem}
+.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label,.steps-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.toc-title{color:var(--muted);grid-column:1/-1}
+.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;gap:8px}
+.toc a::before{content:attr(data-num);color:var(--border2)}
+.section{margin-bottom:3rem}
+.section-num{color:var(--accent);margin-bottom:.35rem}
+p{margin-bottom:.9rem}
+.defn,.resource-list,.logic-box,.diagram-box,.steps,.compare-wrap{background:var(--surface);border:1px solid var(--border);border-radius:4px}
+.resource-list{padding:1rem 1.25rem;margin:1rem 0 1.25rem}
+.resource-list ul{margin:.2rem 0 0 1rem}
+.resource-path{font-size:11px;color:var(--muted)}
+.defn{background:var(--gold-light);border-color:#dcc888;padding:1rem 1.25rem;margin:1rem 0 1.25rem}
+.defn-label{color:var(--gold);margin-bottom:4px}
+.defn p{margin-bottom:0;font-size:14.5px}
+.logic-box,.diagram-box,.compare-wrap{padding:1rem 1.25rem;margin:1.25rem 0}
+.diagram-box{background:linear-gradient(180deg,#fcfaf6 0%,#f3efe7 100%)}
+.logic-step{padding:.75rem 0;border-top:1px dashed var(--border)}
+.logic-step:first-of-type{border-top:none;padding-top:.2rem}
+.steps{padding:1rem 1.25rem;margin:1.25rem 0}
+.step{display:grid;grid-template-columns:56px 1fr;gap:1rem;align-items:start;padding:.8rem 0;border-top:1px dashed var(--border)}
+.step:first-of-type{border-top:none;padding-top:.2rem}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:2rem;line-height:1;color:var(--accent)}
+.step p{margin:.2rem 0 0;color:var(--muted)}
+.compare-table{width:100%;border-collapse:collapse;font-size:14px}
+.compare-table th{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:left;padding:.75rem 0;border-bottom:1px solid var(--border2)}
+.compare-table td{padding:.8rem 0;border-top:1px solid var(--border)}
+.eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.mistake-box{background:var(--red-light);border:1px solid var(--red-border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.eval-label{color:var(--teal);margin-bottom:.6rem}
+.mistake-label{color:var(--red-label);margin-bottom:.6rem}
+.exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0}
+.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between}
+.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px}
+.exam-q-body{padding:1.25rem 1.5rem}
+.exam-q-body .q{font-style:italic;margin-bottom:1rem}
+.footer{text-align:center;font-size:11px;color:var(--border2);padding-top:1rem;border-top:1px solid var(--border)}
+.page-transition-init{opacity:0;transform:translateY(8px)}
+.page-transition-ready{opacity:1;transform:none}
+.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
+@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}
+@media (max-width:640px){h1{font-size:2.2rem}.toc{grid-template-columns:1fr}.step{grid-template-columns:44px 1fr}.page{padding:0 1.25rem 4rem}}
+</style>
+</head>
+<body>
+<div class="page">
+<a class="back-btn" href="index.html" aria-label="Back to Quantitative Analysis in Business Studies hub">←</a>
+<div class="hero">
+  <div class="lecture-tag">Lecture 2 · Quantitative Analysis in Business Studies · University of York</div>
+  <h1>Probability and Expected Value</h1>
+  <p class="hero-sub">Basic probability rules, conditional probability, expected value, diagnostic testing, and counting methods for uncertainty in business decisions.</p>
+  <div class="meta-row"><span class="meta-chip chip-topic">Quant methods</span><span class="meta-chip chip-exam">Refined revision guide</span><span class="meta-chip chip-module">MAN00035C</span></div>
+</div>
+<div class="alert-box"><strong>Lecture focus:</strong> this page is designed to work like the longer revision guides in the other modules. It combines method, interpretation, and visual reasoning so you can revise the concept as well as the calculation.</div>
+<div class="toc"><div class="toc-title">Contents</div><a href="#s1" data-num="01">Probability as a business tool</a><a href="#s2" data-num="02">Basic and conditional probability</a><a href="#s3" data-num="03">Expected value and decision logic</a><a href="#s4" data-num="04">Bayes-style reasoning in testing</a><a href="#s5" data-num="05">Combinations and permutations</a><a href="#s6" data-num="06">How to write this in the exam</a></div>
+<div class="resource-list"><div class="defn-label">Tightening sources</div><ul><li><span class="resource-path">resources/Week 2 - Lecture Slides.pdf</span></li><li><span class="resource-path">resources/Week 2 - Seminar questions.docx</span></li><li><span class="resource-path">resources/Week 2 - Seminar Solutions.pdf</span></li></ul></div>
+<div class="defn"><div class="defn-label">Core quantitative rule</div><p>Probability is the language of uncertainty. Expected value is the benchmark for decisions under uncertainty, but conditional probability often changes how evidence should be read.</p></div>
+<div class="diagram-box"><div class="diagram-label">Probability Flow</div><div class="steps"><div class="step"><div class="step-num">1</div><div><strong>Name the event.</strong><p>What exactly are you calculating?</p></div></div><div class="step"><div class="step-num">2</div><div><strong>Choose the denominator.</strong><p>Whole sample for unconditional probability; conditioned group for conditional probability.</p></div></div><div class="step"><div class="step-num">3</div><div><strong>Compute and interpret.</strong><p>State what the result means for the decision-maker.</p></div></div></div></div>
+<div class="section" id="s1"><div class="section-num">Part 01</div><h2>Probability as a business tool</h2><p>Probability is not only about games of chance. It supports business decisions whenever outcomes are uncertain: customer churn, product defect rates, risk events, screening tests, supplier failure, portfolio performance, or demand scenarios.</p><p>The exam-relevant habit is to define the event clearly before calculating. If the event is vague, the probability expression usually goes wrong.</p></div><div class="section" id="s2"><div class="section-num">Part 02</div><h2>Basic and conditional probability</h2><p>Unconditional probability measures how likely an event is overall. Conditional probability measures how likely one event is given that another has already happened. This distinction is essential in contingency tables and diagnostic testing questions.</p><p>The mark-scoring step is to get the denominator right. In a conditional probability, the condition defines the relevant comparison group. If the condition is blue, your denominator must come from the blue cases, not the whole sample.</p></div><div class="section" id="s3"><div class="section-num">Part 03</div><h2>Expected value and decision logic</h2><p>Expected value is the weighted average outcome across possible states. It does not tell you what will happen in any one case, but it does provide the correct long-run benchmark for comparing uncertain options.</p><p>In applied questions, you should state that expected value combines payoff size and probability. A very large payoff with tiny probability may contribute less than a moderate payoff with a much larger probability.</p></div><div class="section" id="s4"><div class="section-num">Part 04</div><h2>Bayes-style reasoning in testing</h2><p>Diagnostic questions often trap students because sensitivity and specificity are about test performance conditional on the true state, while the manager usually wants the reverse: what is the chance the state is true given the observed test result.</p><p>That reversal is why a positive test result can still imply a modest probability of actually having the condition when prevalence is low. The stronger answer explains this rather than just quoting the final number.</p></div><div class="section" id="s5"><div class="section-num">Part 05</div><h2>Combinations and permutations</h2><p>Counting methods matter whenever you need to work out how many arrangements are possible. If order does not matter, combinations are appropriate. If roles are distinct, order matters and permutations should be used instead.</p><p>The exam benefit of saying this in words is that it shows the marker you understand the structure of the problem, not just the formula.</p></div><div class="section" id="s6"><div class="section-num">Part 06</div><h2>How to write this in the exam</h2><p>State the event, define the denominator, perform the calculation, and then interpret it in words. For expected-value questions, finish with a decision sentence. For conditional-probability questions, finish by explaining what the condition means in context.</p></div>
+<div class="compare-wrap"><div class="diagram-label">High-value Comparison</div><table class="compare-table"><thead><tr><th>Concept</th><th>Meaning</th><th>Exam Cue</th></tr></thead><tbody><tr><td>P(A)</td><td>Overall chance of A</td><td>Use whole sample denominator</td></tr><tr><td>P(A|B)</td><td>Chance of A given B</td><td>Restrict denominator to B cases</td></tr><tr><td>Expected value</td><td>Weighted average outcome</td><td>Multiply payoff by probability and sum</td></tr><tr><td>Permutation</td><td>Order matters</td><td>Distinct roles or positions</td></tr></tbody></table></div>
+<div class="eval-box"><div class="eval-label">Seminar angle</div><p>Week 2 is one of the most directly examinable weeks because expected payoffs, conditional probability, and diagnostic testing all translate into short, high-mark questions.</p></div>
+<div class="mistake-box"><div class="mistake-label">Common mistake</div><p>The classic error is to confuse P(A|B) with P(B|A). In testing questions this flips the managerial interpretation completely.</p></div>
+<div class="exam-q"><div class="exam-q-header"><span>Assessment-style prompt</span><span class="exam-q-marks">10 marks</span></div><div class="exam-q-body"><p class="q">A screening test has known sensitivity and specificity. Explain why a positive result should not automatically be interpreted as a high probability that the condition is present.</p><p>Do not stop at calculation. Show the correct method, explain the logic, and then state what the result means in a business or research context.</p></div></div>
+<div class="footer">Lecture 2 · Quantitative Analysis in Business Studies revision guide</div>
+</div>
+<script>(function(){document.body.classList.add('page-transition-init');window.addEventListener('load',function(){requestAnimationFrame(function(){document.body.classList.remove('page-transition-init');document.body.classList.add('page-transition-ready');});});document.addEventListener('click',function(event){var link=event.target.closest('a[href]');if(!link)return;if(event.defaultPrevented||event.button!==0)return;if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;if(link.target&&link.target!=='_self')return;if(link.hasAttribute('download'))return;var href=link.getAttribute('href');if(!href||href.charAt(0)==='#')return;if(/^(mailto:|tel:|javascript:)/i.test(href))return;var url=new URL(link.href,window.location.href);if(url.origin!==window.location.origin)return;if(url.pathname===window.location.pathname&&url.search===window.location.search&&url.hash)return;event.preventDefault();document.body.classList.remove('page-transition-ready');document.body.classList.add('page-transition-leaving');window.setTimeout(function(){window.location.href=url.href;},180);});})();</script>
+</body>
+</html>

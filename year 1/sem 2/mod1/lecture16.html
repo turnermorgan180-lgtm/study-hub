@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L16 Financial System, Money and Interest Rates — Business Economics</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf8f4;--bg2:#f2ede4;--surface:#fff;--border:#e8ddd0;--border2:#d4c8b0;--text:#1a1612;--muted:#7a6e5e;--accent:#245b74;--accent-light:#e8f1f4;--gold:#8a6a2a;--gold-light:#f7f0e0;--teal:#1a5c52;--teal-light:#e8f4f1;--red-light:#fdf2f0;--red-border:#f0c4b8;--red-text:#7a2015;--red-label:#c0392b;--ink:#2c2416}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7}
+.page{position:relative;max-width:860px;margin:0 auto;padding:0 2rem 6rem}.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;font-size:1rem;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s;z-index:10}
+.back-btn:hover{transform:translateY(-1px);background:var(--bg2)}
+.hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border2);margin-bottom:3rem;position:relative}.hero::before{content:'';position:absolute;top:0;left:-2rem;right:-2rem;bottom:0;background:linear-gradient(180deg,#e5eff2 0%,transparent 100%);z-index:-1}
+.lecture-tag,.meta-chip,.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label,.exam-q-header,.footer{font-family:'DM Mono',monospace}.lecture-tag{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;gap:8px;margin-bottom:1rem}.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent);margin-top:.6rem}
+h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)} h1{font-size:3.2rem;line-height:1.1;margin-bottom:1rem} h2{font-size:1.9rem;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)} h3{font-size:1.25rem;margin-top:1.5rem;margin-bottom:.6rem;font-style:italic}
+.hero-sub{font-size:16px;color:var(--muted);max-width:650px;margin-bottom:1.5rem}.meta-row{display:flex;gap:1rem;flex-wrap:wrap}.meta-chip{font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}.chip-macro{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}.chip-exam{background:var(--accent-light);color:var(--accent);border:1px solid #bfd3da}.chip-marks{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
+.alert-box{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin-bottom:2.5rem}
+.toc{background:var(--surface);border:1px solid var(--border);padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem 2rem}.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase}.toc-title{color:var(--muted);grid-column:1/-1}.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;gap:8px}.toc a::before{content:attr(data-num);color:var(--border2)}
+.section{margin-bottom:3.5rem}.section-num{color:var(--accent);margin-bottom:.4rem} p{margin-bottom:.9rem} ul{padding-left:1.15rem;margin:1rem 0} li{margin-bottom:.45rem}
+.defn{background:var(--gold-light);border:1px solid #dcc888;border-radius:4px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}
+.key-terms{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1.25rem 0}.term{background:var(--surface);border:1px solid var(--border);padding:.7rem 1rem}.term-def{font-size:12.5px;color:var(--muted)}
+.compare-table{width:100%;border-collapse:collapse;font-size:13.5px;margin:1.25rem 0;border:1px solid var(--border)} .compare-table th{background:var(--bg2);padding:.65rem 1rem;text-align:left;font-weight:500;font-size:12px;font-family:'DM Mono',monospace;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border2)} .compare-table td{padding:.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top}
+.eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.mistake-box{background:var(--red-light);border:1px solid var(--red-border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.diagram-box{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.steps{margin:1.25rem 0}.step{display:flex;gap:1rem;margin-bottom:.75rem}.step-num{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--border2);min-width:28px}.step-content{font-size:14px}
+.exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0}.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between}.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px}.exam-q-body{padding:1.25rem 1.5rem}.exam-q-body .q{font-style:italic;margin-bottom:1rem}
+.footer{text-align:center;font-size:11px;color:var(--border2);padding-top:1rem;border-top:1px solid var(--border)}
+@media (max-width:640px){h1{font-size:2.2rem}.toc,.key-terms{grid-template-columns:1fr}.page{padding:0 1.25rem 4rem}}
+
+.page-transition-init{opacity:0;transform:translateY(8px)}
+.page-transition-ready{opacity:1;transform:none}
+.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
+body{transition:opacity .22s ease,transform .22s ease}
+@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}
+</style>
+</head>
+<body>
+<div class="page">
+<a class="back-btn" href="index.html" aria-label="Back to Business Economics hub">←</a>
+<div class="hero">
+  <div class="lecture-tag">Lecture 16 · MAN00016C · University of York</div>
+  <h1>The Financial System, Money and Interest Rates</h1>
+  <p class="hero-sub">Financial intermediation, the role of banks, money creation, the demand and supply of money, interest-rate determination, and how monetary conditions feed through into business activity and aggregate demand.</p>
+  <div class="meta-row">
+    <span class="meta-chip chip-macro">Macroeconomics</span>
+    <span class="meta-chip chip-exam">High exam relevance</span>
+    <span class="meta-chip chip-marks">Section A + B</span>
+  </div>
+</div>
+
+<div class="alert-box">
+  The exam version of this topic is usually not “what is money?” but “how does a change in money conditions affect interest rates, investment, and aggregate demand?” Build your answers around that transmission mechanism.
+</div>
+
+<div class="toc">
+  <div class="toc-title">Contents</div>
+  <a href="#s1" data-num="01">Financial system overview</a>
+  <a href="#s2" data-num="02">Functions of money</a>
+  <a href="#s3" data-num="03">Banks and money creation</a>
+  <a href="#s4" data-num="04">Demand for money</a>
+  <a href="#s5" data-num="05">Interest-rate determination</a>
+  <a href="#s6" data-num="06">Monetary transmission</a>
+  <a href="#s7" data-num="07">Evaluation and pitfalls</a>
+  <a href="#s8" data-num="08">Exam question</a>
+</div>
+
+<div class="section">
+  <div class="section-num">Key Definitions</div>
+  <h2>Terms to Know Cold</h2>
+  <div class="key-terms">
+    <div class="term"><div class="term-word">Financial intermediation</div><div class="term-def">The process by which banks and financial institutions channel funds from savers to borrowers.</div></div>
+    <div class="term"><div class="term-word">Liquidity</div><div class="term-def">The ease with which an asset can be used for transactions without loss of value.</div></div>
+    <div class="term"><div class="term-word">Money supply</div><div class="term-def">The stock of money available in the economy.</div></div>
+    <div class="term"><div class="term-word">Interest rate</div><div class="term-def">The price of borrowing or the reward for lending.</div></div>
+    <div class="term"><div class="term-word">Monetary transmission</div><div class="term-def">The chain through which changes in money and interest rates affect spending and output.</div></div>
+    <div class="term"><div class="term-word">Credit creation</div><div class="term-def">Expansion of deposits through bank lending.</div></div>
+  </div>
+</div>
+
+<div class="section" id="s1">
+  <div class="section-num">Part 01</div>
+  <h2>The Financial System Matches Savers and Borrowers</h2>
+  <p>The financial system exists because many households want to save while firms and governments want to borrow. Banks, bond markets, and other institutions reduce transaction costs, spread risk, and make it easier for funds to move from surplus units to deficit units.</p>
+  <p>For business economics, the key implication is that investment spending depends not just on business confidence but on whether finance is available and at what interest rate.</p>
+</div>
+
+<div class="section" id="s2">
+  <div class="section-num">Part 02</div>
+  <h2>What Makes Money Special?</h2>
+  <p>Money is a medium of exchange, a store of value, and a unit of account. These functions matter because firms need liquidity for transactions, households hold money for convenience, and contracts are written in monetary terms.</p>
+  <div class="defn">
+    <div class="defn-label">Core rule</div>
+    <p><strong>People hold money because it is liquid, but they give up the interest they could have earned on other assets.</strong> That trade-off is central to money demand.</p>
+  </div>
+</div>
+
+<div class="section" id="s3">
+  <div class="section-num">Part 03</div>
+  <h2>Banks, Deposits and Credit Creation</h2>
+  <p>Commercial banks do more than store cash. By making loans, they create deposits and therefore expand the money stock used in transactions. That does not mean banks can lend without limit, but it does mean the supply of money depends partly on lending behaviour and regulation.</p>
+  <table class="compare-table">
+    <tr><th>Institution</th><th>Main role</th><th>Why it matters</th></tr>
+    <tr><td>Commercial banks</td><td>Take deposits and extend loans</td><td>Key channel for money and credit creation</td></tr>
+    <tr><td>Central bank</td><td>Sets policy conditions</td><td>Influences reserves, rates, and confidence</td></tr>
+    <tr><td>Capital markets</td><td>Issue shares and bonds</td><td>Provide non-bank finance for firms</td></tr>
+  </table>
+</div>
+
+<div class="section" id="s4">
+  <div class="section-num">Part 04</div>
+  <h2>Why Do People Demand Money?</h2>
+  <p>Money demand is usually explained through transaction, precautionary, and asset motives. Higher income raises the need for transactions balances. Higher interest rates reduce the desire to hold money because the opportunity cost of liquidity rises.</p>
+  <div class="eval-box">
+    <div class="eval-label">Exam insight</div>
+    <p>The stronger answer says money demand is <strong>positively related to income</strong> and <strong>negatively related to the interest rate</strong>. That is the standard comparative-statics statement to remember.</p>
+  </div>
+</div>
+
+<div class="section" id="s5">
+  <div class="section-num">Part 05</div>
+  <h2>Interest Rates Are Determined by Money Demand and Money Supply</h2>
+  <p>In the simplest money-market framework, the interest rate adjusts to equate money demand with money supply. If the central bank increases money supply, there is excess liquidity at the original rate, so interest rates tend to fall. If money demand rises for a given supply, rates tend to rise.</p>
+  <div class="diagram-box">
+    <div class="diagram-label">In diagram terms</div>
+    <ul>
+      <li>Put interest rate on the vertical axis and quantity of money on the horizontal axis.</li>
+      <li>Draw money supply vertical in the simple model.</li>
+      <li>Draw money demand downward sloping because higher interest rates make holding money less attractive.</li>
+      <li>A rightward shift in money supply lowers the equilibrium interest rate.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section" id="s6">
+  <div class="section-num">Part 06</div>
+  <h2>The Interest-Rate Transmission Mechanism</h2>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Money supply rises or policy rates fall.</strong></div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Market interest rates tend to fall.</strong></div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Borrowing becomes cheaper.</strong> Investment and interest-sensitive consumption may rise.</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-content"><strong>Aggregate demand increases.</strong> Output and employment may expand.</div></div>
+  </div>
+  <p>That chain also affects exchange rates, asset prices, and confidence. Lower rates can weaken the currency, support exports, and reinforce demand.</p>
+</div>
+
+<div class="section" id="s7">
+  <div class="section-num">Part 07</div>
+  <h2>Evaluation and Common Pitfalls</h2>
+  <div class="mistake-box">
+    <div class="mistake-label">Common mistakes</div>
+    <p>Do not say lower interest rates always create a large rise in investment. Firms may still hesitate if confidence is weak.</p>
+    <p>Do not treat money supply as identical to physical cash. Most money in modern economies exists as bank deposits.</p>
+  </div>
+  <p>The transmission mechanism can weaken when banks are unwilling to lend, when firms are pessimistic, or when households prefer to save rather than spend. The stronger evaluation therefore stresses that interest rates matter, but they do not operate in isolation.</p>
+</div>
+
+<div class="section" id="s8">
+  <div class="section-num">Part 08</div>
+  <h2>Exam Practice</h2>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Section B Style Prompt</span><span class="exam-q-marks">12 marks</span></div>
+    <div class="exam-q-body">
+      <p class="q">Explain how an increase in the money supply could affect business activity.</p>
+      <p>Start with the money market: greater money supply lowers interest rates if money demand is unchanged. Then explain cheaper borrowing, stronger investment, possible exchange-rate effects, and higher aggregate demand. Finish by evaluating confidence, banking conditions, and inflation constraints.</p>
+    </div>
+  </div>
+</div>
+
+<div class="footer">Lecture 16 notes · Financial system, money and interest rates</div>
+</div>
+<script>
+(function(){
+  document.body.classList.add("page-transition-init");
+  window.addEventListener("load", function(){
+    requestAnimationFrame(function(){
+      document.body.classList.remove("page-transition-init");
+      document.body.classList.add("page-transition-ready");
+    });
+  });
+  document.addEventListener("click", function(event){
+    var link = event.target.closest("a[href]");
+    if (!link) return;
+    if (event.defaultPrevented || event.button !== 0) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (link.target && link.target !== "_self") return;
+    if (link.hasAttribute("download")) return;
+    var href = link.getAttribute("href");
+    if (!href || href.charAt(0) === "#") return;
+    if (/^(mailto:|tel:|javascript:)/i.test(href)) return;
+    var url = new URL(link.href, window.location.href);
+    if (url.origin !== window.location.origin) return;
+    if (url.pathname === window.location.pathname && url.search === window.location.search && url.hash) return;
+    event.preventDefault();
+    document.body.classList.remove("page-transition-ready");
+    document.body.classList.add("page-transition-leaving");
+    window.setTimeout(function(){ window.location.href = url.href; }, 180);
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Year 1 — Study Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0f11;
+    --surface: #16181c;
+    --surface2: #1d2026;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.12);
+    --text: #f0ede8;
+    --muted: #7a7d85;
+    --accent: #c9a84c;
+    --accent2: #e8c97a;
+    --done: #4a9e7f;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 20% 0%, rgba(201,168,76,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 100%, rgba(91,143,168,0.05) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+    position: relative;
+    z-index: 1;
+  }
+  .eyebrow, .meta, .tag {
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .eyebrow {
+    font-size: 11px;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+  .subtitle {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 2rem;
+  }
+  .card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    padding: 1.1rem 1.2rem;
+    transition: background 0.15s, border-color 0.15s, transform 0.1s;
+  }
+  .card:hover {
+    background: var(--surface2);
+    border-color: var(--border2);
+    transform: translateX(2px);
+  }
+  .tag {
+    font-size: 10px;
+    color: var(--accent2);
+    margin-bottom: 0.45rem;
+  }
+  .card-title {
+    font-size: 1.05rem;
+    margin-bottom: 0.35rem;
+  }
+  .card-copy {
+    font-size: 13.5px;
+    color: var(--muted);
+    margin-bottom: 0.8rem;
+  }
+  .meta {
+    font-size: 11px;
+    color: #8ebfa9;
+  }
+  .footer {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 0.5px solid var(--border);
+    color: var(--muted);
+    font-size: 12px;
+  }
+  @media (max-width: 600px) {
+    h1 { font-size: 2rem; }
+    .container { padding: 2rem 1.25rem 4rem; }
+  }
+
+.page-transition-init{opacity:0;transform:translateY(8px)}
+.page-transition-ready{opacity:1;transform:none}
+.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
+body{transition:opacity .22s ease,transform .22s ease}
+@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="eyebrow">Study Hub</div>
+  <h1>Year 1</h1>
+  <div class="subtitle">Navigate into the available semester and module pages for first-year study materials.</div>
+
+  <a class="card" href="sem%201/index.html" style="margin-bottom:0.9rem;">
+    <div class="tag">Semester Hub</div>
+    <div class="card-title">Semester 1</div>
+    <div class="card-copy">Open the Semester 1 overview. Business Economics is no longer listed here.</div>
+    <div class="meta">No module hubs linked on this page</div>
+  </a>
+
+  <a class="card" href="sem%202/index.html">
+    <div class="tag">Semester Hub</div>
+    <div class="card-title">Semester 2</div>
+    <div class="card-copy">Open the Semester 2 overview and drill into the current Business Economics module hub.</div>
+    <div class="meta">1 module hub currently linked</div>
+  </a>
+
+  <div class="footer">Year 1 navigation hub</div>
+</div>
+<script>
+(function(){
+  document.body.classList.add("page-transition-init");
+  window.addEventListener("load", function(){
+    requestAnimationFrame(function(){
+      document.body.classList.remove("page-transition-init");
+      document.body.classList.add("page-transition-ready");
+    });
+  });
+  document.addEventListener("click", function(event){
+    var link = event.target.closest("a[href]");
+    if (!link) return;
+    if (event.defaultPrevented || event.button !== 0) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (link.target && link.target !== "_self") return;
+    if (link.hasAttribute("download")) return;
+    var href = link.getAttribute("href");
+    if (!href || href.charAt(0) === "#") return;
+    if (/^(mailto:|tel:|javascript:)/i.test(href)) return;
+    var url = new URL(link.href, window.location.href);
+    if (url.origin !== window.location.origin) return;
+    if (url.pathname === window.location.pathname && url.search === window.location.search && url.hash) return;
+    event.preventDefault();
+    document.body.classList.remove("page-transition-ready");
+    document.body.classList.add("page-transition-leaving");
+    window.setTimeout(function(){ window.location.href = url.href; }, 180);
+  });
+})();
+</script>
+
+</body>
+</html>

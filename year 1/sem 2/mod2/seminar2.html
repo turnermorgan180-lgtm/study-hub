@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seminar 2 Model Answers — Finance Fundamentals</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf8f4;--bg2:#f2ede4;--surface:#fff;--border:#e8ddd0;--border2:#d4c8b0;--text:#1a1612;--muted:#7a6e5e;--accent:#245b74;--accent-light:#e8f1f4;--gold:#8a6a2a;--gold-light:#f7f0e0;--teal:#1a5c52;--teal-light:#e8f4f1;--ink:#2c2416}
+*{box-sizing:border-box;margin:0;padding:0} body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;transition:opacity .22s ease,transform .22s ease}
+.page{position:relative;max-width:860px;margin:0 auto;padding:0 2rem 6rem}.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;font-size:1rem;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s;z-index:10}.back-btn:hover{transform:translateY(-1px);background:var(--bg2)}
+.hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border2);margin-bottom:3rem;position:relative}.hero::before{content:'';position:absolute;top:0;left:-2rem;right:-2rem;bottom:0;background:linear-gradient(180deg,#e5eff2 0%,transparent 100%);z-index:-1}
+.lecture-tag,.meta-chip,.toc-title,.section-num,.defn-label,.eval-label,.exam-q-header,.footer,.resource-path,.question-label{font-family:'DM Mono',monospace}.lecture-tag{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;gap:8px;margin-bottom:1rem}.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent);margin-top:.6rem}
+h1,h2{font-family:'Cormorant Garamond',serif;color:var(--ink)} h1{font-size:3.1rem;line-height:1.1;margin-bottom:1rem} h2{font-size:2rem;margin-bottom:.6rem}
+.hero-sub{font-size:16px;color:var(--muted);max-width:700px;margin-bottom:1.5rem}.meta-row{display:flex;gap:1rem;flex-wrap:wrap}.meta-chip{font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}.chip-topic{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}.chip-exam{background:var(--accent-light);color:var(--accent);border:1px solid #bfd3da}.chip-module{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
+.alert-box{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin-bottom:2.5rem;font-size:13.5px;color:#173f4f}
+.toc{background:var(--surface);border:1px solid var(--border);padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem 2rem}.toc-title,.section-num,.defn-label,.eval-label,.question-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase}.toc-title{color:var(--muted);grid-column:1/-1}.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;gap:8px}.toc a::before{content:attr(data-num);color:var(--border2)}
+.section{margin-bottom:3rem}.section-num{color:var(--accent);margin-bottom:.35rem}p{margin-bottom:.9rem}.defn,.resource-list,.question-box,.exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px}.defn{padding:1rem 1.25rem;margin:1rem 0 1.25rem;background:var(--gold-light);border-color:#dcc888}.defn-label{color:var(--gold)}.defn p{margin-bottom:0;font-size:14.5px}.resource-list{padding:1rem 1.25rem;margin:1rem 0 1.5rem}.resource-list ul{margin:.2rem 0 0 1rem}.resource-path{font-size:11px;color:var(--muted)}.question-box{padding:1rem 1.25rem;margin:1rem 0 1.1rem;background:linear-gradient(180deg,#fcfaf6 0%,#f7f0e0 100%);border-color:#dcc888}.question-label{color:var(--gold);margin-bottom:.55rem}.question-box p{margin-bottom:0}.exam-q{overflow:hidden;margin:1rem 0}.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between}.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px}.exam-q-body{padding:1.25rem 1.5rem}.eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.1rem 1.35rem;margin-top:1rem}.eval-label{color:var(--teal);margin-bottom:.5rem}.footer{text-align:center;font-size:11px;color:var(--border2);padding-top:1rem;border-top:1px solid var(--border)}.page-transition-init{opacity:0;transform:translateY(8px)}.page-transition-ready{opacity:1;transform:none}.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
+@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}@media (max-width:640px){h1{font-size:2.2rem}.toc{grid-template-columns:1fr}.page{padding:0 1.25rem 4rem}}
+</style>
+</head>
+<body>
+<div class="page">
+<a class="back-btn" href="index.html" aria-label="Back to Finance Fundamentals hub">←</a>
+<div class="hero">
+  <div class="lecture-tag">Seminar 2 · Finance Fundamentals · University of York</div>
+  <h1>Seminar 2 Model Answers</h1>
+  <p class="hero-sub">Present value, annuities, growing perpetuities, mortgages, APR, and long-horizon personal-finance planning.</p>
+  <div class="meta-row"><span class="meta-chip chip-topic">Seminar answers</span><span class="meta-chip chip-exam">Full questions included</span><span class="meta-chip chip-module">MAN00026C</span></div>
+</div>
+<div class="alert-box"><strong>How to use this page:</strong> each section now shows the full seminar prompt first and then the model answer, so you can revise the exact task and the standard of response side by side.</div>
+<div class="toc"><div class="toc-title">Questions</div>
+<a href="#q1" data-num="01">Perpetuity rate</a>
+  <a href="#q2" data-num="02">Growing perpetuity PV</a>
+  <a href="#q3" data-num="03">Lottery payoff choice</a>
+  <a href="#q4" data-num="04">Mortgage payment</a>
+  <a href="#q5" data-num="05">Instalment plan</a>
+  <a href="#q6" data-num="06">Loan repayments</a>
+  <a href="#q7" data-num="07">Retirement saving</a>
+  <a href="#q8" data-num="08">Retirement plus college</a>
+  <a href="#q9" data-num="09">Mortgage balance</a>
+  <a href="#q10" data-num="10">Effective annual rate</a>
+  <a href="#q11" data-num="11">Quarterly compounding</a>
+  <a href="#q12" data-num="12">Two-year perpetuity</a>
+  <a href="#q13" data-num="13">Delayed growing perpetuity</a>
+  <a href="#q14" data-num="14">Changing-rate loan</a>
+</div>
+<div class="resource-list"><div class="defn-label">Source files</div><ul><li><span class="resource-path">resources/Seminar 2 questions.docx</span></li><li><span class="resource-path">resources/Seminar 2 solutions.docx</span></li></ul></div>
+<div class="defn"><div class="defn-label">Seminar focus</div><p>Present value, annuities, growing perpetuities, mortgages, APR, and long-horizon personal-finance planning.</p></div>
+<div class="section" id="q1">
+  <div class="section-num">Question 1</div>
+  <h2>Perpetuity rate</h2>
+  <div class="question-box">
+    <div class="question-label">Full seminar question</div>
+    <p>A property will provide $10,000 a year forever. If its value is $125,000, what must be the discount rate?</p>
+  </div>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Model answer</span><span class="exam-q-marks">Seminar</span></div>
+    <div class="exam-q-body">
+      <p>If a property pays 10,000 forever and is worth 125,000, the discount rate is C / PV = 10,000 / 125,000 = 8 percent.</p>
+    </div>
+  </div>
+  
+</div>
+
+<div class="section" id="q2">
+  <div class="section-num">Question 2</div>
+  <h2>Growing perpetuity PV</h2>
+  <div class="question-box">
+    <div class="question-label">Full seminar question</div>
+    <p>What is the present value of a perpetuity of annual payment if the interest rate is 4%? The first payment is £150 and thereafter the payments grow at an annual rate of 1.5% forever.</p>
+  </div>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Model answer</span><span class="exam-q-marks">Seminar</span></div>
+    <div class="exam-q-body">
+      <p>For a growing perpetuity, PV = C1 / (r - g). Here PV = 150 / (0.04 - 0.015) = 6,000.</p>
+          <p>The key condition is that the discount rate exceeds the growth rate.</p>
+    </div>
+  </div>
+  
+</div>
+
+<div class="section" id="q3">
+  <div class="section-num">Question 3</div>
+  <h2>Lottery payoff choice</h2>
+  <div class="question-box">
+    <div class="question-label">Full seminar question</div>
+    <p>Suppose you just won the lottery and must choose one of the following guaranteed payoffs. Which one would you choose if the interest rate is 5% per year? £80,000 paid today; £110,000 paid five years from today; £50,000 paid today and £40,000 paid four years from today; £17,000 paid per year during 6 years with the first payment made today.</p>
+  </div>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Model answer</span><span class="exam-q-marks">Seminar</span></div>
+    <div class="exam-q-body">
+      <p>Bring all alternatives to time 0. The present values are approximately: 80,000 today = 80,000; 110,000 in five years = 86,185; 50,000 today plus 40,000 in year four = 82,908; 17,000 for six years starting today = 90,601.</p>
+          <p>The annuity-due option is therefore best because it has the highest present value.</p>
+    </div>
+  </div>
+  
+</div>
+
+<div class="section" id="q4">
+  <div class="section-num">Question 4</div>
+  <h2>Mortgage payment</h2>
+  <div class="question-box">
+    <div class="question-label">Full seminar question</div>
+    <p>Mr. and Mrs. Palin want to buy a house worth £200,000. They have £50,000 for the initial payment and will borrow the remaining amount over 30 years with end-of-month payments and a mortgage rate of 0.5% per month. How much must they pay per month?</p>
+  </div>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Model answer</span><span class="exam-q-marks">Seminar</span></div>
+    <div class="exam-q-body">
+      <p>Borrowed amount is 150,000 after the 50,000 deposit. With a monthly rate of 0.5 percent and 360 end-of-month payments, the monthly payment is about GBP899.33.</p>
+          <p>This is an annuity-immediate because the first mortgage payment is one month after origination.</p>
+    </div>
+  </div>
+  
+</div>
+
+<div class="section" id="q5">
+  <div class="section-num">Question 5</div>
+  <h2>Instalment plan</h2>
+  <div class="question-box">
+    <div class="question-label">Full seminar question</div>
+    <p>A store offers 2 payment plans. Under the instalment plan, you pay 25% down and 25% of the purchase price in each of the next 3 years. If you pay the entire bill immediately, you can take a 10% discount. Which is better if you can borrow or lend at 5%?</p>
+  </div>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Model answer</span><span class="exam-q-marks">Seminar</span></div>
+    <div class="exam-q-body">
+      <p>If the list price is 100, the instalment plan has PV of about 93.08, while paying immediately with the discount costs 90.</p>
+          <p>The immediate payment is the better deal because its present value cost is lower.</p>
+    </div>
+  </div>
+  
+</div>
+
+<div class="section" id="q6">
+  <div class="section-num">Question 6</div>
+  <h2>Loan repayments</h2>
+  <div class="question-box">
+    <div class="question-label">Full seminar question</div>
+    <p>If you borrow $1,000 and agree to repay the loan in 5 equal annual payments at an interest rate of 12%, what will your payment be? What if you make the first payment immediately instead of at the end of the first year?</p>
+  </div>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Model answer</span><span class="exam-q-marks">Seminar</span></div>
+    <div class="exam-q-body">
+      <p>With five equal end-of-year payments, the annual payment is about 277.41.</p>
+          <p>If the first payment is immediate, the contract becomes an annuity due and the payment falls to about 247.69 because the lender receives cash sooner.</p>
+    </div>
+  </div>
+  
+</div>
+
+<div class="section" id="q7">
+  <div class="section-num">Question 7</div>
+  <h2>Retirement saving</h2>
+  <div class="question-box">
+    <div class="question-label">Full seminar question</div>
+    <p>You believe you will need to have saved $500,000 by the time you retire in 40 years. If the interest rate is 6% per year, how much must you save each year?</p>
+  </div>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Model answer</span><span class="exam-q-marks">Seminar</span></div>
+    <div class="exam-q-body">
+      <p>To accumulate 500,000 in 40 years at 6 percent, required annual saving is about 3,230.77.</p>
+          <p>This is a future-value-of-annuity problem, so the target amount must be built up rather than discounted back from retirement.</p>
+    </div>
+  </div>
+  
+</div>
+
+<div class="section" id="q8">
+  <div class="section-num">Question 8</div>
+  <h2>Retirement plus college</h2>
+  <div class="question-box">
+    <div class="question-label">Full seminar question</div>
+    <p>A couple will retire in 50 years and plan to spend about $30,000 a year in retirement for 25 years. They can earn 8%. If they make annual payments into a savings plan, how much must they save each year? How does the answer change if in 20 years they also need $60,000 for a child’s college education?</p>
+  </div>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Model answer</span><span class="exam-q-marks">Seminar</span></div>
+    <div class="exam-q-body">
+      <p>The retirement consumption stream has a value at retirement of about 320,243.29. Saving for that over 50 years at 8 percent requires roughly 558.14 per year.</p>
+          <p>If the couple also needs 60,000 in year 20 for college, required annual saving rises to about 1,610.41 because the extra liability must be funded as well.</p>
+    </div>
+  </div>
+  
+</div>
+
+<div class="section" id="q9">
+  <div class="section-num">Question 9</div>
+  <h2>Mortgage balance</h2>
+  <div class="question-box">
+    <div class="question-label">Full seminar question</div>
+    <p>You take out a 30-year £200,000 mortgage loan with monthly payments and a 0.5% monthly interest rate. Fourteen years later you decide to sell your house and pay off the mortgage. What is the balance on the loan?</p>
+  </div>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Model answer</span><span class="exam-q-marks">Seminar</span></div>
+    <div class="exam-q-body">
+      <p>On a 200,000, 30-year mortgage at 0.5 percent per month, the balance after 168 payments is about GBP110,831.13.</p>
+          <p>The correct method is outstanding-balance valuation, not simply subtracting principal from total payments made.</p>
+    </div>
+  </div>
+  
+</div>
+
+<div class="section" id="q10">
+  <div class="section-num">Question 10</div>
+  <h2>Effective annual rate</h2>
+  <div class="question-box">
+    <div class="question-label">Full seminar question</div>
+    <p>If the stated annual proportional rate is 14% and compounding takes place monthly, what is the effective annual rate of interest?</p>
+  </div>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Model answer</span><span class="exam-q-marks">Seminar</span></div>
+    <div class="exam-q-body">
+      <p>EAR = (1 + 0.14 / 12)^12 - 1 = about 14.93 percent.</p>
+          <p>The EAR exceeds the stated APR because of interest-on-interest within the year.</p>
+    </div>
+  </div>
+  
+</div>
+
+<div class="section" id="q11">
+  <div class="section-num">Question 11</div>
+  <h2>Quarterly compounding</h2>
+  <div class="question-box">
+    <div class="question-label">Full seminar question</div>
+    <p>How much must be invested now to provide £10,000 in 6 years assuming interest is compounded quarterly at a stated rate of 8%? What is the effective annual rate?</p>
+  </div>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Model answer</span><span class="exam-q-marks">Seminar</span></div>
+    <div class="exam-q-body">
+      <p>Present value is 10,000 / (1 + 0.08 / 4)^24 = about 6,217.21.</p>
+          <p>The effective annual rate is (1.02)^4 - 1 = about 8.24 percent.</p>
+    </div>
+  </div>
+  
+</div>
+
+<div class="section" id="q12">
+  <div class="section-num">Question 12</div>
+  <h2>Two-year perpetuity</h2>
+  <div class="question-box">
+    <div class="question-label">Full seminar question</div>
+    <p>You have invested in a project that will pay you £1000 every 2 years forever. If the interest rate is 8% a year how much is the project worth?</p>
+  </div>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Model answer</span><span class="exam-q-marks">Seminar</span></div>
+    <div class="exam-q-body">
+      <p>Convert the annual 8 percent rate into a two-year effective rate: (1.08)^2 - 1 = 16.64 percent.</p>
+          <p>The project value is then 1,000 / 0.1664 = about 6,009.62.</p>
+    </div>
+  </div>
+  
+</div>
+
+<div class="section" id="q13">
+  <div class="section-num">Question 13</div>
+  <h2>Delayed growing perpetuity</h2>
+  <div class="question-box">
+    <div class="question-label">Full seminar question</div>
+    <p>Company X expects to start selling a new product in 2 years. It expects to sell 2000 units a year at £200 per unit, with the first cash flow received 2 years from now. Annual cash flows then grow at 5% in perpetuity. What is the present value if the discount rate is 10%?</p>
+  </div>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Model answer</span><span class="exam-q-marks">Seminar</span></div>
+    <div class="exam-q-body">
+      <p>Year-2 cash flow is 2,000 x 200 = 400,000. Value at year 1 is 400,000 / (0.10 - 0.05) = 8,000,000.</p>
+          <p>Discounting one year back gives a present value of about 7,272,727.27. The mark-scoring point is that a growing perpetuity formula gives value one period before the first cash flow.</p>
+    </div>
+  </div>
+  
+</div>
+
+<div class="section" id="q14">
+  <div class="section-num">Question 14</div>
+  <h2>Changing-rate loan</h2>
+  <div class="question-box">
+    <div class="question-label">Full seminar question</div>
+    <p>You negotiate a bank loan of £50,000 for 6 years. During the first 2 years the annual interest rate is 4%, and from the end of year 2 onwards the interest rate is 5%. If you agree to repay through constant annual end-of-year payments, what is the value of the payments?</p>
+  </div>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Model answer</span><span class="exam-q-marks">Seminar</span></div>
+    <div class="exam-q-body">
+      <p>The first two years discount at 4 percent and later cash flows discount using both the initial 4 percent stage and the later 5 percent stage. The constant payment is found by equating the present value of six payments to 50,000.</p>
+          <p>A first-class answer sets up the timeline explicitly. Even if calculator precision differs slightly, the correct structure is what earns the marks.</p>
+    </div>
+  </div>
+  
+</div>
+
+<div class="footer">Seminar 2 · Finance Fundamentals model answers</div>
+</div>
+<script>(function(){document.body.classList.add('page-transition-init');window.addEventListener('load',function(){requestAnimationFrame(function(){document.body.classList.remove('page-transition-init');document.body.classList.add('page-transition-ready');});});document.addEventListener('click',function(event){var link=event.target.closest('a[href]');if(!link)return;if(event.defaultPrevented||event.button!==0)return;if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;if(link.target&&link.target!=='_self')return;if(link.hasAttribute('download'))return;var href=link.getAttribute('href');if(!href||href.charAt(0)==='#')return;if(/^(mailto:|tel:|javascript:)/i.test(href))return;var url=new URL(link.href,window.location.href);if(url.origin!==window.location.origin)return;if(url.pathname===window.location.pathname&&url.search===window.location.search&&url.hash)return;event.preventDefault();document.body.classList.remove('page-transition-ready');document.body.classList.add('page-transition-leaving');window.setTimeout(function(){window.location.href=url.href;},180);});})();</script>
+</body>
+</html>

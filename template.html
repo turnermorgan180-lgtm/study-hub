@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stakeholder Preview Template — Study Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#faf8f4;
+  --bg2:#f2ede4;
+  --surface:#fff;
+  --border:#e8d0b8;
+  --border2:#d4c8b0;
+  --text:#1a1612;
+  --muted:#7a6e5e;
+  --accent:#1a4a7a;
+  --accent-light:#e8f0f8;
+  --gold:#8a6a2a;
+  --gold-light:#f7f0e0;
+  --teal:#1a5c52;
+  --teal-light:#e8f4f1;
+  --red-light:#fdf2f0;
+  --red-border:#f0c4b8;
+  --red-text:#7a2015;
+  --red-label:#c0392b;
+  --ink:#2c2416;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'DM Sans',sans-serif;
+  font-size:15px;
+  line-height:1.7;
+}
+.page{
+  position:relative;
+  max-width:860px;
+  margin:0 auto;
+  padding:0 2rem 6rem;
+}
+.back-btn{
+  position:absolute;
+  top:1.5rem;
+  left:1.5rem;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:var(--surface);
+  border:1px solid var(--border2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  color:var(--accent);
+  font-family:'DM Mono',monospace;
+  font-size:1rem;
+  box-shadow:0 10px 20px rgba(0,0,0,.08);
+  transition:transform .15s,background .15s;
+  z-index:10;
+}
+.back-btn:hover{transform:translateY(-1px);background:var(--bg2)}
+.hero{
+  padding:4rem 0 3rem;
+  border-bottom:1px solid var(--border2);
+  margin-bottom:3rem;
+  position:relative;
+}
+.hero::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:-2rem;
+  right:-2rem;
+  bottom:0;
+  background:linear-gradient(180deg,#eaf0f7 0%,transparent 100%);
+  z-index:-1;
+}
+.lecture-tag{
+  font-family:'DM Mono',monospace;
+  font-size:11px;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:var(--accent);
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:1rem;
+}
+.lecture-tag::before{
+  content:'';
+  display:block;
+  width:24px;
+  height:1px;
+  background:var(--accent);
+}
+h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:3.2rem;
+  font-weight:700;
+  line-height:1.1;
+  color:var(--ink);
+  margin-bottom:1rem;
+  letter-spacing:-.02em;
+}
+.hero-sub{
+  font-size:16px;
+  color:var(--muted);
+  max-width:620px;
+  line-height:1.6;
+  margin-bottom:1.5rem;
+}
+.meta-row{
+  display:flex;
+  gap:1.5rem;
+  flex-wrap:wrap;
+}
+.meta-chip{
+  font-family:'DM Mono',monospace;
+  font-size:11px;
+  padding:4px 12px;
+  border-radius:2px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.chip-track{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}
+.chip-status{background:var(--accent-light);color:var(--accent);border:1px solid #b8d0e8}
+.chip-scope{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
+.alert-box{
+  background:var(--accent-light);
+  border-left:3px solid var(--accent);
+  border-radius:0 4px 4px 0;
+  padding:1rem 1.25rem;
+  margin-bottom:2.5rem;
+  font-size:13.5px;
+  color:#0f2e52;
+}
+.alert-box strong{color:var(--accent)}
+.toc{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:4px;
+  padding:1.5rem 1.75rem;
+  margin-bottom:3rem;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:.4rem 2rem;
+}
+.toc-title{
+  font-family:'DM Mono',monospace;
+  font-size:10px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--muted);
+  grid-column:1/-1;
+  margin-bottom:.5rem;
+}
+.toc a{
+  font-size:13px;
+  color:var(--muted);
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:3px 0;
+  transition:color .15s;
+}
+.toc a:hover{color:var(--accent)}
+.toc a::before{
+  content:attr(data-num);
+  font-family:'DM Mono',monospace;
+  font-size:10px;
+  color:var(--border2);
+  min-width:16px;
+}
+.section{
+  margin-bottom:3.5rem;
+  animation:fadeUp .5s ease both;
+}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(12px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.section-num{
+  font-family:'DM Mono',monospace;
+  font-size:10px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:.4rem;
+}
+h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.9rem;
+  font-weight:600;
+  color:var(--ink);
+  line-height:1.2;
+  margin-bottom:1.25rem;
+  padding-bottom:.75rem;
+  border-bottom:1px solid var(--border);
+}
+h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.25rem;
+  font-weight:600;
+  color:var(--ink);
+  margin-top:1.75rem;
+  margin-bottom:.6rem;
+  font-style:italic;
+}
+p{margin-bottom:.9rem;color:var(--text)}
+ul.standard{padding-left:1.2rem;margin:1rem 0 1.15rem}
+ul.standard li{margin-bottom:.45rem}
+.defn{
+  background:var(--gold-light);
+  border:1px solid #dcc888;
+  border-radius:3px;
+  padding:1rem 1.25rem;
+  margin:1rem 0 1.25rem;
+}
+.defn-label{
+  font-family:'DM Mono',monospace;
+  font-size:10px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:4px;
+}
+.defn p{color:var(--ink);margin-bottom:0;font-size:14.5px}
+.defn strong{color:var(--gold)}
+.key-terms{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:.6rem;
+  margin:1.25rem 0;
+}
+.term{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:3px;
+  padding:.7rem 1rem;
+}
+.term-word{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1rem;
+  font-weight:600;
+  color:var(--ink);
+  margin-bottom:2px;
+}
+.term-def{font-size:12.5px;color:var(--muted);line-height:1.4}
+.compare-table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:13.5px;
+  margin:1.25rem 0;
+  border:1px solid var(--border);
+  border-radius:4px;
+  overflow:hidden;
+}
+.compare-table th{
+  background:var(--bg2);
+  padding:.65rem 1rem;
+  text-align:left;
+  font-weight:500;
+  font-size:12px;
+  font-family:'DM Mono',monospace;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--muted);
+  border-bottom:1px solid var(--border2);
+}
+.compare-table td{
+  padding:.65rem 1rem;
+  border-bottom:1px solid var(--border);
+  vertical-align:top;
+}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table td:first-child{font-weight:500;color:var(--ink);width:150px}
+.eval-box{
+  background:var(--teal-light);
+  border:1px solid #b8d8d3;
+  border-radius:4px;
+  padding:1.25rem 1.5rem;
+  margin:1.5rem 0;
+}
+.eval-label{
+  font-family:'DM Mono',monospace;
+  font-size:10px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--teal);
+  margin-bottom:.6rem;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.eval-label::before{content:'⊕';font-size:12px}
+.eval-box p{color:#1a4a42;font-size:14px;margin-bottom:.5rem}
+.eval-box p:last-child{margin-bottom:0}
+.mistake-box{
+  background:var(--red-light);
+  border:1px solid var(--red-border);
+  border-radius:4px;
+  padding:1.25rem 1.5rem;
+  margin:1.5rem 0;
+}
+.mistake-label{
+  font-family:'DM Mono',monospace;
+  font-size:10px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--red-label);
+  margin-bottom:.6rem;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.mistake-label::before{content:'✕';font-size:11px}
+.mistake-box p{color:var(--red-text);font-size:14px;margin-bottom:.5rem}
+.mistake-box p:last-child{margin-bottom:0}
+.logic-box{
+  background:var(--accent-light);
+  border-left:4px solid var(--accent);
+  border-radius:0 4px 4px 0;
+  padding:1rem 1.25rem;
+  margin:1rem 0;
+  font-size:14px;
+  color:#0f2e52;
+}
+.diagram-label{
+  font-family:'DM Mono',monospace;
+  font-size:10px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:.75rem;
+}
+.logic-box ul{padding-left:1.15rem}
+.logic-box li{margin-bottom:.45rem}
+.steps{margin:1.25rem 0}
+.step{
+  display:flex;
+  gap:1rem;
+  margin-bottom:.75rem;
+  align-items:flex-start;
+}
+.step-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.4rem;
+  font-weight:700;
+  color:var(--border2);
+  line-height:1.2;
+  min-width:28px;
+  flex-shrink:0;
+}
+.step-content{font-size:14px;color:var(--text);padding-top:2px}
+.step-content strong{color:var(--ink)}
+.exam-q{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:4px;
+  overflow:hidden;
+  margin:1.5rem 0;
+}
+.exam-q-header{
+  background:var(--ink);
+  color:#f5f0e8;
+  padding:.6rem 1.25rem;
+  font-family:'DM Mono',monospace;
+  font-size:10px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.exam-q-marks{
+  background:var(--accent);
+  color:#fff;
+  padding:2px 8px;
+  border-radius:2px;
+  font-size:10px;
+}
+.exam-q-body{padding:1.25rem 1.5rem}
+.exam-q-body .q{
+  font-style:italic;
+  color:var(--ink);
+  margin-bottom:1rem;
+  font-size:15px;
+}
+.answer-label{
+  font-family:'DM Mono',monospace;
+  font-size:10px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--teal);
+  margin-bottom:.4rem;
+}
+.exam-q-body p{font-size:14px;margin-bottom:.6rem}
+.footer{
+  text-align:center;
+  font-family:'DM Mono',monospace;
+  font-size:11px;
+  color:var(--border2);
+  letter-spacing:.08em;
+  padding-top:2rem;
+  border-top:1px solid var(--border);
+}
+@media(max-width:640px){
+  h1{font-size:2.2rem}
+  .toc{grid-template-columns:1fr}
+  .key-terms{grid-template-columns:1fr}
+  .page{padding:0 1.25rem 4rem}
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <a class="back-btn" href="Business-Economics-Exam-Hub.html" aria-label="Back to hub">←</a>
+
+  <div class="hero">
+    <div class="lecture-tag">Stakeholder Preview · Study Hub · Base Template</div>
+    <h1>Editorial Revision Page<br>Template Preview</h1>
+    <p class="hero-sub">This is a reusable lecture-page shell designed to show the intended visual hierarchy, reading rhythm, and exam-oriented content structure before subject-specific copy is written.</p>
+    <div class="meta-row">
+      <span class="meta-chip chip-track">Template System</span>
+      <span class="meta-chip chip-status">Stakeholder Review</span>
+      <span class="meta-chip chip-scope">Lecture Page Baseline</span>
+    </div>
+  </div>
+
+  <div class="alert-box">
+    <strong>Preview note:</strong> This page is intentionally populated with placeholder academic content so stakeholders can review the design system itself: hero treatment, section flow, callouts, tables, steps, and exam-style answer blocks.
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">Contents</div>
+    <a href="#s1" data-num="01">Page purpose and hierarchy</a>
+    <a href="#s2" data-num="02">Key term card system</a>
+    <a href="#s3" data-num="03">Definition and evaluation blocks</a>
+    <a href="#s4" data-num="04">Tables and explanatory logic</a>
+    <a href="#s5" data-num="05">Step-by-step process layout</a>
+    <a href="#s6" data-num="06">Exam question presentation</a>
+  </div>
+
+  <div class="section">
+    <div class="section-num">Key Definitions</div>
+    <h2>Terms to Know Cold</h2>
+    <div class="key-terms">
+      <div class="term"><div class="term-word">Hero section</div><div class="term-def">The top-of-page block containing title, summary, identity label, and metadata chips.</div></div>
+      <div class="term"><div class="term-word">Callout box</div><div class="term-def">A semantic content container used for definitions, evaluation, warnings, or exam guidance.</div></div>
+      <div class="term"><div class="term-word">Section rhythm</div><div class="term-def">The consistent spacing and hierarchy that makes long-form notes easy to scan and read.</div></div>
+      <div class="term"><div class="term-word">Exam framing</div><div class="term-def">Language and layout that translate notes into assessment-ready explanations.</div></div>
+    </div>
+  </div>
+
+  <div class="section" id="s1">
+    <div class="section-num">01</div>
+    <h2>Page Purpose and Hierarchy</h2>
+    <p>This template is designed for long-form revision content. The structure deliberately starts with orientation, moves into clearly segmented teaching blocks, and finishes with exam-style material. That sequencing makes the page feel authored rather than dumped from notes.</p>
+    <div class="defn">
+      <div class="defn-label">Template rule</div>
+      <p><strong>Every lecture page should explain, not just store information.</strong> The layout works best when each section moves from concept, to mechanism, to implication, to exam use.</p>
+    </div>
+    <p>Visually, the hierarchy depends on three layers: elegant serif headings for structure, plain sans-serif body copy for readability, and uppercase monospace labels for metadata and small guidance markers.</p>
+    <div class="eval-box">
+      <div class="eval-label">Stakeholder takeaway</div>
+      <p>The page should feel premium and academic, but still practical. It is closer to a designed revision handout than a generic website article.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s2">
+    <div class="section-num">02</div>
+    <h2>Key Term Card System</h2>
+    <p>The term-grid pattern provides a fast, scannable entry point at the top of a lecture. It works well for vocabulary, formulas, frameworks, or core distinctions that students need to lock in early.</p>
+    <h3>Why this component matters</h3>
+    <ul class="standard">
+      <li>It breaks up the top of a long page without feeling decorative.</li>
+      <li>It gives immediate value before the user reaches denser sections.</li>
+      <li>It creates a reusable content pattern across lectures.</li>
+    </ul>
+    <div class="mistake-box">
+      <div class="mistake-label">Common mistake</div>
+      <p>Do not overload these cards with mini-paragraphs. They work because each definition stays compact, clear, and easy to scan.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s3">
+    <div class="section-num">03</div>
+    <h2>Definition and Evaluation Blocks</h2>
+    <p>The semantic callout system is one of the strongest parts of the page language. Different colors signal different kinds of thinking without needing heavy iconography or complex layout changes.</p>
+    <table class="compare-table">
+      <tr>
+        <th>Component</th>
+        <th>Use</th>
+        <th>Effect on reading</th>
+      </tr>
+      <tr>
+        <td>Definition box</td>
+        <td>Formula, rule, or memory anchor</td>
+        <td>Creates a clear takeaway moment</td>
+      </tr>
+      <tr>
+        <td>Evaluation box</td>
+        <td>Judgement, nuance, limitations</td>
+        <td>Signals higher-order thinking</td>
+      </tr>
+      <tr>
+        <td>Mistake box</td>
+        <td>Warnings about weak answers</td>
+        <td>Sharpens exam discipline</td>
+      </tr>
+    </table>
+    <div class="logic-box">
+      <div class="diagram-label">Recommended logic</div>
+      <ul>
+        <li>Gold boxes capture what must be remembered precisely.</li>
+        <li>Teal boxes show interpretation, evaluation, or judgement.</li>
+        <li>Red boxes protect against predictable weak answers.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section" id="s4">
+    <div class="section-num">04</div>
+    <h2>Tables and Explanatory Logic</h2>
+    <p>Tables are used sparingly to compare concepts or compress structured information. They are not meant to become spreadsheet-like data blocks. The tone stays academic and lightweight.</p>
+    <div class="defn">
+      <div class="defn-label">Presentation principle</div>
+      <p><strong>Use tables when comparison adds clarity.</strong> If a paragraph explains the idea better, prefer the paragraph.</p>
+    </div>
+    <p>The accompanying logic box is useful when a section needs a short list of exam-ready explanatory steps, especially for diagrams, frameworks, or analytical sequences.</p>
+  </div>
+
+  <div class="section" id="s5">
+    <div class="section-num">05</div>
+    <h2>Step-by-Step Process Layout</h2>
+    <p>The numbered step pattern is designed for causal chains and worked explanations. It visually slows the reader down in a useful way, making process explanation easier to follow.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content"><strong>Introduce the trigger:</strong> state the event, problem, or starting condition clearly.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content"><strong>Explain the mechanism:</strong> show what changes and why it changes.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content"><strong>State the outcome:</strong> identify the final effect on output, welfare, prices, behaviour, or decision-making.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content"><strong>Link to exam use:</strong> convert the chain into the exact kind of explanation a student would write under pressure.</div>
+      </div>
+    </div>
+    <div class="eval-box">
+      <div class="eval-label">Why it works</div>
+      <p>This component turns abstract reasoning into a controlled sequence. It is especially effective in economics, law, policy, and any note format built around cause and effect.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s6">
+    <div class="section-num">06</div>
+    <h2>Exam Question Presentation</h2>
+    <p>The final section demonstrates how revision notes translate into exam-facing blocks. The dark header creates a clean visual break and makes the question card feel deliberate rather than improvised.</p>
+    <div class="exam-q">
+      <div class="exam-q-header">
+        <span>Section B style preview</span>
+        <span class="exam-q-marks">8 marks</span>
+      </div>
+      <div class="exam-q-body">
+        <p class="q">Explain how this template supports both readability and exam preparation.</p>
+        <div class="answer-label">Model answer</div>
+        <p>This template supports readability by using a narrow content width, strong typographic hierarchy, generous spacing, and semantic callout components that break dense information into manageable blocks. Serif headings give sections authority, while sans-serif body text keeps long reading comfortable.</p>
+        <p>It supports exam preparation because the page structure consistently moves from concept to explanation to evaluation. Components such as mistake boxes, logic boxes, and exam question cards help students translate notes into stronger written answers. The result is a page that is not only attractive, but instructionally useful.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Stakeholder Preview · Study Hub Base Template · Lecture Page System
+  </div>
+</div>
+</body>
+</html>

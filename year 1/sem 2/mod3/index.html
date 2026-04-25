@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quantitative Analysis in Business Studies — Study Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root { --bg:#0e0f11; --surface:#16181c; --surface2:#1d2026; --border:rgba(255,255,255,0.07); --border2:rgba(255,255,255,0.12); --text:#f0ede8; --muted:#7a7d85; --accent:#c9a84c; --accent2:#e8c97a; --blue:#5b8fa8; --green:#4a9e7f; --hot:#c0574a; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:var(--bg); color:var(--text); font-family:'DM Sans',sans-serif; font-size:15px; line-height:1.6; min-height:100vh; transition:opacity .22s ease, transform .22s ease; }
+body::before { content:''; position:fixed; inset:0; background:radial-gradient(ellipse 80% 50% at 20% 0%, rgba(201,168,76,0.06) 0%, transparent 60%), radial-gradient(ellipse 60% 40% at 80% 100%, rgba(91,143,168,0.05) 0%, transparent 60%); pointer-events:none; z-index:0; }
+.container { max-width:780px; margin:0 auto; padding:3rem 2rem 5rem; position:relative; z-index:1; }
+.back-btn { width:42px; height:42px; border-radius:50%; background:var(--surface); border:0.5px solid var(--border2); display:flex; align-items:center; justify-content:center; text-decoration:none; color:var(--accent); font-family:'DM Mono',monospace; font-size:1rem; box-shadow:0 10px 20px rgba(0,0,0,0.18); transition:transform 0.15s, background 0.15s, border-color 0.15s; margin-bottom:1.5rem; }
+.back-btn:hover { transform:translateY(-1px); background:var(--surface2); border-color:rgba(255,255,255,0.18); }
+.eyebrow,.section-label,.lec-badge,.path { font-family:'DM Mono',monospace; letter-spacing:0.1em; text-transform:uppercase; }
+.eyebrow { font-size:11px; color:var(--accent); margin-bottom:0.6rem; }
+h1 { font-family:'Playfair Display',serif; font-size:2.45rem; line-height:1.1; margin-bottom:0.6rem; }
+.subtitle { color:var(--muted); font-size:14px; margin-bottom:2rem; max-width:680px; }
+.stats { display:grid; grid-template-columns:repeat(4, 1fr); gap:1rem; margin-bottom:2rem; }
+.stat { background:var(--surface); border:0.5px solid var(--border); border-radius:10px; padding:1rem; text-align:center; }
+.stat-num { font-family:'Playfair Display',serif; font-size:1.8rem; font-weight:700; color:var(--accent); line-height:1; margin-bottom:4px; }
+.stat-label { font-size:12px; color:var(--muted); }
+.alert { border-radius:8px; padding:0.8rem 1rem; font-size:13px; margin-bottom:0.75rem; border-left:3px solid; }
+.alert-amber { background:rgba(201,168,76,0.08); border-color:var(--accent); color:#d4b870; }
+.alert-green { background:rgba(74,158,127,0.08); border-color:var(--green); color:#68c7a6; }
+.alert-blue { background:rgba(91,143,168,0.08); border-color:var(--blue); color:#8ec1d9; }
+.section-head { display:flex; align-items:center; gap:10px; margin:2rem 0 0.75rem; }
+.section-label { font-size:10px; color:var(--muted); }
+.section-pill { font-size:10px; padding:2px 8px; border-radius:20px; font-weight:500; background:rgba(91,143,168,0.15); color:#7fb8d4; border:0.5px solid rgba(91,143,168,0.3); }
+.topic-btn { width:100%; display:flex; align-items:center; gap:0; background:var(--surface); border:0.5px solid var(--border); border-radius:8px; padding:0.7rem 1rem; color:var(--text); font-family:'DM Sans',sans-serif; font-size:13.5px; text-align:left; text-decoration:none; transition:background 0.15s, border-color 0.15s, transform 0.1s; margin-bottom:6px; }
+.topic-btn:hover { background:var(--surface2); border-color:var(--border2); transform:translateX(2px); }
+.lec-badge { font-size:10px; color:var(--muted); min-width:42px; flex-shrink:0; }
+.done-dot { width:6px; height:6px; border-radius:50%; background:var(--green); flex-shrink:0; margin-right:8px; }
+.hot-dot { width:6px; height:6px; border-radius:50%; background:var(--hot); flex-shrink:0; margin-right:8px; animation:pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+.btn-text { flex:1; }
+.btn-arrow { font-size:11px; color:var(--muted); flex-shrink:0; }
+.practice-grid { display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin-bottom:0.75rem; }
+.practice-btn { display:flex; flex-direction:column; gap:6px; background:var(--surface); border:0.5px solid var(--border); border-radius:10px; padding:0.9rem 1rem; color:var(--text); font-family:'DM Sans',sans-serif; font-size:13.5px; text-align:left; text-decoration:none; transition:background 0.15s, border-color 0.15s; }
+.practice-btn:hover { background:var(--surface2); border-color:var(--border2); }
+.practice-tag { font-size:11px; padding:2px 8px; border-radius:4px; font-weight:500; align-self:flex-start; }
+.tag-blue { background:rgba(91,143,168,0.15); color:#7fb8d4; }
+.tag-purple { background:rgba(123,111,168,0.15); color:#a899d4; }
+.tag-gold { background:rgba(201,168,76,0.15); color:var(--accent2); }
+.legend { display:flex; gap:1.1rem; flex-wrap:wrap; margin-bottom:0.9rem; color:var(--muted); font-size:12px; }
+.legend-item { display:inline-flex; align-items:center; gap:0.45rem; }
+.resource-list { background:var(--surface); border:0.5px solid var(--border); border-radius:12px; padding:1rem 1.2rem; margin-top:1rem; }
+.resource-list ul { margin:0.6rem 0 0 1rem; }
+.resource-list li { margin-bottom:0.35rem; color:var(--muted); font-size:13px; }
+.support-grid { display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin-bottom:0.75rem; }
+.mistake-list { margin-top:0.5rem; }
+.mistake-list li { color:var(--muted); font-size:13px; margin-bottom:0.45rem; }
+.path { font-size:12px; color:#8ebfa9; }
+.footer { margin-top:2rem; padding-top:1rem; border-top:0.5px solid var(--border); color:var(--muted); font-size:12px; }
+.page-transition-init { opacity:0; transform:translateY(8px); }
+.page-transition-ready { opacity:1; transform:none; }
+.page-transition-leaving { opacity:0; transform:translateY(6px); pointer-events:none; }
+@media (prefers-reduced-motion: reduce) { body,.page-transition-init,.page-transition-ready,.page-transition-leaving,.hot-dot { transition:none !important; transform:none !important; animation:none !important; } }
+@media (max-width: 600px) { h1 { font-size:2rem; } .stats { grid-template-columns:repeat(2, 1fr); } .support-grid { grid-template-columns:1fr; } .container { padding:2rem 1.25rem 4rem; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <a class="back-btn" href="../index.html" aria-label="Back to Semester 2 page">←</a>
+  <div class="eyebrow">Study Hub · Year 1 · Semester 2 · mod3</div>
+  <h1>Quantitative Analysis in Business Studies</h1>
+  <div class="subtitle">Descriptive statistics, probability, distributions, inferential statistics, hypothesis testing, chi-squared methods, ANOVA, regression, and applied SPSS workflow. The notes below are built from the uploaded week-by-week lecture, seminar, exam, and assessment materials.</div>
+  <div class="stats"><div class="stat"><div class="stat-num">9</div><div class="stat-label">Lecture Topics</div></div><div class="stat"><div class="stat-num">9</div><div class="stat-label">Seminar Sets</div></div><div class="stat"><div class="stat-num">50/50</div><div class="stat-label">CW / Exam Split</div></div><div class="stat"><div class="stat-num">1h30</div><div class="stat-label">Exam Length</div></div></div>
+  <div class="alert alert-green"><strong>Assessment brief:</strong> the uploaded coursework brief shows a <strong>1,200-word</strong> assessment weighted at <strong>50%</strong>, due at <strong>11:00am UK time on Wednesday 6 May 2026</strong>.</div>
+  <div class="alert alert-amber"><strong>Closed exam:</strong> the uploaded 2024-25 paper shows a <strong>50% closed exam</strong> with a duration of <strong>1 hour 30 minutes</strong>. Candidates answer all questions and, where applicable, provide a narrative, formula, and full workings to two decimal places.</div>
+  <div class="alert alert-blue"><strong>Red-dot priority topics:</strong> these are the most exam-recurrent quantitative mechanics across the uploaded closed exam, mock paper, and seminar set: probability, distributions, confidence intervals, hypothesis tests, chi-squared, ANOVA, and regression.</div>
+  <div class="section-head"><span class="section-label">Lecture Notes</span><span class="section-pill">9 topics live</span></div>
+  <div class="legend"><div class="legend-item"><span class="done-dot"></span> Revision guide done</div><div class="legend-item"><span class="hot-dot"></span> High exam priority</div></div>
+  <a class="topic-btn" href="lecture1.html"><span class="lec-badge">L1</span><span class="done-dot"></span><span class="btn-text">Descriptive Statistics, Measures and Charts</span><span class="btn-arrow">↗</span></a><a class="topic-btn" href="lecture2.html"><span class="lec-badge">L2</span><span class="done-dot"></span><span class="hot-dot"></span><span class="btn-text">Probability and Expected Value</span><span class="btn-arrow">↗</span></a><a class="topic-btn" href="lecture3.html"><span class="lec-badge">L3</span><span class="done-dot"></span><span class="hot-dot"></span><span class="btn-text">Discrete and Continuous Distributions</span><span class="btn-arrow">↗</span></a><a class="topic-btn" href="lecture4.html"><span class="lec-badge">L4</span><span class="done-dot"></span><span class="hot-dot"></span><span class="btn-text">Sampling, the Central Limit Theorem and Confidence Intervals</span><span class="btn-arrow">↗</span></a><a class="topic-btn" href="lecture5.html"><span class="lec-badge">L5</span><span class="done-dot"></span><span class="hot-dot"></span><span class="btn-text">Hypothesis Testing</span><span class="btn-arrow">↗</span></a><a class="topic-btn" href="lecture6.html"><span class="lec-badge">L6</span><span class="done-dot"></span><span class="hot-dot"></span><span class="btn-text">Chi-Squared Tests</span><span class="btn-arrow">↗</span></a><a class="topic-btn" href="lecture7.html"><span class="lec-badge">L7</span><span class="done-dot"></span><span class="hot-dot"></span><span class="btn-text">ANOVA</span><span class="btn-arrow">↗</span></a><a class="topic-btn" href="lecture8.html"><span class="lec-badge">L8</span><span class="done-dot"></span><span class="hot-dot"></span><span class="btn-text">Correlation and Regression</span><span class="btn-arrow">↗</span></a><a class="topic-btn" href="lecture9.html"><span class="lec-badge">L9</span><span class="done-dot"></span><span class="btn-text">SPSS Practical and Applied Data Analysis</span><span class="btn-arrow">↗</span></a>
+  <div class="section-head"><span class="section-label">Seminar Answers</span><span class="section-pill">9 model sets</span></div>
+  <a class="topic-btn" href="seminar1.html"><span class="lec-badge">S1</span><span class="done-dot"></span><span class="btn-text">Measures and Charts</span><span class="btn-arrow">↗</span></a><a class="topic-btn" href="seminar2.html"><span class="lec-badge">S2</span><span class="done-dot"></span><span class="hot-dot"></span><span class="btn-text">Probability</span><span class="btn-arrow">↗</span></a><a class="topic-btn" href="seminar3.html"><span class="lec-badge">S3</span><span class="done-dot"></span><span class="hot-dot"></span><span class="btn-text">Distributions</span><span class="btn-arrow">↗</span></a><a class="topic-btn" href="seminar4.html"><span class="lec-badge">S4</span><span class="done-dot"></span><span class="hot-dot"></span><span class="btn-text">Confidence Intervals and Sampling</span><span class="btn-arrow">↗</span></a><a class="topic-btn" href="seminar5.html"><span class="lec-badge">S5</span><span class="done-dot"></span><span class="hot-dot"></span><span class="btn-text">Hypothesis Tests</span><span class="btn-arrow">↗</span></a><a class="topic-btn" href="seminar6.html"><span class="lec-badge">S6</span><span class="done-dot"></span><span class="hot-dot"></span><span class="btn-text">Chi-Squared</span><span class="btn-arrow">↗</span></a><a class="topic-btn" href="seminar7.html"><span class="lec-badge">S7</span><span class="done-dot"></span><span class="hot-dot"></span><span class="btn-text">ANOVA</span><span class="btn-arrow">↗</span></a><a class="topic-btn" href="seminar8.html"><span class="lec-badge">S8</span><span class="done-dot"></span><span class="hot-dot"></span><span class="btn-text">Correlation and Regression</span><span class="btn-arrow">↗</span></a><a class="topic-btn" href="seminar9.html"><span class="lec-badge">S9</span><span class="done-dot"></span><span class="btn-text">SPSS Practical</span><span class="btn-arrow">↗</span></a>
+  <div class="section-head"><span class="section-label">Exam Practice</span><span class="section-pill">Local practice pages</span></div>
+  <div class="practice-grid">
+    <a class="practice-btn" href="exam-qs/calculation-drill.html"><span>Calculation drill</span><span class="practice-tag tag-blue">Closed + mock exam</span></a>
+    <a class="practice-btn" href="exam-qs/written-answers.html"><span>Method answers</span><span class="practice-tag tag-purple">Interpretation + method marks</span></a>
+  </div>
+  <a class="practice-btn" href="exam-qs/walkthrough-closed-2024-25.html" style="margin-bottom:6px;"><span>Closed exam walkthrough — 2024–25</span><span class="practice-tag tag-gold">Actual paper</span></a>
+  <a class="practice-btn" href="exam-qs/walkthrough-mock-2024-25.html" style="margin-bottom:6px;"><span>Mock exam walkthrough — 2024–25</span><span class="practice-tag tag-gold">Mock paper + official solutions</span></a>
+  <div class="section-head"><span class="section-label">Revision Tools</span><span class="section-pill">Formula + summary</span></div>
+  <div class="support-grid">
+    <a class="practice-btn" href="formula-sheet.html"><span>Formula sheet</span><span class="practice-tag tag-blue">Stats core methods</span></a>
+    <a class="practice-btn" href="one-page-summary.html"><span>One-page summary</span><span class="practice-tag tag-purple">Last-day revision</span></a>
+  </div>
+  <div class="section-head"><span class="section-label">Common Mistakes</span><span class="section-pill">High-mark losses</span></div>
+  <div class="resource-list"><strong>What usually costs marks in this module</strong><ul class="mistake-list"><li>Choosing the wrong method before calculating, especially mixing conditional probability, Bayes and binomial setups.</li><li>Using a formula without defining the hypotheses or the parameter being tested.</li><li>Forgetting the interpretation line after a confidence interval, p-value or regression coefficient.</li><li>Rounding too early and then carrying the error into later parts of the question.</li><li>Treating correlation or statistical significance as proof of causation.</li></ul></div>
+  <div class="section-head"><span class="section-label">Resources</span><span class="section-pill">Source set retained</span></div>
+  <div class="resource-list"><strong>Key uploaded files</strong><ul><li>Week-by-week lecture slides for Weeks 1 to 9</li><li>Seminar questions and solution files across the taught topics</li><li>Mock exam, closed exam, coursework brief, and statistical table sheets</li><li>SPSS dataset and worksheet for applied practical work</li></ul><div class="path">/year 1/sem 2/mod3/resources/</div></div>
+  <div class="footer">Quantitative Analysis in Business Studies hub · Semester 2 · mod3</div>
+</div>
+<script>(function(){document.body.classList.add('page-transition-init');window.addEventListener('load',function(){requestAnimationFrame(function(){document.body.classList.remove('page-transition-init');document.body.classList.add('page-transition-ready');});});document.addEventListener('click',function(event){var link=event.target.closest('a[href]');if(!link)return;if(event.defaultPrevented||event.button!==0)return;if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;if(link.target&&link.target!=='_self')return;if(link.hasAttribute('download'))return;var href=link.getAttribute('href');if(!href||href.charAt(0)==='#')return;if(/^(mailto:|tel:|javascript:)/i.test(href))return;var url=new URL(link.href,window.location.href);if(url.origin!==window.location.origin)return;if(url.pathname===window.location.pathname&&url.search===window.location.search&&url.hash)return;event.preventDefault();document.body.classList.remove('page-transition-ready');document.body.classList.add('page-transition-leaving');window.setTimeout(function(){window.location.href=url.href;},180);});})();</script>
+</body></html>

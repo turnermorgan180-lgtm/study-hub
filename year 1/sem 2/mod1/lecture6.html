@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L6 Revenue, Profit and Advertising — Business Economics</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf8f4;--bg2:#f2ede4;--surface:#fff;--border:#e8ddd0;--border2:#d4c8b0;--text:#1a1612;--muted:#7a6e5e;--accent:#245b74;--accent-light:#e8f1f4;--gold:#8a6a2a;--gold-light:#f7f0e0;--teal:#1a5c52;--teal-light:#e8f4f1;--red-light:#fdf2f0;--red-border:#f0c4b8;--red-text:#7a2015;--red-label:#c0392b;--ink:#2c2416}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7}
+.page{position:relative;max-width:860px;margin:0 auto;padding:0 2rem 6rem}
+.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;font-size:1rem;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s;z-index:10}
+.back-btn:hover{transform:translateY(-1px);background:var(--bg2)}
+.hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border2);margin-bottom:3rem;position:relative}
+.hero::before{content:'';position:absolute;top:0;left:-2rem;right:-2rem;bottom:0;background:linear-gradient(180deg,#e5eff2 0%,transparent 100%);z-index:-1}
+.lecture-tag{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:8px;margin-bottom:1rem}
+.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent)}
+h1{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:700;line-height:1.1;color:var(--ink);margin-bottom:1rem;letter-spacing:-.02em}
+.hero-sub{font-size:16px;color:var(--muted);max-width:640px;line-height:1.6;margin-bottom:1.5rem}
+.meta-row{display:flex;gap:1.5rem;flex-wrap:wrap}
+.meta-chip{font-family:'DM Mono',monospace;font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}
+.chip-micro{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}
+.chip-exam{background:var(--accent-light);color:var(--accent);border:1px solid #bfd3da}
+.chip-marks{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
+.alert-box{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin-bottom:2.5rem;font-size:13.5px;color:#173f4f}
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem 2rem}
+.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label,.answer-label,.footer{font-family:'DM Mono',monospace}
+.toc-title{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);grid-column:1/-1;margin-bottom:.5rem}
+.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:8px;padding:3px 0}
+.toc a::before{content:attr(data-num);font-size:10px;color:var(--border2);min-width:16px}
+.section{margin-bottom:3.5rem}
+.section-num{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
+h2{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:600;color:var(--ink);line-height:1.2;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--ink);margin-top:1.75rem;margin-bottom:.6rem;font-style:italic}
+p{margin-bottom:.9rem}
+ul{padding-left:1.15rem;margin:1rem 0}
+li{margin-bottom:.45rem}
+.defn,.diagram-box,.exam-q{background:var(--surface);border-radius:4px}
+.defn{background:var(--gold-light);border:1px solid #dcc888;padding:1rem 1.25rem;margin:1rem 0 1.25rem}
+.defn-label,.answer-label,.diagram-label,.eval-label,.mistake-label{font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+.defn p{margin-bottom:0;font-size:14.5px}
+.key-terms{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1.25rem 0}
+.term{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:.7rem 1rem}
+.term-word{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:2px}
+.term-def{font-size:12.5px;color:var(--muted);line-height:1.4}
+.compare-table{width:100%;border-collapse:collapse;font-size:13.5px;margin:1.25rem 0;border:1px solid var(--border)}
+.compare-table th{background:var(--bg2);padding:.65rem 1rem;text-align:left;font-weight:500;font-size:12px;font-family:'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border2)}
+.compare-table td{padding:.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top}
+.compare-table tr:last-child td{border-bottom:none}
+.eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.mistake-box{background:var(--red-light);border:1px solid var(--red-border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.eval-label{color:var(--teal);margin-bottom:.6rem}
+.mistake-label{color:var(--red-label);margin-bottom:.6rem}
+.steps{margin:1.25rem 0}
+.step{display:flex;gap:1rem;margin-bottom:.75rem;align-items:flex-start}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--border2);min-width:28px}
+.step-content{font-size:14px;padding-top:2px}
+.diagram-box{border:1px solid var(--border);padding:1.25rem 1.5rem;margin:1.5rem 0}
+.exam-q{border:1px solid var(--border);overflow:hidden;margin:1.5rem 0}
+.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between}
+.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px}
+.exam-q-body{padding:1.25rem 1.5rem}
+.exam-q-body .q{font-style:italic;color:var(--ink);margin-bottom:1rem}
+.footer{text-align:center;font-size:11px;color:var(--border2);padding-top:1rem;border-top:1px solid var(--border)}
+@media (max-width:640px){h1{font-size:2.2rem}.toc,.key-terms{grid-template-columns:1fr}.page{padding:0 1.25rem 4rem}}
+
+.page-transition-init{opacity:0;transform:translateY(8px)}
+.page-transition-ready{opacity:1;transform:none}
+.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
+body{transition:opacity .22s ease,transform .22s ease}
+@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}
+</style>
+</head>
+<body>
+<div class="page">
+<a class="back-btn" href="index.html" aria-label="Back to Business Economics hub">←</a>
+
+<div class="hero">
+  <div class="lecture-tag">Lecture 6 · MAN00016C · University of York</div>
+  <h1>Revenue, Profit and Advertising</h1>
+  <p class="hero-sub">Product decisions, total, average and marginal revenue, accounting versus economic profit, profit maximisation, advertising strategy, and how non-price competition changes demand conditions.</p>
+  <div class="meta-row">
+    <span class="meta-chip chip-micro">Microeconomics</span>
+    <span class="meta-chip chip-exam">High exam relevance</span>
+    <span class="meta-chip chip-marks">Section A + B</span>
+  </div>
+</div>
+
+<div class="alert-box">
+  Revenue and profit questions often test the exact relationship between <strong>AR, MR, and demand</strong>, then push you to explain how <strong>advertising shifts demand or changes elasticity</strong>. The mark-scoring move is to connect each business decision to price, output, and profit rather than discussing promotion in vague marketing language.
+</div>
+
+<div class="toc">
+  <div class="toc-title">Contents</div>
+  <a href="#s1" data-num="01">Revenue concepts</a>
+  <a href="#s2" data-num="02">Profit and economic cost</a>
+  <a href="#s3" data-num="03">Profit maximisation</a>
+  <a href="#s4" data-num="04">Advertising and demand</a>
+  <a href="#s5" data-num="05">Branding and elasticity</a>
+  <a href="#s6" data-num="06">When advertising pays</a>
+  <a href="#s7" data-num="07">Evaluation and mistakes</a>
+  <a href="#s8" data-num="08">Exam question</a>
+</div>
+
+<div class="section">
+  <div class="section-num">Key Definitions</div>
+  <h2>Terms to Know Cold</h2>
+  <div class="key-terms">
+    <div class="term"><div class="term-word">Total revenue</div><div class="term-def">Price multiplied by quantity sold.</div></div>
+    <div class="term"><div class="term-word">Average revenue</div><div class="term-def">Revenue per unit sold. In most models it is the price.</div></div>
+    <div class="term"><div class="term-word">Marginal revenue</div><div class="term-def">The extra revenue from selling one more unit.</div></div>
+    <div class="term"><div class="term-word">Accounting profit</div><div class="term-def">Revenue minus explicit monetary costs.</div></div>
+    <div class="term"><div class="term-word">Economic profit</div><div class="term-def">Revenue minus explicit and implicit opportunity costs.</div></div>
+    <div class="term"><div class="term-word">Persuasive advertising</div><div class="term-def">Promotion that shifts preferences and differentiates the product.</div></div>
+  </div>
+</div>
+
+<div class="section" id="s1">
+  <div class="section-num">Part 01</div>
+  <h2>Revenue Concepts and the Shape of Demand</h2>
+  <p>Total revenue rises when a firm sells more output, but the rate at which it rises depends on market structure. In perfect competition the firm is a price taker, so each extra unit is sold at the same market price and <strong>AR = MR = price</strong>. In imperfect competition the firm faces a downward-sloping demand curve, so selling more usually requires a lower price and <strong>MR falls below AR</strong>.</p>
+  <div class="defn">
+    <div class="defn-label">Core rule</div>
+    <p><strong>If demand slopes downward, marginal revenue lies below average revenue.</strong> The firm gains revenue from the extra unit, but loses some revenue on previous units because price falls.</p>
+  </div>
+  <table class="compare-table">
+    <tr><th>Market setting</th><th>Average revenue</th><th>Marginal revenue</th></tr>
+    <tr><td>Perfect competition</td><td>Horizontal at market price</td><td>Equal to price</td></tr>
+    <tr><td>Monopoly or monopolistic competition</td><td>Downward-sloping demand curve</td><td>Below average revenue</td></tr>
+    <tr><td>Practical implication</td><td>Price can be influenced</td><td>Extra output may force price cuts</td></tr>
+  </table>
+</div>
+
+<div class="section" id="s2">
+  <div class="section-num">Part 02</div>
+  <h2>Profit Means More Than Accounting Surplus</h2>
+  <p>Business economics distinguishes between accounting profit and economic profit because firms must cover not only cash expenses but also the opportunity cost of owner time, retained capital, and alternative uses of resources. A business can look profitable in accounting terms while still earning less than its resources could earn elsewhere.</p>
+  <p>The stronger exam answer therefore defines profit as a <strong>residual after relevant costs</strong>, not simply money left over after paying bills.</p>
+  <div class="mistake-box">
+    <div class="mistake-label">Common mistake</div>
+    <p>Do not say a firm should continue operating just because accounting profit is positive. The correct question is whether revenue covers variable cost in the short run and total economic cost in the long run.</p>
+  </div>
+</div>
+
+<div class="section" id="s3">
+  <div class="section-num">Part 03</div>
+  <h2>The Profit-Maximising Rule</h2>
+  <p>The central business rule is simple: profit is maximised at the output where <strong>marginal revenue equals marginal cost</strong>, provided marginal cost is rising through that point. The intuition is that output should be expanded while the extra revenue from one more unit exceeds the extra cost of making it.</p>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Compare MR and MC.</strong> If MR is greater, extra output adds to profit.</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Stop where MR = MC.</strong> That is the last unit worth producing.</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Read price from demand or AR.</strong> In imperfect competition, price is found above MR.</div></div>
+  </div>
+  <div class="diagram-box">
+    <div class="diagram-label">In diagram terms</div>
+    <ul>
+      <li>Draw downward-sloping AR and steeper MR below it.</li>
+      <li>Draw U-shaped MC cutting MR at the chosen output.</li>
+      <li>Move vertically to AR to find the selling price.</li>
+      <li>Profit is the rectangle between price and average cost at that output if price exceeds AC.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section" id="s4">
+  <div class="section-num">Part 04</div>
+  <h2>Advertising as a Demand-Side Decision</h2>
+  <p>Advertising is treated here as an economic choice, not just a branding exercise. Informative advertising can make consumers aware of price, availability, and characteristics. Persuasive advertising can increase willingness to buy, shift demand outward, and weaken the closeness of substitutes.</p>
+  <p>If advertising makes demand stronger, total revenue may increase at a given price. If it also makes demand less elastic, the firm may gain more pricing power. That is why advertising and product differentiation are central in monopolistic competition and oligopoly.</p>
+  <div class="eval-box">
+    <div class="eval-label">Exam insight</div>
+    <p>The stronger answer explains <strong>how</strong> advertising works: demand may shift right, become less price elastic, or both. Do not stop at “advertising increases sales.”</p>
+  </div>
+</div>
+
+<div class="section" id="s5">
+  <div class="section-num">Part 05</div>
+  <h2>Branding, Product Differentiation and Elasticity</h2>
+  <p>When firms create brand loyalty, consumers see rival products as less perfect substitutes. That reduces the price elasticity of demand faced by the firm. A lower elasticity means a price rise causes a smaller proportionate fall in quantity demanded, which can support higher margins.</p>
+  <h3>Why that matters</h3>
+  <ul>
+    <li>It can raise average revenue at the chosen output.</li>
+    <li>It can protect market share against aggressive rivals.</li>
+    <li>It can make promotional spending rational even when production costs are unchanged.</li>
+  </ul>
+</div>
+
+<div class="section" id="s6">
+  <div class="section-num">Part 06</div>
+  <h2>When Does Advertising Pay?</h2>
+  <p>Advertising should be expanded up to the point where the <strong>marginal benefit of extra promotion equals the marginal cost</strong> of that promotion. The firm compares the extra contribution to revenue or profit with the cost of the campaign itself.</p>
+  <table class="compare-table">
+    <tr><th>Possible outcome</th><th>Effect on the firm</th><th>Exam interpretation</th></tr>
+    <tr><td>Higher sales only</td><td>Revenue rises but cost may also rise</td><td>Need to test net profit effect</td></tr>
+    <tr><td>Higher sales and stronger brand loyalty</td><td>Revenue and pricing power rise</td><td>More likely to sustain profit</td></tr>
+    <tr><td>Advertising war</td><td>Costs escalate for all firms</td><td>May mainly redistribute demand rather than expand the market</td></tr>
+  </table>
+</div>
+
+<div class="section" id="s7">
+  <div class="section-num">Part 07</div>
+  <h2>Evaluation and Common Pitfalls</h2>
+  <p>Advertising is not automatically welfare-improving. Informative advertising can reduce search costs and increase competition, but persuasive advertising may create artificial differentiation and barrier effects that protect market power. The correct evaluation depends on whether promotion improves information, expands consumer choice, or simply manipulates demand.</p>
+  <div class="mistake-box">
+    <div class="mistake-label">Common mistakes</div>
+    <p>Do not confuse <strong>sales maximisation</strong> with <strong>profit maximisation</strong>. A campaign that raises revenue can still lower profit if the advertising spend is too high.</p>
+    <p>Do not describe MR = MC as a condition for revenue maximisation. Revenue is maximised where MR = 0, not where MR = MC.</p>
+  </div>
+</div>
+
+<div class="section" id="s8">
+  <div class="section-num">Part 08</div>
+  <h2>Exam Practice</h2>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Section B Style Prompt</span><span class="exam-q-marks">12 marks</span></div>
+    <div class="exam-q-body">
+      <p class="q">Explain how advertising can increase a firm's profit. Use revenue concepts and market structure logic in your answer.</p>
+      <div class="answer-label">Model structure</div>
+      <p>Start by defining total, average, and marginal revenue. Then explain that in imperfect competition the firm faces downward-sloping demand and can use advertising to shift demand right or reduce elasticity. Link that to higher AR, improved MR at relevant output levels, and potentially higher profit if the extra revenue exceeds the extra advertising cost. Finish with evaluation: advertising can also become an arms race, and informative and persuasive advertising have different welfare implications.</p>
+    </div>
+  </div>
+</div>
+
+<div class="footer">Lecture 6 notes · Revenue, profit and advertising · Built to match the module lecture-page format</div>
+</div>
+<script>
+(function(){
+  document.body.classList.add("page-transition-init");
+  window.addEventListener("load", function(){
+    requestAnimationFrame(function(){
+      document.body.classList.remove("page-transition-init");
+      document.body.classList.add("page-transition-ready");
+    });
+  });
+  document.addEventListener("click", function(event){
+    var link = event.target.closest("a[href]");
+    if (!link) return;
+    if (event.defaultPrevented || event.button !== 0) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (link.target && link.target !== "_self") return;
+    if (link.hasAttribute("download")) return;
+    var href = link.getAttribute("href");
+    if (!href || href.charAt(0) === "#") return;
+    if (/^(mailto:|tel:|javascript:)/i.test(href)) return;
+    var url = new URL(link.href, window.location.href);
+    if (url.origin !== window.location.origin) return;
+    if (url.pathname === window.location.pathname && url.search === window.location.search && url.hash) return;
+    event.preventDefault();
+    document.body.classList.remove("page-transition-ready");
+    document.body.classList.add("page-transition-leaving");
+    window.setTimeout(function(){ window.location.href = url.href; }, 180);
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Economics Exam Hub — York</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0f11;
+    --surface: #16181c;
+    --surface2: #1d2026;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.12);
+    --text: #f0ede8;
+    --muted: #7a7d85;
+    --accent: #c9a84c;
+    --accent2: #e8c97a;
+    --micro: #5b8fa8;
+    --macro: #7b6fa8;
+    --done: #4a9e7f;
+    --hot: #c0574a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 20% 0%, rgba(201,168,76,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 100%, rgba(91,143,168,0.05) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .back-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 0.5px solid var(--border2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--accent);
+    font-family: 'DM Mono', monospace;
+    font-size: 1rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.18);
+    transition: transform 0.15s, background 0.15s, border-color 0.15s;
+    margin-bottom: 1.5rem;
+  }
+
+  .back-btn:hover {
+    transform: translateY(-1px);
+    background: var(--surface2);
+    border-color: rgba(255,255,255,0.18);
+  }
+
+  .header {
+    margin-bottom: 2.5rem;
+    border-bottom: 0.5px solid var(--border2);
+    padding-bottom: 2rem;
+  }
+
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .stat {
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .alert {
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    font-size: 13px;
+    margin-bottom: 0.75rem;
+    border-left: 3px solid;
+  }
+
+  .alert-amber {
+    background: rgba(201,168,76,0.08);
+    border-color: var(--accent);
+    color: #d4b870;
+  }
+
+  .alert-green {
+    background: rgba(74,158,127,0.08);
+    border-color: var(--done);
+    color: #5ec4a0;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 2rem 0 0.75rem;
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .section-pill {
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+
+  .pill-micro {
+    background: rgba(91,143,168,0.15);
+    color: #7fb8d4;
+    border: 0.5px solid rgba(91,143,168,0.3);
+  }
+
+  .pill-macro {
+    background: rgba(123,111,168,0.15);
+    color: #a899d4;
+    border: 0.5px solid rgba(123,111,168,0.3);
+  }
+
+  .topic-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13.5px;
+    cursor: pointer;
+    margin-bottom: 6px;
+    text-align: left;
+    transition: background 0.15s, border-color 0.15s, transform 0.1s;
+    text-decoration: none;
+  }
+
+  .topic-btn:hover {
+    background: var(--surface2);
+    border-color: var(--border2);
+    transform: translateX(2px);
+  }
+
+  .topic-btn:active {
+    transform: translateX(2px) scale(0.99);
+  }
+
+  .lec-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    min-width: 36px;
+    flex-shrink: 0;
+  }
+
+  .done-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--done);
+    flex-shrink: 0;
+    margin-right: 8px;
+  }
+
+  .hot-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--hot);
+    flex-shrink: 0;
+    margin-right: 8px;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .btn-text { flex: 1; }
+
+  .btn-arrow {
+    font-size: 11px;
+    color: var(--muted);
+    transition: color 0.15s;
+    flex-shrink: 0;
+  }
+
+  .topic-btn:hover .btn-arrow {
+    color: var(--accent);
+  }
+
+  .practice-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .practice-btn {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: 10px;
+    padding: 0.9rem 1rem;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13.5px;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.15s, border-color 0.15s;
+    text-decoration: none;
+  }
+
+  .practice-btn:hover {
+    background: var(--surface2);
+    border-color: var(--border2);
+  }
+
+  .practice-tag {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+    align-self: flex-start;
+  }
+
+  .tag-blue { background: rgba(91,143,168,0.15); color: #7fb8d4; }
+  .tag-purple { background: rgba(123,111,168,0.15); color: #a899d4; }
+  .tag-gold { background: rgba(201,168,76,0.15); color: var(--accent2); }
+
+  .chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 1rem;
+  }
+
+  .chip {
+    font-size: 12px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background: var(--surface);
+    color: var(--muted);
+    border: 0.5px solid var(--border);
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+    display: inline-block;
+  }
+
+  .chip:hover {
+    background: var(--surface2);
+    color: var(--text);
+    border-color: var(--border2);
+  }
+
+  .divider {
+    border: none;
+    border-top: 0.5px solid var(--border);
+    margin: 1.5rem 0;
+  }
+
+  .legend {
+    display: flex;
+    gap: 16px;
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+    align-items: center;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .resource-list {
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .resource-list ul {
+    margin: 0;
+    padding-left: 1rem;
+  }
+
+  .resource-list li {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 0.45rem;
+  }
+
+  .tracker-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.85rem;
+    margin: 1rem 0 1.25rem;
+  }
+
+  .tracker-card {
+    display: block;
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: 10px;
+    padding: 0.95rem 1rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: background 0.15s, border-color 0.15s, transform 0.1s;
+  }
+
+  .tracker-card:hover {
+    background: var(--surface2);
+    border-color: var(--border2);
+    transform: translateY(-1px);
+  }
+
+  .tracker-kicker {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+
+  .tracker-title {
+    font-size: 14px;
+    margin-bottom: 0.45rem;
+  }
+
+  .tracker-meta {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 0.5px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  .container > * {
+    animation: fadeUp 0.4s ease both;
+  }
+
+  .container > *:nth-child(1) { animation-delay: 0s; }
+  .container > *:nth-child(2) { animation-delay: 0.05s; }
+  .container > *:nth-child(3) { animation-delay: 0.1s; }
+  .container > *:nth-child(4) { animation-delay: 0.12s; }
+  .container > *:nth-child(5) { animation-delay: 0.14s; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 600px) {
+    h1 { font-size: 1.8rem; }
+    .stats { grid-template-columns: repeat(3, 1fr); }
+    .practice-grid { grid-template-columns: 1fr; }
+    .tracker-grid { grid-template-columns: 1fr; }
+    .container { padding: 2rem 1.25rem 4rem; }
+  }
+
+.page-transition-init{opacity:0;transform:translateY(8px)}
+.page-transition-ready{opacity:1;transform:none}
+.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
+body{transition:opacity .22s ease,transform .22s ease}
+@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}
+</style>
+</head>
+<body>
+<div class="container">
+  <a class="back-btn" href="../index.html" aria-label="Back to Semester 2 page">←</a>
+
+  <div class="header">
+    <div class="eyebrow">MAN00016C · University of York · Accounting &amp; Finance Y1</div>
+    <h1>Business Economics<br>Exam Hub</h1>
+    <div class="subtitle">Open available lecture notes directly from the current Year 1 module structure.</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">3h</div>
+      <div class="stat-label">Duration</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">50+50</div>
+      <div class="stat-label">Marks (A+B)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">17</div>
+      <div class="stat-label">Lectures</div>
+    </div>
+  </div>
+
+  <div class="alert alert-amber">
+    <strong>Exam format:</strong> Section A = 25 MCQs (2 marks each). Section B = short &amp; extended written answers. Answer ALL questions. Calculator provided.
+  </div>
+
+  <div class="alert alert-green">
+    <strong>Revision guides completed:</strong> all lecture note pages from L1 to L17 are now live.
+  </div>
+
+  <div class="section-head">
+    <span class="section-label">Revision Tracker</span>
+    <span class="section-pill pill-micro">Semester 2 status</span>
+  </div>
+
+  <div class="tracker-grid">
+    <a class="tracker-card" href="index.html">
+      <div class="tracker-kicker">mod1</div>
+      <div class="tracker-title">Business Economics</div>
+      <div class="tracker-meta">17 lecture notes · exam practice live · timed drills and walkthroughs · sources now stored in `mod1/resources`</div>
+    </a>
+    <a class="tracker-card" href="../mod2/index.html">
+      <div class="tracker-kicker">mod2</div>
+      <div class="tracker-title">Finance Fundamentals</div>
+      <div class="tracker-meta">10 lectures · 9 seminar sets · formula sheet and one-page summary live · timed practice pages active</div>
+    </a>
+    <a class="tracker-card" href="../mod3/index.html">
+      <div class="tracker-kicker">mod3</div>
+      <div class="tracker-title">Quantitative Analysis in Business Studies</div>
+      <div class="tracker-meta">9 lectures · 9 seminar sets · formula sheet and one-page summary live · timed practice pages active</div>
+    </a>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section-head">
+    <span class="section-label">Foundations</span>
+    <span class="section-pill pill-micro">Micro · Lectures 1–6</span>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><span class="done-dot"></span> Revision guide done</div>
+    <div class="legend-item"><span class="hot-dot"></span> High exam priority</div>
+  </div>
+
+    <a class="topic-btn" href="lecture1.html">
+    <span class="lec-badge">L1</span><span class="done-dot"></span><span class="btn-text">Economics &amp; the world of business</span><span class="btn-arrow">↗</span>
+  </a>
+
+    <a class="topic-btn" href="lecture2.html">
+    <span class="lec-badge">L2</span><span class="done-dot"></span><span class="btn-text">Supply, demand &amp; market equilibrium</span><span class="btn-arrow">↗</span>
+  </a>
+
+    <a class="topic-btn" href="lecture3.html">
+    <span class="lec-badge">L3</span><span class="done-dot"></span><span class="hot-dot"></span><span class="btn-text">Elasticity &amp; business decision-making</span><span class="btn-arrow">↗</span>
+  </a>
+
+    <a class="topic-btn" href="lecture4.html">
+    <span class="lec-badge">L4</span><span class="done-dot"></span><span class="btn-text">Demand &amp; the consumer (utility theory)</span><span class="btn-arrow">↗</span>
+  </a>
+
+    <a class="topic-btn" href="lecture5.html">
+    <span class="lec-badge">L5</span><span class="done-dot"></span><span class="hot-dot"></span><span class="btn-text">Costs of production (SR &amp; LR curves)</span><span class="btn-arrow">↗</span>
+  </a>
+
+    <a class="topic-btn" href="lecture6.html">
+    <span class="lec-badge">L6</span><span class="done-dot"></span><span class="btn-text">Revenue, profit &amp; advertising</span><span class="btn-arrow">↗</span>
+  </a>
+
+  <div class="section-head" style="margin-top:1.75rem;">
+    <span class="section-label">Market Structures &amp; Strategy</span>
+    <span class="section-pill pill-micro">Micro · Lectures 7–11</span>
+  </div>
+
+    <a class="topic-btn" href="lecture7.html">
+    <span class="lec-badge">L7</span><span class="done-dot"></span><span class="hot-dot"></span><span class="btn-text">Perfect competition vs monopoly</span><span class="btn-arrow">↗</span>
+  </a>
+
+    <a class="topic-btn" href="lecture8.html">
+    <span class="lec-badge">L8</span><span class="done-dot"></span><span class="hot-dot"></span><span class="btn-text">Imperfect competition (monopolistic &amp; oligopoly)</span><span class="btn-arrow">↗</span>
+  </a>
+
+    <a class="topic-btn" href="lecture9.html">
+    <span class="lec-badge">L9</span><span class="done-dot"></span><span class="btn-text">Game theory &amp; strategic behaviour</span><span class="btn-arrow">↗</span>
+  </a>
+
+    <a class="topic-btn" href="lecture10.html">
+    <span class="lec-badge">L10</span><span class="done-dot"></span><span class="btn-text">Pricing strategy</span><span class="btn-arrow">↗</span>
+  </a>
+
+    <a class="topic-btn" href="lecture11.html">
+    <span class="lec-badge">L11</span><span class="done-dot"></span><span class="hot-dot"></span><span class="btn-text">Government intervention &amp; market failure</span><span class="btn-arrow">↗</span>
+  </a>
+
+  <div class="section-head" style="margin-top:1.75rem;">
+    <span class="section-label">Macroeconomics</span>
+    <span class="section-pill pill-macro">Macro · Lectures 12–17</span>
+  </div>
+
+    <a class="topic-btn" href="lecture12-13.html">
+    <span class="lec-badge">L12–13</span><span class="done-dot"></span><span class="btn-text">Macro environment, GDP &amp; business cycle</span><span class="btn-arrow">↗</span>
+  </a>
+
+    <a class="topic-btn" href="lecture14.html">
+    <span class="lec-badge">L14</span><span class="done-dot"></span><span class="btn-text">International trade &amp; comparative advantage</span><span class="btn-arrow">↗</span>
+  </a>
+
+    <a class="topic-btn" href="lecture15.html">
+    <span class="lec-badge">L15</span><span class="done-dot"></span><span class="hot-dot"></span><span class="btn-text">Balance of payments &amp; exchange rates</span><span class="btn-arrow">↗</span>
+  </a>
+
+    <a class="topic-btn" href="lecture16.html">
+    <span class="lec-badge">L16</span><span class="done-dot"></span><span class="btn-text">Financial system, money &amp; interest rates</span><span class="btn-arrow">↗</span>
+  </a>
+
+    <a class="topic-btn" href="lecture17.html">
+    <span class="lec-badge">L17</span><span class="done-dot"></span><span class="hot-dot"></span><span class="btn-text">Unemployment, inflation &amp; AD/AS model</span><span class="btn-arrow">↗</span>
+  </a>
+
+  <hr class="divider">
+
+  <div class="section-head">
+    <span class="section-label">Exam Practice</span>
+  </div>
+
+  <div class="practice-grid">
+    <a class="practice-btn" href="exam-qs/mcq-drill.html">
+      <span>MCQ drill</span>
+      <span class="practice-tag tag-blue">Section A · 25 × 2 marks</span>
+    </a>
+    <a class="practice-btn" href="exam-qs/written-answers.html">
+      <span>Written answers</span>
+      <span class="practice-tag tag-purple">Section B · 50 marks</span>
+    </a>
+  </div>
+
+  <a class="practice-btn" style="margin-bottom:6px;" href="exam-qs/walkthrough-2022-23.html">
+    <span>Past paper walkthrough — 2022–23</span>
+    <span class="practice-tag tag-gold">Full paper · Both sections</span>
+  </a>
+
+  <a class="practice-btn" href="exam-qs/walkthrough-2021-22.html">
+    <span>Past paper walkthrough — 2021–22</span>
+    <span class="practice-tag tag-gold">Full paper · Both sections</span>
+  </a>
+
+  <hr class="divider">
+
+  <div class="section-head">
+    <span class="section-label">Common Mistakes</span>
+    <span class="section-pill pill-macro">Most costly exam slips</span>
+  </div>
+
+  <div class="resource-list">
+    <ul>
+      <li>Confusing a shift in demand or supply with a movement along the curve after a price change.</li>
+      <li>Writing `MR = MC` without saying what happens to price, output, profit, or welfare.</li>
+      <li>Using the wrong elasticity logic when discussing revenue, pricing, or tax incidence.</li>
+      <li>Forgetting to distinguish cyclical, structural, frictional, and real-wage unemployment.</li>
+      <li>Explaining exchange rates or inflation with a diagram idea but never stating the transmission mechanism in words.</li>
+    </ul>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section-head">
+    <span class="section-label">Quick-fire concept drills</span>
+  </div>
+
+  <div class="chip-row">
+    <a class="chip" href="https://claude.ai/new?q=You+are+an+expert+business+economics+tutor.+Explain+the+MR%3DMC+profit+maximisation+rule+in+depth+for+a+first-year+University+of+York+student+targeting+first-class+marks.+Cover%3A+the+economic+intuition%2C+how+it+applies+under+different+market+structures%2C+diagram+walkthrough%2C+real-world+applications%2C+and+exam+technique." target="_blank">MR = MC rule ↗</a>
+    <a class="chip" href="https://claude.ai/new?q=You+are+an+expert+business+economics+tutor.+Explain+price+elasticity+of+demand+in+depth+for+a+first-year+University+of+York+student+targeting+first-class+marks.+Cover%3A+formula%2C+determinants%2C+relationship+between+PED+and+total+revenue%2C+business+applications%2C+diagram+walkthrough%2C+and+exam+technique." target="_blank">PED deep dive ↗</a>
+    <a class="chip" href="https://claude.ai/new?q=You+are+an+expert+business+economics+tutor.+Explain+economies+of+scale+and+the+long-run+average+cost+curve+in+depth+for+a+first-year+University+of+York+student+targeting+first-class+marks.+Cover%3A+internal+vs+external+economies%2C+diseconomies+of+scale%2C+minimum+efficient+scale%2C+LRAC+diagram%2C+real-world+examples%2C+and+exam+technique." target="_blank">Economies of scale ↗</a>
+    <a class="chip" href="https://claude.ai/new?q=You+are+an+expert+business+economics+tutor.+Explain+the+prisoner%27s+dilemma+and+its+application+to+oligopoly+behaviour+in+depth+for+a+first-year+University+of+York+student+targeting+first-class+marks.+Cover%3A+payoff+matrix%2C+dominant+strategy%2C+Nash+equilibrium%2C+why+collusion+breaks+down%2C+repeated+game+implications%2C+and+exam+technique." target="_blank">Prisoner's dilemma ↗</a>
+    <a class="chip" href="https://claude.ai/new?q=You+are+an+expert+business+economics+tutor.+Compare+perfect+competition+and+monopoly+in+depth+for+a+first-year+University+of+York+student+targeting+first-class+marks.+Cover%3A+output%2C+price%2C+profit%2C+allocative+and+productive+efficiency%2C+deadweight+loss%2C+diagram+walkthrough%2C+evaluation%2C+and+exam+technique." target="_blank">PC vs monopoly ↗</a>
+    <a class="chip" href="https://claude.ai/new?q=You+are+an+expert+business+economics+tutor.+Explain+third-degree+price+discrimination+in+depth+for+a+first-year+University+of+York+student+targeting+first-class+marks.+Cover%3A+definition%2C+three+conditions%2C+diagram+with+two+markets%2C+welfare+effects%2C+real-world+examples%2C+evaluation%2C+and+exam+technique." target="_blank">Price discrimination ↗</a>
+    <a class="chip" href="https://claude.ai/new?q=You+are+an+expert+business+economics+tutor.+Explain+deadweight+loss+in+depth+for+a+first-year+University+of+York+student+targeting+first-class+marks.+Cover%3A+how+it+arises+under+monopoly%2C+taxation%2C+and+price+controls%2C+diagram+walkthrough%2C+consumer+and+producer+surplus%2C+welfare+analysis%2C+and+exam+technique." target="_blank">Deadweight loss ↗</a>
+    <a class="chip" href="https://claude.ai/new?q=You+are+an+expert+business+economics+tutor.+Explain+the+interest+rate+transmission+mechanism+step+by+step+for+a+first-year+University+of+York+student+targeting+first-class+marks.+Cover%3A+how+a+change+in+money+supply+affects+interest+rates%2C+how+interest+rates+affect+investment+and+saving%2C+how+this+feeds+into+aggregate+demand+and+national+income%2C+limitations%2C+and+exam+technique." target="_blank">Interest rate mechanism ↗</a>
+    <a class="chip" href="https://claude.ai/new?q=You+are+an+expert+business+economics+tutor.+Explain+comparative+advantage+and+the+gains+from+international+trade+in+depth+for+a+first-year+University+of+York+student+targeting+first-class+marks.+Cover%3A+absolute+vs+comparative+advantage%2C+opportunity+cost+reasoning%2C+numerical+example%2C+terms+of+trade%2C+limitations+of+the+theory%2C+and+exam+technique." target="_blank">Comparative advantage ↗</a>
+    <a class="chip" href="https://claude.ai/new?q=You+are+an+expert+business+economics+tutor.+Explain+the+AD%2FAS+model+in+depth+for+a+first-year+University+of+York+student+targeting+first-class+marks.+Cover%3A+what+shifts+aggregate+demand+and+aggregate+supply%2C+short-run+and+long-run+equilibrium%2C+demand-pull+and+cost-push+inflation%2C+output+gaps%2C+business+cycle+implications%2C+and+exam+technique." target="_blank">AD/AS model ↗</a>
+    <a class="chip" href="https://claude.ai/new?q=You+are+an+expert+business+economics+tutor.+Explain+the+kinked+demand+curve+model+of+oligopoly+in+depth+for+a+first-year+University+of+York+student+targeting+first-class+marks.+Cover%3A+the+assumption+about+rival+responses%2C+why+the+demand+curve+is+kinked%2C+why+MR+is+discontinuous%2C+why+this+predicts+price+stickiness%2C+limitations+of+the+model%2C+and+exam+technique." target="_blank">Kinked demand curve ↗</a>
+    <a class="chip" href="https://claude.ai/new?q=You+are+an+expert+business+economics+tutor.+Give+me+the+top+12+most+common+mistakes+students+make+in+the+Business+Economics+exam+%28MAN00016C%2C+University+of+York%29+and+exactly+how+to+avoid+each+one+to+achieve+first-class+marks.+Cover+both+Section+A+MCQs+and+Section+B+written+answers." target="_blank">Common mistakes ↗</a>
+  </div>
+
+  <div class="footer">
+    Business Economics · MAN00016C · University of York &nbsp;·&nbsp; Local exam practice and walkthroughs
+  </div>
+
+</div>
+<script>
+(function(){
+  document.body.classList.add("page-transition-init");
+  window.addEventListener("load", function(){
+    requestAnimationFrame(function(){
+      document.body.classList.remove("page-transition-init");
+      document.body.classList.add("page-transition-ready");
+    });
+  });
+  document.addEventListener("click", function(event){
+    var link = event.target.closest("a[href]");
+    if (!link) return;
+    if (event.defaultPrevented || event.button !== 0) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (link.target && link.target !== "_self") return;
+    if (link.hasAttribute("download")) return;
+    var href = link.getAttribute("href");
+    if (!href || href.charAt(0) === "#") return;
+    if (/^(mailto:|tel:|javascript:)/i.test(href)) return;
+    var url = new URL(link.href, window.location.href);
+    if (url.origin !== window.location.origin) return;
+    if (url.pathname === window.location.pathname && url.search === window.location.search && url.hash) return;
+    event.preventDefault();
+    document.body.classList.remove("page-transition-ready");
+    document.body.classList.add("page-transition-leaving");
+    window.setTimeout(function(){ window.location.href = url.href; }, 180);
+  });
+})();
+</script>
+
+</body>
+</html>

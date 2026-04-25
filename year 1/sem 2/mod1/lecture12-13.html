@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L12+13 Macroeconomic Environment — Business Economics</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#faf8f4;
+  --bg2:#f2ede4;
+  --surface:#fff;
+  --border:#e8e0d0;
+  --border2:#d4c8b0;
+  --text:#1a1612;
+  --muted:#7a6e5e;
+  --accent:#2b5f87;
+  --accent-light:#e9f1f7;
+  --gold:#8a6a2a;
+  --gold-light:#f7f0e0;
+  --teal:#1a5c52;
+  --teal-light:#e8f4f1;
+  --red-light:#fdf2f0;
+  --red-border:#f0c4b8;
+  --red-text:#7a2015;
+  --red-label:#c0392b;
+  --ink:#2c2416
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7}
+.page{max-width:860px;margin:0 auto;padding:0 2rem 6rem}
+.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;font-size:1rem;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s;z-index:10}
+.back-btn:hover{transform:translateY(-1px);background:var(--bg2)}
+.hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border2);margin-bottom:3rem;position:relative}
+.hero::before{content:'';position:absolute;top:0;left:-2rem;right:-2rem;bottom:0;background:linear-gradient(180deg,#e9f1f7 0%,transparent 100%);z-index:-1}
+.lecture-tag{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:8px;margin-bottom:1rem}
+.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent)}
+h1{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:700;line-height:1.1;color:var(--ink);margin-bottom:1rem;letter-spacing:-.02em}
+.hero-sub{font-size:16px;color:var(--muted);max-width:620px;line-height:1.6;margin-bottom:1.5rem}
+.meta-row{display:flex;gap:1.5rem;flex-wrap:wrap}
+.meta-chip{font-family:'DM Mono',monospace;font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}
+.chip-macro{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}
+.chip-exam{background:var(--accent-light);color:var(--accent);border:1px solid #bfd3e2}
+.chip-marks{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
+.alert-box{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin-bottom:2.5rem;font-size:13.5px;color:#183f5c}
+.alert-box strong{color:var(--accent)}
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem 2rem}
+.toc-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);grid-column:1/-1;margin-bottom:.5rem}
+.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:8px;padding:3px 0;transition:color .15s}
+.toc a:hover{color:var(--accent)}
+.toc a::before{content:attr(data-num);font-family:'DM Mono',monospace;font-size:10px;color:var(--border2);min-width:16px}
+.section{margin-bottom:3.5rem;animation:fadeUp .5s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.section-num{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
+h2{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:600;color:var(--ink);line-height:1.2;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--ink);margin-top:1.75rem;margin-bottom:.6rem;font-style:italic}
+h4{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-top:1.15rem;margin-bottom:.35rem}
+p{margin-bottom:.9rem;color:var(--text)}
+.defn{background:var(--gold-light);border:1px solid #dcc888;border-radius:3px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}
+.defn-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.defn p{color:var(--ink);margin-bottom:0;font-size:14.5px}
+.defn strong{color:var(--gold)}
+.key-terms{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1.25rem 0}
+.term{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:.7rem 1rem}
+.term-word{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:2px}
+.term-def{font-size:12.5px;color:var(--muted);line-height:1.4}
+.compare-table{width:100%;border-collapse:collapse;font-size:13.5px;margin:1.25rem 0;border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.compare-table th{background:var(--bg2);padding:.65rem 1rem;text-align:left;font-weight:500;font-size:12px;font-family:'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border2)}
+.compare-table td{padding:.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table td:first-child{font-weight:500;color:var(--ink);width:165px}
+.eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.eval-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:.6rem;display:flex;align-items:center;gap:6px}
+.eval-label::before{content:'⊕';font-size:12px}
+.eval-box p{color:#1a4a42;font-size:14px;margin-bottom:.5rem}
+.eval-box p:last-child{margin-bottom:0}
+.mistake-box{background:var(--red-light);border:1px solid var(--red-border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.mistake-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--red-label);margin-bottom:.6rem;display:flex;align-items:center;gap:6px}
+.mistake-label::before{content:'✕';font-size:11px}
+.mistake-box p{color:var(--red-text);font-size:14px;margin-bottom:.5rem}
+.mistake-box p:last-child{margin-bottom:0}
+.exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0}
+.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center}
+.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px;font-size:10px}
+.exam-q-body{padding:1.25rem 1.5rem}
+.exam-q-body .q{font-style:italic;color:var(--ink);margin-bottom:1rem;font-size:15px}
+.answer-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:.4rem}
+.exam-q-body p{font-size:14px;margin-bottom:.6rem}
+.steps{margin:1.25rem 0}
+.step{display:flex;gap:1rem;margin-bottom:.75rem;align-items:flex-start}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--border2);line-height:1.2;min-width:28px;flex-shrink:0}
+.step-content{font-size:14px;color:var(--text);padding-top:2px}
+.step-content strong{color:var(--ink)}
+.diagram-box{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.diagram-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem}
+.diagram-box ul{padding-left:1.15rem}
+.diagram-box li{margin-bottom:.45rem}
+ul.standard{padding-left:1.2rem;margin:1rem 0 1.15rem}
+ul.standard li{margin-bottom:.45rem}
+.divider{border:none;border-top:1px solid var(--border);margin:2.5rem 0}
+.footer{text-align:center;font-family:'DM Mono',monospace;font-size:11px;color:var(--border2);letter-spacing:.08em;padding-top:2rem;border-top:1px solid var(--border)}
+@media(max-width:640px){h1{font-size:2.2rem}.toc{grid-template-columns:1fr}.key-terms{grid-template-columns:1fr}.page{padding:0 1.25rem 4rem}}
+
+.page-transition-init{opacity:0;transform:translateY(8px)}
+.page-transition-ready{opacity:1;transform:none}
+.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
+body{transition:opacity .22s ease,transform .22s ease}
+@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}
+</style>
+</head>
+<body>
+<div class="page">
+<a class="back-btn" href="index.html" aria-label="Back to Business Economics page">←</a>
+<div class="hero">
+  <div class="lecture-tag">Lecture 12+13 · MAN00016C · University of York</div>
+  <h1>The Macroeconomic<br>Environment of Business</h1>
+  <p class="hero-sub">Economic growth, national income, the circular flow, injections and withdrawals, unemployment, inflation, aggregate demand and aggregate supply, and the Phillips curve — the full macro framework behind business conditions.</p>
+  <div class="meta-row">
+    <span class="meta-chip chip-macro">Macroeconomics</span>
+    <span class="meta-chip chip-exam">High exam relevance</span>
+    <span class="meta-chip chip-marks">Section A + B</span>
+  </div>
+</div>
+<div class="alert-box">
+  <strong>Past paper alert:</strong> This lecture underpins Section A questions on <em>supply-side policy</em>, <em>frictional unemployment</em>, <em>the Keynesian multiplier</em>, and <em>cost-push inflation</em>. Even when the paper does not explicitly say "Lecture 12+13", it is testing this macro toolkit: how shocks affect income, output, unemployment, prices, and policy trade-offs.
+</div>
+<div class="toc">
+  <div class="toc-title">Contents</div>
+  <a href="#s1" data-num="01">Macroeconomic variables</a>
+  <a href="#s2" data-num="02">Economic growth and GDP</a>
+  <a href="#s3" data-num="03">Measuring national income</a>
+  <a href="#s4" data-num="04">Circular flow of income</a>
+  <a href="#s5" data-num="05">Withdrawals, injections, equilibrium</a>
+  <a href="#s6" data-num="06">Unemployment</a>
+  <a href="#s7" data-num="07">Inflation</a>
+  <a href="#s8" data-num="08">Aggregate demand and aggregate supply</a>
+  <a href="#s9" data-num="09">Phillips curve</a>
+  <a href="#s10" data-num="10">Exam questions &amp; model answers</a>
+  <a href="#s11" data-num="11">Evaluation &amp; common mistakes</a>
+</div>
+<div class="section">
+  <div class="section-num">Key Definitions</div>
+  <h2>Terms to Know Cold</h2>
+  <div class="key-terms">
+    <div class="term"><div class="term-word">Real GDP</div><div class="term-def">The volume of output produced in an economy, adjusted for inflation using constant prices.</div></div>
+    <div class="term"><div class="term-word">Nominal GDP</div><div class="term-def">GDP measured at current prices, so changes may reflect inflation as well as real output changes.</div></div>
+    <div class="term"><div class="term-word">Business cycle</div><div class="term-def">Fluctuations in economic activity over time, including booms, slowdowns, recessions, and recoveries.</div></div>
+    <div class="term"><div class="term-word">Withdrawal (W)</div><div class="term-def">Income leaving the circular flow through saving, taxation, and imports.</div></div>
+    <div class="term"><div class="term-word">Injection (J)</div><div class="term-def">Spending entering the circular flow from investment, government expenditure, and exports.</div></div>
+    <div class="term"><div class="term-word">Multiplier</div><div class="term-def">The ratio showing how much national income changes in response to a change in injections or aggregate expenditure.</div></div>
+    <div class="term"><div class="term-word">Unemployment rate</div><div class="term-def">The percentage of the labour force that is unemployed but available for and seeking work.</div></div>
+    <div class="term"><div class="term-word">Inflation</div><div class="term-def">A sustained rise in the general price level over time.</div></div>
+    <div class="term"><div class="term-word">Aggregate demand (AD)</div><div class="term-def">Total planned spending on domestically produced goods and services at each price level.</div></div>
+    <div class="term"><div class="term-word">Aggregate supply (AS)</div><div class="term-def">The total output firms are willing to produce at each price level.</div></div>
+  </div>
+</div>
+<div class="section" id="s1">
+  <div class="section-num">Part 01</div>
+  <h2>The Five Big Macroeconomic Variables</h2>
+  <p>The macroeconomic environment of business is built around five interrelated variables: <strong>economic growth</strong>, <strong>unemployment</strong>, <strong>inflation</strong>, <strong>international relationships</strong>, and <strong>financial well-being</strong>. These do not move independently. A boom can reduce unemployment but raise inflation. A fall in export demand can slow growth and push unemployment up. Financial instability can choke off credit and weaken investment.</p>
+  <p>This is why macroeconomics matters to firms. It is not a separate abstract subject sitting above business. It determines the background conditions in which firms hire, price, borrow, invest, and expand.</p>
+  <div class="defn">
+    <div class="defn-label">Big picture</div>
+    <p>Macroeconomics explains how individual markets work. <strong>Macroeconomics explains the environment those markets sit inside.</strong> It asks what is happening to total output, total spending, employment, prices, and the wider business cycle.</p>
+  </div>
+  <div class="eval-box">
+    <div class="eval-label">Why this matters for firms</div>
+    <p>Managers do not control GDP growth, inflation, or unemployment — but all three directly affect demand, costs, wage pressure, pricing power, and investment confidence. A good exam answer should link macro variables back to business decisions, not leave them floating as national statistics.</p>
+  </div>
+</div>
+<div class="section" id="s2">
+  <div class="section-num">Part 02</div>
+  <h2>Economic Growth and GDP</h2>
+  <p>Economic growth is the percentage change in national output over time. Usually this means growth in <strong>real GDP</strong>. The key distinction is between <strong>nominal GDP</strong> and <strong>real GDP</strong>.</p>
+  <table class="compare-table">
+    <tr>
+      <th>Measure</th>
+      <th>What it uses</th>
+      <th>Main limitation / strength</th>
+    </tr>
+    <tr>
+      <td>Nominal GDP</td>
+      <td>Current prices</td>
+      <td>Can rise even if actual output stays flat, because inflation pushes values up.</td>
+    </tr>
+    <tr>
+      <td>Real GDP</td>
+      <td>Constant prices</td>
+      <td>Shows the true change in the volume of production.</td>
+    </tr>
+  </table>
+  <p>If nominal GDP rises by 6% but inflation is 4%, the economy has not really grown by 6% in physical terms. The real increase in output is much smaller. That is why real GDP is the preferred measure when comparing economic performance over time.</p>
+  <h3>The business cycle</h3>
+  <p>Growth is rarely smooth. Economies move through cycles of expansion and slowdown. In a boom, output rises quickly, unemployment falls, and inflationary pressure usually builds. In recession or stagnation, growth weakens, hiring slows, and price pressure often eases. The lecture also stresses that business cycles are increasingly international: countries are more connected, so shocks spread more quickly across borders.</p>
+  <div class="mistake-box">
+    <div class="mistake-label">Common mistake</div>
+    <p>Do not write "GDP is the same as money in the economy." That is wrong. GDP is the value of final output produced over a period of time, not the stock of money or wealth.</p>
+  </div>
+</div>
+<div class="section" id="s3">
+  <div class="section-num">Part 03</div>
+  <h2>Measuring National Income and Output</h2>
+  <p>The lecture presents the three classic ways of measuring GDP. They are different routes to the same total because one person’s spending is another person’s income, and production creates both expenditure and income.</p>
+  <h3>1. The product method</h3>
+  <p>This sums <strong>value added</strong> across the economy. We do not add every sale, because that would double count intermediate goods. Instead we measure how much value each stage of production adds.</p>
+  <div class="defn">
+    <div class="defn-label">Formula</div>
+    <p><strong>GVA at basic prices = Total output − Intermediate consumption</strong><br>
+    <strong>GDP at market prices = GVA + taxes on products − subsidies on products</strong></p>
+  </div>
+  <p>Example: if a manufacturer sells a TV to a retailer and the retailer sells it to the final consumer, we do not count both full sale values separately as final GDP. We count only the final output or the value added at each stage.</p>
+  <h3>2. The income method</h3>
+  <p>This adds up the incomes generated in producing output: wages, rent, interest, and profits. Transfer payments such as pensions and benefits are excluded because they do not reflect new current production.</p>
+  <h3>3. The expenditure method</h3>
+  <p>This adds all spending on final domestic output:</p>
+  <div class="defn">
+    <div class="defn-label">Formula</div>
+    <p><strong>GDP = C + G + I + X − M</strong></p>
+  </div>
+  <p>This is the most exam-friendly formula because it links directly to aggregate demand and the circular flow model.</p>
+</div>
+<div class="section" id="s4">
+  <div class="section-num">Part 04</div>
+  <h2>The Circular Flow of Income</h2>
+  <p>The circular flow model is the backbone of this lecture. It shows how income moves between households, firms, government, the financial sector, and abroad. Households provide factors of production and receive incomes. They then spend part of that income on domestically produced goods and services, which becomes revenue for firms.</p>
+  <p>In the simplest version, income flows continuously around the economy. But in the real world some income leaks out and some extra spending is injected in from outside domestic household consumption.</p>
+  <h3>Withdrawals (leakages)</h3>
+  <ul class="standard">
+    <li><strong>Saving (S):</strong> income not spent on current domestic consumption.</li>
+    <li><strong>Taxes (T):</strong> income transferred to government.</li>
+    <li><strong>Imports (M):</strong> spending on foreign output rather than domestic output.</li>
+  </ul>
+  <div class="defn">
+    <div class="defn-label">Formula</div>
+    <p><strong>W = S + T + M</strong></p>
+  </div>
+  <h3>Injections</h3>
+  <ul class="standard">
+    <li><strong>Investment (I<sub>d</sub>):</strong> firm spending on capital and stocks.</li>
+    <li><strong>Government expenditure (G<sub>d</sub>):</strong> state spending on domestic goods and services.</li>
+    <li><strong>Exports (X<sub>d</sub>):</strong> foreign spending on domestic output.</li>
+  </ul>
+  <div class="defn">
+    <div class="defn-label">Formula</div>
+    <p><strong>J = I<sub>d</sub> + G<sub>d</sub> + X<sub>d</sub></strong><br>
+    <strong>AD = C<sub>d</sub> + J</strong></p>
+  </div>
+  <p>The whole adjustment story of the lecture comes from comparing withdrawals and injections.</p>
+</div>
+<div class="section" id="s5">
+  <div class="section-num">Part 05</div>
+  <h2>Withdrawals, Injections, and Equilibrium National Income</h2>
+  <p>Equilibrium in the circular flow occurs where <strong>W = J</strong>. The important point is that there is no automatic reason why households, firms, government, and foreign buyers will choose actions that make withdrawals equal injections. They are separate decision-makers with different objectives.</p>
+  <h3>When J &gt; W</h3>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Aggregate demand rises.</strong> More spending enters the circular flow than leaves it.</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Firms respond by increasing output.</strong> Higher sales encourage greater production.</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content"><strong>National income rises.</strong> Firms pay more wages, rent, interest, and profit incomes.</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-content"><strong>Withdrawals rise.</strong> As incomes rise, people save more, pay more tax, and import more.</div></div>
+    <div class="step"><div class="step-num">5</div><div class="step-content"><strong>A new equilibrium is reached</strong> once withdrawals increase enough to match injections.</div></div>
+  </div>
+  <h3>When W &gt; J</h3>
+  <p>The opposite happens. Aggregate demand is insufficient, firms cut output, incomes fall, and withdrawals shrink until they again equal injections.</p>
+  <div class="defn">
+    <div class="defn-label">Key equilibrium condition</div>
+    <p><strong>Equilibrium national income occurs where W = J, which is equivalent to Y = E in the Keynesian cross framework.</strong></p>
+  </div>
+  <h3>The multiplier</h3>
+  <p>If injections rise, national income rises by more than the initial increase because one person’s spending becomes another person’s income. But each round is smaller because some of the extra income leaks away into saving, tax, and imports.</p>
+  <div class="defn">
+    <div class="defn-label">Multiplier formulas</div>
+    <p><strong>k = ΔY / ΔE</strong><br>
+    <strong>k = 1 / (1 − MPC)</strong> in the simplest case</p>
+  </div>
+  <p>A high marginal propensity to consume means less leakage and a larger multiplier. A high tendency to save, tax, or import reduces the multiplier.</p>
+  <div class="eval-box">
+    <div class="eval-label">Evaluation</div>
+    <p>The simple multiplier is useful but stylised. In reality prices may rise, imports may absorb demand, and expectations may change. So the final increase in GDP may be much smaller than the textbook multiplier predicts.</p>
+  </div>
+</div>
+<div class="section" id="s6">
+  <div class="section-num">Part 06</div>
+  <h2>Unemployment</h2>
+  <p>Unemployment means people of working age who are without work but are available for and seeking work at current wage rates. The lecture distinguishes between <strong>measurement</strong>, <strong>costs</strong>, and <strong>types</strong>.</p>
+  <h3>Measurement</h3>
+  <p>The preferred international measure is the <strong>ILO rate</strong>, based on labour force surveys. The <strong>claimant count</strong> is easier to collect but narrower and more affected by benefit rules.</p>
+  <div class="defn">
+    <div class="defn-label">Formula</div>
+    <p><strong>Unemployment rate = Unemployed / Labour force × 100</strong></p>
+  </div>
+  <h3>Why unemployment matters</h3>
+  <ul class="standard">
+    <li><strong>Individual cost:</strong> loss of income, stress, reduced self-esteem.</li>
+    <li><strong>Economic cost:</strong> lost output and wasted resources.</li>
+    <li><strong>Fiscal cost:</strong> lower tax revenue and higher welfare spending.</li>
+  </ul>
+  <h3>Types of unemployment</h3>
+  <table class="compare-table">
+    <tr>
+      <th>Type</th>
+      <th>Cause</th>
+      <th>Typical example</th>
+    </tr>
+    <tr>
+      <td>Frictional</td>
+      <td>Job search and imperfect information</td>
+      <td>Time gap between leaving one job and finding another</td>
+    </tr>
+    <tr>
+      <td>Structural</td>
+      <td>Long-term change in the economy</td>
+      <td>Technology replacing workers; industries declining</td>
+    </tr>
+    <tr>
+      <td>Seasonal</td>
+      <td>Regular time-of-year fluctuations</td>
+      <td>Tourism and agriculture</td>
+    </tr>
+    <tr>
+      <td>Cyclical / demand-deficient</td>
+      <td>Weak aggregate demand in downturns</td>
+      <td>Firms cut staff during recession</td>
+    </tr>
+    <tr>
+      <td>Real-wage / disequilibrium</td>
+      <td>Wages above market-clearing level</td>
+      <td>Trade union or minimum wage pressure in the labour market model</td>
+    </tr>
+  </table>
+  <p>The labour market diagram in the lecture shows that if the real wage is stuck above equilibrium, labour supply exceeds labour demand and involuntary unemployment appears. But not all unemployment is due to weak demand: frictional and structural unemployment can persist even when the economy is near potential output.</p>
+  <div class="mistake-box">
+    <div class="mistake-label">Common mistake</div>
+    <p>Do not call all unemployment "cyclical." Exam questions often test whether you can separate frictional and structural unemployment from demand-deficient unemployment.</p>
+  </div>
+</div>
+<div class="section" id="s7">
+  <div class="section-num">Part 07</div>
+  <h2>Inflation</h2>
+  <p>Inflation is a general and sustained rise in the price level. The lecture stresses that governments want inflation to be <strong>low and stable</strong>, not necessarily zero. Stable inflation helps firms plan costs and prices and helps households and lenders make long-run decisions with more confidence.</p>
+  <h3>Measuring inflation</h3>
+  <ul class="standard">
+    <li><strong>CPI:</strong> tracks the cost of a representative basket of consumer goods and services.</li>
+    <li><strong>GDP deflator:</strong> broader measure covering domestically produced output.</li>
+  </ul>
+  <h3>Costs of inflation</h3>
+  <ul class="standard">
+    <li>Redistributes income and wealth unpredictably.</li>
+    <li>Hurts people on fixed incomes.</li>
+    <li>Creates uncertainty and discourages investment.</li>
+    <li>Can weaken export competitiveness and worsen the balance of payments.</li>
+  </ul>
+  <h3>Demand-pull vs cost-push</h3>
+  <p><strong>Demand-pull inflation</strong> occurs when aggregate demand rises faster than the economy’s productive capacity. <strong>Cost-push inflation</strong> occurs when costs such as wages, energy, or imported inputs rise, pushing firms to raise prices even without excess demand.</p>
+  <div class="defn">
+    <div class="defn-label">Important distinction</div>
+    <p><strong>Not all inflation is caused by excess aggregate demand.</strong> Cost-push pressures and inflation expectations matter too.</p>
+  </div>
+  <div class="eval-box">
+    <div class="eval-label">Exam insight</div>
+    <p>This lecture explicitly warns against treating inflation and unemployment as purely AD problems. Frictional and structural unemployment are not caused by weak demand, and cost-push inflation is not caused by excess demand. Use that to strengthen evaluation paragraphs.</p>
+  </div>
+</div>
+<div class="section" id="s8">
+  <div class="section-num">Part 08</div>
+  <h2>Aggregate Demand and Aggregate Supply</h2>
+  <h3>Aggregate demand</h3>
+  <p>Aggregate demand is total planned spending on domestic output at each price level. The lecture explains why the AD curve slopes downward:</p>
+  <ul class="standard">
+    <li><strong>International substitution effect:</strong> higher domestic prices make exports less competitive and imports relatively cheaper.</li>
+    <li><strong>Inter-temporal substitution effect:</strong> higher prices raise the demand for money, putting upward pressure on interest rates and reducing borrowing-sensitive spending.</li>
+    <li><strong>Real balance effect:</strong> inflation reduces the real value of money balances and wealth.</li>
+    <li><strong>Income effect:</strong> if prices rise faster than nominal incomes, real purchasing power falls.</li>
+  </ul>
+  <h3>Aggregate supply</h3>
+  <p>Short-run aggregate supply usually slopes upward. If output prices rise while wages and other input costs are sticky in the short run, firms become more profitable and expand output. But the lecture presents several possible shapes:</p>
+  <table class="compare-table">
+    <tr>
+      <th>View</th>
+      <th>AS shape</th>
+      <th>Main implication</th>
+    </tr>
+    <tr>
+      <td>Extreme Keynesian</td>
+      <td>Horizontal up to full employment</td>
+      <td>Higher AD mainly raises output, not prices</td>
+    </tr>
+    <tr>
+      <td>Mainstream</td>
+      <td>Upward sloping, steeper near YF</td>
+      <td>As full employment is approached, AD increases create more inflation and less extra output</td>
+    </tr>
+    <tr>
+      <td>New classical</td>
+      <td>Vertical at potential output</td>
+      <td>Anticipated AD changes affect prices more than output</td>
+    </tr>
+  </table>
+  <h3>Macro equilibrium</h3>
+  <p>Equilibrium occurs where AD = AS. A rise in AD usually raises both output and prices — but by how much depends on the shape of AS. When there is spare capacity, output can rise strongly with limited inflation. Near full employment, further rises in AD mostly push up prices.</p>
+  <div class="diagram-box">
+    <div class="diagram-label">How to describe the mainstream AD/AS diagram in an exam</div>
+    <ul>
+      <li>Vertical axis: price level.</li>
+      <li>Horizontal axis: real national income / GDP.</li>
+      <li>AD slopes downward.</li>
+      <li>SRAS slopes upward and becomes steeper near full employment.</li>
+      <li>A rightward shift in AD raises output from Y1 to Y2 and prices from P1 to P2.</li>
+      <li>The closer the economy is to YF, the smaller the rise in real output and the larger the rise in prices.</li>
+    </ul>
+  </div>
+</div>
+<div class="section" id="s9">
+  <div class="section-num">Part 09</div>
+  <h2>The Phillips Curve</h2>
+  <p>The Phillips curve originally described an inverse relationship between unemployment and wage inflation. In simple terms: when demand is strong and unemployment is low, labour becomes scarce and wages rise faster. When demand is weak and unemployment is high, wage pressure eases.</p>
+  <p>In the short run, this seemed to suggest a trade-off: governments could reduce unemployment at the cost of higher inflation. But the lecture then shows why that simple story broke down.</p>
+  <h3>Why it broke down</h3>
+  <ul class="standard">
+    <li>From the late 1960s onwards, many countries experienced both high inflation and high unemployment.</li>
+    <li>This showed that inflation can rise for reasons other than excess demand.</li>
+    <li>Supply shocks and rising expectations can shift the Phillips curve upward.</li>
+  </ul>
+  <h3>Expectations-augmented Phillips curve</h3>
+  <p>The lecture moves to the expectations-augmented version:</p>
+  <div class="defn">
+    <div class="defn-label">Formula</div>
+    <p><strong>π = f(1/U) + π<sup>e</sup> + k</strong></p>
+  </div>
+  <p>Inflation depends on:</p>
+  <ul class="standard">
+    <li><strong>Demand conditions</strong> — captured by the inverse of unemployment.</li>
+    <li><strong>Expected inflation</strong> — if people expect higher inflation, wage and price setting build it in.</li>
+    <li><strong>Exogenous cost pressures</strong> — such as oil price shocks or imported inflation.</li>
+  </ul>
+  <p>This means the Phillips curve is not fixed. If inflation expectations rise, the whole curve shifts upward. Policymakers no longer face a stable, reliable trade-off.</p>
+  <div class="eval-box">
+    <div class="eval-label">Evaluation</div>
+    <p>The most sophisticated answer is that the Phillips curve is useful as a short-run demand story, but unreliable as a permanent policy menu. Expectations, supply shocks, and structural change can all shift the relationship.</p>
+  </div>
+</div>
+<div class="section" id="s10">
+  <div class="section-num">Part 10</div>
+  <h2>Exam Questions &amp; Model Answers</h2>
+  <div class="exam-q">
+    <div class="exam-q-header">
+      <span>Section A style</span>
+      <span class="exam-q-marks">2 marks</span>
+    </div>
+    <div class="exam-q-body">
+      <p class="q">If there are 3 million people unemployed and 24 million people employed, the unemployment rate is:</p>
+      <p>A. 3%</p>
+      <p>B. 8%</p>
+      <p>C. 9%</p>
+      <p>D. 11.1%</p>
+      <p>E. 12.5%</p>
+      <div class="answer-label">Answer</div>
+      <p><strong>D. 11.1%</strong></p>
+      <p>Labour force = 3 + 24 = 27 million. Unemployment rate = 3 / 27 × 100 = 11.1%.</p>
+    </div>
+  </div>
+  <div class="exam-q">
+    <div class="exam-q-header">
+      <span>Section A style</span>
+      <span class="exam-q-marks">2 marks</span>
+    </div>
+    <div class="exam-q-body">
+      <p class="q">Assume that the marginal propensity to consume domestically produced goods is 0.7 and there are no taxes. The government increases spending by £100 million. According to simple Keynesian multiplier analysis, what is the total change in national income?</p>
+      <p>A. £70 million</p>
+      <p>B. £143 million</p>
+      <p>C. £170 million</p>
+      <p>D. £333 million</p>
+      <p>E. none of the above</p>
+      <div class="answer-label">Answer</div>
+      <p><strong>D. £333 million</strong></p>
+      <p>The simple multiplier is 1 / (1 − 0.7) = 3.33. Therefore the total increase in national income is about £333 million.</p>
+    </div>
+  </div>
+  <div class="exam-q">
+    <div class="exam-q-header">
+      <span>Section A style</span>
+      <span class="exam-q-marks">2 marks</span>
+    </div>
+    <div class="exam-q-body">
+      <p class="q">The normal turnover of labour and the usual time it takes to find a satisfactory job opening causes ______ unemployment to persist even at potential GDP.</p>
+      <p>A. frictional</p>
+      <p>B. involuntary</p>
+      <p>C. structural</p>
+      <p>D. cyclical</p>
+      <div class="answer-label">Answer</div>
+      <p><strong>A. frictional</strong></p>
+      <p>This is search unemployment caused by imperfect information and normal job matching. It can exist even when the economy is operating close to potential output.</p>
+    </div>
+  </div>
+  <div class="exam-q">
+    <div class="exam-q-header">
+      <span>Section A style</span>
+      <span class="exam-q-marks">2 marks</span>
+    </div>
+    <div class="exam-q-body">
+      <p class="q">As a result of falling unemployment, trade unions become more militant and demand higher wages. This will lead to:</p>
+      <p>A. demand-pull inflation</p>
+      <p>B. cost-push inflation</p>
+      <p>C. both a and b</p>
+      <p>D. neither a nor b</p>
+      <div class="answer-label">Answer</div>
+      <p><strong>B. cost-push inflation</strong></p>
+      <p>The immediate mechanism is higher wage costs pushing firms’ costs upward. That is cost-push inflation, even if tight labour markets contributed to the wage pressure.</p>
+    </div>
+  </div>
+  <div class="exam-q">
+    <div class="exam-q-header">
+      <span>Section B style</span>
+      <span class="exam-q-marks">8 marks</span>
+    </div>
+    <div class="exam-q-body">
+      <p class="q">Explain why an increase in injections raises equilibrium national income.</p>
+      <div class="answer-label">Model answer</div>
+      <p>Injections are spending flows that enter the circular flow from outside household consumption, namely investment, government expenditure, and exports. If injections rise while withdrawals remain unchanged, aggregate demand exceeds the existing equilibrium level of output.</p>
+      <p>Firms respond to the higher demand by increasing production. To do this they hire more labour and use more resources, which raises incomes across the economy in the form of wages, rent, interest, and profits. Households then spend part of this additional income, causing a further rise in demand.</p>
+      <p>This process repeats through the multiplier. National income continues to rise until the increased income generates enough additional withdrawals — saving, taxation, and imports — to match the higher level of injections. At that point a new, higher equilibrium national income is reached.</p>
+    </div>
+  </div>
+  <div class="exam-q">
+    <div class="exam-q-header">
+      <span>Section B style</span>
+      <span class="exam-q-marks">10 marks</span>
+    </div>
+    <div class="exam-q-body">
+      <p class="q">Explain why the effect of a rise in aggregate demand depends on the shape of the aggregate supply curve.</p>
+      <div class="answer-label">Model answer</div>
+      <p>A rise in aggregate demand shifts the AD curve to the right. Whether this mainly raises real output or mainly raises prices depends on how responsive aggregate supply is.</p>
+      <p>If the economy has substantial spare capacity and short-run aggregate supply is relatively flat, firms can expand output without much pressure on costs. In that case, the rise in AD causes a large increase in real GDP and only a modest rise in the price level.</p>
+      <p>However, as the economy approaches full employment, labour and other inputs become scarcer. Short-run aggregate supply becomes steeper. A further increase in AD then produces a smaller increase in real output and a larger increase in prices. In the extreme new classical case, where AS is vertical at potential output, a rise in AD changes the price level but not real national income.</p>
+      <p>Therefore the same demand shock can have very different outcomes depending on spare capacity and the slope of AS.</p>
+    </div>
+  </div>
+</div>
+<div class="section" id="s11">
+  <div class="section-num">Part 11</div>
+  <h2>Evaluation &amp; Common Mistakes</h2>
+  <div class="eval-box">
+    <div class="eval-label">High-level evaluation points</div>
+    <p><strong>GDP is not welfare:</strong> growth can rise while inequality, insecurity, or environmental damage worsen.</p>
+    <p><strong>Multiplier leakages matter:</strong> saving, tax, and imports reduce the eventual rise in national income.</p>
+    <p><strong>Not all unemployment is cyclical:</strong> structural and frictional unemployment require supply-side or labour-market responses, not just higher aggregate demand.</p>
+    <p><strong>Not all inflation is demand-pull:</strong> supply shocks and inflation expectations can push prices up even in weak economies.</p>
+    <p><strong>AS shape is crucial:</strong> expansionary policy is more effective in recession than near full employment, where inflation risk is much higher.</p>
+    <p><strong>Phillips curve is unstable:</strong> it is not a permanent trade-off that policymakers can exploit indefinitely.</p>
+  </div>
+  <div class="mistake-box">
+    <div class="mistake-label">Common mistakes</div>
+    <p><strong>1.</strong> Confusing nominal GDP with real GDP.</p>
+    <p><strong>2.</strong> Writing C + I + G + X − M without explaining what the components mean.</p>
+    <p><strong>3.</strong> Saying "higher AD always causes inflation" without discussing spare capacity.</p>
+    <p><strong>4.</strong> Treating all unemployment as caused by weak demand.</p>
+    <p><strong>5.</strong> Describing the Phillips curve as a guaranteed policy menu rather than a relationship that can shift.</p>
+  </div>
+  <div class="defn">
+    <div class="defn-label">One-line memory aid</div>
+    <p><strong>Macroeconomics is the study of how total spending, total output, employment, and prices move together — and why the same shock can raise growth, cut unemployment, and create inflation at the same time.</strong></p>
+  </div>
+</div>
+<div class="footer">
+  L12+13 MACROECONOMIC ENVIRONMENT · BUSINESS ECONOMICS · UNIVERSITY OF YORK
+</div>
+</div>
+<script>
+(function(){
+  document.body.classList.add("page-transition-init");
+  window.addEventListener("load", function(){
+    requestAnimationFrame(function(){
+      document.body.classList.remove("page-transition-init");
+      document.body.classList.add("page-transition-ready");
+    });
+  });
+  document.addEventListener("click", function(event){
+    var link = event.target.closest("a[href]");
+    if (!link) return;
+    if (event.defaultPrevented || event.button !== 0) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (link.target && link.target !== "_self") return;
+    if (link.hasAttribute("download")) return;
+    var href = link.getAttribute("href");
+    if (!href || href.charAt(0) === "#") return;
+    if (/^(mailto:|tel:|javascript:)/i.test(href)) return;
+    var url = new URL(link.href, window.location.href);
+    if (url.origin !== window.location.origin) return;
+    if (url.pathname === window.location.pathname && url.search === window.location.search && url.hash) return;
+    event.preventDefault();
+    document.body.classList.remove("page-transition-ready");
+    document.body.classList.add("page-transition-leaving");
+    window.setTimeout(function(){ window.location.href = url.href; }, 180);
+  });
+})();
+</script>
+
+</body>
+</html>

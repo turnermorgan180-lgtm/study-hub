@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L15 Balance of Payments and Exchange Rates — Business Economics</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf8f4;--bg2:#f2ede4;--surface:#fff;--border:#e8ddd0;--border2:#d4c8b0;--text:#1a1612;--muted:#7a6e5e;--accent:#245b74;--accent-light:#e8f1f4;--gold:#8a6a2a;--gold-light:#f7f0e0;--teal:#1a5c52;--teal-light:#e8f4f1;--red-light:#fdf2f0;--red-border:#f0c4b8;--red-text:#7a2015;--red-label:#c0392b;--ink:#2c2416}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7}
+.page{position:relative;max-width:860px;margin:0 auto;padding:0 2rem 6rem}
+.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;font-size:1rem;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s;z-index:10}
+.back-btn:hover{transform:translateY(-1px);background:var(--bg2)}
+.hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border2);margin-bottom:3rem;position:relative}
+.hero::before{content:'';position:absolute;top:0;left:-2rem;right:-2rem;bottom:0;background:linear-gradient(180deg,#e5eff2 0%,transparent 100%);z-index:-1}
+.lecture-tag,.meta-chip,.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label,.footer,.exam-q-header{font-family:'DM Mono',monospace}
+.lecture-tag{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;gap:8px;margin-bottom:1rem}
+.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent);margin-top:.6rem}
+h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}
+h1{font-size:3.2rem;line-height:1.1;margin-bottom:1rem}
+.hero-sub{font-size:16px;color:var(--muted);max-width:650px;margin-bottom:1.5rem}
+.meta-row{display:flex;gap:1rem;flex-wrap:wrap}
+.meta-chip{font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}
+.chip-macro{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}.chip-exam{background:var(--accent-light);color:var(--accent);border:1px solid #bfd3da}.chip-marks{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
+.alert-box,.defn,.eval-box,.mistake-box,.diagram-box,.exam-q{border-radius:4px}
+.alert-box{background:var(--accent-light);border-left:3px solid var(--accent);padding:1rem 1.25rem;margin-bottom:2.5rem}
+.toc{background:var(--surface);border:1px solid var(--border);padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem 2rem}
+.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.toc-title{color:var(--muted);grid-column:1/-1}
+.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;gap:8px}.toc a::before{content:attr(data-num);color:var(--border2)}
+.section{margin-bottom:3.5rem}.section-num{color:var(--accent);margin-bottom:.4rem}
+h2{font-size:1.9rem;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)} h3{font-size:1.25rem;margin-top:1.5rem;margin-bottom:.6rem;font-style:italic}
+p{margin-bottom:.9rem} ul{padding-left:1.15rem;margin:1rem 0} li{margin-bottom:.45rem}
+.defn{background:var(--gold-light);border:1px solid #dcc888;padding:1rem 1.25rem;margin:1rem 0 1.25rem}
+.key-terms{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1.25rem 0}.term{background:var(--surface);border:1px solid var(--border);padding:.7rem 1rem}.term-def{font-size:12.5px;color:var(--muted)}
+.compare-table{width:100%;border-collapse:collapse;font-size:13.5px;margin:1.25rem 0;border:1px solid var(--border)} .compare-table th{background:var(--bg2);padding:.65rem 1rem;text-align:left;font-weight:500;font-size:12px;font-family:'DM Mono',monospace;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border2)} .compare-table td{padding:.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top}
+.eval-box{background:var(--teal-light);border:1px solid #b8d8d3;padding:1.25rem 1.5rem;margin:1.5rem 0}.mistake-box{background:var(--red-light);border:1px solid var(--red-border);padding:1.25rem 1.5rem;margin:1.5rem 0}
+.steps{margin:1.25rem 0}.step{display:flex;gap:1rem;margin-bottom:.75rem}.step-num{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--border2);min-width:28px}.step-content{font-size:14px}
+.diagram-box{background:var(--surface);border:1px solid var(--border);padding:1.25rem 1.5rem;margin:1.5rem 0}
+.exam-q{background:var(--surface);border:1px solid var(--border);overflow:hidden;margin:1.5rem 0}.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between}.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px}.exam-q-body{padding:1.25rem 1.5rem}.exam-q-body .q{font-style:italic;margin-bottom:1rem}
+.footer{text-align:center;font-size:11px;color:var(--border2);padding-top:1rem;border-top:1px solid var(--border)}
+@media (max-width:640px){h1{font-size:2.2rem}.toc,.key-terms{grid-template-columns:1fr}.page{padding:0 1.25rem 4rem}}
+
+.page-transition-init{opacity:0;transform:translateY(8px)}
+.page-transition-ready{opacity:1;transform:none}
+.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
+body{transition:opacity .22s ease,transform .22s ease}
+@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}
+</style>
+</head>
+<body>
+<div class="page">
+<a class="back-btn" href="index.html" aria-label="Back to Business Economics hub">←</a>
+<div class="hero">
+  <div class="lecture-tag">Lecture 15 · MAN00016C · University of York</div>
+  <h1>Balance of Payments and Exchange Rates</h1>
+  <p class="hero-sub">Current, capital and financial accounts, exchange-rate determination, depreciation versus appreciation, macro adjustment mechanisms, and why exchange-rate movements matter for firms, inflation, and competitiveness.</p>
+  <div class="meta-row">
+    <span class="meta-chip chip-macro">Macroeconomics</span>
+    <span class="meta-chip chip-exam">High exam relevance</span>
+    <span class="meta-chip chip-marks">Section A + B</span>
+  </div>
+</div>
+
+<div class="alert-box">
+  This topic scores well when answers move in a strict chain: <strong>exchange-rate change -> export and import prices -> net trade -> aggregate demand -> output and inflation</strong>. Examiners usually reward that causal discipline.
+</div>
+
+<div class="toc">
+  <div class="toc-title">Contents</div>
+  <a href="#s1" data-num="01">Balance of payments structure</a>
+  <a href="#s2" data-num="02">Current account logic</a>
+  <a href="#s3" data-num="03">Exchange rates</a>
+  <a href="#s4" data-num="04">Depreciation and appreciation</a>
+  <a href="#s5" data-num="05">Determinants of exchange rates</a>
+  <a href="#s6" data-num="06">Business implications</a>
+  <a href="#s7" data-num="07">Evaluation and pitfalls</a>
+  <a href="#s8" data-num="08">Exam question</a>
+</div>
+
+<div class="section">
+  <div class="section-num">Key Definitions</div>
+  <h2>Terms to Know Cold</h2>
+  <div class="key-terms">
+    <div class="term"><div class="term-word">Balance of payments</div><div class="term-def">A record of all transactions between residents of one country and the rest of the world.</div></div>
+    <div class="term"><div class="term-word">Current account</div><div class="term-def">Trade in goods and services, plus primary and secondary income flows.</div></div>
+    <div class="term"><div class="term-word">Financial account</div><div class="term-def">Cross-border movements of financial capital such as portfolio and direct investment.</div></div>
+    <div class="term"><div class="term-word">Depreciation</div><div class="term-def">A fall in the value of a currency in a floating exchange-rate system.</div></div>
+    <div class="term"><div class="term-word">Appreciation</div><div class="term-def">A rise in the value of a currency in a floating exchange-rate system.</div></div>
+    <div class="term"><div class="term-word">Competitiveness</div><div class="term-def">The relative ability of domestic firms to sell against foreign producers.</div></div>
+  </div>
+</div>
+
+<div class="section" id="s1">
+  <div class="section-num">Part 01</div>
+  <h2>The Balance of Payments Is an Organised Accounting Framework</h2>
+  <p>The balance of payments records economic transactions with the rest of the world. The current account covers trade in goods and services and income flows. The financial account records capital movements such as foreign direct investment and portfolio flows. Exam questions often ask students to separate these correctly.</p>
+  <div class="defn">
+    <div class="defn-label">Core rule</div>
+    <p><strong>A current-account deficit means the country is spending more on foreign output than foreigners are spending on its output.</strong> That gap must be financed somehow, often through financial inflows.</p>
+  </div>
+</div>
+
+<div class="section" id="s2">
+  <div class="section-num">Part 02</div>
+  <h2>Why the Current Account Moves Into Deficit or Surplus</h2>
+  <p>A deficit can arise because domestic income rises faster than foreign income, because the exchange rate is overvalued, because domestic inflation erodes competitiveness, or because consumers and firms demand imports strongly. A surplus can emerge when exports are strong, import demand is weak, or the currency is relatively cheap.</p>
+  <table class="compare-table">
+    <tr><th>Factor</th><th>Likely effect</th><th>Reason</th></tr>
+    <tr><td>Higher domestic income</td><td>Worsens current account</td><td>Imports usually rise with spending</td></tr>
+    <tr><td>Foreign growth</td><td>Improves current account</td><td>Exports become easier to sell</td></tr>
+    <tr><td>Domestic inflation above rivals</td><td>Worsens current account</td><td>Exports become less competitive</td></tr>
+    <tr><td>Currency depreciation</td><td>May improve current account</td><td>Exports become cheaper and imports dearer</td></tr>
+  </table>
+</div>
+
+<div class="section" id="s3">
+  <div class="section-num">Part 03</div>
+  <h2>Exchange Rates Are Prices of Currencies</h2>
+  <p>An exchange rate tells you how much one currency is worth in terms of another. In a floating system, the rate is largely determined by demand and supply in foreign-exchange markets. Demand for pounds comes from foreigners buying UK exports or UK financial assets. Supply of pounds comes from UK residents buying foreign goods, services, or assets.</p>
+  <div class="diagram-box">
+    <div class="diagram-label">In diagram terms</div>
+    <ul>
+      <li>Draw demand for pounds downward sloping and supply upward sloping.</li>
+      <li>An increase in demand for UK assets shifts demand right and appreciates sterling.</li>
+      <li>An increase in UK demand for imports shifts supply right and depreciates sterling.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section" id="s4">
+  <div class="section-num">Part 04</div>
+  <h2>Depreciation Versus Appreciation</h2>
+  <p>A depreciation makes exports cheaper in foreign currency terms and imports more expensive in domestic currency terms. That tends to support net exports and aggregate demand, although the effect depends on elasticities and time lags. An appreciation does the reverse: it lowers import prices but can weaken export competitiveness.</p>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Depreciation raises import prices.</strong> Cost-push inflation may increase.</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Exports become relatively cheaper.</strong> Foreign demand may rise.</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Net exports may improve.</strong> Aggregate demand and output can increase.</div></div>
+  </div>
+  <div class="eval-box">
+    <div class="eval-label">Exam insight</div>
+    <p>Do not assume depreciation always improves the trade balance immediately. The effect depends on price elasticity and often arrives with a lag.</p>
+  </div>
+</div>
+
+<div class="section" id="s5">
+  <div class="section-num">Part 05</div>
+  <h2>What Moves Exchange Rates?</h2>
+  <p>Interest-rate expectations, inflation differentials, growth prospects, speculation, and confidence in domestic assets all matter. A higher domestic interest rate can attract financial inflows and appreciate the currency. Expected inflation can weaken demand for the currency because investors anticipate lower real returns or future depreciation.</p>
+  <h3>Exam framing</h3>
+  <p>The stronger answer distinguishes between <strong>trade flows</strong> and <strong>capital flows</strong>. Exchange rates can move sharply even without immediate changes in exports because financial markets respond quickly to expectations.</p>
+</div>
+
+<div class="section" id="s6">
+  <div class="section-num">Part 06</div>
+  <h2>Why Firms Care About Exchange Rates</h2>
+  <p>Import-dependent firms face higher costs when the domestic currency depreciates. Exporters may gain competitiveness. Multinationals must also think about translation risk, sourcing decisions, and whether to hedge foreign-currency exposure. The business-economics angle is that exchange rates affect pricing, margins, and market-entry strategy.</p>
+</div>
+
+<div class="section" id="s7">
+  <div class="section-num">Part 07</div>
+  <h2>Evaluation and Common Pitfalls</h2>
+  <div class="mistake-box">
+    <div class="mistake-label">Common mistakes</div>
+    <p>Do not confuse a <strong>depreciation</strong> in a floating system with a <strong>devaluation</strong> in a fixed or managed system.</p>
+    <p>Do not say the balance of payments is “bad” just because the current account is in deficit. The stronger answer evaluates whether the deficit is sustainable and how it is financed.</p>
+  </div>
+  <p>Some deficits are manageable if they finance productive investment. Some appreciations are beneficial because they reduce imported inflation. The correct judgement depends on inflation, elasticity, capital mobility, and the wider macro context.</p>
+</div>
+
+<div class="section" id="s8">
+  <div class="section-num">Part 08</div>
+  <h2>Exam Practice</h2>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Section B Style Prompt</span><span class="exam-q-marks">15 marks</span></div>
+    <div class="exam-q-body">
+      <p class="q">Explain how a depreciation of sterling might affect UK firms and the UK economy.</p>
+      <p>Define depreciation clearly, then separate exporters from importers. Explain that export prices in foreign currency fall while import prices in pounds rise. Link this to competitiveness, inflation, and aggregate demand. Finish with evaluation using elasticity, time lags, and the possibility that imported inputs make production more expensive for domestic firms.</p>
+    </div>
+  </div>
+</div>
+
+<div class="footer">Lecture 15 notes · Balance of payments and exchange rates</div>
+</div>
+<script>
+(function(){
+  document.body.classList.add("page-transition-init");
+  window.addEventListener("load", function(){
+    requestAnimationFrame(function(){
+      document.body.classList.remove("page-transition-init");
+      document.body.classList.add("page-transition-ready");
+    });
+  });
+  document.addEventListener("click", function(event){
+    var link = event.target.closest("a[href]");
+    if (!link) return;
+    if (event.defaultPrevented || event.button !== 0) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (link.target && link.target !== "_self") return;
+    if (link.hasAttribute("download")) return;
+    var href = link.getAttribute("href");
+    if (!href || href.charAt(0) === "#") return;
+    if (/^(mailto:|tel:|javascript:)/i.test(href)) return;
+    var url = new URL(link.href, window.location.href);
+    if (url.origin !== window.location.origin) return;
+    if (url.pathname === window.location.pathname && url.search === window.location.search && url.hash) return;
+    event.preventDefault();
+    document.body.classList.remove("page-transition-ready");
+    document.body.classList.add("page-transition-leaving");
+    window.setTimeout(function(){ window.location.href = url.href; }, 180);
+  });
+})();
+</script>
+
+</body>
+</html>

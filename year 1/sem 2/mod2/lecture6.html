@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lecture 6 Introduction to Equity — Finance Fundamentals</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf8f4;--bg2:#f2ede4;--surface:#fff;--border:#e8ddd0;--border2:#d4c8b0;--text:#1a1612;--muted:#7a6e5e;--accent:#245b74;--accent-light:#e8f1f4;--gold:#8a6a2a;--gold-light:#f7f0e0;--teal:#1a5c52;--teal-light:#e8f4f1;--red-light:#fdf2f0;--red-border:#f0c4b8;--red-text:#7a2015;--red-label:#c0392b;--ink:#2c2416}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;transition:opacity .22s ease,transform .22s ease}
+.page{position:relative;max-width:860px;margin:0 auto;padding:0 2rem 6rem}.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;font-size:1rem;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s;z-index:10}.back-btn:hover{transform:translateY(-1px);background:var(--bg2)}
+.hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border2);margin-bottom:3rem;position:relative}.hero::before{content:'';position:absolute;top:0;left:-2rem;right:-2rem;bottom:0;background:linear-gradient(180deg,#e5eff2 0%,transparent 100%);z-index:-1}
+.lecture-tag,.meta-chip,.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label,.exam-q-header,.footer,.resource-path{font-family:'DM Mono',monospace}.lecture-tag{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;gap:8px;margin-bottom:1rem}.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent);margin-top:.6rem}
+h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{font-size:3.2rem;line-height:1.1;margin-bottom:1rem}.hero-sub{font-size:16px;color:var(--muted);max-width:660px;margin-bottom:1.5rem}
+.meta-row{display:flex;gap:1rem;flex-wrap:wrap}.meta-chip{font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}.chip-topic{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}.chip-exam{background:var(--accent-light);color:var(--accent);border:1px solid #bfd3da}.chip-module{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
+.alert-box{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin-bottom:2.5rem;font-size:13.5px;color:#173f4f}
+.toc{background:var(--surface);border:1px solid var(--border);padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem 2rem}.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase}.toc-title{color:var(--muted);grid-column:1/-1}.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;gap:8px}.toc a::before{content:attr(data-num);color:var(--border2)}
+.section{margin-bottom:3.5rem}.section-num{color:var(--accent);margin-bottom:.4rem}p{margin-bottom:.9rem}ul{padding-left:1.15rem;margin:1rem 0}li{margin-bottom:.45rem}
+.defn{background:var(--gold-light);border:1px solid #dcc888;border-radius:4px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}.defn-label{color:var(--gold);margin-bottom:4px}.defn p{margin-bottom:0;font-size:14.5px}
+.eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.mistake-box{background:var(--red-light);border:1px solid var(--red-border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.eval-label{color:var(--teal);margin-bottom:.6rem}.mistake-label{color:var(--red-label);margin-bottom:.6rem}
+.resource-list{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}.resource-list ul{margin:.2rem 0 0 1rem}.resource-path{font-size:11px;color:var(--muted)}
+.exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0}.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between}.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px}.exam-q-body{padding:1.25rem 1.5rem}.exam-q-body .q{font-style:italic;margin-bottom:1rem}
+.footer{text-align:center;font-size:11px;color:var(--border2);padding-top:1rem;border-top:1px solid var(--border)}.page-transition-init{opacity:0;transform:translateY(8px)}.page-transition-ready{opacity:1;transform:none}.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
+@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}@media (max-width:640px){h1{font-size:2.2rem}.toc{grid-template-columns:1fr}.page{padding:0 1.25rem 4rem}}
+
+</style>
+</head>
+<body>
+<div class="page">
+<a class="back-btn" href="index.html" aria-label="Back to Finance Fundamentals hub">←</a>
+<div class="hero">
+  <div class="lecture-tag">Lecture 6 · Finance Fundamentals · University of York</div>
+  <h1>Introduction to Equity</h1>
+  <p class="hero-sub">Residual ownership, dividends, shareholder rights, required return, and the logic behind equity as a claim on future business performance.</p>
+  <div class="meta-row">
+    <span class="meta-chip chip-topic">Finance topic</span>
+    <span class="meta-chip chip-exam">Tightened with seminar material</span>
+    <span class="meta-chip chip-module">MAN00026C</span>
+  </div>
+</div>
+<div class="alert-box"><strong>Lecture focus:</strong> these notes now include the seminar-style framing needed for problem solving, definitions, and exam explanation rather than only first-pass summary points.</div>
+<div class="toc">
+  <div class="toc-title">Contents</div>
+  <a href="#s1" data-num="01">What Equity Represents</a>
+  <a href="#s2" data-num="02">Dividends, Retention and Growth</a>
+  <a href="#s3" data-num="03">Required Return on Equity</a>
+  <a href="#s4" data-num="04">Dividend Discount Logic</a>
+  <a href="#s5" data-num="05">When Model Assumptions Matter</a>
+  <a href="#s6" data-num="06">Equity as a Finance Decision Tool</a>
+</div>
+<div class="resource-list">
+  <div class="defn-label">Tightening sources</div>
+  <ul><li><span class="resource-path">resources/Students Introduction to Equity.pptx</span></li><li><span class="resource-path">resources/Seminar 6.docx</span></li><li><span class="resource-path">resources/Seminar 6 Solutions.docx</span></li></ul>
+</div>
+<div class="defn"><div class="defn-label">Core finance rule</div><p>r = D1 / P0 + g ; with constant growth, P0 = D1 / (r - g), provided r > g.</p></div>
+<div class="section" id="s1">
+  <div class="section-num">Part 01</div>
+  <h2>What Equity Represents</h2>
+  <p>Equity gives investors a residual claim on firm value after other obligations are met. That makes equity riskier than debt, but it also gives investors upside when firms perform strongly.</p>
+</div>
+
+<div class="section" id="s2">
+  <div class="section-num">Part 02</div>
+  <h2>Dividends, Retention and Growth</h2>
+  <p>Equity returns can come from dividends and capital gains. The link between payout and growth is crucial: if the firm retains earnings and earns a return on them, future dividends may grow faster.</p>
+</div>
+
+<div class="section" id="s3">
+  <div class="section-num">Part 03</div>
+  <h2>Required Return on Equity</h2>
+  <p>Investors require compensation for time and risk. In simple dividend-growth settings, required return can be decomposed into dividend yield plus growth, which is a core seminar result.</p>
+</div>
+
+<div class="section" id="s4">
+  <div class="section-num">Part 04</div>
+  <h2>Dividend Discount Logic</h2>
+  <p>Seminar 6 introduces the constant-growth dividend discount model. The key point is not only the formula, but the economic logic: price reflects the present value of expected future dividends.</p>
+</div>
+
+<div class="section" id="s5">
+  <div class="section-num">Part 05</div>
+  <h2>When Model Assumptions Matter</h2>
+  <p>A strong answer evaluates the model. Constant growth forever is a simplifying assumption, not a literal claim that firms never change. Students score better when they explain where the model helps and where it becomes unrealistic.</p>
+</div>
+
+<div class="section" id="s6">
+  <div class="section-num">Part 06</div>
+  <h2>Equity as a Finance Decision Tool</h2>
+  <p>This topic matters because it links pricing to payout policy, growth opportunities, and investor expectations. That moves the module beyond description into valuation logic.</p>
+</div>
+
+<div class="eval-box"><div class="eval-label">Seminar angle</div><p>Seminar 6 is where the topic becomes computational. Use it to revise dividend yield, growth, no-dividend periods, and multi-stage share valuation intuition.</p></div>
+<div class="mistake-box"><div class="mistake-label">Common mistake</div><p>Students often memorise the formula or definition but fail to explain what changes value, what changes risk, and which timing convention the problem is using. In finance, those details usually determine the correct answer.</p></div>
+<div class="exam-q"><div class="exam-q-header"><span>Assessment-style prompt</span><span class="exam-q-marks">10 marks</span></div><div class="exam-q-body"><p class="q">Explain the financial logic behind introduction to equity and show how it would affect a decision faced by a manager, investor, or household.</p><p>Start with a precise definition, then explain the mechanism step by step. If a calculation is relevant, state which formula or convention should be used and why.</p></div></div>
+<div class="footer">Lecture 6 · Introduction to Equity · Finance Fundamentals revision guide</div>
+</div>
+<script>
+(function(){
+  document.body.classList.add("page-transition-init");
+  window.addEventListener("load", function(){
+    requestAnimationFrame(function(){
+      document.body.classList.remove("page-transition-init");
+      document.body.classList.add("page-transition-ready");
+    });
+  });
+  document.addEventListener("click", function(event){
+    var link = event.target.closest("a[href]");
+    if (!link) return;
+    if (event.defaultPrevented || event.button !== 0) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (link.target && link.target !== "_self") return;
+    if (link.hasAttribute("download")) return;
+    var href = link.getAttribute("href");
+    if (!href || href.charAt(0) === "#") return;
+    if (/^(mailto:|tel:|javascript:)/i.test(href)) return;
+    var url = new URL(link.href, window.location.href);
+    if (url.origin !== window.location.origin) return;
+    if (url.pathname === window.location.pathname && url.search === window.location.search && url.hash) return;
+    event.preventDefault();
+    document.body.classList.remove("page-transition-ready");
+    document.body.classList.add("page-transition-leaving");
+    window.setTimeout(function(){ window.location.href = url.href; }, 180);
+  });
+})();
+</script>
+
+</body>
+</html>

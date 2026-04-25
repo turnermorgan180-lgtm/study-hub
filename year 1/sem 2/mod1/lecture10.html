@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L10 Pricing Strategy — Business Economics</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf8f4;
+    --bg2: #f2ede4;
+    --surface: #ffffff;
+    --border: #e8e0d0;
+    --border2: #d4c8b0;
+    --text: #1a1612;
+    --muted: #7a6e5e;
+    --accent: #b5460f;
+    --accent2: #d4691e;
+    --accent-light: #fdf0e8;
+    --gold: #8a6a2a;
+    --gold-light: #f7f0e0;
+    --teal: #1a5c52;
+    --teal-light: #e8f4f1;
+    --ink: #2c2416;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.4;
+  }
+
+  .page {
+    position: relative;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 2rem 6rem;
+  }
+
+  .back-btn {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 1px solid var(--border2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--accent);
+    font-family: 'DM Mono', monospace;
+    font-size: 1rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .08);
+    transition: transform 0.15s, background 0.15s;
+    z-index: 10;
+  }
+
+  .back-btn:hover {
+    transform: translateY(-1px);
+    background: var(--bg2);
+  }
+
+  .hero {
+    padding: 4rem 0 3rem;
+    border-bottom: 1px solid var(--border2);
+    margin-bottom: 3rem;
+    position: relative;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -2rem; right: -2rem; bottom: 0;
+    background: linear-gradient(180deg, #f7f0e4 0%, transparent 100%);
+    z-index: -1;
+  }
+
+  .lecture-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 1rem;
+  }
+
+  .lecture-tag::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 540px;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .meta-row {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .meta-chip {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 2px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .chip-micro { background: var(--teal-light); color: var(--teal); border: 1px solid #b8d8d3; }
+  .chip-exam { background: var(--accent-light); color: var(--accent); border: 1px solid #f0c4a8; }
+  .chip-marks { background: var(--gold-light); color: var(--gold); border: 1px solid #dcc888; }
+
+  .toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem 2rem;
+  }
+
+  .toc-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    grid-column: 1 / -1;
+    margin-bottom: 0.5rem;
+  }
+
+  .toc a {
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 3px 0;
+    transition: color 0.15s;
+  }
+
+  .toc a:hover { color: var(--accent); }
+
+  .toc a::before {
+    content: attr(data-num);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--border2);
+    min-width: 16px;
+  }
+
+  .alert-box {
+    background: var(--accent-light);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 4px 4px 0;
+    padding: 1rem 1.25rem;
+    margin-bottom: 2.5rem;
+    font-size: 13.5px;
+    color: #7a2e0a;
+  }
+
+  .alert-box strong { color: var(--accent); }
+
+  .section {
+    margin-bottom: 3.5rem;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.9rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-top: 1.75rem;
+    margin-bottom: 0.6rem;
+    font-style: italic;
+  }
+
+  h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-top: 1.25rem;
+    margin-bottom: 0.4rem;
+  }
+
+  p { margin-bottom: 0.9rem; color: var(--text); }
+
+  .defn {
+    background: var(--gold-light);
+    border: 1px solid #dcc888;
+    border-radius: 3px;
+    padding: 1rem 1.25rem;
+    margin: 1rem 0 1.25rem;
+  }
+
+  .defn-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+
+  .defn p { color: var(--ink); margin-bottom: 0; font-size: 14.5px; }
+  .defn strong { color: var(--gold); }
+
+  .formula {
+    background: var(--bg2);
+    border: 1px solid var(--border2);
+    border-radius: 3px;
+    padding: 0.9rem 1.25rem;
+    margin: 1rem 0;
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+  }
+
+  .conditions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 1.25rem 0;
+  }
+
+  .condition-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1rem;
+  }
+
+  .condition-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--border2);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .condition-title {
+    font-weight: 500;
+    font-size: 13.5px;
+    color: var(--ink);
+    margin-bottom: 0.35rem;
+  }
+
+  .condition-text {
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .degrees {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 1.25rem 0;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .degree-row {
+    display: grid;
+    grid-template-columns: 100px 1fr 1fr;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .degree-row:last-child { border-bottom: none; }
+
+  .degree-row.header {
+    background: var(--bg2);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .degree-cell {
+    padding: 0.75rem 1rem;
+    font-size: 13.5px;
+    border-right: 1px solid var(--border);
+  }
+
+  .degree-cell:last-child { border-right: none; }
+  .degree-cell strong { color: var(--accent); font-weight: 500; }
+
+  .plc-grid {
+    display: grid;
+    grid-template-columns: 90px 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 1.25rem 0;
+    font-size: 13.5px;
+  }
+
+  .plc-cell {
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+  }
+
+  .plc-cell:nth-child(3n) { border-right: none; }
+  .plc-cell.header {
+    background: var(--bg2);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .plc-cell.stage {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--ink);
+    background: var(--bg);
+  }
+
+  .plc-cell:nth-last-child(-n+3) { border-bottom: none; }
+
+  .eval-box {
+    background: var(--teal-light);
+    border: 1px solid #b8d8d3;
+    border-radius: 4px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .eval-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .eval-label::before {
+    content: '⊕';
+    font-size: 12px;
+  }
+
+  .eval-box p { color: #1a4a42; font-size: 14px; margin-bottom: 0.5rem; }
+  .eval-box p:last-child { margin-bottom: 0; }
+
+  .mistake-box {
+    background: #fdf2f0;
+    border: 1px solid #f0c4b8;
+    border-radius: 4px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .mistake-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #c0392b;
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .mistake-label::before { content: '✕'; font-size: 11px; }
+
+  .mistake-box p { color: #7a2015; font-size: 14px; margin-bottom: 0.5rem; }
+  .mistake-box p:last-child { margin-bottom: 0; }
+
+  .exam-q {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 1.5rem 0;
+  }
+
+  .exam-q-header {
+    background: var(--ink);
+    color: #f5f0e8;
+    padding: 0.6rem 1.25rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .exam-q-marks {
+    background: var(--accent);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-size: 10px;
+  }
+
+  .exam-q-body { padding: 1.25rem 1.5rem; }
+  .exam-q-body .q { font-style: italic; color: var(--ink); margin-bottom: 1rem; font-size: 15px; }
+
+  .answer-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 0.4rem;
+  }
+
+  .exam-q-body p { font-size: 14px; margin-bottom: 0.6rem; }
+
+  .key-terms {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+    margin: 1.25rem 0;
+  }
+
+  .term {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 0.7rem 1rem;
+  }
+
+  .term-word {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+
+  .term-def {
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2.5rem 0;
+  }
+
+  .footer {
+    text-align: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--border2);
+    letter-spacing: 0.08em;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 640px) {
+    h1 { font-size: 2.2rem; }
+    .conditions { grid-template-columns: 1fr; }
+    .toc { grid-template-columns: 1fr; }
+    .key-terms { grid-template-columns: 1fr; }
+    .degree-row { grid-template-columns: 80px 1fr; }
+    .degree-row .degree-cell:last-child { display: none; }
+    .plc-grid { grid-template-columns: 80px 1fr; }
+    .plc-cell.header:last-child, .plc-cell:nth-child(3n) { display: none; }
+  }
+
+.page-transition-init{opacity:0;transform:translateY(8px)}
+.page-transition-ready{opacity:1;transform:none}
+.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
+body{transition:opacity .22s ease,transform .22s ease}
+@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}
+</style>
+</head>
+<body>
+<div class="page">  <a class="back-btn" href="index.html" aria-label="Back to Business Economics hub">←</a>
+  <div class="hero">
+    <div class="lecture-tag">Lecture 10 · MAN00016C · University of York</div>
+    <h1>Pricing<br>Strategy</h1>
+    <p class="hero-sub">Price discrimination, cost-plus pricing, penetration pricing, the product life cycle, and how firms actually set prices in practice.</p>
+    <div class="meta-row">
+      <span class="meta-chip chip-micro">Microeconomics</span>
+      <span class="meta-chip chip-exam">High exam relevance</span>
+      <span class="meta-chip chip-marks">Section A + B</span>
+    </div>
+  </div>
+
+  <div class="alert-box">
+    <strong>Past paper alert:</strong> Price discrimination appears in Section A of both past papers. The 2021–22 paper tests the VW Tiguan (third-degree, Q13) and buy-2-get-1-free (second-degree). Know all three degrees cold.
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">Contents</div>
+    <a href="#s1" data-num="01">Why uniform pricing fails</a>
+    <a href="#s2" data-num="02">Cost-plus (mark-up) pricing</a>
+    <a href="#s3" data-num="03">Price discrimination</a>
+    <a href="#s4" data-num="04">Three degrees explained</a>
+    <a href="#s5" data-num="05">Specialist pricing forms</a>
+    <a href="#s6" data-num="06">Product life cycle</a>
+    <a href="#s7" data-num="07">Diagrams explained</a>
+    <a href="#s8" data-num="08">Exam questions & answers</a>
+    <a href="#s9" data-num="09">Evaluation points</a>
+    <a href="#s10" data-num="10">Common mistakes</a>
+  </div>
+
+  <div class="section">
+    <div class="section-num">Key Definitions</div>
+    <h2>Terms to Know Cold</h2>
+    <div class="key-terms">
+      <div class="term">
+        <div class="term-word">Price discrimination</div>
+        <div class="term-def">Selling the same or similar product to different consumers at different prices, where the price difference is not explained by cost differences.</div>
+      </div>
+      <div class="term">
+        <div class="term-word">Cost-plus pricing</div>
+        <div class="term-def">Setting price by calculating average total cost and adding a fixed percentage mark-up for profit. Formula: P = AFC + AVC + mark-up.</div>
+      </div>
+      <div class="term">
+        <div class="term-word">Willingness to pay</div>
+        <div class="term-def">The maximum a consumer would pay for a good. Price discrimination exploits differences in willingness to pay across groups.</div>
+      </div>
+      <div class="term">
+        <div class="term-word">Consumer surplus</div>
+        <div class="term-def">The difference between maximum willingness to pay and the price actually paid. Price discrimination converts this into producer revenue.</div>
+      </div>
+      <div class="term">
+        <div class="term-word">Market power</div>
+        <div class="term-def">The ability of a firm to set price above marginal cost. Required for price discrimination — impossible under perfect competition.</div>
+      </div>
+      <div class="term">
+        <div class="term-word">Penetration pricing</div>
+        <div class="term-def">Setting a low launch price to rapidly build market share and brand loyalty before competitors arrive.</div>
+      </div>
+      <div class="term">
+        <div class="term-word">Price skimming</div>
+        <div class="term-def">Setting a high initial price to extract maximum revenue from early adopters with inelastic demand, before lowering price over time.</div>
+      </div>
+      <div class="term">
+        <div class="term-word">Loss leader</div>
+        <div class="term-def">A product priced at or below cost to attract customers, who then buy other higher-margin items. Profit maximised across the portfolio.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="s1">
+    <div class="section-num">Part 01</div>
+    <h2>Why Uniform Pricing Fails</h2>
+
+    <p>The textbook model gives one profit-maximising price where MR = MC. In reality this single price is almost always suboptimal, because consumers differ in how much they value the product.</p>
+
+    <p>Under a single uniform price, a firm faces an inescapable trade-off:</p>
+
+    <p><strong>Raise price</strong> → captures more revenue per unit from high-value customers, but loses low-value customers entirely.</p>
+    <p><strong>Lower price</strong> → captures more sales volume, but sacrifices revenue from customers who would have paid more.</p>
+
+    <p>Either way, <strong>consumer surplus is left on the table</strong> — high-value buyers pay less than they would have, and low-value buyers who are priced out generate no revenue at all. The solution is to charge different prices to different segments based on their willingness to pay.</p>
+
+    <div class="eval-box">
+      <div class="eval-label">Economic intuition</div>
+      <p>Think of it this way: a uniform monopoly price creates a deadweight loss triangle. Price discrimination shrinks or eliminates that triangle by serving consumers who were previously excluded — at a lower price — while simultaneously extracting more from those who value the product highly. It is therefore both a revenue strategy and, in some cases, an efficiency improvement.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s2">
+    <div class="section-num">Part 02</div>
+    <h2>Cost-Plus (Mark-Up) Pricing</h2>
+
+    <p>In reality, firms rarely know their demand curve with precision. Cost-plus pricing is a practical alternative to the theoretical MR = MC rule.</p>
+
+    <div class="formula">P = AFC + AVC + Profit Mark-up</div>
+
+    <p>The firm calculates its average total cost at its expected output level, then adds a fixed percentage mark-up. If AFC = £10, AVC = £20 (so ATC = £30), and the mark-up is 25%, the price is set at <strong>£37.50</strong>.</p>
+
+    <h3>How the mark-up is determined</h3>
+
+    <p>The mark-up is not arbitrary — it is a strategic decision shaped by several factors:</p>
+
+    <p><strong>Market demand</strong> is the most critical factor. Firms know that a higher mark-up means lower quantity sold. The trade-off: high mark-up (fg) → low output (Q1); low mark-up (hj) → high output (Q2). The firm chooses based on its objectives.</p>
+
+    <p><strong>Market growth:</strong> In expanding markets, buoyant demand allows firms to sustain larger mark-ups without losing volume.</p>
+
+    <p><strong>Market power:</strong> Monopolists and dominant oligopolists can sustain higher mark-ups. Price takers under perfect competition cannot set their own price at all.</p>
+
+    <p><strong>Economic conditions:</strong> During recessions, firms compress mark-ups to remain competitive as demand weakens.</p>
+
+    <p><strong>Trial and error:</strong> Firms use last year's sales as a baseline, estimate growth, then adjust the mark-up up or down based on whether targets were met.</p>
+
+    <div class="eval-box">
+      <div class="eval-label">Evaluation — limitations</div>
+      <p>Cost-plus pricing ignores demand entirely. A firm with inelastic demand could charge far more than ATC + mark-up and increase profit — a rigid formula prevents this. It is therefore inconsistent with MR = MC profit maximisation.</p>
+      <p>However, in information-poor environments it is a sensible heuristic. It also provides price stability in oligopolistic markets, reducing the risk of price wars. Empirically, most real firms use some form of cost-plus pricing — it is not merely a textbook failure.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s3">
+    <div class="section-num">Part 03</div>
+    <h2>Price Discrimination — The Logic</h2>
+
+    <div class="defn">
+      <div class="defn-label">Definition</div>
+      <p>Price discrimination occurs when a firm sells the <strong>same or similar product</strong> to different consumers at different prices, where the price difference is <strong>not explained by differences in the cost of supply</strong>. The key test: if the price gap perfectly matches the cost difference (e.g. extra shipping), it is not discrimination.</p>
+    </div>
+
+    <p>By charging each segment closer to their maximum willingness to pay, the firm converts consumer surplus into producer revenue — increasing profit beyond what any single uniform price could achieve.</p>
+
+    <h3>Three necessary conditions</h3>
+
+    <div class="conditions">
+      <div class="condition-card">
+        <div class="condition-num">1</div>
+        <div class="condition-title">Market Power</div>
+        <div class="condition-text">The firm must face a downward-sloping demand curve (be a price maker). Impossible under perfect competition — any attempt to charge more drives buyers to rivals at the lower price.</div>
+      </div>
+      <div class="condition-card">
+        <div class="condition-num">2</div>
+        <div class="condition-title">Market Separation</div>
+        <div class="condition-text">Markets must be kept separate — no arbitrage. If low-price buyers can resell to high-price buyers, the strategy collapses. Common in services (haircuts, train rides) because they cannot be resold.</div>
+      </div>
+      <div class="condition-card">
+        <div class="condition-num">3</div>
+        <div class="condition-title">Different Elasticities</div>
+        <div class="condition-text">Groups must have different price sensitivities. The firm charges highest to the least elastic group (least sensitive to price). If everyone had identical elasticity, there would be no profit gain from splitting markets.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="s4">
+    <div class="section-num">Part 04</div>
+    <h2>The Three Degrees of Price Discrimination</h2>
+
+    <div class="degrees">
+      <div class="degree-row header">
+        <div class="degree-cell">Degree</div>
+        <div class="degree-cell">How it works</div>
+        <div class="degree-cell">Real-world example</div>
+      </div>
+      <div class="degree-row">
+        <div class="degree-cell"><strong>First degree</strong><br><span style="font-size:12px;color:var(--muted)">Perfect</span></div>
+        <div class="degree-cell">Each individual consumer is charged their exact maximum willingness to pay. All consumer surplus is extracted. Theoretically maximises profit but near-impossible in practice — the firm must know every consumer's valuation.</div>
+        <div class="degree-cell">Individual salary negotiation. Bespoke legal or consulting fees. Car dealership haggling (approximation).</div>
+      </div>
+      <div class="degree-row">
+        <div class="degree-cell"><strong>Second degree</strong><br><span style="font-size:12px;color:var(--muted)">Indirect</span></div>
+        <div class="degree-cell">Different prices based on quantity purchased. The firm cannot observe consumer type, so it offers a menu of options and lets consumers self-select. The high-value consumer buys at the higher per-unit price; the price-sensitive consumer buys more at a lower rate.</div>
+        <div class="degree-cell">Buy 2 get 1 free. Quantity discounts (bulk buying). Block tariffs on energy bills. Train season tickets vs single fares.</div>
+      </div>
+      <div class="degree-row">
+        <div class="degree-cell"><strong>Third degree</strong><br><span style="font-size:12px;color:var(--muted)">Direct</span></div>
+        <div class="degree-cell">Different fixed prices charged to identifiable groups based on observable characteristics. The group with less elastic demand (more willing to pay regardless of price) is charged more. The group with more elastic demand is charged less — this extends sales into markets that would otherwise be excluded.</div>
+        <div class="degree-cell">Student/senior rail discounts. Peak vs off-peak fares. VW Tiguan priced higher in UK than France (Q13, 2021–22 paper).</div>
+      </div>
+    </div>
+
+    <div class="mistake-box">
+      <div class="mistake-label">Common exam mistake</div>
+      <p><strong>Confusing 2nd and 3rd degree:</strong> The test is whether the firm targets an identifiable group (3rd degree) or lets consumers sort themselves by quantity/choice (2nd degree). "Buy 2 get 1 free" is always 2nd degree — the firm cannot see who is price-sensitive; it simply offers a quantity deal and consumers self-select.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s5">
+    <div class="section-num">Part 05</div>
+    <h2>Specialist Pricing Forms</h2>
+
+    <h3>Peak-load pricing</h3>
+    <p>Higher prices during peak demand (e.g. rush-hour rail fares, electricity at peak times), lower prices off-peak. This is a form of third-degree price discrimination because peak users (commuters) have inelastic demand — they must travel regardless of price — while leisure users are price-sensitive and respond to cheaper off-peak fares.</p>
+    <p>There is also a partial cost rationale: infrastructure approaches capacity at peak times, so marginal cost is genuinely higher. But the demand elasticity difference is the discriminating element.</p>
+
+    <h3>Two-part tariffs</h3>
+    <p>Consumers pay a <strong>fixed access charge</strong> plus a <strong>variable usage charge</strong>. The fixed charge captures a lump sum from all users regardless of usage (covering high fixed infrastructure costs), while the usage charge extracts additional revenue based on consumption. Examples: mobile phone monthly contract + per-minute rate; energy standing charge + per-unit rate; gym membership + class fees.</p>
+
+    <h3>Loss leaders</h3>
+    <p>Products priced at or below average cost to attract customers who will then buy higher-margin items. The firm maximises profit across its whole portfolio, not on any individual product. Requires that the loss leader has high price elasticity (to generate foot traffic) and that consumers can be guided toward profitable items. Classic in supermarkets — cheap bread and milk on the back wall, you pass the wine and premium goods getting there.</p>
+  </div>
+
+  <div class="section" id="s6">
+    <div class="section-num">Part 06</div>
+    <h2>Pricing and the Product Life Cycle</h2>
+
+    <p>The PLC model argues that products follow a predictable path from launch to obsolescence. Optimal pricing strategy changes at each stage because market conditions, competition, and consumer demand elasticity all evolve.</p>
+
+    <div class="plc-grid">
+      <div class="plc-cell header">Stage</div>
+      <div class="plc-cell header">Market characteristics</div>
+      <div class="plc-cell header">Pricing strategy</div>
+
+      <div class="plc-cell stage">Launch</div>
+      <div class="plc-cell">Product is new. Few/no rivals. Consumers uncertain. Sales low but rising.</div>
+      <div class="plc-cell"><strong>Skimming:</strong> high price to extract revenue from early adopters (inelastic demand). <strong>Penetration:</strong> low price to build market share rapidly before rivals arrive.</div>
+
+      <div class="plc-cell stage">Growth</div>
+      <div class="plc-cell">Sales expand rapidly. Product gains mainstream appeal. Rivals begin to enter market.</div>
+      <div class="plc-cell">Firms often sustain higher prices as demand surges. Some price competition begins as rivals enter.</div>
+
+      <div class="plc-cell stage">Maturity</div>
+      <div class="plc-cell">Sales plateau. Number of competitors at peak. Collusion often breaks down.</div>
+      <div class="plc-cell">Aggressive price competition — price wars common. Firms invest in innovation and differentiation to extend cycle.</div>
+
+      <div class="plc-cell stage">Decline</div>
+      <div class="plc-cell">Sales fall — market saturation or new technology. Some rivals exit.</div>
+      <div class="plc-cell">Prices fall further. Firms choose between exit, price cuts, or repositioning to a niche.</div>
+    </div>
+
+    <h3>Skimming vs Penetration at launch — when to choose each</h3>
+    <p><strong>Skimming</strong> works best when the product is genuinely novel (temporary monopoly), early adopters have strongly inelastic demand, and R&D costs need rapid recovery. Risk: high profits attract rivals quickly.</p>
+    <p><strong>Penetration</strong> works best when demand is price-elastic, significant scale economies exist (high volume → lower unit costs → sustainable low price), and the firm wants to deter entry by establishing dominant market share before rivals can react.</p>
+
+    <div class="eval-box">
+      <div class="eval-label">Evaluation — PLC limitations</div>
+      <p>The PLC assumes all products follow the same S-shaped path — but many do not. Some skip stages (rapid obsolescence), others have multiple maturity phases (revivals, rebranding), and the length of each stage is entirely unpredictable. The PLC is a useful conceptual framework but a weak predictive tool. It tells a firm where it might be, not where it is definitely going.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s7">
+    <div class="section-num">Part 07</div>
+    <h2>Diagrams Explained</h2>
+
+    <h3>Third-degree price discrimination diagram</h3>
+    <p><strong>What it shows:</strong> Two separate panels side by side, one for each market segment (e.g. peak/off-peak, UK/France).</p>
+    <p><strong>Each panel:</strong> Downward-sloping demand curve (D) with its own MR curve below it. Both panels share the same horizontal MC line.</p>
+    <p><strong>The rule:</strong> The firm sets MR = MC separately in each market. This yields a higher price in the market with less elastic demand (steeper D curve) and a lower price in the market with more elastic demand (flatter D curve).</p>
+    <p><strong>Key result:</strong> Total output is the sum of Q1 + Q2. Compared to a single monopoly price, the discriminating firm produces more total output and serves consumers in the elastic market who would have been excluded — but charges high-value consumers even more than the single monopoly price.</p>
+    <p><strong>Exam description:</strong> "The firm faces two markets with different price elasticities. Setting MR = MC in each market separately yields P1 > P2, where market 1 has less elastic demand. This increases total output compared to uniform monopoly pricing and converts consumer surplus into producer revenue."</p>
+
+    <h3>Cost-plus pricing diagram</h3>
+    <p><strong>Axes:</strong> Vertical = price/cost. Horizontal = output.</p>
+    <p><strong>What it shows:</strong> A U-shaped AC curve. The firm identifies its expected output, reads off AC at that point, then adds the mark-up percentage vertically above it to set price.</p>
+    <p><strong>Key insight:</strong> High mark-up → high price → lower output (Q1). Low mark-up → lower price → higher output (Q2). The firm's choice of mark-up is really a choice of where on the demand curve to operate.</p>
+    <p><strong>Product Life Cycle diagram</strong>...</p>
+  </div>
+
+  <div class="section" id="s8">
+    <div class="section-num">Part 08</div>
+    <h2>Exam Questions &amp; Model Answers</h2>
+
+    <div class="exam-q">
+      <div class="exam-q-header">
+        <span>MCQ — Section A style (from 2021–22 paper, Q13)</span>
+        <span class="exam-q-marks">2 marks</span>
+      </div>
+      <div class="exam-q-body">
+        <p class="q">"The price of a Volkswagen Tiguan is considerably higher in the UK than in France even though the production and transport costs are very similar. This is an example of: (a) First degree (b) Second degree (c) Third degree (d) No price discrimination."</p>
+        <div class="answer-label">Model answer — C</div>
+        <p>The firm is charging different prices to consumers in identifiable geographic groups (UK vs French buyers) based on different willingness to pay, not cost differences. This is third-degree price discrimination — group-based, using an observable characteristic (country of purchase). First-degree would require individual negotiation. Second-degree would require quantity-based pricing. The cost similarity confirms it is not cost justification.</p>
+      </div>
+    </div>
+
+    <div class="exam-q">
+      <div class="exam-q-header">
+        <span>Short answer — Section B style</span>
+        <span class="exam-q-marks">6 marks</span>
+      </div>
+      <div class="exam-q-body">
+        <p class="q">"Explain three conditions necessary for price discrimination to be profitable."</p>
+        <div class="answer-label">Model answer</div>
+        <p><strong>First, the firm must possess market power</strong> — it must face a downward-sloping demand curve and be able to set its own price. Under perfect competition, price discrimination is impossible because any attempt to charge one group more would immediately drive them to buy from a rival at the lower market price.</p>
+        <p><strong>Second, markets must be kept separate</strong> — the firm must prevent arbitrage, where consumers who buy at the lower price resell to those who would otherwise pay the higher price. This is why discrimination is most common in services such as train journeys or haircuts, which cannot be transferred between consumers.</p>
+        <p><strong>Third, different consumer groups must have different price elasticities of demand.</strong> The firm charges the highest price to the group whose demand is least elastic — they are least responsive to price increases and will not reduce their purchases significantly. If all consumers had identical elasticities, splitting the market would generate no additional profit beyond a uniform price.</p>
+      </div>
+    </div>
+
+    <div class="exam-q">
+      <div class="exam-q-header">
+        <span>Extended answer — essay-style evaluation</span>
+        <span class="exam-q-marks">12 marks</span>
+      </div>
+      <div class="exam-q-body">
+        <p class="q">"Assess the view that price discrimination benefits firms but harms consumers."</p>
+        <div class="answer-label">Essay plan — first-class structure</div>
+        <p><strong>Thesis:</strong> Price discrimination unambiguously benefits firms by increasing profit above the uniform monopoly level, but its effect on consumers is ambiguous — it harms some while benefiting others, and the net welfare outcome depends on the degree and the comparison benchmark.</p>
+        <p><strong>Para 1 — Benefits to firms:</strong> The firm converts consumer surplus into producer revenue. With a uniform price, the firm leaves uncaptured surplus with high-value buyers and forfeits revenue from low-value buyers. Discrimination solves both simultaneously → higher profit. Under first-degree discrimination all consumer surplus is captured.</p>
+        <p><strong>Para 2 — Mixed effects on consumers:</strong> Under third-degree discrimination, high-elasticity consumers (e.g. students, off-peak travellers) gain access to the product at a price below the single monopoly price — they are better off. Low-elasticity consumers (e.g. business travellers) pay more than the uniform price — they are worse off. Net effect is ambiguous and depends on the relative sizes of the groups.</p>
+        <p><strong>Para 3 — Efficiency dimension:</strong> Compared to a single monopoly price, third-degree discrimination typically increases total output, reducing (but not eliminating) deadweight loss. Under perfect first-degree discrimination, output equals the perfectly competitive level — DWL is zero. This is efficient. But it is purely a distributional issue: efficiency is achieved by transferring all gains to the producer, leaving consumers with zero surplus.</p>
+        <p><strong>Conclusion / Judgement:</strong> The statement is too simplistic. Firms always benefit. But consumer welfare depends on which consumers, which degree of discrimination, and what the alternative is. If the alternative is no service at all (e.g. rural rail routes), discrimination that makes the service viable benefits all consumers. If the alternative is competitive pricing, discrimination clearly harms consumers. Context is everything.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="s9">
+    <div class="section-num">Part 09</div>
+    <h2>Evaluation Points for First-Class Answers</h2>
+
+    <div class="eval-box">
+      <div class="eval-label">On cost-plus pricing</div>
+      <p>While inconsistent with MR = MC profit maximisation, cost-plus pricing may actually <em>approximate</em> the profit-maximising price in stable markets if the mark-up implicitly reflects demand elasticity. Firms with inelastic demand tend to charge higher mark-ups — this mirrors what MR = MC would prescribe. The heuristic is not entirely without economic logic.</p>
+      <p>Additionally, in oligopolistic markets, cost-plus pricing helps coordinate prices across firms tacitly — all firms using similar formulas end up at similar prices without explicit communication. This reduces price war risk and may actually sustain higher industry profits.</p>
+    </div>
+
+    <div class="eval-box">
+      <div class="eval-label">On price discrimination and welfare</div>
+      <p>The welfare assessment is entirely benchmark-dependent. Compared to a monopoly: discrimination raises output and reduces DWL — a welfare improvement. Compared to perfect competition: discrimination maintains market power and redistributes surplus from consumers to the firm — a welfare reduction. Always state your comparison baseline in an exam answer.</p>
+      <p>Also note: discrimination requires market power, which is itself a sign of imperfect competition. So the ability to discriminate already indicates a pre-existing welfare problem.</p>
+    </div>
+
+    <div class="eval-box">
+      <div class="eval-label">On the product life cycle</div>
+      <p>The PLC is a descriptive model, not a predictive one. Many tech products (smartphones) compressed all four stages into years rather than decades. Some products (Coca-Cola, Marmite) have been in "maturity" for over a century. The model also ignores the firm's own strategic choices — a firm can actively extend the maturity stage through innovation, rebranding, or entering new geographic markets.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s10">
+    <div class="section-num">Part 10</div>
+    <h2>Common Mistakes to Avoid</h2>
+
+    <div class="mistake-box">
+      <div class="mistake-label">Mistake 1 — Confusing 2nd and 3rd degree</div>
+      <p>"Buy 2 get 1 free" is always second-degree — consumers self-select by quantity. Student rail discounts are always third-degree — the firm targets an identifiable group. The key question: does the firm observe who you are, or do you reveal your type through your purchasing choice?</p>
+    </div>
+
+    <div class="mistake-box">
+      <div class="mistake-label">Mistake 2 — Saying discrimination always harms consumers</div>
+      <p>Consumers in the elastic market (e.g. students) often gain access at a lower price than the uniform monopoly price. They are better off. The harm falls on inelastic-demand consumers who pay more. Always distinguish which consumer group you are discussing.</p>
+    </div>
+
+    <div class="mistake-box">
+      <div class="mistake-label">Mistake 3 — Forgetting market separation</div>
+      <p>Students often list only two conditions (market power + different elasticities) and omit market separation / no arbitrage. All three are required. Without separation, the strategy unravels as low-price buyers resell to high-price buyers.</p>
+    </div>
+
+    <div class="mistake-box">
+      <div class="mistake-label">Mistake 4 — Treating cost-plus as always wrong</div>
+      <p>Academically inferior in theory, but cost-plus pricing is widely used in practice. In evaluation, acknowledge its role in providing price stability, reducing information requirements, and facilitating tacit coordination in oligopoly. Don't simply dismiss it.</p>
+    </div>
+
+    <div class="mistake-box">
+      <div class="mistake-label">Mistake 5 — Confusing skimming with first-degree discrimination</div>
+      <p>Price skimming is a sequential pricing strategy over time (high price at launch, then lower). First-degree discrimination charges different prices simultaneously to different individuals. They are completely different concepts — skimming does not require knowledge of individual willingness to pay.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <div class="footer">
+    L10 · Pricing Strategy · MAN00016C Business Economics · University of York · Revision Guide
+  </div>
+
+</div>
+<script>
+(function(){
+  document.body.classList.add("page-transition-init");
+  window.addEventListener("load", function(){
+    requestAnimationFrame(function(){
+      document.body.classList.remove("page-transition-init");
+      document.body.classList.add("page-transition-ready");
+    });
+  });
+  document.addEventListener("click", function(event){
+    var link = event.target.closest("a[href]");
+    if (!link) return;
+    if (event.defaultPrevented || event.button !== 0) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (link.target && link.target !== "_self") return;
+    if (link.hasAttribute("download")) return;
+    var href = link.getAttribute("href");
+    if (!href || href.charAt(0) === "#") return;
+    if (/^(mailto:|tel:|javascript:)/i.test(href)) return;
+    var url = new URL(link.href, window.location.href);
+    if (url.origin !== window.location.origin) return;
+    if (url.pathname === window.location.pathname && url.search === window.location.search && url.hash) return;
+    event.preventDefault();
+    document.body.classList.remove("page-transition-ready");
+    document.body.classList.add("page-transition-leaving");
+    window.setTimeout(function(){ window.location.href = url.href; }, 180);
+  });
+})();
+</script>
+
+</body>
+</html>

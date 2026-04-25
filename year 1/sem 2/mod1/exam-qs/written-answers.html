@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Written Answers</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf8f4;--bg2:#f2ede4;--surface:#fff;--border:#e8ddd0;--border2:#d4c8b0;--text:#1a1612;--muted:#7a6e5e;--accent:#245b74;--accent-light:#e8f1f4;--gold:#8a6a2a;--gold-light:#f7f0e0;--teal:#1a5c52;--teal-light:#e8f4f1;--ink:#2c2416}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;transition:opacity .22s ease,transform .22s ease}
+.page{position:relative;max-width:980px;margin:0 auto;padding:0 2rem 6rem}
+.back-btn,.action-btn,.source-link{border-radius:999px;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s}
+.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;font-size:1rem;z-index:10}
+.action-bar{position:absolute;top:1.5rem;right:0;display:flex;gap:.75rem;z-index:10;flex-wrap:wrap;justify-content:flex-end}
+.action-btn,.source-link{height:42px;padding:0 1rem;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+button.action-btn{cursor:pointer}
+.back-btn:hover,.action-btn:hover,.source-link:hover{transform:translateY(-1px);background:var(--bg2)}
+.hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border2);margin-bottom:2.3rem;position:relative}
+.hero::before{content:'';position:absolute;top:0;left:-2rem;right:-2rem;bottom:0;background:linear-gradient(180deg,#e5eff2 0%,transparent 100%);z-index:-1}
+.lecture-tag,.meta-chip,.section-num,.footer,.tiny{font-family:'DM Mono',monospace}
+.lecture-tag{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;gap:8px;margin-bottom:1rem}
+.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent);margin-top:.6rem}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;color:var(--ink)}
+h1{font-size:3rem;line-height:1.08;margin-bottom:1rem}
+h2{font-size:1.85rem;margin-bottom:1rem;padding-bottom:.7rem;border-bottom:1px solid var(--border)}
+h3{font-size:1.22rem;margin-bottom:.55rem;font-style:italic}
+.hero-sub{font-size:16px;color:var(--muted);max-width:720px;margin-bottom:1.5rem}
+.meta-row{display:flex;gap:1rem;flex-wrap:wrap}
+.meta-chip{font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}
+.chip-a{background:var(--accent-light);color:var(--accent);border:1px solid #bfd3da}
+.chip-b{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
+.chip-c{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}
+.alert-box,.card,.mcq-card,.essay-card,.source-card{background:var(--surface);border:1px solid var(--border);border-radius:4px}
+.alert-box{background:var(--accent-light);border-left:3px solid var(--accent);padding:1rem 1.25rem;margin-bottom:1.8rem}
+.section{margin-bottom:2.3rem}
+.section-num{color:var(--accent);margin-bottom:.35rem;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.stat-grid,.source-grid,.essay-list,.mcq-list{display:grid;gap:1rem}
+.stat-grid{grid-template-columns:repeat(3,1fr);margin-top:1.15rem}
+.source-grid{grid-template-columns:repeat(2,1fr)}
+.stat{background:var(--surface);border:1px solid var(--border);padding:1rem;border-radius:4px;text-align:center}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--accent);line-height:1;margin-bottom:.2rem}
+.stat-label{font-size:12px;color:var(--muted)}
+.mcq-card,.essay-card,.source-card{padding:1rem 1.15rem}
+.q-top{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start;margin-bottom:.55rem;flex-wrap:wrap}
+.q-num,.tiny{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.topic-pill,.mark-pill,.year-pill{font-size:10px;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:3px 8px;display:inline-block}
+.topic-pill{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
+.mark-pill,.year-pill{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}
+.options{display:grid;gap:.45rem;margin:.85rem 0 0;padding:0;list-style:none}
+.options li{padding:.65rem .8rem;border:1px solid var(--border);background:#fcfbf8;border-radius:4px}
+.answer-block{margin-top:.8rem;padding:1rem;background:var(--bg2);border:1px solid var(--border);border-radius:4px}
+details{margin-top:.9rem}
+summary{cursor:pointer;color:var(--accent);font-weight:500}
+ul{padding-left:1.15rem;margin:1rem 0}
+li{margin-bottom:.4rem}
+p{margin-bottom:.9rem}
+.timer-panel{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1rem 1.15rem;margin:1.25rem 0 1.75rem}.timer-top{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start;flex-wrap:wrap;margin-bottom:.85rem}.timer-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-family:'DM Mono',monospace}.timer-display{font-family:'Cormorant Garamond',serif;font-size:2.2rem;line-height:1;color:var(--ink)}.timer-copy{font-size:13px;color:var(--muted);max-width:560px}.timer-actions,.timer-presets{display:flex;gap:.6rem;flex-wrap:wrap}.timer-btn,.timer-preset{border-radius:999px;background:var(--surface);border:1px solid var(--border2);display:inline-flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;box-shadow:0 10px 20px rgba(0,0,0,.05);transition:transform .15s,background .15s;padding:0 .95rem;height:38px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}.timer-btn:hover,.timer-preset:hover{transform:translateY(-1px);background:var(--bg2)}.timer-preset.is-selected{background:var(--accent-light);border-color:#bfd3da}.locked-note{font-size:12px;color:var(--muted);margin-top:.8rem}.answers-locked details summary{opacity:.45}.answers-locked .timed-lockable{filter:blur(12px);pointer-events:none;user-select:none}.unlock-banner{display:none;margin-top:.8rem;padding:.8rem 1rem;border-radius:4px;background:var(--teal-light);border:1px solid #b8d8d3;color:var(--teal);font-size:12px}.answers-finished .unlock-banner{display:block}
+.footer{text-align:center;font-size:11px;color:var(--border2);padding-top:1rem;border-top:1px solid var(--border);margin-top:2rem}
+.page-transition-init{opacity:0;transform:translateY(8px)}
+.page-transition-ready{opacity:1;transform:none}
+.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
+@media (max-width:760px){h1{font-size:2.2rem}.page{padding:0 1.25rem 4rem}.action-bar{position:static;margin-top:1rem}.stat-grid,.source-grid{grid-template-columns:1fr}.hero{padding-top:3.4rem}}
+@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}
+</style>
+</head>
+<body>
+<div class="page">
+<a class="back-btn" href="../index.html" aria-label="Back to Business Economics hub">←</a>
+<div class="action-bar"><button id="reroll-essays" class="action-btn" type="button">Generate Fresh Set</button></div>
+<div class="hero">
+  <div class="lecture-tag">Business Economics · MAN00016C · University of York</div>
+  <h1>Random Written Answers</h1>
+  <p class="hero-sub">A local Section B generator built from the actual uploaded 2021–22 and 2022–23 written questions and their official solution guides.</p>
+  <div class="meta-row">
+    <span class="meta-chip chip-a">Past-paper Section B</span>
+    <span class="meta-chip chip-b">Model answers</span>
+    <span class="meta-chip chip-c">Randomised on load</span>
+  </div>
+</div>
+<div class="alert-box">
+  This generator now uses the actual Section B questions from the uploaded 2021–22 and 2022–23 papers. Each new set mixes calculation, diagram, game-theory and macro questions, with model answers grounded in the official solution guides.
+</div>
+<div class="source-grid" style="margin-bottom:1rem;">
+  <a class="source-link" href="../resources/Business%20Economics%202022-2023%20Exam%20Question.pdf">2022–23 paper PDF</a>
+<a class="source-link" href="../resources/Business%20Economics%202022-2023%20Exam%20Solution.pdf">2022–23 solution PDF</a>
+<a class="source-link" href="../resources/Business%20Economics%202021-2022%20Exam%20Question.pdf">2021–22 paper PDF</a>
+<a class="source-link" href="../resources/Business%20Economics%202021-2022%20Exam%20Solution.pdf">2021–22 solution PDF</a>
+
+</div>
+<div class="stat-grid">
+  <div class="stat"><div class="stat-num">13</div><div class="stat-label">Past-paper written prompts</div></div>
+  <div class="stat"><div class="stat-num">6</div><div class="stat-label">Questions per set</div></div>
+  <div class="stat"><div class="stat-num">2</div><div class="stat-label">Years covered</div></div>
+</div>
+<div class="timer-panel" data-seconds="5400">
+  <div class="timer-top">
+    <div>
+      <div class="timer-label">Timed Mock Mode</div>
+      <div id="timer-display" class="timer-display">90:00</div>
+    </div>
+    <div class="timer-copy">Start a timed session to lock answer reveals until the clock ends. Use the presets if you want a shorter drill than the full default.</div>
+  </div>
+  <div class="timer-presets">
+    <button class="timer-preset" type="button" data-seconds="1500">25 min</button>
+    <button class="timer-preset" type="button" data-seconds="2700">45 min</button>
+    <button class="timer-preset" type="button" data-seconds="3600">60 min</button>
+    <button class="timer-preset" type="button" data-seconds="5400">90 min</button>
+    <button class="timer-preset" type="button" data-seconds="10800">180 min</button>
+  </div>
+  <div class="timer-actions" style="margin-top:.75rem;">
+    <button id="timer-start" class="timer-btn" type="button">Start</button>
+    <button id="timer-pause" class="timer-btn" type="button">Pause</button>
+    <button id="timer-reset" class="timer-btn" type="button">Reset</button>
+  </div>
+  <div class="locked-note">While timed mode is active, model answers stay locked. Walkthrough pages blur the worked content until the timer finishes.</div>
+  <div class="unlock-banner">Timed mode complete. Answers and walkthrough content are now unlocked.</div>
+</div>
+<div class="section">
+  <div class="section-num">Live Drill</div>
+  <h2>Randomised Section B Set</h2>
+  <div id="essay-list" class="essay-list"></div>
+</div>
+
+<div class="footer">Business Economics exam practice · Built from uploaded 2021–22 and 2022–23 papers</div>
+</div>
+<script>
+(function(){
+  document.body.classList.add('page-transition-init');
+  window.addEventListener('load', function(){
+    requestAnimationFrame(function(){
+      document.body.classList.remove('page-transition-init');
+      document.body.classList.add('page-transition-ready');
+    });
+  });
+  document.addEventListener('click', function(event){
+    var link = event.target.closest('a[href]');
+    if (!link) return;
+    if (event.defaultPrevented || event.button !== 0) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (link.target && link.target !== '_self') return;
+    if (link.hasAttribute('download')) return;
+    var href = link.getAttribute('href');
+    if (!href || href.charAt(0) === '#') return;
+    if (/^(mailto:|tel:|javascript:)/i.test(href)) return;
+    var url = new URL(link.href, window.location.href);
+    if (url.origin !== window.location.origin) return;
+    if (url.pathname === window.location.pathname && url.search === window.location.search && url.hash) return;
+    event.preventDefault();
+    document.body.classList.remove('page-transition-ready');
+    document.body.classList.add('page-transition-leaving');
+    window.setTimeout(function(){ window.location.href = url.href; }, 180);
+  });
+})();
+const essayBank = [{"year":"2022–23","q":26,"topic":"Markets","marks":"6 marks","prompt":"The weekly demand and supply schedules for orange dresses are given. Find the initial equilibrium, then show the new equilibrium after demand rises by 4 million at each price, and explain why quantity rises by less than the full demand shift.","source":"Question + official solution guide","answer":["Equilibrium is where quantity demanded equals quantity supplied. In the original schedule that happens at price £5 and quantity 12 million. That earns the first marks because it identifies the market-clearing point correctly rather than merely describing excess demand or excess supply.","After demand rises by 4 million at each price, the new demand schedule intersects the unchanged supply schedule at price £6 and quantity 14 million. The key business-economics point is that the rise in demand increases both equilibrium price and quantity.","Quantity does not rise by the full 4 million because the higher equilibrium price rations some of the additional demand away. In the official solution, demand rises by 4 million at each price, but quantity sold rises only by 2 million, from 12 to 14 million, because part of the demand increase is offset by the movement upward along supply and the price-induced contraction along demand."]},{"year":"2022–23","q":27,"topic":"Game theory","marks":"12 marks","prompt":"Consider the sequential entry game between Mr New-Entrant and Mrs Incumbent. Draw the game tree, identify the likely Nash equilibrium, and assess whether the incumbent’s threat to fight is credible.","source":"Question + official solution guide","answer":["The structure of the game matters first. Mr New-Entrant is the first mover. He chooses aggressive or passive entry. Mrs Incumbent is the second mover and observes that choice before deciding whether to acquiesce or fight. A strong answer labels the branches clearly and writes the payoffs at each terminal node.","Backward induction then gives the likely equilibrium. If entry is aggressive, Mrs Incumbent prefers acquiescing because £1m exceeds £0.75m. If entry is passive, she prefers fighting because £2m exceeds £0.5m. Anticipating those responses, Mr New-Entrant compares his resulting payoffs: aggressive entry followed by acquiescence yields £2m, while passive entry followed by fighting yields £1m. The likely equilibrium is therefore aggressive entry and acquiescence.","The threat to fight regardless of entry mode is not credible. It is credible only after passive entry, where fighting is actually optimal for the incumbent. It is not credible after aggressive entry, because acquiescing yields higher profit than fighting. The first-class point is that strategic threats influence behaviour only when they are sequentially rational."]},{"year":"2022–23","q":28,"topic":"Comparative advantage","marks":"16 marks","prompt":"Using the Richland and Poorland data, calculate opportunity costs, identify comparative advantage, derive outputs under specialisation, exports, and final coal consumption under trade at 1 computer = 65 tonnes of coal.","source":"Question + official solution guide","answer":["Opportunity cost comes first. In Richland, one computer costs 50 tonnes of coal. In Poorland, one computer costs 80 tonnes of coal. That means Richland has the lower opportunity cost in computers, while Poorland has the lower opportunity cost in coal. Those comparative advantage findings are the analytical core of the question.","Under complete specialisation with 20 million workers, Richland produces 10 million computers and Poorland produces 400 million tonnes of coal. If the computer-producing country sells 6 million domestically, it exports 4 million computers.","At the given terms of trade, 4 million exported computers exchange for 260 million tonnes of coal. Poorland therefore exports 260 million tonnes and keeps 140 million tonnes for domestic consumption. The official solution rewards clean working, so the strongest answer shows each numerical step rather than jumping straight to the totals."]},{"year":"2022–23","q":29,"topic":"Inflation","marks":"8 marks","prompt":"With the aid of aggregate demand and aggregate supply curves, explain demand-pull inflation.","source":"Question + official solution guide","answer":["Demand-pull inflation occurs when aggregate demand rises faster than the economy’s productive capacity. In AD-AS terms, the starting point is a rightward shift of the aggregate demand curve. This raises the equilibrium price level and, in the short run, also raises output.","The official guide identifies several triggers: more money and lower interest rates, higher government spending or tax cuts, stronger consumer and investment demand, and stronger export demand. A high-scoring answer does not just list them; it links each factor to the rightward shift of AD.","Evaluation comes from capacity pressure. The closer the economy is to full employment, the more a rise in AD translates into inflation rather than extra real output. That is why demand-pull inflation becomes more severe when spare capacity is limited."]},{"year":"2022–23","q":30,"topic":"Current account","marks":"8 marks","prompt":"Give the four subdivisions of the current account and briefly explain what each records.","source":"Question + official solution guide","answer":["The current account is divided into trade in goods, trade in services, income flows, and current transfers. Trade in goods records exports and imports of physical goods. Trade in services records exports and imports of services.","Income flows record wages, interest and profits moving into and out of the country. Current transfers record transfers of money by governments, organisations, firms and individuals across borders.","The strongest answer is precise about what is recorded rather than drifting into general comments about surpluses and deficits. This question is definition-heavy, so clean categorisation is what secures the marks."]},{"year":"2021–22","q":26,"topic":"Costs","marks":"6 marks","prompt":"By means of graphs explain the relationship between average cost, marginal cost and total cost, and provide the economic explanation of the curve shapes.","source":"Question + official solution guide","answer":["Marginal cost is the rate of change of total cost, while average cost is cost per unit of output. The key graphical relationship is that the MC curve cuts the AC curve at AC’s minimum point. When marginal cost is below average cost it pulls the average down; when it is above average cost it pushes the average up.","Total cost rises with output, but its slope changes. Because MC is the slope of the total cost curve, a steeper total cost curve means higher marginal cost. In the short run the familiar U-shape of AC and rising MC are explained by diminishing marginal returns once variable inputs are added to fixed inputs.","A first-class answer does not merely state the crossing rule. It explains why diminishing returns make each extra unit more costly after a point, and therefore why marginal cost eventually rises and drags average cost upward."]},{"year":"2021–22","q":27,"topic":"Economies of scale","marks":"3 marks","prompt":"Using graphs explain what economies of scale are in relation to cost.","source":"Question + official solution guide","answer":["Economies of scale occur when long-run average cost falls as output rises. In graphical terms, this is the downward-sloping section of the LRAC curve.","The economic explanation is that as firms expand they can spread fixed costs over more output, exploit technical efficiencies, specialise management, and buy inputs in bulk.","Because the question is short, the most efficient answer defines the concept, links it directly to LRAC, and gives one or two concrete sources of the cost reduction."]},{"year":"2021–22","q":28,"topic":"Opportunity cost","marks":"3 marks","prompt":"Explain the concept of opportunity cost and provide a real-world example.","source":"Question + official solution guide","answer":["Opportunity cost is the value of the next best alternative forgone when a choice is made. It is wider than accounting cost because it includes foregone benefits or profits from the option not chosen.","For a firm, the opportunity cost of using a building for in-house retail may be the rent it could have earned by leasing that building to another business. For an individual, the opportunity cost of full-time study may be the income given up by not working.","The strongest answer defines the concept cleanly and then uses an example where the forgone alternative is explicit rather than vague."]},{"year":"2021–22","q":29,"topic":"Macroeconomics","marks":"4 marks","prompt":"With the help of graphs explain the difference between actual and potential output.","source":"Question + official solution guide","answer":["Actual output is the level of real GDP currently being produced. Potential output is the economy’s long-run productive capacity given resources, technology and institutions.","Graphically, actual output fluctuates around the potential path over the business cycle. When actual output is below potential, there is a negative output gap and spare capacity. When actual output exceeds sustainable capacity, inflationary pressure tends to build.","A good answer links the distinction to macro policy: policymakers watch the gap because it signals whether the economy is overheating or underperforming relative to what it could sustainably produce."]},{"year":"2021–22","q":30,"topic":"Balance of payments","marks":"4 marks","prompt":"Explain what the balance of payments is and list the main three accounts, explaining what they record.","source":"Question + official solution guide","answer":["The balance of payments is the record of a country’s transactions with the rest of the world over a period. The main accounts are the current account, the capital account and the financial account.","The current account records trade in goods and services, income flows and current transfers. The capital account records capital transfers and transactions in non-produced, non-financial assets. The financial account records cross-border movements of financial assets and liabilities such as direct investment, portfolio flows and other investments.","The official guide also mentions errors and omissions, but the main task is to identify the three principal accounts and explain their contents accurately."]},{"year":"2021–22","q":31,"topic":"Game theory","marks":"6 marks","prompt":"For the simultaneous-move game with Red/Blue and Apple/Pear, find all pure Nash equilibria.","source":"Question + official solution guide","answer":["A pure Nash equilibrium is a strategy pair where neither player has an incentive to deviate given the other player’s choice. Here, Player 1’s best response is Red whether Player 2 chooses Apple or Pear. Player 2’s best response is Apple whether Player 1 chooses Red or Blue.","That means the unique pure Nash equilibrium is (Red, Apple). The official solution stresses that each player’s equilibrium strategy is a best response regardless of the other player’s action, making these dominant strategies.","To secure full marks, the answer should identify best responses explicitly rather than only naming the equilibrium pair."]},{"year":"2021–22","q":32,"topic":"Monopoly","marks":"12 marks","prompt":"Using the monopoly diagram, identify the profit-maximising price, quantity and total profit, then explain how product differentiation creates market power and distinguish vertical from horizontal differentiation.","source":"Question + official solution guide","answer":["From the official solution, the monopoly maximises profit where MR = MC at quantity 4 and price 6. Total maximum profit is 8, calculated as total revenue minus total cost at that output.","Product differentiation helps a firm gain market power by making demand less elastic. When consumers see the product as distinct, they become less willing to switch after a price increase, which gives the firm greater pricing discretion.","Vertical differentiation is based on perceived quality differences, while horizontal differentiation is based on variety and taste differences rather than one product being objectively better. Strong answers give examples for both and connect them back to why firms obtain market power."]},{"year":"2021–22","q":33,"topic":"Trade and protectionism","marks":"12 marks","prompt":"Using the Wheat/Cars table, identify absolute and comparative advantage, assess whether trade occurs at 10 cars for 1 wheat, and discuss tariffs.","source":"Question + official solution guide","answer":["Country B has the absolute advantage in both wheat and cars because each worker produces more of each good. Comparative advantage is different: Country A has the comparative advantage in cars because its opportunity cost of producing cars is lower, while Country B has the comparative advantage in wheat.","Trade at 10 cars for 1 wheat does take place because the terms of trade lie between the two countries’ opportunity costs. Country A benefits because it can obtain wheat through trade at a cost lower than producing it domestically. Country B benefits because it exports wheat at a price above its own opportunity cost.","Tariffs can protect infant industries or strategic sectors, but they also create welfare loss, raise prices for consumers, and can provoke retaliation. A first-class answer makes both sides explicit rather than treating protection as automatically good or bad."]}];
+function shuffle(array){ const copy = array.slice(); for (let i = copy.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [copy[i], copy[j]] = [copy[j], copy[i]]; } return copy; }
+function renderEssays(){
+  const selection = shuffle(essayBank).slice(0, 6);
+  document.getElementById('essay-list').innerHTML = selection.map((item, index) => {
+    const answer = item.answer.map(par => '<p>' + par + '</p>').join('');
+    return '<article class="essay-card">' +
+      '<div class="q-top"><div><div class="q-num">Question ' + (index + 1) + '</div><span class="year-pill">' + item.year + ' · Q' + item.q + '</span></div><div><span class="topic-pill">' + item.topic + '</span> <span class="mark-pill">' + item.marks + '</span></div></div>' +
+      '<h3>' + item.prompt + '</h3>' +
+      '<p><strong>Source:</strong> ' + item.source + '</p>' +
+      '<details><summary>Open model answer</summary><div class="answer-block">' + answer + '</div></details>' +
+      '</article>';
+  }).join('');
+}
+document.getElementById('reroll-essays').addEventListener('click', renderEssays);
+renderEssays();
+
+(function(){
+  var panel = document.querySelector('.timer-panel');
+  if (!panel) return;
+  var display = document.getElementById('timer-display');
+  var startBtn = document.getElementById('timer-start');
+  var pauseBtn = document.getElementById('timer-pause');
+  var resetBtn = document.getElementById('timer-reset');
+  var presets = Array.prototype.slice.call(document.querySelectorAll('.timer-preset'));
+  var remaining = parseInt(panel.getAttribute('data-seconds'), 10) || 0;
+  var selected = remaining;
+  var active = false;
+  var intervalId = null;
+  function fmt(total){
+    var mins = Math.floor(total / 60);
+    var secs = total % 60;
+    return String(mins).padStart(2, '0') + ':' + String(secs).padStart(2, '0');
+  }
+  function render(){
+    display.textContent = fmt(remaining);
+  }
+  function setPreset(seconds){
+    selected = seconds;
+    remaining = seconds;
+    presets.forEach(function(btn){ btn.classList.toggle('is-selected', parseInt(btn.getAttribute('data-seconds'),10) === seconds); });
+    render();
+  }
+  function unlock(showBanner){
+    document.body.classList.remove('answers-locked');
+    document.body.classList.toggle('answers-finished', !!showBanner);
+  }
+  function lock(){
+    document.body.classList.add('answers-locked');
+    document.body.classList.remove('answers-unlocked');
+    document.querySelectorAll('details[open]').forEach(function(node){ node.open = false; });
+  }
+  function stopTimer(){
+    active = false;
+    if (intervalId) window.clearInterval(intervalId);
+    intervalId = null;
+  }
+  function tick(){
+    if (!active) return;
+    if (remaining <= 0){
+      stopTimer();
+      unlock(true);
+      render();
+      return;
+    }
+    remaining -= 1;
+    render();
+    if (remaining <= 0){
+      stopTimer();
+      unlock(true);
+      render();
+    }
+  }
+  presets.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      stopTimer();
+      setPreset(parseInt(btn.getAttribute('data-seconds'), 10));
+    });
+  });
+  startBtn.addEventListener('click', function(){
+    stopTimer();
+    if (remaining <= 0) remaining = selected;
+    lock();
+    active = true;
+    intervalId = window.setInterval(tick, 1000);
+    render();
+  });
+  pauseBtn.addEventListener('click', function(){ stopTimer(); });
+  resetBtn.addEventListener('click', function(){ stopTimer(); setPreset(selected); unlock(false); });
+  document.addEventListener('click', function(event){
+    if (!document.body.classList.contains('answers-locked')) return;
+    var summary = event.target.closest('summary');
+    if (summary){ event.preventDefault(); return; }
+  });
+  unlock(false);
+  setPreset(selected);
+})();
+
+</script>
+</body>
+</html>
