@@ -65,3 +65,19 @@ If a module does not yet have exam papers, agents should still leave the folder 
 When adding or updating a module hub, make sure the exam-practice buttons point to local Study Hub pages rather than external AI links.
 
 Use local HTML pages inside the module wherever practical so they inherit the project transition behaviour, back-button chain, and visual style.
+
+## 7. Maintain Detailed Lecture Notes
+
+Every new lecture-notes page should maintain the same high-detail standard as the strongest existing Study Hub lecture pages.
+
+Do not create thin summaries unless the user explicitly asks for a brief revision-only page. For normal lecture pages, include:
+
+- a clear lecture title, module context, and source-material references
+- a structured contents section with navigable topic coverage
+- detailed explanations of the lecture concepts in plain English
+- definitions for key terms and formulas where relevant
+- worked examples, calculation steps, or applied interpretation where the topic needs them
+- links between lecture content, seminar questions, exam practice, formula sheets, and uploaded resources where useful
+- common mistakes, exam angles, or revision priorities when they can be inferred from the materials
+
+When source files are available, build from the actual uploaded slides, seminar sheets, readings, datasets, past papers, or solution files rather than inventing generic notes. The goal is for each lecture page to be useful as a complete study resource without the user needing to ask for extra depth.
