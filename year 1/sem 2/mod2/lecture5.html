@@ -9,21 +9,80 @@
 :root{--bg:#faf8f4;--bg2:#f2ede4;--surface:#fff;--border:#e8ddd0;--border2:#d4c8b0;--text:#1a1612;--muted:#7a6e5e;--accent:#245b74;--accent-light:#e8f1f4;--gold:#8a6a2a;--gold-light:#f7f0e0;--teal:#1a5c52;--teal-light:#e8f4f1;--red-light:#fdf2f0;--red-border:#f0c4b8;--red-text:#7a2015;--red-label:#c0392b;--ink:#2c2416}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;transition:opacity .22s ease,transform .22s ease}
-.page{position:relative;max-width:860px;margin:0 auto;padding:0 2rem 6rem}.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;font-size:1rem;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s;z-index:10}.back-btn:hover{transform:translateY(-1px);background:var(--bg2)}
-.hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border2);margin-bottom:3rem;position:relative}.hero::before{content:'';position:absolute;top:0;left:-2rem;right:-2rem;bottom:0;background:linear-gradient(180deg,#e5eff2 0%,transparent 100%);z-index:-1}
-.lecture-tag,.meta-chip,.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label,.exam-q-header,.footer,.resource-path{font-family:'DM Mono',monospace}.lecture-tag{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;gap:8px;margin-bottom:1rem}.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent);margin-top:.6rem}
-h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{font-size:3.2rem;line-height:1.1;margin-bottom:1rem}.hero-sub{font-size:16px;color:var(--muted);max-width:660px;margin-bottom:1.5rem}
-.meta-row{display:flex;gap:1rem;flex-wrap:wrap}.meta-chip{font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}.chip-topic{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}.chip-exam{background:var(--accent-light);color:var(--accent);border:1px solid #bfd3da}.chip-module{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
+.page{position:relative;max-width:860px;margin:0 auto;padding:0 2rem 6rem}
+.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;font-size:1rem;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s;z-index:10}
+.back-btn:hover{transform:translateY(-1px);background:var(--bg2)}
+.hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border2);margin-bottom:3rem;position:relative}
+.hero::before{content:'';position:absolute;top:0;left:-2rem;right:-2rem;bottom:0;background:linear-gradient(180deg,#e5eff2 0%,transparent 100%);z-index:-1}
+.lecture-tag,.meta-chip,.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.exam-q-header,.footer,.resource-path,.answer-label,.formula-label{font-family:'DM Mono',monospace}
+.lecture-tag{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;gap:8px;margin-bottom:1rem}
+.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent);margin-top:.6rem}
+h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}
+h1{font-size:3.2rem;line-height:1.1;margin-bottom:1rem}
+h2{font-size:1.9rem;font-weight:600;line-height:1.2;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+h3{font-size:1.25rem;font-weight:600;margin-top:1.7rem;margin-bottom:.55rem;font-style:italic}
+.hero-sub{font-size:16px;color:var(--muted);max-width:700px;margin-bottom:1.5rem}
+.meta-row{display:flex;gap:1rem;flex-wrap:wrap}
+.meta-chip{font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}
+.chip-topic{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}
+.chip-exam{background:var(--accent-light);color:var(--accent);border:1px solid #bfd3da}
+.chip-module{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
 .alert-box{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin-bottom:2.5rem;font-size:13.5px;color:#173f4f}
-.toc{background:var(--surface);border:1px solid var(--border);padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem 2rem}.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase}.toc-title{color:var(--muted);grid-column:1/-1}.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;gap:8px}.toc a::before{content:attr(data-num);color:var(--border2)}
-.section{margin-bottom:3.5rem}.section-num{color:var(--accent);margin-bottom:.4rem}p{margin-bottom:.9rem}ul{padding-left:1.15rem;margin:1rem 0}li{margin-bottom:.45rem}
-.defn{background:var(--gold-light);border:1px solid #dcc888;border-radius:4px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}.defn-label{color:var(--gold);margin-bottom:4px}.defn p{margin-bottom:0;font-size:14.5px}
-.eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.mistake-box{background:var(--red-light);border:1px solid var(--red-border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.eval-label{color:var(--teal);margin-bottom:.6rem}.mistake-label{color:var(--red-label);margin-bottom:.6rem}
-.resource-list{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}.resource-list ul{margin:.2rem 0 0 1rem}.resource-path{font-size:11px;color:var(--muted)}
-.exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0}.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between}.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px}.exam-q-body{padding:1.25rem 1.5rem}.exam-q-body .q{font-style:italic;margin-bottom:1rem}
-.footer{text-align:center;font-size:11px;color:var(--border2);padding-top:1rem;border-top:1px solid var(--border)}.page-transition-init{opacity:0;transform:translateY(8px)}.page-transition-ready{opacity:1;transform:none}.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
-@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}@media (max-width:640px){h1{font-size:2.2rem}.toc{grid-template-columns:1fr}.page{padding:0 1.25rem 4rem}}
-
+.toc{background:var(--surface);border:1px solid var(--border);padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem 2rem}
+.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.formula-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.toc-title{color:var(--muted);grid-column:1/-1}
+.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;gap:8px;padding:3px 0;transition:color .15s}
+.toc a:hover{color:var(--accent)}
+.toc a::before{content:attr(data-num);font-family:'DM Mono',monospace;font-size:10px;color:var(--border2);min-width:16px}
+.section{margin-bottom:3.5rem}
+.section-num{color:var(--accent);margin-bottom:.4rem}
+p{margin-bottom:.9rem}
+ul{padding-left:1.15rem;margin:1rem 0}
+li{margin-bottom:.45rem}
+.defn{background:var(--gold-light);border:1px solid #dcc888;border-radius:4px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}
+.defn-label{color:var(--gold);margin-bottom:4px}
+.defn p{margin-bottom:0;font-size:14.5px;color:var(--ink)}
+.key-terms{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1.25rem 0}
+.term{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:.75rem 1rem}
+.term-word{font-size:1rem;font-weight:600;margin-bottom:2px}
+.term-def{font-size:12.5px;color:var(--muted);line-height:1.45}
+.compare-table{width:100%;border-collapse:collapse;font-size:13.5px;margin:1.25rem 0;border:1px solid var(--border);border-radius:4px;overflow:hidden;background:var(--surface)}
+.compare-table th{background:var(--bg2);padding:.65rem 1rem;text-align:left;font-weight:500;font-size:12px;font-family:'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border2)}
+.compare-table td{padding:.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table td:first-child{font-weight:500;color:var(--ink);width:165px}
+.formula-box{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin:1.25rem 0}
+.formula-label{color:var(--accent);margin-bottom:.55rem}
+.formula-box p{font-size:14px;margin-bottom:.45rem}
+.formula-box p:last-child{margin-bottom:0}
+.steps{margin:1.25rem 0}
+.step{display:flex;gap:1rem;margin-bottom:.75rem;align-items:flex-start}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--border2);line-height:1.2;min-width:28px;flex-shrink:0}
+.step-content{font-size:14px;color:var(--text);padding-top:2px}
+.step-content strong{color:var(--ink)}
+.eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.mistake-box{background:var(--red-light);border:1px solid var(--red-border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.eval-label{color:var(--teal);margin-bottom:.6rem}
+.mistake-label{color:var(--red-label);margin-bottom:.6rem}
+.eval-box p{color:#1a4a42;font-size:14px;margin-bottom:.5rem}
+.mistake-box p{color:var(--red-text);font-size:14px;margin-bottom:.5rem}
+.eval-box p:last-child,.mistake-box p:last-child{margin-bottom:0}
+.resource-list{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}
+.resource-list ul{margin:.2rem 0 0 1rem}
+.resource-path{font-size:11px;color:var(--muted)}
+.exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0}
+.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center}
+.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px}
+.exam-q-body{padding:1.25rem 1.5rem}
+.exam-q-body .q{font-style:italic;margin-bottom:1rem;color:var(--ink)}
+.answer-label{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:.35rem}
+.exam-q-body p{font-size:14px;margin-bottom:.6rem}
+.footer{text-align:center;font-size:11px;color:var(--border2);padding-top:1rem;border-top:1px solid var(--border)}
+.page-transition-init{opacity:0;transform:translateY(8px)}
+.page-transition-ready{opacity:1;transform:none}
+.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
+@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}
+@media (max-width:640px){h1{font-size:2.2rem}.toc{grid-template-columns:1fr}.key-terms{grid-template-columns:1fr}.page{padding:0 1.25rem 4rem}.compare-table{font-size:12.5px}.compare-table th,.compare-table td{padding:.55rem .65rem}}
 </style>
 </head>
 <body>
@@ -32,67 +91,228 @@ h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{f
 <div class="hero">
   <div class="lecture-tag">Lecture 5 · Finance Fundamentals · University of York</div>
   <h1>Convertible Bonds and Short-Term Finance</h1>
-  <p class="hero-sub">Hybrid debt, conversion features, working-capital finance, overdrafts, trade credit, leasing, hire purchase, and medium-term borrowing choices.</p>
+  <p class="hero-sub">Convertible bond mechanics, conversion metrics, working-capital borrowing, trade credit, factoring, bills, bankers' acceptances, certificates of deposit, medium-term loans, hire purchase, leasing, and the present-value logic behind financing choices.</p>
   <div class="meta-row">
-    <span class="meta-chip chip-topic">Finance topic</span>
-    <span class="meta-chip chip-exam">Tightened with seminar material</span>
+    <span class="meta-chip chip-topic">Debt finance</span>
+    <span class="meta-chip chip-exam">Calculations + evaluation</span>
     <span class="meta-chip chip-module">MAN00026C</span>
   </div>
 </div>
-<div class="alert-box"><strong>Lecture focus:</strong> these notes now include the seminar-style framing needed for problem solving, definitions, and exam explanation rather than only first-pass summary points.</div>
+<div class="alert-box"><strong>Lecture focus:</strong> this topic is not just a list of finance sources. A strong answer links each instrument to timing, risk, control, flexibility, collateral, and the present value of cash-flow costs.</div>
 <div class="toc">
   <div class="toc-title">Contents</div>
-  <a href="#s1" data-num="01">Why Debt Instruments Differ</a>
-  <a href="#s2" data-num="02">Convertible Bonds as Hybrids</a>
-  <a href="#s3" data-num="03">Conversion Price, Value and Premium</a>
-  <a href="#s4" data-num="04">Short- and Medium-Term Finance</a>
-  <a href="#s5" data-num="05">Leasing versus Buying</a>
-  <a href="#s6" data-num="06">Practical Financing Choice</a>
+  <a href="#terms" data-num="00">Key terms</a>
+  <a href="#s1" data-num="01">Why financing instruments differ</a>
+  <a href="#s2" data-num="02">Convertible bonds as hybrids</a>
+  <a href="#s3" data-num="03">Conversion price, value and premium</a>
+  <a href="#s4" data-num="04">Short-term bank finance</a>
+  <a href="#s5" data-num="05">Trade credit and factoring</a>
+  <a href="#s6" data-num="06">Bills, acceptances and CDs</a>
+  <a href="#s7" data-num="07">Medium-term private debt</a>
+  <a href="#s8" data-num="08">Hire purchase and leasing</a>
+  <a href="#s9" data-num="09">Valuation logic and APR</a>
+  <a href="#s10" data-num="10">Exam prompts</a>
+  <a href="#s11" data-num="11">Evaluation and common mistakes</a>
 </div>
 <div class="resource-list">
   <div class="defn-label">Tightening sources</div>
-  <ul><li><span class="resource-path">resources/CW Convertible Bonds and short term finance 2024.pptx</span></li><li><span class="resource-path">resources/Seminar 5.docx</span></li></ul>
+  <ul>
+    <li><span class="resource-path">resources/CW Convertible Bonds and short term finance 2024.pptx</span></li>
+    <li><span class="resource-path">resources/Seminar 5.docx</span></li>
+  </ul>
 </div>
-<div class="defn"><div class="defn-label">Core finance rule</div><p>A financing method should be compared using the present value of its full cash-flow cost, not just the headline rate.</p></div>
+
+<div class="section" id="terms">
+  <div class="section-num">Key Definitions</div>
+  <h2>Terms to Know Cold</h2>
+  <div class="key-terms">
+    <div class="term"><div class="term-word">Convertible bond</div><div class="term-def">A bond that pays interest and gives the holder the option to convert into a specified number of ordinary shares.</div></div>
+    <div class="term"><div class="term-word">Conversion ratio</div><div class="term-def">The number of shares received for each bond if conversion takes place.</div></div>
+    <div class="term"><div class="term-word">Conversion price</div><div class="term-def">The effective share price paid through conversion: bond nominal value divided by the conversion ratio.</div></div>
+    <div class="term"><div class="term-word">Conversion value</div><div class="term-def">The value of shares received if converted today: conversion ratio multiplied by current share price.</div></div>
+    <div class="term"><div class="term-word">Conversion premium</div><div class="term-def">The percentage by which the conversion price exceeds the current share price, or by which bond price exceeds conversion value depending on the question wording.</div></div>
+    <div class="term"><div class="term-word">Overdraft</div><div class="term-def">Permission to overdraw a bank account up to a stated limit, with interest charged on the amount used.</div></div>
+    <div class="term"><div class="term-word">Trade credit</div><div class="term-def">Supplier finance created when goods or services are received now but paid for later.</div></div>
+    <div class="term"><div class="term-word">Factoring</div><div class="term-def">Selling or financing trade receivables through a factor in exchange for early cash, less fees and interest.</div></div>
+    <div class="term"><div class="term-word">Bill of exchange</div><div class="term-def">A document promising payment of a specified amount at a future date, often 30, 60, 90, or 180 days.</div></div>
+    <div class="term"><div class="term-word">Hire purchase</div><div class="term-def">Asset finance where instalments are paid and ownership normally transfers after all payments are made.</div></div>
+    <div class="term"><div class="term-word">Leasing</div><div class="term-def">Asset finance where the lessee uses the asset but normally does not become the owner.</div></div>
+    <div class="term"><div class="term-word">APR / EAR</div><div class="term-def">The annualised cost of credit. EAR compounds periodic rates; quoted APR conventions must be read carefully.</div></div>
+  </div>
+</div>
+
+<div class="defn"><div class="defn-label">Core finance rule</div><p>A financing method should be compared using the timing and risk of all cash flows, not only the headline interest rate or the size of the monthly payment.</p></div>
+
 <div class="section" id="s1">
-  <div class="section-num">Part 01</div>
-  <h2>Why Debt Instruments Differ</h2>
-  <p>Debt varies by maturity, security, embedded options, and repayment pattern. That matters because firms care about cost, flexibility, refinancing risk, and investor appetite rather than simply choosing “debt” in the abstract.</p>
+  <div class="section-num">01</div>
+  <h2>Why Financing Instruments Differ</h2>
+  <p>Debt instruments differ because firms do not all need finance for the same reason. A business with a temporary cash shortage needs flexibility. A business buying a truck needs asset finance. A firm funding a long investment project needs committed capital and protection from sudden withdrawal.</p>
+  <p>The central trade-off is between <strong>cost, flexibility, certainty, risk, and control</strong>. Overdraft finance may be flexible but can be withdrawn or repriced. A term loan is less flexible but gives a defined repayment schedule. Leasing avoids asset ownership and can reduce obsolescence risk, but the firm may pay more over time.</p>
+  <table class="compare-table">
+    <tr><th>Decision factor</th><th>Question to ask</th><th>Why it matters</th></tr>
+    <tr><td>Maturity</td><td>How long is the money needed?</td><td>Short-term needs should not normally be financed with expensive long commitments unless certainty is worth paying for.</td></tr>
+    <tr><td>Flexibility</td><td>Will the amount needed vary?</td><td>Flexible facilities fit uncertain cash needs; fixed loans fit predictable funding needs.</td></tr>
+    <tr><td>Security</td><td>Is collateral required?</td><td>Collateral can reduce lender risk and interest cost, but it exposes assets if the firm cannot repay.</td></tr>
+    <tr><td>Control</td><td>Does the finance affect ownership?</td><td>Convertible bonds may become equity later, which can dilute existing shareholders.</td></tr>
+    <tr><td>Cash-flow timing</td><td>When exactly are payments made?</td><td>Present value, APR and overdraft comparisons depend on timing conventions.</td></tr>
+  </table>
 </div>
 
 <div class="section" id="s2">
-  <div class="section-num">Part 02</div>
+  <div class="section-num">02</div>
   <h2>Convertible Bonds as Hybrids</h2>
-  <p>Convertible bonds combine fixed-income features with an option to convert into equity. They are called hybrid instruments because they sit between pure debt and pure equity. Issuers may benefit from lower coupons, while investors gain upside if conversion becomes attractive.</p>
+  <p>A convertible bond begins as debt. It has a nominal value, pays coupon interest, normally has a maturity date, and ranks ahead of ordinary shareholders if the firm fails. The extra feature is that the holder may convert the bond into ordinary shares under specified terms.</p>
+  <div class="defn"><div class="defn-label">Hybrid instrument</div><p>A convertible bond is a hybrid because it combines bond-like downside protection with an equity option. Investors receive fixed-income characteristics but can participate in share-price upside if conversion becomes attractive.</p></div>
+  <p>From the issuer's perspective, convertibles can make borrowing cheaper because investors accept a lower coupon in return for the conversion option. From the investor's perspective, the instrument is attractive because it offers coupons and repayment if conversion is unattractive, but equity exposure if the share price rises enough.</p>
+  <table class="compare-table">
+    <tr><th>Feature</th><th>Debt element</th><th>Equity element</th></tr>
+    <tr><td>Cash return</td><td>Coupon interest is paid while the bond remains outstanding.</td><td>Shareholder return is possible after conversion through dividends and capital gains.</td></tr>
+    <tr><td>Risk</td><td>Bondholders rank ahead of ordinary shareholders.</td><td>Converted investors bear ordinary shareholder risk.</td></tr>
+    <tr><td>Issuer benefit</td><td>Debt finance without immediate equity issue.</td><td>Lower coupon can be possible because the option has value.</td></tr>
+    <tr><td>Shareholder concern</td><td>No immediate dilution.</td><td>Future conversion increases shares outstanding and can dilute control or EPS.</td></tr>
+  </table>
+  <div class="eval-box"><div class="eval-label">Evaluation angle</div><p>Do not describe convertibles as simply "better debt". They shift risk between issuer and investor. The issuer may save coupon cost, but gives away future upside if the share price rises.</p></div>
 </div>
 
 <div class="section" id="s3">
-  <div class="section-num">Part 03</div>
+  <div class="section-num">03</div>
   <h2>Conversion Price, Value and Premium</h2>
-  <p>Seminar work pushes students beyond definition. You should be able to compute conversion price, conversion value, and conversion premium, then explain what each number says about the bond's attractiveness.</p>
+  <p>The lecture slides introduce the conversion ratio and conversion price, while Seminar 5 turns the same idea into calculations. You need to be able to compute the metric and then interpret what it says.</p>
+  <div class="formula-box">
+    <div class="formula-label">Core formulas</div>
+    <p><strong>Conversion price = nominal value of bond / number of shares on conversion</strong></p>
+    <p><strong>Conversion value = conversion ratio × current share price</strong></p>
+    <p><strong>Conversion premium using share price = (conversion price - current share price) / current share price</strong></p>
+    <p><strong>Conversion premium using bond price = (bond price - conversion value) / conversion value</strong></p>
+  </div>
+  <h3>Lecture slide example</h3>
+  <p>A bond with a £100 nominal value that can convert into 60 shares has a conversion price of £100 / 60 = £1.67 per share. If the current share price is £1.00, the conversion premium is (£1.67 - £1.00) / £1.00 = 67%.</p>
+  <h3>Seminar 5 example</h3>
+  <p>Pinto plc has £100 nominal bonds, and each bond is convertible into 30 shares. The shares currently trade at £1.50.</p>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Conversion price:</strong> £100 / 30 = £3.33 per share.</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Conversion value:</strong> 30 × £1.50 = £45.</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Premium over conversion value:</strong> (£100 - £45) / £45 = 122.22%, so conversion is far out of the money at the current share price.</div></div>
+  </div>
+  <div class="mistake-box"><div class="mistake-label">Common mistake</div><p>Do not mix the two premium definitions. If the question gives a conversion price and share price, use the share-price version. If it asks how much the bond trades above conversion value, use the bond-price version.</p></div>
 </div>
 
 <div class="section" id="s4">
-  <div class="section-num">Part 04</div>
-  <h2>Short- and Medium-Term Finance</h2>
-  <p>The module also covers overdrafts, trade credit, factoring, bills of exchange, acceptance credits, hire purchase, and leasing. These are financing tools for liquidity and working-capital needs rather than long-run valuation alone.</p>
+  <div class="section-num">04</div>
+  <h2>Short-Term Bank Finance</h2>
+  <p>Short-term bank finance is used to manage working-capital gaps: inventory must be paid for before sales cash arrives, customers may pay late, or seasonal trading may create temporary borrowing needs.</p>
+  <h3>Short-term bank loan</h3>
+  <p>A short-term bank loan is for a fixed amount and a specified period. It often has covenants, meaning the borrower must satisfy agreed conditions. Its strength is certainty: the firm knows the repayment schedule and the lender normally cannot demand repayment outside the agreement if the borrower complies.</p>
+  <h3>Overdraft</h3>
+  <p>An overdraft is authorisation to overdraw a bank account up to a stated limit. It is flexible because the borrower pays interest only on the amount actually used. This makes it useful for fluctuating cash needs.</p>
+  <table class="compare-table">
+    <tr><th>Instrument</th><th>Advantages</th><th>Disadvantages</th></tr>
+    <tr><td>Overdraft</td><td>Flexible; interest only on the amount overdrawn; useful for irregular cash deficits.</td><td>Can be expensive, may be withdrawn or reduced at short notice, and is unsuitable for permanent funding.</td></tr>
+    <tr><td>Short-term loan</td><td>Clear payment schedule, defined terms, often lower interest rate, lower withdrawal risk.</td><td>Less flexible; interest may be paid on funds not immediately needed; may include covenants or collateral.</td></tr>
+  </table>
+  <div class="exam-q"><div class="exam-q-header"><span>Seminar calculation logic</span><span class="exam-q-marks">Overdraft vs loan</span></div><div class="exam-q-body"><p class="q">Financeme needs £5m for 9 months and £10m for the final 3 months. It can borrow £10m for a year at 8%, depositing excess cash at 6%, or use an overdraft charged at 2% per quarter.</p><div class="answer-label">Answer structure</div><p>Loan cost: £10m × 8% = £800,000. Deposit income on unused £5m for 9 months at 6% = about £225,000. Net loan cost = £575,000.</p><p>Overdraft cost: £5m × 2% × 3 quarters = £300,000, plus £10m × 2% × 1 quarter = £200,000. Total overdraft cost = £500,000, so the overdraft is cheaper and better matched to the timing of the cash need.</p></div></div>
 </div>
 
 <div class="section" id="s5">
-  <div class="section-num">Part 05</div>
-  <h2>Leasing versus Buying</h2>
-  <p>Lease-versus-buy questions convert financing choice into a present-value comparison. The stronger answer frames the problem as comparing the discounted cost of alternative cash-flow patterns.</p>
+  <div class="section-num">05</div>
+  <h2>Trade Credit and Factoring</h2>
+  <h3>Trade credit</h3>
+  <p>Trade credit is the simplest form of short-term finance: the firm receives goods or services now and pays the supplier later. It is convenient and often available to firms of all sizes. The hidden cost is that delaying payment may mean giving up a discount or harming supplier relationships.</p>
+  <div class="formula-box">
+    <div class="formula-label">Trade-credit decision rule</div>
+    <p>Compare the value of the early-payment discount with the cost of borrowing for the same period.</p>
+    <p>If the discount saved is greater than the interest cost of paying early, take the discount.</p>
+  </div>
+  <p>The lecture example uses a £100,000 invoice with a 1% immediate-payment discount. Paying immediately saves £1,000. If the firm needs an overdraft at 6% APR for 40 days, the interest cost is much smaller than £1,000, so paying early is better.</p>
+  <h3>Factoring</h3>
+  <p>Factoring companies purchase or finance trade receivables. They transfer cash to the firm, usually a percentage of the invoice value, and recover the money when customers pay. The factor charges fees and interest on advanced money.</p>
+  <table class="compare-table">
+    <tr><th>Source</th><th>Best used when</th><th>Main limitation</th></tr>
+    <tr><td>Trade credit</td><td>Supplier terms are available and the firm wants simple short-term finance.</td><td>Loss of discounts, supplier pressure, and reputational damage if abused.</td></tr>
+    <tr><td>Factoring</td><td>Cash is tied up in receivables and quicker funding is needed.</td><td>Fees and interest can be high, and small invoice values may not be accepted.</td></tr>
+    <tr><td>Bank loan</td><td>The amount and repayment period are predictable.</td><td>Slower to organise and may require collateral.</td></tr>
+  </table>
+  <div class="eval-box"><div class="eval-label">Evaluation angle</div><p>Factoring can improve liquidity without taking a conventional loan, but it is not free cash. The exam-quality answer explains both speed and cost.</p></div>
 </div>
 
 <div class="section" id="s6">
-  <div class="section-num">Part 06</div>
-  <h2>Practical Financing Choice</h2>
-  <p>Seminar questions on overdraft versus loan finance are important because they force you to compare flexibility, timing of borrowing needs, and the opportunity cost of holding excess funds.</p>
+  <div class="section-num">06</div>
+  <h2>Bills, Bankers' Acceptances and Certificates of Deposit</h2>
+  <p>The lecture also introduces instruments linked to money markets and trade finance. These are usually short-dated and can support liquidity management.</p>
+  <table class="compare-table">
+    <tr><th>Instrument</th><th>Meaning</th><th>Finance logic</th></tr>
+    <tr><td>Bill of exchange</td><td>A document promising payment of a specified amount of money at a future date.</td><td>Can be linked to trade and may be sold in money markets if marketable.</td></tr>
+    <tr><td>Treasury bill</td><td>A short-term government bill.</td><td>Generally low default risk and used in money markets.</td></tr>
+    <tr><td>Commercial bill</td><td>A bill issued by a company.</td><td>Usually higher risk than a government bill and depends on issuer credit quality.</td></tr>
+    <tr><td>Bankers' acceptance</td><td>A document where a bank accepts responsibility for future payment.</td><td>The bank's acceptance improves credit quality because the bank, not only the firm, promises payment.</td></tr>
+    <tr><td>Certificate of deposit</td><td>A time deposit paying principal and interest at maturity.</td><td>Depositor earns interest but cannot withdraw on demand.</td></tr>
+  </table>
+  <p>Bills are commonly for 30, 60, 90, or 180 days. The important distinction is who is promising payment and whether the instrument can be sold before maturity.</p>
 </div>
 
-<div class="eval-box"><div class="eval-label">Seminar angle</div><p>Seminar 5 sharpens the topic by mixing convertible-bond calculations with leasing, APR, and short-term borrowing comparisons.</p></div>
-<div class="mistake-box"><div class="mistake-label">Common mistake</div><p>Students often memorise the formula or definition but fail to explain what changes value, what changes risk, and which timing convention the problem is using. In finance, those details usually determine the correct answer.</p></div>
-<div class="exam-q"><div class="exam-q-header"><span>Assessment-style prompt</span><span class="exam-q-marks">10 marks</span></div><div class="exam-q-body"><p class="q">Explain the financial logic behind convertible bonds and short-term finance and show how it would affect a decision faced by a manager, investor, or household.</p><p>Start with a precise definition, then explain the mechanism step by step. If a calculation is relevant, state which formula or convention should be used and why.</p></div></div>
+<div class="section" id="s7">
+  <div class="section-num">07</div>
+  <h2>Medium-Term Private Debt</h2>
+  <p>The lecture groups private placements and term loans as private medium- or long-term loans. These are more committed than overdrafts and are more appropriate when a firm needs finance for a defined project or asset base.</p>
+  <table class="compare-table">
+    <tr><th>Instrument</th><th>Definition</th><th>Key advantage</th></tr>
+    <tr><td>Private placement</td><td>The sale of a loan or bond directly to a limited group of investors.</td><td>Can be negotiated with selected investors rather than publicly issued.</td></tr>
+    <tr><td>Term loan</td><td>A direct business loan from a bank for a fixed amount and time, with specified repayment of principal and interest.</td><td>The lender cannot usually demand repayment outside the schedule if conditions are met.</td></tr>
+    <tr><td>Syndicated loan</td><td>A corporate loan made by a group of banks or institutional investors.</td><td>Allows large borrowing needs to be shared across several lenders.</td></tr>
+  </table>
+  <p>Collateral may be required for private debt. That can reduce the lender's risk and possibly the interest rate, but it increases the borrower's exposure if cash flows disappoint.</p>
+</div>
+
+<div class="section" id="s8">
+  <div class="section-num">08</div>
+  <h2>Hire Purchase and Leasing</h2>
+  <p>Hire purchase and leasing are asset-finance tools. They are especially relevant when a firm needs to use equipment but does not want, or cannot afford, a large upfront purchase.</p>
+  <div class="defn"><div class="defn-label">Ownership distinction</div><p>Under hire purchase, the goods normally become the firm's property once all payments are made. Under leasing, the lessee uses the asset but normally does not become the owner, although some contracts may include purchase options.</p></div>
+  <table class="compare-table">
+    <tr><th>Feature</th><th>Hire purchase</th><th>Leasing</th></tr>
+    <tr><td>Ownership</td><td>Ownership normally transfers after final payment.</td><td>Asset remains owned by the finance house or lessor unless there is a separate purchase option.</td></tr>
+    <tr><td>Initial outlay</td><td>Small initial outlay compared with buying outright.</td><td>Small initial outlay compared with buying outright.</td></tr>
+    <tr><td>Certainty</td><td>Fixed payments make budgeting easier.</td><td>Fixed lease payments make budgeting easier.</td></tr>
+    <tr><td>Availability</td><td>Often available when other borrowing sources are not.</td><td>Often available when other borrowing sources are not.</td></tr>
+    <tr><td>Obsolescence risk</td><td>Firm is more exposed if it ends up owning outdated equipment.</td><td>Leasing gives added protection where equipment may become obsolete.</td></tr>
+  </table>
+  <div class="exam-q"><div class="exam-q-header"><span>Seminar calculation logic</span><span class="exam-q-marks">Lease or buy</span></div><div class="exam-q-body"><p class="q">A truck can be leased for $8,000 per year paid at year-end for 6 years, or bought for $40,000. It is valueless after 6 years. The interest rate is 7%.</p><div class="answer-label">Answer structure</div><p>Present value of leasing = $8,000 × annuity factor for 6 years at 7% = about $38,132. Buying costs $40,000 today and has no residual value, so leasing is cheaper on present-value grounds.</p></div></div>
+</div>
+
+<div class="section" id="s9">
+  <div class="section-num">09</div>
+  <h2>Valuation Logic and APR</h2>
+  <p>The same valuation logic appears across convertible bonds, leasing, overdraft comparisons and consumer credit: identify the cash flows, place them on a timeline, choose the correct rate, and discount or compound consistently.</p>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Define the decision:</strong> convert or hold, lease or buy, overdraft or loan, pay now or pay later.</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content"><strong>List cash flows:</strong> coupons, repayments, lease payments, admin fees, discounts, deposits, or interest charges.</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Match timing:</strong> monthly payments use monthly rates; quarterly overdraft charges use quarterly periods; semi-annual bonds use half-year periods.</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-content"><strong>Interpret the result:</strong> explain why the cheaper present value or higher conversion value changes the decision.</div></div>
+  </div>
+  <div class="formula-box">
+    <div class="formula-label">APR / effective annual rate</div>
+    <p>If a monthly rate is r, the effective annual rate is <strong>(1 + r)<sup>12</sup> - 1</strong>.</p>
+    <p>In the Seminar 5 car-credit example, solving the monthly rate from the payment stream gives about 1.818% per month. The effective annual rate is about 24.13%, showing the finance is expensive.</p>
+  </div>
+  <div class="eval-box"><div class="eval-label">Coursework discipline</div><p>The coursework slides stress explaining calculations and typed workings. For this topic, that means showing the equation, stating the rate period, and writing one sentence interpreting the answer rather than leaving a number unexplained.</p></div>
+</div>
+
+<div class="section" id="s10">
+  <div class="section-num">10</div>
+  <h2>Assessment-Style Prompts</h2>
+  <div class="exam-q"><div class="exam-q-header"><span>Prompt 1</span><span class="exam-q-marks">Convertible bonds</span></div><div class="exam-q-body"><p class="q">Explain what convertible bonds are, their main features, and why they are considered hybrid instruments.</p><div class="answer-label">Strong answer checklist</div><p>Define the bond element, define the conversion option, explain investor upside and issuer coupon saving, then evaluate dilution and changing risk after conversion.</p></div></div>
+  <div class="exam-q"><div class="exam-q-header"><span>Prompt 2</span><span class="exam-q-marks">Calculation</span></div><div class="exam-q-body"><p class="q">A £100 convertible bond can be converted into 40 shares. The current share price is £1.80. Calculate conversion price, conversion value, and conversion premium.</p><div class="answer-label">Method</div><p>Conversion price = £100 / 40 = £2.50. Conversion value = 40 × £1.80 = £72. Premium using share price = (£2.50 - £1.80) / £1.80 = 38.9%.</p></div></div>
+  <div class="exam-q"><div class="exam-q-header"><span>Prompt 3</span><span class="exam-q-marks">Short-term finance</span></div><div class="exam-q-body"><p class="q">Compare overdrafts, trade credit, factoring, and short-term loans as sources of finance for a firm with fluctuating working-capital needs.</p><div class="answer-label">Strong answer checklist</div><p>Discuss flexibility, cost, speed, collateral, certainty, supplier relationships, and whether the finance matches the timing of the cash deficit.</p></div></div>
+  <div class="exam-q"><div class="exam-q-header"><span>Prompt 4</span><span class="exam-q-marks">Lease vs buy</span></div><div class="exam-q-body"><p class="q">A firm can lease equipment through annual payments or buy it outright. Explain how the firm should decide.</p><div class="answer-label">Strong answer checklist</div><p>Use present value of cash flows, include residual value if any, use the correct discount rate, and evaluate non-financial issues such as obsolescence, ownership, tax relief, maintenance, and flexibility.</p></div></div>
+</div>
+
+<div class="section" id="s11">
+  <div class="section-num">11</div>
+  <h2>Evaluation and Common Mistakes</h2>
+  <div class="eval-box"><div class="eval-label">Evaluation points</div><p><strong>Cost is not just interest:</strong> include fees, lost discounts, compensating deposits, and timing of payments.</p><p><strong>Flexibility has value:</strong> an overdraft can be worth using even if the quoted rate looks higher, because interest is only charged when funds are drawn.</p><p><strong>Ownership matters:</strong> hire purchase can suit firms that want ownership; leasing can suit firms worried about asset obsolescence.</p><p><strong>Risk is reallocated:</strong> convertibles lower immediate cash interest for issuers but create potential dilution and expose investors to equity risk after conversion.</p></div>
+  <div class="mistake-box"><div class="mistake-label">Common mistakes</div><p><strong>Mixing rates and periods:</strong> do not discount monthly payments with an annual rate unless it has been converted.</p><p><strong>Calling the cheapest headline rate the best choice:</strong> calculate the cash-flow cost and consider flexibility.</p><p><strong>Ignoring conversion interpretation:</strong> after calculating conversion value, say whether conversion is attractive at the current share price.</p><p><strong>Treating leasing and hire purchase as identical:</strong> the ownership and obsolescence-risk differences are central.</p><p><strong>Leaving calculations unexplained:</strong> write the formula, substitute numbers, and explain the decision in words.</p></div>
+</div>
+
 <div class="footer">Lecture 5 · Convertible Bonds and Short-Term Finance · Finance Fundamentals revision guide</div>
 </div>
 <script>
@@ -124,6 +344,5 @@ h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{f
   });
 })();
 </script>
-
 </body>
 </html>

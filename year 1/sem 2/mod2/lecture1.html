@@ -11,89 +11,618 @@
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;transition:opacity .22s ease,transform .22s ease}
 .page{position:relative;max-width:860px;margin:0 auto;padding:0 2rem 6rem}.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;font-size:1rem;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s;z-index:10}.back-btn:hover{transform:translateY(-1px);background:var(--bg2)}
 .hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border2);margin-bottom:3rem;position:relative}.hero::before{content:'';position:absolute;top:0;left:-2rem;right:-2rem;bottom:0;background:linear-gradient(180deg,#e5eff2 0%,transparent 100%);z-index:-1}
-.lecture-tag,.meta-chip,.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label,.exam-q-header,.footer,.resource-path{font-family:'DM Mono',monospace}.lecture-tag{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;gap:8px;margin-bottom:1rem}.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent);margin-top:.6rem}
+.lecture-tag,.meta-chip,.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label,.exam-q-header,.footer,.resource-path,.answer-label,.step-num{font-family:'DM Mono',monospace}.lecture-tag{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;gap:8px;margin-bottom:1rem}.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent);margin-top:.6rem}
 h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{font-size:3.2rem;line-height:1.1;margin-bottom:1rem}.hero-sub{font-size:16px;color:var(--muted);max-width:660px;margin-bottom:1.5rem}
 .meta-row{display:flex;gap:1rem;flex-wrap:wrap}.meta-chip{font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}.chip-topic{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}.chip-exam{background:var(--accent-light);color:var(--accent);border:1px solid #bfd3da}.chip-module{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
-.alert-box{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin-bottom:2.5rem;font-size:13.5px;color:#173f4f}
-.toc{background:var(--surface);border:1px solid var(--border);padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem 2rem}.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase}.toc-title{color:var(--muted);grid-column:1/-1}.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;gap:8px}.toc a::before{content:attr(data-num);color:var(--border2)}
-.section{margin-bottom:3.5rem}.section-num{color:var(--accent);margin-bottom:.4rem}p{margin-bottom:.9rem}ul{padding-left:1.15rem;margin:1rem 0}li{margin-bottom:.45rem}
-.defn{background:var(--gold-light);border:1px solid #dcc888;border-radius:4px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}.defn-label{color:var(--gold);margin-bottom:4px}.defn p{margin-bottom:0;font-size:14.5px}
-.eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.mistake-box{background:var(--red-light);border:1px solid var(--red-border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.eval-label{color:var(--teal);margin-bottom:.6rem}.mistake-label{color:var(--red-label);margin-bottom:.6rem}
+.alert-box{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin-bottom:2.5rem;font-size:13.5px;color:#173f4f}.alert-box strong{color:var(--accent)}
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem 2rem}.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label,.answer-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase}.toc-title{color:var(--muted);grid-column:1/-1;margin-bottom:.5rem}.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:8px;padding:3px 0;transition:color .15s}.toc a:hover{color:var(--accent)}.toc a::before{content:attr(data-num);font-family:'DM Mono',monospace;font-size:10px;color:var(--border2);min-width:16px}
+.section{margin-bottom:3.5rem}.section-num{color:var(--accent);margin-bottom:.4rem}h2{font-size:1.9rem;font-weight:600;line-height:1.2;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}h3{font-size:1.25rem;font-weight:600;margin-top:1.75rem;margin-bottom:.6rem;font-style:italic}p{margin-bottom:.9rem}ul{padding-left:1.15rem;margin:1rem 0}li{margin-bottom:.45rem}
+.defn{background:var(--gold-light);border:1px solid #dcc888;border-radius:4px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}.defn-label{color:var(--gold);margin-bottom:4px}.defn p{margin-bottom:0;font-size:14.5px;color:var(--ink)}
+.key-terms{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1.25rem 0}.term{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:.7rem 1rem}.term-word{font-size:1rem;font-weight:600;margin-bottom:2px}.term-def{font-size:12.5px;color:var(--muted);line-height:1.4}
+.compare-table{width:100%;border-collapse:collapse;font-size:13.5px;margin:1.25rem 0;border:1px solid var(--border);border-radius:4px;overflow:hidden}.compare-table th{background:var(--bg2);padding:.65rem 1rem;text-align:left;font-weight:500;font-size:12px;font-family:'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border2)}.compare-table td{padding:.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top}.compare-table tr:last-child td{border-bottom:none}.compare-table td:first-child{font-weight:500;color:var(--ink);width:170px}
+.steps{margin:1.25rem 0}.step{display:flex;gap:1rem;margin-bottom:.75rem;align-items:flex-start}.step-num{font-size:1rem;font-weight:500;color:var(--accent);line-height:1.5;min-width:28px;flex-shrink:0}.step-content{font-size:14px;color:var(--text);padding-top:2px}.step-content strong{color:var(--ink)}
+.logic-box{background:var(--accent-light);border-left:4px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin:1rem 0;font-size:14px;color:#173f4f}.eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.mistake-box{background:var(--red-light);border:1px solid var(--red-border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.eval-label{color:var(--teal);margin-bottom:.6rem}.mistake-label{color:var(--red-label);margin-bottom:.6rem}.eval-box p{color:#1a4a42;font-size:14px;margin-bottom:.5rem}.mistake-box p{color:var(--red-text);font-size:14px;margin-bottom:.5rem}.eval-box p:last-child,.mistake-box p:last-child{margin-bottom:0}
 .resource-list{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}.resource-list ul{margin:.2rem 0 0 1rem}.resource-path{font-size:11px;color:var(--muted)}
-.exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0}.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between}.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px}.exam-q-body{padding:1.25rem 1.5rem}.exam-q-body .q{font-style:italic;margin-bottom:1rem}
-.footer{text-align:center;font-size:11px;color:var(--border2);padding-top:1rem;border-top:1px solid var(--border)}.page-transition-init{opacity:0;transform:translateY(8px)}.page-transition-ready{opacity:1;transform:none}.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
-@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}@media (max-width:640px){h1{font-size:2.2rem}.toc{grid-template-columns:1fr}.page{padding:0 1.25rem 4rem}}
-
+.exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0}.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center}.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px;font-size:10px}.exam-q-body{padding:1.25rem 1.5rem}.exam-q-body .q{font-style:italic;color:var(--ink);margin-bottom:1rem;font-size:15px}.answer-label{color:var(--teal);margin-bottom:.4rem}.exam-q-body p{font-size:14px;margin-bottom:.6rem}
+.footer{text-align:center;font-size:11px;color:var(--border2);letter-spacing:.08em;padding-top:2rem;border-top:1px solid var(--border)}.page-transition-init{opacity:0;transform:translateY(8px)}.page-transition-ready{opacity:1;transform:none}.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
+@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}@media (max-width:720px){h1{font-size:2.4rem}.toc,.key-terms{grid-template-columns:1fr}.page{padding:0 1.15rem 4rem}.back-btn{left:1rem}.hero::before{left:-1.15rem;right:-1.15rem}}
 </style>
 </head>
 <body>
 <div class="page">
-<a class="back-btn" href="index.html" aria-label="Back to Finance Fundamentals hub">←</a>
-<div class="hero">
-  <div class="lecture-tag">Lecture 1 · Finance Fundamentals · University of York</div>
-  <h1>Introduction to Corporate Finance</h1>
-  <p class="hero-sub">Firm objectives, financing versus investment decisions, real versus financial assets, and the basic logic that future cash flows and risk drive value.</p>
-  <div class="meta-row">
-    <span class="meta-chip chip-topic">Finance topic</span>
-    <span class="meta-chip chip-exam">Tightened with seminar material</span>
-    <span class="meta-chip chip-module">MAN00026C</span>
+  <a class="back-btn" href="index.html" aria-label="Back to Finance Fundamentals hub">←</a>
+
+  <section class="hero">
+    <div class="lecture-tag">Lecture 1 · Finance Fundamentals · University of York</div>
+    <h1>Introduction to Corporate Finance</h1>
+    <p class="hero-sub">Corporate finance begins with one question: how should a firm organise itself, raise capital, invest in real assets, manage agency conflicts, and create long-term value for shareholders without losing sight of risk, ethics, and wider responsibilities?</p>
+    <div class="meta-row">
+      <span class="meta-chip chip-topic">Finance foundations</span>
+      <span class="meta-chip chip-exam">Seminar 1 linked</span>
+      <span class="meta-chip chip-module">MAN00026C</span>
+    </div>
+  </section>
+
+  <div class="alert-box">
+    <strong>Lecture focus:</strong> this is the vocabulary and logic base for the module. Learn the business forms, finance manager decisions, real versus financial assets, shareholder wealth objective, agency problems, corporate governance, and the first time-value principle.
   </div>
-</div>
-<div class="alert-box"><strong>Lecture focus:</strong> these notes now include the seminar-style framing needed for problem solving, definitions, and exam explanation rather than only first-pass summary points.</div>
-<div class="toc">
-  <div class="toc-title">Contents</div>
-  <a href="#s1" data-num="01">Why Corporate Finance Matters</a>
-  <a href="#s2" data-num="02">Real Assets and Financial Assets</a>
-  <a href="#s3" data-num="03">Main Decision Areas</a>
-  <a href="#s4" data-num="04">Firm Objectives and Their Limits</a>
-  <a href="#s5" data-num="05">Treasurer, Controller and Financial Roles</a>
-  <a href="#s6" data-num="06">Exam Framing</a>
-</div>
-<div class="resource-list">
-  <div class="defn-label">Tightening sources</div>
-  <ul><li><span class="resource-path">resources/Introduction to Corporate Finance.pptx</span></li><li><span class="resource-path">resources/Seminar 1 questions.docx</span></li></ul>
-</div>
-<div class="defn"><div class="defn-label">Core finance rule</div><p>Value today depends on expected future cash flows discounted for time and risk.</p></div>
-<div class="section" id="s1">
-  <div class="section-num">Part 01</div>
-  <h2>Why Corporate Finance Matters</h2>
-  <p>Corporate finance studies how firms raise funds, choose investments, and distribute returns. The key logic is always forward-looking: managers commit resources today to affect future cash flows, risk, and value.</p>
-</div>
 
-<div class="section" id="s2">
-  <div class="section-num">Part 02</div>
-  <h2>Real Assets and Financial Assets</h2>
-  <p>A strong answer distinguishes real assets from financial assets. Real assets include factories, land, brands, or productive equipment. Financial assets are claims on future cash flows, such as shares, bonds, loans, or deposits. The finance perspective matters because firms often need financial assets and markets to fund real-asset investment.</p>
-</div>
+  <nav class="toc" aria-label="Contents">
+    <div class="toc-title">Contents</div>
+    <a href="#terms" data-num="00">Core vocabulary</a>
+    <a href="#s1" data-num="01">What corporate finance studies</a>
+    <a href="#s2" data-num="02">Organising a business</a>
+    <a href="#s3" data-num="03">Corporations and limited companies</a>
+    <a href="#s4" data-num="04">The objective of the firm</a>
+    <a href="#s5" data-num="05">Investment, financing and treasury</a>
+    <a href="#s6" data-num="06">Real assets and financial assets</a>
+    <a href="#s7" data-num="07">Financial manager roles</a>
+    <a href="#s8" data-num="08">Finance principles</a>
+    <a href="#s9" data-num="09">Agency problems</a>
+    <a href="#s10" data-num="10">Corporate governance</a>
+    <a href="#s11" data-num="11">Seminar and exam practice</a>
+  </nav>
 
-<div class="section" id="s3">
-  <div class="section-num">Part 03</div>
-  <h2>Main Decision Areas</h2>
-  <p>The standard split is investment, financing, and payout. Investment decisions ask which projects create value. Financing decisions ask how to fund them. Payout decisions ask whether cash should be retained or returned to investors. The stronger answer links them instead of treating them as isolated chapters.</p>
-</div>
+  <div class="resource-list">
+    <div class="defn-label">Local sources used</div>
+    <ul>
+      <li><span class="resource-path">resources/Introduction to Corporate Finance.pptx</span></li>
+      <li><span class="resource-path">resources/Seminar 1 questions.docx</span></li>
+    </ul>
+  </div>
 
-<div class="section" id="s4">
-  <div class="section-num">Part 04</div>
-  <h2>Firm Objectives and Their Limits</h2>
-  <p>Shareholder wealth maximisation is the standard benchmark because it focuses on market value rather than accounting profit alone. Seminar questions push this further by asking what is wrong with pure profit maximisation: it ignores timing, risk, and scale, and can also miss wider governance and stakeholder issues.</p>
-</div>
+  <section class="section" id="terms">
+    <div class="section-num">Key terms</div>
+    <h2>Core Vocabulary</h2>
+    <div class="key-terms">
+      <div class="term">
+        <div class="term-word">Corporate finance</div>
+        <div class="term-def">The study of how firms raise funds, choose investments, manage risk, and distribute value.</div>
+      </div>
+      <div class="term">
+        <div class="term-word">Shareholder wealth</div>
+        <div class="term-def">The long-term market value of shareholders' claim on the firm, not simply this year's accounting profit.</div>
+      </div>
+      <div class="term">
+        <div class="term-word">Capital budgeting</div>
+        <div class="term-def">The investment decision: which real assets or projects should the firm acquire?</div>
+      </div>
+      <div class="term">
+        <div class="term-word">Financing decision</div>
+        <div class="term-def">The choice of how to raise cash, for example through retained earnings, bank borrowing, bonds, or shares.</div>
+      </div>
+      <div class="term">
+        <div class="term-word">Capital structure</div>
+        <div class="term-def">The mix of debt and equity used to finance the firm.</div>
+      </div>
+      <div class="term">
+        <div class="term-word">Real asset</div>
+        <div class="term-def">An asset used to produce goods and services, including tangible and intangible operating assets.</div>
+      </div>
+      <div class="term">
+        <div class="term-word">Financial asset</div>
+        <div class="term-def">A claim on future cash flows generated by real assets, such as a share, bond, IOU, or loan.</div>
+      </div>
+      <div class="term">
+        <div class="term-word">Agency problem</div>
+        <div class="term-def">A conflict that arises when agents such as managers do not perfectly act for principals such as shareholders.</div>
+      </div>
+      <div class="term">
+        <div class="term-word">Agency cost</div>
+        <div class="term-def">The direct or indirect cost created by agency conflicts, including monitoring costs and lost opportunities.</div>
+      </div>
+      <div class="term">
+        <div class="term-word">Corporate governance</div>
+        <div class="term-def">Rules and processes used to direct and monitor a firm, especially management behaviour.</div>
+      </div>
+      <div class="term">
+        <div class="term-word">Time value of money</div>
+        <div class="term-def">The idea that cash today is worth more than the same nominal cash later because it can earn a return.</div>
+      </div>
+      <div class="term">
+        <div class="term-word">Triple bottom line</div>
+        <div class="term-def">A broader performance lens using people, profit, and planet rather than profit alone.</div>
+      </div>
+    </div>
+  </section>
 
-<div class="section" id="s5">
-  <div class="section-num">Part 05</div>
-  <h2>Treasurer, Controller and Financial Roles</h2>
-  <p>The treasurer is usually closer to financing, cash management, and capital markets. The controller is more closely tied to accounting systems, reporting, and internal records. This distinction is a frequent seminar-style application of the finance versus accounting split.</p>
-</div>
+  <section class="section" id="s1">
+    <div class="section-num">01</div>
+    <h2>What Corporate Finance Studies</h2>
+    <p>Corporate finance studies financial decisions made by firms. The lecture frames finance as a practical discipline: managers must decide what assets to buy, how to raise money, how much cash to keep liquid, how much risk to accept, and how those choices affect long-term value.</p>
+    <div class="defn">
+      <div class="defn-label">Definition</div>
+      <p><strong>Corporate finance</strong> is about allocating scarce capital across time under uncertainty so that the firm can fund operations, invest in value-creating projects, and meet investors' required returns.</p>
+    </div>
+    <p>The module aim is broader than one lecture. It provides foundations in finance, financial markets, corporate finance, and security analysis. Lecture 1 gives the language needed for later valuation topics: if you cannot identify the asset, the cash flow, the risk, and the decision-maker, later formula work becomes mechanical and fragile.</p>
+    <div class="logic-box">
+      The recurring finance question is: <strong>does this decision increase value after allowing for timing, risk, and opportunity cost?</strong>
+    </div>
+    <p>That question explains why finance is not the same as bookkeeping. Accounting records are vital, but finance is forward-looking. It uses expected cash flows and required returns to choose between alternatives before the outcome is known.</p>
+  </section>
 
-<div class="section" id="s6">
-  <div class="section-num">Part 06</div>
-  <h2>Exam Framing</h2>
-  <p>Do not define finance as simply keeping track of money. The stronger answer explains that finance is about allocating scarce capital across time under uncertainty.</p>
-</div>
+  <section class="section" id="s2">
+    <div class="section-num">02</div>
+    <h2>Organising a Business</h2>
+    <p>The lecture begins with three common business forms: sole proprietor, partnership, and corporation or limited company. These forms matter in finance because they affect liability, lifespan, access to capital, ownership, control, and the scale of projects a firm can realistically fund.</p>
+    <table class="compare-table">
+      <tr>
+        <th>Form</th>
+        <th>Main features</th>
+        <th>Finance implication</th>
+      </tr>
+      <tr>
+        <td>Sole proprietor</td>
+        <td>One owner bears the costs and keeps the profits. It is easy and cheap to establish, with relatively little regulation.</td>
+        <td>Simple to run, but unlimited liability and limited life make large-scale fundraising difficult.</td>
+      </tr>
+      <tr>
+        <td>Partnership</td>
+        <td>A partnership agreement sets how decisions are made and how profits are shared between partners.</td>
+        <td>Flexible and often inexpensive, but still commonly exposed to unlimited liability and limited life.</td>
+      </tr>
+      <tr>
+        <td>Corporation / limited company</td>
+        <td>A separate legal entity owned by shareholders and run day to day by managers.</td>
+        <td>Better access to capital markets and continuity, but more legal machinery, reporting, and governance costs.</td>
+      </tr>
+    </table>
+    <h3>Seminar 1 classification logic</h3>
+    <p>Seminar 1 asks which form best suits different businesses. A consulting firm with several senior consultants naturally points toward a partnership or limited liability partnership style because multiple professionals share ownership and management. A house-painting company owned and operated by one student points toward sole proprietorship because it is small, simple, and personally controlled. A manufacturing company with sales of $900 million and 5,000 employees points toward a corporation because it needs scale, continuity, formal ownership, and large capital access.</p>
+    <div class="mistake-box">
+      <div class="mistake-label">Common mistake</div>
+      <p>Do not choose a business form only from the number of owners. In finance, the stronger answer also considers liability, capital requirements, regulation, transferability of ownership, and how long the business needs to survive beyond the founder.</p>
+    </div>
+  </section>
 
-<div class="eval-box"><div class="eval-label">Seminar angle</div><p>Be ready to classify business forms, distinguish capital-budgeting from financing decisions, and explain why shareholder value is usually preferred to profit alone.</p></div>
-<div class="mistake-box"><div class="mistake-label">Common mistake</div><p>Students often memorise the formula or definition but fail to explain what changes value, what changes risk, and which timing convention the problem is using. In finance, those details usually determine the correct answer.</p></div>
-<div class="exam-q"><div class="exam-q-header"><span>Assessment-style prompt</span><span class="exam-q-marks">10 marks</span></div><div class="exam-q-body"><p class="q">Explain the financial logic behind introduction to corporate finance and show how it would affect a decision faced by a manager, investor, or household.</p><p>Start with a precise definition, then explain the mechanism step by step. If a calculation is relevant, state which formula or convention should be used and why.</p></div></div>
-<div class="footer">Lecture 1 · Introduction to Corporate Finance · Finance Fundamentals revision guide</div>
+  <section class="section" id="s3">
+    <div class="section-num">03</div>
+    <h2>Corporations and Limited Companies</h2>
+    <p>The corporate form is central to corporate finance because it separates ownership from day-to-day control. Shareholders own the corporation, but managers normally control operations. This separation creates the need for financial management, governance, and agency theory.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-content"><strong>Ownership:</strong> shareholders, also called stockholders or equity-holders, own the residual claim on the corporation.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-content"><strong>Control:</strong> ultimate control rests with shareholders, but professional managers run day-to-day operations.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-content"><strong>Risk bearing:</strong> many stakeholders bear risk, but shareholders bear residual risk after contractual claims have been met.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-content"><strong>Legal identity:</strong> the company is legally distinct from its owners and must comply with rules such as Companies Act requirements and Companies House registration.</div>
+      </div>
+    </div>
+    <table class="compare-table">
+      <tr>
+        <th>Type</th>
+        <th>Ownership and trading</th>
+        <th>Exam point</th>
+      </tr>
+      <tr>
+        <td>Private limited company (Ltd)</td>
+        <td>Shares are privately and closely held, and cannot be freely traded in the public arena.</td>
+        <td>Often used before a firm becomes large enough or willing enough to access public equity markets.</td>
+      </tr>
+      <tr>
+        <td>Public limited company (plc)</td>
+        <td>Shares can be sold to the general public and may be listed on a stock exchange.</td>
+        <td>Not every plc is exchange-traded, but plc status brings stricter rules and public-market possibilities.</td>
+      </tr>
+    </table>
+    <div class="eval-box">
+      <div class="eval-label">Evaluation angle</div>
+      <p>The corporate form is powerful because limited liability, permanency, transferable ownership, and better access to capital markets allow large projects to be financed. The trade-off is cost: legal compliance, tax complexity, disclosure, and governance systems all become more demanding.</p>
+    </div>
+  </section>
+
+  <section class="section" id="s4">
+    <div class="section-num">04</div>
+    <h2>The Objective of the Firm</h2>
+    <p>The lecture asks: in whose interests is the firm run, and what should the goal be? Possible objectives include increasing market share, reducing employee conflict, survival, maximising profit, and maximising long-term share value. Corporate finance uses long-term shareholder wealth maximisation as the central financial management objective.</p>
+    <div class="defn">
+      <div class="defn-label">Core objective</div>
+      <p><strong>Financial management aims to make investment and financing decisions that maximise long-term share value.</strong></p>
+    </div>
+    <p>Profit maximisation is not the same thing. Profit is an accounting measure for a period. Share value is a market-value concept that reflects expected future cash flows, timing, risk, growth prospects, and the information investors have about the firm.</p>
+    <table class="compare-table">
+      <tr>
+        <th>Objective</th>
+        <th>What it captures</th>
+        <th>Limitation</th>
+      </tr>
+      <tr>
+        <td>Profit maximisation</td>
+        <td>Accounting earnings over a period.</td>
+        <td>Can ignore cash-flow timing, risk, investment scale, accounting judgement, and long-term prospects.</td>
+      </tr>
+      <tr>
+        <td>Market share growth</td>
+        <td>Competitive position and sales reach.</td>
+        <td>Can destroy value if sales are bought through excessive discounts, debt, or unprofitable expansion.</td>
+      </tr>
+      <tr>
+        <td>Survival</td>
+        <td>Short-term continuity and avoidance of failure.</td>
+        <td>Too defensive as a full objective; surviving without earning adequate returns is not value creation.</td>
+      </tr>
+      <tr>
+        <td>Long-term share value</td>
+        <td>Expected future cash flows adjusted for timing and risk.</td>
+        <td>Must still be reconciled with ethics, sustainability, law, and stakeholder relationships.</td>
+      </tr>
+    </table>
+    <h3>Why shareholder wealth is used</h3>
+    <p>The lecture gives several reasons. First, it is practical to focus on a single objective rather than many competing targets. Second, contractual theory says other parties such as employees, lenders, and suppliers have contractual claims, while shareholders receive what remains and therefore need a residual-value objective. Third, in a free-market setting, shareholders supply risk capital. Fourth, shareholders own the firm.</p>
+    <div class="eval-box">
+      <div class="eval-label">Critical balance</div>
+      <p>A high-quality answer does not pretend shareholder wealth makes stakeholders irrelevant. It explains the finance benchmark, then evaluates whether long-term share value depends on employees, suppliers, customers, reputation, ethics, and sustainability. The lecture's triple bottom line prompt asks exactly this: people, profit, and planet can support long-term value rather than sit outside it.</p>
+    </div>
+  </section>
+
+  <section class="section" id="s5">
+    <div class="section-num">05</div>
+    <h2>Investment, Financing and Treasury Decisions</h2>
+    <p>The financial manager links the firm's operations to financial and capital markets. In simple terms, money is raised from markets or investors, invested in real assets, and returns flow back through the firm to claimholders.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-content"><strong>Investment or capital budgeting decision:</strong> what real assets should the firm acquire? This includes factories, pipelines, licenses, technology, or product development projects.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-content"><strong>Financing decision:</strong> how should cash be raised? This includes bank loans, bonds, new shares, retained earnings, and the overall debt-equity mix.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-content"><strong>Treasury management:</strong> how much cash should be held in liquid form, and how should short-term funding needs be managed?</div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-content"><strong>Risk and value-based management:</strong> how should the firm manage uncertainty while staying aligned with its financial objectives?</div>
+      </div>
+    </div>
+    <table class="compare-table">
+      <tr>
+        <th>Seminar example</th>
+        <th>Classification</th>
+        <th>Reason</th>
+      </tr>
+      <tr>
+        <td>Intel spends $500 million to develop a new microprocessor.</td>
+        <td>Capital budgeting</td>
+        <td>The firm is committing resources to a project expected to create future operating cash flows.</td>
+      </tr>
+      <tr>
+        <td>Volkswagen raises 350 million euros through a bank loan.</td>
+        <td>Financing</td>
+        <td>The decision is about where cash comes from and how the firm is funded.</td>
+      </tr>
+      <tr>
+        <td>ExxonMobil constructs a pipeline.</td>
+        <td>Capital budgeting</td>
+        <td>The pipeline is a real asset used in operations.</td>
+      </tr>
+      <tr>
+        <td>Novartis buys a license to sell a drug.</td>
+        <td>Capital budgeting</td>
+        <td>The license is an intangible real asset expected to generate future cash flows.</td>
+      </tr>
+      <tr>
+        <td>Pfizer issues new shares to acquire a biotech company.</td>
+        <td>Financing and investment</td>
+        <td>The share issue raises funding, while the acquisition is an investment in assets and future cash flows.</td>
+      </tr>
+    </table>
+    <div class="mistake-box">
+      <div class="mistake-label">Common mistake</div>
+      <p>Do not classify by the company name or industry. Ask whether the decision is about <strong>using cash to acquire real assets</strong> or <strong>raising cash from financial markets</strong>. Some transactions contain both parts.</p>
+    </div>
+  </section>
+
+  <section class="section" id="s6">
+    <div class="section-num">06</div>
+    <h2>Real Assets and Financial Assets</h2>
+    <p>The lecture states that real assets are assets used to produce goods and services. They may be tangible, such as machinery and land, or intangible, such as a patent, trademark, customer base, or skilled sales force. Financial assets are claims to income generated by real assets.</p>
+    <div class="defn">
+      <div class="defn-label">Classification rule</div>
+      <p>If the asset helps produce goods and services, treat it as a <strong>real asset</strong>. If it is a contractual or ownership claim on cash flows, treat it as a <strong>financial asset</strong>.</p>
+    </div>
+    <table class="compare-table">
+      <tr>
+        <th>Item</th>
+        <th>Classification</th>
+        <th>Reason</th>
+      </tr>
+      <tr>
+        <td>Share of a company</td>
+        <td>Financial asset</td>
+        <td>An equity claim on residual future cash flows.</td>
+      </tr>
+      <tr>
+        <td>Personal IOU</td>
+        <td>Financial asset</td>
+        <td>A promise to pay; the holder owns a claim against another party.</td>
+      </tr>
+      <tr>
+        <td>Trademark</td>
+        <td>Real asset</td>
+        <td>An intangible asset used to generate sales and protect brand value.</td>
+      </tr>
+      <tr>
+        <td>Factory</td>
+        <td>Real asset</td>
+        <td>A tangible productive asset.</td>
+      </tr>
+      <tr>
+        <td>Undeveloped land</td>
+        <td>Real asset</td>
+        <td>A physical resource that can be developed or used productively.</td>
+      </tr>
+      <tr>
+        <td>Firm's bank balance</td>
+        <td>Financial asset</td>
+        <td>A claim on the bank for money held in the account.</td>
+      </tr>
+      <tr>
+        <td>Experienced sales force</td>
+        <td>Real asset</td>
+        <td>Human and organisational capability that helps produce revenue.</td>
+      </tr>
+      <tr>
+        <td>Bond</td>
+        <td>Financial asset</td>
+        <td>A debt claim on future coupon and principal payments.</td>
+      </tr>
+    </table>
+    <div class="logic-box">
+      A bank loan is a financial asset for the lender because it is the lender's claim on future repayments. For the borrower, the same loan is a financial liability.
+    </div>
+  </section>
+
+  <section class="section" id="s7">
+    <div class="section-num">07</div>
+    <h2>Financial Manager Roles</h2>
+    <p>The lecture names the treasurer, controller, and chief financial officer. The distinction matters because seminar questions test whether you can separate finance-market work from accounting-record work.</p>
+    <table class="compare-table">
+      <tr>
+        <th>Role</th>
+        <th>Main responsibility</th>
+        <th>Typical fit</th>
+      </tr>
+      <tr>
+        <td>Treasurer</td>
+        <td>Cash management, banking relationships, financing, capital markets, liquidity, and sometimes risk management.</td>
+        <td>Someone trained in finance, financial markets, and institutions.</td>
+      </tr>
+      <tr>
+        <td>Controller</td>
+        <td>Accounting systems, internal records, financial reporting, tax information, and performance measurement.</td>
+        <td>Someone trained in accounting and professional reporting standards.</td>
+      </tr>
+      <tr>
+        <td>Chief Financial Officer</td>
+        <td>Senior executive responsible for overall financial strategy and coordination of finance functions.</td>
+        <td>Requires both strategic finance judgement and control over reliable information flows.</td>
+      </tr>
+    </table>
+    <div class="exam-q">
+      <div class="exam-q-header">
+        <span>Seminar-style application</span>
+        <span class="exam-q-marks">4 marks</span>
+      </div>
+      <div class="exam-q-body">
+        <p class="q">Fritz studied finance with emphasis on markets and institutions. Frieda majored in accounting and became a CPA. Who is better suited to be treasurer and who controller?</p>
+        <div class="answer-label">Answer structure</div>
+        <p>Fritz is better suited to treasurer because the role is closer to financing, liquidity, and capital markets. Frieda is better suited to controller because the role is closer to accounting records, reporting, tax information, and internal control.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="s8">
+    <div class="section-num">08</div>
+    <h2>Finance Principles</h2>
+    <p>The lecture lists several foundations of finance. These are not throwaway slogans; they explain why later topics use cash-flow valuation, discounting, required returns, market prices, and governance.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-content"><strong>Cash flow is what matters:</strong> value is driven by actual cash received and paid, not just accounting profit.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-content"><strong>Money has a time value:</strong> future benefits and costs must be brought to the present to measure value consistently.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-content"><strong>Risk requires a reward:</strong> investors require higher expected returns for bearing higher risk.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-content"><strong>Market prices are generally informative:</strong> prices aggregate investors' expectations, although they can still be challenged by new information, frictions, or behavioural errors.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">05</div>
+        <div class="step-content"><strong>Ethics matter:</strong> ethical lapses are not forgiven easily in finance and can damage reputation, access to capital, and long-term value.</div>
+      </div>
+    </div>
+    <h3>First time-value link</h3>
+    <p>Financial decisions require comparison of cash at different dates. An investor deciding what to pay today for promised future cash flows cannot compare pounds in different years as if they were identical. One pound today is not the same as one pound in 20 years, because today's pound can be invested and because the future pound is exposed to delay and uncertainty.</p>
+    <div class="exam-q">
+      <div class="exam-q-header">
+        <span>Quick worked example</span>
+        <span class="exam-q-marks">3 marks</span>
+      </div>
+      <div class="exam-q-body">
+        <p class="q">You deposit £100 at 6% annual interest. What is its value after one year, and what concept explains the second year's interest?</p>
+        <div class="answer-label">Answer method</div>
+        <p>After one year, interest is £100 × 0.06 = £6, so the account is worth £106. If the money stays invested for another year, interest is earned on £106 rather than only the original £100. That is compound interest: interest earned on interest.</p>
+      </div>
+    </div>
+    <div class="mistake-box">
+      <div class="mistake-label">Common mistake</div>
+      <p>Do not say time value exists only because of inflation. Inflation can matter, but the lecture's basic logic is broader: money today can earn a return, waiting has an opportunity cost, and future cash flows may be risky.</p>
+    </div>
+  </section>
+
+  <section class="section" id="s9">
+    <div class="section-num">09</div>
+    <h2>Agency Problems</h2>
+    <p>In large corporations, ownership is dispersed and managers control the firm. Agency problems occur when principals and agents have different objectives. In the basic Type I case, shareholders are principals and managers are agents. The manager may prefer private benefits, job security, prestige, or empire-building even when those choices do not maximise shareholder wealth.</p>
+    <div class="defn">
+      <div class="defn-label">Agency theory</div>
+      <p><strong>Agency theory</strong> describes potential conflicts between principals and agents and proposes ways to reduce those conflicts.</p>
+    </div>
+    <table class="compare-table">
+      <tr>
+        <th>Cost type</th>
+        <th>Meaning</th>
+        <th>Example</th>
+      </tr>
+      <tr>
+        <td>Direct agency cost</td>
+        <td>Cost caused by managers extracting value or by shareholders monitoring managers.</td>
+        <td>Managerial perks, excessive pay, monitoring expenses, audit and governance costs.</td>
+      </tr>
+      <tr>
+        <td>Indirect agency cost</td>
+        <td>Value lost because the firm misses or rejects opportunities due to agency conflict.</td>
+        <td>A manager avoids a risky positive-value project to protect their job.</td>
+      </tr>
+      <tr>
+        <td>Type II / wider agency issue</td>
+        <td>Conflicts between different stakeholder groups or between controlling and minority shareholders.</td>
+        <td>Debtholders, employees, suppliers, governments, and shareholders may want different risk or payout choices.</td>
+      </tr>
+    </table>
+    <h3>FineTune plc example</h3>
+    <p>Seminar 1 asks whether directors receiving substantial bonuses and share options despite losses is an agency problem. It can be. If rewards are high when firm performance is poor, managers may be extracting value or insulated from the downside borne by shareholders. The issue is not that all bonuses are wrong; it is that pay should be aligned with long-term value creation and performance.</p>
+    <div class="eval-box">
+      <div class="eval-label">Evaluation angle</div>
+      <p>Agency conflicts cannot be eliminated for free. Monitoring, independent committees, audits, and incentive plans all have costs. A good governance system reduces the total damage from conflict, but it must avoid creating incentives for short-term manipulation or excessive risk-taking.</p>
+    </div>
+  </section>
+
+  <section class="section" id="s10">
+    <div class="section-num">10</div>
+    <h2>Corporate Governance</h2>
+    <p>Corporate governance is the set of rules and processes used to direct and monitor the firm. The lecture links governance to listing requirements, board structure, committees, and published financial statements. Its purpose is to reduce agency problems and improve confidence among investors and other stakeholders.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-content"><strong>Separate MD/CEO and Chair:</strong> reduces the concentration of managerial power and improves board oversight.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-content"><strong>Independent board members:</strong> provide monitoring that is less dependent on management.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-content"><strong>Remuneration committee:</strong> designs executive pay and attempts to align incentives with shareholders.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-content"><strong>Audit committee:</strong> monitors reporting quality, internal controls, and risk management processes.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">05</div>
+        <div class="step-content"><strong>Nomination committee:</strong> oversees appointments and succession, reducing the chance of weak or captured boards.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">06</div>
+        <div class="step-content"><strong>Published financial statements:</strong> provide external investors with information needed for monitoring and valuation.</div>
+      </div>
+    </div>
+    <table class="compare-table">
+      <tr>
+        <th>Compensation form</th>
+        <th>Likely alignment</th>
+        <th>Reason</th>
+      </tr>
+      <tr>
+        <td>Fixed salary</td>
+        <td>Weak</td>
+        <td>Provides income security but little direct link to shareholder value or performance.</td>
+      </tr>
+      <tr>
+        <td>Salary linked to profits</td>
+        <td>Moderate</td>
+        <td>Creates performance incentive, but profit can be short-term and affected by accounting judgement.</td>
+      </tr>
+      <tr>
+        <td>Salary partly paid in shares</td>
+        <td>Stronger if designed well</td>
+        <td>Managers benefit when shareholders benefit, especially if shares vest over a long period.</td>
+      </tr>
+    </table>
+    <div class="mistake-box">
+      <div class="mistake-label">Common mistake</div>
+      <p>Do not write that share-based pay automatically solves agency problems. It can improve alignment, but it may also encourage short-term share-price management or excessive risk unless vesting periods, clawbacks, and oversight are sensible.</p>
+    </div>
+  </section>
+
+  <section class="section" id="s11">
+    <div class="section-num">11</div>
+    <h2>Seminar and Exam Practice</h2>
+    <p>Lecture 1 is often assessed through explanation and classification rather than heavy calculation. The best answers define the concept, apply it to the specific decision, and then add a limitation or evaluation point where appropriate.</p>
+    <div class="exam-q">
+      <div class="exam-q-header">
+        <span>Exam-style prompt</span>
+        <span class="exam-q-marks">8 marks</span>
+      </div>
+      <div class="exam-q-body">
+        <p class="q">Explain why maximising accounting profit may be a poor objective for financial management.</p>
+        <div class="answer-label">Answer structure</div>
+        <p>Define profit as an accounting measure over a period, then explain that it can ignore timing, risk, project scale, cash-flow quality, and long-term prospects. Link this to shareholder wealth maximisation, which focuses on expected future cash flows discounted for risk and time. Add evaluation: managers must still consider ethics, sustainability, and stakeholder relationships because these affect long-term value.</p>
+      </div>
+    </div>
+    <div class="exam-q">
+      <div class="exam-q-header">
+        <span>Exam-style prompt</span>
+        <span class="exam-q-marks">10 marks</span>
+      </div>
+      <div class="exam-q-body">
+        <p class="q">A plc's directors receive large bonuses after a year of losses. Discuss whether this is an agency problem and how it could be reduced.</p>
+        <div class="answer-label">Answer structure</div>
+        <p>Start with agency theory: shareholders are principals and managers are agents. Explain that high rewards despite poor performance may show misalignment or direct agency costs. Then discuss solutions: performance-linked pay, long-term share-based compensation, independent boards, remuneration committees, audit committees, shareholder voting, and the possibility that underperforming managers are replaced. Evaluate by noting that incentives can create new distortions if they reward short-term accounting results.</p>
+      </div>
+    </div>
+    <div class="exam-q">
+      <div class="exam-q-header">
+        <span>Short calculation prompt</span>
+        <span class="exam-q-marks">4 marks</span>
+      </div>
+      <div class="exam-q-body">
+        <p class="q">A firm can pay £50,000 every month for 12 months or £600,000 at the end of the year. Which option should it choose?</p>
+        <div class="answer-label">Answer structure</div>
+        <p>The options cannot be compared by simply adding the nominal payments, because the timing differs. Use the time value of money: compare both options at the same date using an appropriate monthly or annual discount rate. Without a discount rate, the correct conclusion is conditional, but paying later is usually preferable if there is no penalty and cash has positive time value.</p>
+      </div>
+    </div>
+    <div class="exam-q">
+      <div class="exam-q-header">
+        <span>Classification prompt</span>
+        <span class="exam-q-marks">6 marks</span>
+      </div>
+      <div class="exam-q-body">
+        <p class="q">Classify a factory, a bond, a trademark, a company's share, and a skilled sales force as real or financial assets.</p>
+        <div class="answer-label">Answer structure</div>
+        <p>Factory, trademark, and skilled sales force are real assets because they help produce goods, services, or revenue. A bond and company share are financial assets because they are claims on future cash flows.</p>
+      </div>
+    </div>
+    <div class="eval-box">
+      <div class="eval-label">Revision priorities</div>
+      <p>Prioritise the classification rules, the reason shareholder wealth is preferred to profit, the difference between capital budgeting and financing, the treasurer-controller split, and the agency problem remedies. Those are the highest-yield Lecture 1 seminar links.</p>
+    </div>
+    <div class="mistake-box">
+      <div class="mistake-label">Common mistakes checklist</div>
+      <p>Do not treat profit and cash flow as identical. Do not forget unlimited liability for sole proprietors and many partnerships. Do not call every asset owned by a firm a real asset. Do not say governance eliminates agency costs. Do not compare cash flows at different dates without discounting or compounding them to the same date.</p>
+    </div>
+  </section>
+
+  <footer class="footer">Lecture 1 · Introduction to Corporate Finance · Finance Fundamentals revision guide</footer>
 </div>
 <script>
 (function(){

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lecture 8 Risk, Return and Preference Shares — Finance Fundamentals</title>
+<title>Lecture 8 Risk, Return and Preference Shares - Finance Fundamentals</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#faf8f4;--bg2:#f2ede4;--surface:#fff;--border:#e8ddd0;--border2:#d4c8b0;--text:#1a1612;--muted:#7a6e5e;--accent:#245b74;--accent-light:#e8f1f4;--gold:#8a6a2a;--gold-light:#f7f0e0;--teal:#1a5c52;--teal-light:#e8f4f1;--red-light:#fdf2f0;--red-border:#f0c4b8;--red-text:#7a2015;--red-label:#c0392b;--ink:#2c2416}
@@ -11,88 +11,355 @@
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;transition:opacity .22s ease,transform .22s ease}
 .page{position:relative;max-width:860px;margin:0 auto;padding:0 2rem 6rem}.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;font-size:1rem;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s;z-index:10}.back-btn:hover{transform:translateY(-1px);background:var(--bg2)}
 .hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border2);margin-bottom:3rem;position:relative}.hero::before{content:'';position:absolute;top:0;left:-2rem;right:-2rem;bottom:0;background:linear-gradient(180deg,#e5eff2 0%,transparent 100%);z-index:-1}
-.lecture-tag,.meta-chip,.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label,.exam-q-header,.footer,.resource-path{font-family:'DM Mono',monospace}.lecture-tag{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;gap:8px;margin-bottom:1rem}.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent);margin-top:.6rem}
-h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{font-size:3.2rem;line-height:1.1;margin-bottom:1rem}.hero-sub{font-size:16px;color:var(--muted);max-width:660px;margin-bottom:1.5rem}
+.lecture-tag,.meta-chip,.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label,.exam-q-header,.footer,.resource-path,.answer-label,.formula-title,.worked-label{font-family:'DM Mono',monospace}.lecture-tag{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;gap:8px;margin-bottom:1rem}.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent);margin-top:.6rem}
+h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{font-size:3.2rem;line-height:1.1;margin-bottom:1rem}.hero-sub{font-size:16px;color:var(--muted);max-width:690px;margin-bottom:1.5rem}
 .meta-row{display:flex;gap:1rem;flex-wrap:wrap}.meta-chip{font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}.chip-topic{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}.chip-exam{background:var(--accent-light);color:var(--accent);border:1px solid #bfd3da}.chip-module{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
-.alert-box{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin-bottom:2.5rem;font-size:13.5px;color:#173f4f}
-.toc{background:var(--surface);border:1px solid var(--border);padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem 2rem}.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase}.toc-title{color:var(--muted);grid-column:1/-1}.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;gap:8px}.toc a::before{content:attr(data-num);color:var(--border2)}
-.section{margin-bottom:3.5rem}.section-num{color:var(--accent);margin-bottom:.4rem}p{margin-bottom:.9rem}ul{padding-left:1.15rem;margin:1rem 0}li{margin-bottom:.45rem}
-.defn{background:var(--gold-light);border:1px solid #dcc888;border-radius:4px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}.defn-label{color:var(--gold);margin-bottom:4px}.defn p{margin-bottom:0;font-size:14.5px}
-.eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.mistake-box{background:var(--red-light);border:1px solid var(--red-border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.eval-label{color:var(--teal);margin-bottom:.6rem}.mistake-label{color:var(--red-label);margin-bottom:.6rem}
+.alert-box{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin-bottom:2.5rem;font-size:13.5px;color:#173f4f}.alert-box strong{color:var(--accent)}
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem 2rem}.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label,.answer-label,.formula-title,.worked-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase}.toc-title{color:var(--muted);grid-column:1/-1;margin-bottom:.5rem}.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;gap:8px;padding:3px 0}.toc a:hover{color:var(--accent)}.toc a::before{content:attr(data-num);font-family:'DM Mono',monospace;font-size:10px;color:var(--border2);min-width:16px}
+.section{margin-bottom:3.5rem;animation:fadeUp .5s ease both}@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}.section-num{color:var(--accent);margin-bottom:.4rem}h2{font-size:1.9rem;font-weight:600;line-height:1.2;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}h3{font-size:1.25rem;font-weight:600;margin-top:1.6rem;margin-bottom:.6rem;font-style:italic}p{margin-bottom:.9rem}ul{padding-left:1.15rem;margin:1rem 0}li{margin-bottom:.45rem}
+.defn{background:var(--gold-light);border:1px solid #dcc888;border-radius:4px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}.defn-label{color:var(--gold);margin-bottom:4px}.defn p{margin-bottom:0;font-size:14.5px;color:var(--ink)}
+.key-terms{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1.25rem 0}.term{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:.75rem 1rem}.term-word{font-size:1rem;font-weight:600;margin-bottom:2px}.term-def{font-size:12.5px;color:var(--muted);line-height:1.45}
+.compare-table{width:100%;border-collapse:collapse;font-size:13.5px;margin:1.25rem 0;border:1px solid var(--border);border-radius:4px;overflow:hidden}.compare-table th{background:var(--bg2);padding:.65rem 1rem;text-align:left;font-weight:500;font-size:12px;font-family:'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border2)}.compare-table td{padding:.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top}.compare-table tr:last-child td{border-bottom:none}.compare-table td:first-child{font-weight:500;color:var(--ink)}
+.formula-box{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1rem 1.25rem;margin:1.25rem 0}.formula-title{color:var(--accent);margin-bottom:.65rem}.formula{display:block;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.03em;background:var(--bg2);border:1px solid var(--border);border-radius:4px;padding:.7rem .8rem;color:var(--accent);margin:.55rem 0}.formula-note{font-size:13px;color:var(--muted);margin-bottom:0}
+.worked{background:linear-gradient(180deg,#fcfaf6 0%,#f7f0e0 100%);border:1px solid #dcc888;border-radius:4px;padding:1.2rem 1.35rem;margin:1.5rem 0}.worked-label{color:var(--gold);margin-bottom:.55rem}.worked p{font-size:14px;margin-bottom:.55rem}.steps{margin:1.1rem 0}.step{display:flex;gap:1rem;margin-bottom:.75rem;align-items:flex-start}.step-num{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--border2);line-height:1.2;min-width:28px;flex-shrink:0}.step-content{font-size:14px;color:var(--text);padding-top:2px}.step-content strong{color:var(--ink)}
+.eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.mistake-box{background:var(--red-light);border:1px solid var(--red-border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.eval-label{color:var(--teal);margin-bottom:.6rem}.eval-label::before{content:'+';margin-right:6px}.mistake-label{color:var(--red-label);margin-bottom:.6rem}.mistake-label::before{content:'x';margin-right:6px}.eval-box p{color:#1a4a42;font-size:14px;margin-bottom:.5rem}.mistake-box p{color:var(--red-text);font-size:14px;margin-bottom:.5rem}.eval-box p:last-child,.mistake-box p:last-child{margin-bottom:0}
 .resource-list{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}.resource-list ul{margin:.2rem 0 0 1rem}.resource-path{font-size:11px;color:var(--muted)}
-.exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0}.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between}.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px}.exam-q-body{padding:1.25rem 1.5rem}.exam-q-body .q{font-style:italic;margin-bottom:1rem}
+.exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0}.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center}.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px}.exam-q-body{padding:1.25rem 1.5rem}.exam-q-body .q{font-style:italic;margin-bottom:1rem;color:var(--ink)}.answer-label{color:var(--teal);margin-bottom:.4rem}.exam-q-body p{font-size:14px;margin-bottom:.6rem}
 .footer{text-align:center;font-size:11px;color:var(--border2);padding-top:1rem;border-top:1px solid var(--border)}.page-transition-init{opacity:0;transform:translateY(8px)}.page-transition-ready{opacity:1;transform:none}.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
-@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}@media (max-width:640px){h1{font-size:2.2rem}.toc{grid-template-columns:1fr}.page{padding:0 1.25rem 4rem}}
-
+@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}@media (max-width:640px){h1{font-size:2.2rem}.toc{grid-template-columns:1fr}.key-terms{grid-template-columns:1fr}.page{padding:0 1.25rem 4rem}.compare-table{font-size:12.5px}.compare-table th,.compare-table td{padding:.55rem .65rem}}
 </style>
 </head>
 <body>
 <div class="page">
-<a class="back-btn" href="index.html" aria-label="Back to Finance Fundamentals hub">←</a>
+<a class="back-btn" href="index.html" aria-label="Back to Finance Fundamentals hub">&larr;</a>
 <div class="hero">
   <div class="lecture-tag">Lecture 8 · Finance Fundamentals · University of York</div>
   <h1>Risk, Return and Preference Shares</h1>
-  <p class="hero-sub">Realised versus expected return, risk premium, hybrid claims, and how preference shares combine debt-like and equity-like features.</p>
+  <p class="hero-sub">Returns as income plus price change, arithmetic and geometric averages, risk premia, variance and standard deviation, investor risk attitudes, and the valuation logic for preference shares.</p>
   <div class="meta-row">
-    <span class="meta-chip chip-topic">Finance topic</span>
-    <span class="meta-chip chip-exam">Tightened with seminar material</span>
+    <span class="meta-chip chip-topic">Risk and return</span>
+    <span class="meta-chip chip-exam">Seminar calculations</span>
     <span class="meta-chip chip-module">MAN00026C</span>
   </div>
 </div>
-<div class="alert-box"><strong>Lecture focus:</strong> these notes now include the seminar-style framing needed for problem solving, definitions, and exam explanation rather than only first-pass summary points.</div>
+
+<div class="alert-box"><strong>Exam focus:</strong> this topic is calculation-heavy but not mechanical. The marks usually come from stating the correct return measure, using the right denominator, distinguishing expected from realised return, and interpreting why extra risk should normally require extra expected return.</div>
+
 <div class="toc">
   <div class="toc-title">Contents</div>
-  <a href="#s1" data-num="01">Expected Return and Realised Return</a>
-  <a href="#s2" data-num="02">Risk Premium</a>
-  <a href="#s3" data-num="03">Holding-Period Return</a>
-  <a href="#s4" data-num="04">Preference Shares as Hybrids</a>
-  <a href="#s5" data-num="05">Risk Does Not Mean Loss Only</a>
-  <a href="#s6" data-num="06">Exam Logic</a>
+  <a href="#terms" data-num="00">Key terms</a>
+  <a href="#s1" data-num="01">Return and holding-period return</a>
+  <a href="#s2" data-num="02">Arithmetic, geometric and Blume</a>
+  <a href="#s3" data-num="03">Risk premium</a>
+  <a href="#s4" data-num="04">Measuring past risk</a>
+  <a href="#s5" data-num="05">Expected return and scenario risk</a>
+  <a href="#s6" data-num="06">Risk attitudes and downside risk</a>
+  <a href="#s7" data-num="07">Preference shares as hybrids</a>
+  <a href="#s8" data-num="08">Preference share valuation</a>
+  <a href="#s9" data-num="09">Exam prompts</a>
+  <a href="#s10" data-num="10">Common mistakes</a>
 </div>
+
 <div class="resource-list">
   <div class="defn-label">Tightening sources</div>
-  <ul><li><span class="resource-path">resources/Week 8 Risk and Return Students.pptx</span></li><li><span class="resource-path">resources/Seminar 8.docx</span></li></ul>
+  <ul>
+    <li><span class="resource-path">resources/Week 8 Risk and Return Students.pptx</span></li>
+    <li><span class="resource-path">resources/Seminar 8.docx</span></li>
+    <li><span class="resource-path">resources/Price History Students.xlsx</span></li>
+  </ul>
 </div>
-<div class="defn"><div class="defn-label">Core finance rule</div><p>Holding-period return = (income + price change) / initial price.</p></div>
+
+<div class="section" id="terms">
+  <div class="section-num">Key Definitions</div>
+  <h2>Terms to Know Cold</h2>
+  <div class="key-terms">
+    <div class="term"><div class="term-word">Cash return</div><div class="term-def">The pounds, pence, or dollars earned from income plus the capital gain or loss over the holding period.</div></div>
+    <div class="term"><div class="term-word">Holding-period return</div><div class="term-def">The cash return divided by the initial investment. It converts performance into a comparable percentage.</div></div>
+    <div class="term"><div class="term-word">Dividend yield</div><div class="term-def">Dividend received over the period divided by the opening share price.</div></div>
+    <div class="term"><div class="term-word">Capital gains yield</div><div class="term-def">Price change over the period divided by the opening price.</div></div>
+    <div class="term"><div class="term-word">Arithmetic average</div><div class="term-def">Simple average of period returns. It is usually the default forecast measure unless the question says otherwise.</div></div>
+    <div class="term"><div class="term-word">Geometric average</div><div class="term-def">Compound annual return over several periods. It shows the exact constant annual return that gets from start value to end value.</div></div>
+    <div class="term"><div class="term-word">Risk premium</div><div class="term-def">Return on a risky asset minus the risk-free return, often proxied by Treasury bill return.</div></div>
+    <div class="term"><div class="term-word">Variance</div><div class="term-def">Average squared deviation from the mean return. It measures dispersion but is in squared units.</div></div>
+    <div class="term"><div class="term-word">Standard deviation</div><div class="term-def">Square root of variance. It measures typical volatility in the same units as returns.</div></div>
+    <div class="term"><div class="term-word">Preference share</div><div class="term-def">A share with priority over ordinary equity, usually a fixed dividend, limited upside, and normally no voting rights.</div></div>
+  </div>
+</div>
+
 <div class="section" id="s1">
-  <div class="section-num">Part 01</div>
-  <h2>Expected Return and Realised Return</h2>
-  <p>Expected return is what investors anticipate before uncertainty is resolved. Realised return is what actually happens. Finance distinguishes the two because risk exists precisely because realised outcomes may differ from expectations.</p>
+  <div class="section-num">01</div>
+  <h2>Return and Holding-Period Return</h2>
+  <p>If an investor buys a financial asset, the gain or loss is called a return. Lecture 8 starts with the idea that return usually has two parts: <strong>current income</strong> and <strong>capital gain or loss</strong>. For shares, current income is the dividend. For bonds, it is usually the coupon. Capital gain or loss is the change in the asset price.</p>
+  <div class="formula-box">
+    <div class="formula-title">Core formulas</div>
+    <span class="formula">Cash return = Income + (ending price - beginning price)</span>
+    <span class="formula">Holding-period return = [Income + (P1 - P0)] / P0</span>
+    <span class="formula">Dividend yield = Dividend / P0</span>
+    <span class="formula">Capital gains yield = (P1 - P0) / P0</span>
+    <p class="formula-note">The denominator is the initial price, because the question is asking what the investor earned relative to the amount originally invested.</p>
+  </div>
+  <div class="worked">
+    <div class="worked-label">Worked example: share return decomposition</div>
+    <p>You bought a share one year ago for 85p. You have just received a dividend of 10p and the share price is now 90p.</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Cash return:</strong> 10p + (90p - 85p) = 15p.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Percentage return:</strong> 15p / 85p = 17.65%.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Dividend yield:</strong> 10p / 85p = 11.76%.</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content"><strong>Capital gains yield:</strong> 5p / 85p = 5.88%.</div></div>
+    </div>
+    <p>The dividend yield plus the capital gains yield equals the total holding-period return, allowing for rounding.</p>
+  </div>
+  <div class="worked">
+    <div class="worked-label">Worked example: bid-ask spread</div>
+    <p>If the bid price is 188.10p and the ask price is 188.20p, the spread is 0.10p. Buying at the ask and immediately selling at the bid gives a return of (188.10 - 188.20) / 188.20 = -0.053% before any wider price movement. This is why trading costs matter even when the quoted market price has barely moved.</p>
+  </div>
 </div>
 
 <div class="section" id="s2">
-  <div class="section-num">Part 02</div>
-  <h2>Risk Premium</h2>
-  <p>A risk premium is the extra expected return above a safer benchmark such as Treasury bills. Seminar questions ask students to calculate yearly and average risk premia, which makes the concept operational rather than purely verbal.</p>
+  <div class="section-num">02</div>
+  <h2>Arithmetic, Geometric and Blume Forecasts</h2>
+  <p>Historical returns can be summarised in more than one way. The lecture distinction is important: arithmetic average describes a typical single period, while geometric average describes compound growth over the whole period.</p>
+  <table class="compare-table">
+    <tr><th>Measure</th><th>Meaning</th><th>Best use</th></tr>
+    <tr><td>Arithmetic average</td><td>Simple average of annual returns.</td><td>Forecasting one future period, unless told otherwise.</td></tr>
+    <tr><td>Geometric average</td><td>Constant compound return that reproduces the full multi-period result.</td><td>Describing what actually happened to wealth across several years.</td></tr>
+    <tr><td>Blume estimate</td><td>A weighted compromise between arithmetic and geometric averages.</td><td>Forecasting multi-year annual returns when both averages are given.</td></tr>
+  </table>
+  <div class="formula-box">
+    <div class="formula-title">Average return formulas</div>
+    <span class="formula">Arithmetic average = (R1 + R2 + ... + Rn) / n</span>
+    <span class="formula">Geometric average = [(1 + R1)(1 + R2)...(1 + Rn)]^(1/n) - 1</span>
+    <span class="formula">Blume estimate = [(N - T) / (N - 1)] x arithmetic + [(T - 1) / (N - 1)] x geometric</span>
+    <p class="formula-note">N is the number of historical observations and T is the forecast horizon.</p>
+  </div>
+  <div class="worked">
+    <div class="worked-label">Worked example: Blume formula</div>
+    <p>Over 30 years, an asset has an arithmetic average of 12% and a geometric average of 10%.</p>
+    <p>For a five-year forecast: [(30 - 5) / 29] x 12% + [(5 - 1) / 29] x 10% = 11.72%.</p>
+    <p>For a ten-year forecast: [(30 - 10) / 29] x 12% + [(10 - 1) / 29] x 10% = 11.38%.</p>
+    <p>For a twenty-year forecast: [(30 - 20) / 29] x 12% + [(20 - 1) / 29] x 10% = 10.69%.</p>
+    <p>The longer the forecast horizon, the more the estimate moves toward the geometric average.</p>
+  </div>
 </div>
 
 <div class="section" id="s3">
-  <div class="section-num">Part 03</div>
-  <h2>Holding-Period Return</h2>
-  <p>Holding-period return combines income received during the period with the capital gain or loss on the asset. This is useful for both shares and bonds because it links prices, income, and realised performance into one measure.</p>
+  <div class="section-num">03</div>
+  <h2>Risk Premium</h2>
+  <p>The risk premium is the extra return earned, or required, for holding a risky asset instead of a safer benchmark. The lecture uses Treasury bills as the practical proxy for a risk-free return, while also noting that truly risk-free investments are an idealisation.</p>
+  <div class="formula-box">
+    <div class="formula-title">Risk premium</div>
+    <span class="formula">Risk premium = return on risky asset - risk-free return</span>
+    <span class="formula">Expected risk premium = E(R risky) - Rf</span>
+    <p class="formula-note">A higher average premium is not automatically a free gain. It normally reflects compensation for bearing greater risk.</p>
+  </div>
+  <div class="worked">
+    <div class="worked-label">Worked example: five-year equity premium</div>
+    <p>Seminar 8 gives stock-market returns of 31.29%, 23.43%, 23.56%, -10.89%, and -10.97%. Treasury bill returns are 5.26%, 4.86%, 4.68%, 5.89%, and 3.83%.</p>
+    <table class="compare-table">
+      <tr><th>Year</th><th>Stock return</th><th>T-bill return</th><th>Risk premium</th></tr>
+      <tr><td>1</td><td>31.29%</td><td>5.26%</td><td>26.03%</td></tr>
+      <tr><td>2</td><td>23.43%</td><td>4.86%</td><td>18.57%</td></tr>
+      <tr><td>3</td><td>23.56%</td><td>4.68%</td><td>18.88%</td></tr>
+      <tr><td>4</td><td>-10.89%</td><td>5.89%</td><td>-16.78%</td></tr>
+      <tr><td>5</td><td>-10.97%</td><td>3.83%</td><td>-14.80%</td></tr>
+    </table>
+    <p>The average risk premium is (26.03 + 18.57 + 18.88 - 16.78 - 14.80) / 5 = 6.38%.</p>
+  </div>
+  <div class="eval-box">
+    <div class="eval-label">Interpretation</div>
+    <p>Risk premia are about compensation, not guaranteed reward. A risky asset can have a positive average premium and still have bad individual years. That is why the next step is measuring dispersion around the average.</p>
+  </div>
 </div>
 
 <div class="section" id="s4">
-  <div class="section-num">Part 04</div>
-  <h2>Preference Shares as Hybrids</h2>
-  <p>Preference shares are hybrid claims because they usually have priority over ordinary equity in dividends but still do not look exactly like debt. The better answer explains both the fixed-income flavour and the equity-like residual character.</p>
+  <div class="section-num">04</div>
+  <h2>Measuring Past Risk: Variance and Standard Deviation</h2>
+  <p>In this lecture, risk is measured as variability of returns. This is broader than the chance of losing money. A return can be risky because it is far above or far below the average. Standard deviation tells us how much returns typically deviate from their mean.</p>
+  <div class="formula-box">
+    <div class="formula-title">Risk statistics</div>
+    <span class="formula">Variance = sum of squared deviations / (n - 1) for a sample</span>
+    <span class="formula">Standard deviation = square root of variance</span>
+    <p class="formula-note">The slides use the sample version for historical annual returns, dividing by n - 1.</p>
+  </div>
+  <div class="worked">
+    <div class="worked-label">Worked example: historical standard deviation</div>
+    <p>Using annual returns of 31.29%, 23.43%, 23.56%, -10.89%, and -10.97%, the arithmetic average is 11.28%.</p>
+    <table class="compare-table">
+      <tr><th>Return</th><th>Deviation from 11.28%</th><th>Squared deviation</th></tr>
+      <tr><td>31.29%</td><td>20.01</td><td>400.40</td></tr>
+      <tr><td>23.43%</td><td>12.15</td><td>147.62</td></tr>
+      <tr><td>23.56%</td><td>12.28</td><td>150.80</td></tr>
+      <tr><td>-10.89%</td><td>-22.17</td><td>491.51</td></tr>
+      <tr><td>-10.97%</td><td>-22.25</td><td>495.06</td></tr>
+    </table>
+    <p>Total squared deviations are 1685.39. Sample variance is 1685.39 / 4 = 421.35. Standard deviation is the square root, 20.53%.</p>
+  </div>
+  <div class="defn">
+    <div class="defn-label">Normal distribution interpretation</div>
+    <p>If returns are approximately normally distributed, about 68% of outcomes lie within one standard deviation of the mean. With mean 11.28% and standard deviation 20.53%, that interval is about -9.25% to 31.81%.</p>
+  </div>
 </div>
 
 <div class="section" id="s5">
-  <div class="section-num">Part 05</div>
-  <h2>Risk Does Not Mean Loss Only</h2>
-  <p>Risk in finance is broader than the chance of disaster. It includes variability around expected outcomes. That is why standard deviation and scenario-based reasoning matter.</p>
+  <div class="section-num">05</div>
+  <h2>Expected Return and Scenario Risk</h2>
+  <p>Historical statistics use realised past returns. Scenario analysis looks forward. It lists possible future states, assigns probabilities, and calculates the expected return as a probability-weighted average. Risk is then measured by how widely the possible returns are spread around that expected return.</p>
+  <div class="formula-box">
+    <div class="formula-title">Expected return and risk</div>
+    <span class="formula">E(R) = sum of [probability of state i x return in state i]</span>
+    <span class="formula">Variance = sum of [probability of state i x (Ri - E(R))^2]</span>
+    <span class="formula">Standard deviation = square root of variance</span>
+  </div>
+  <div class="worked">
+    <div class="worked-label">Worked example: Learning Tower of Pita</div>
+    <p>The share sells today for $80. Three states are equally likely. In a boom, dividend is $5 and price is $195. In a normal economy, dividend is $2 and price is $100. In recession, both are zero.</p>
+    <table class="compare-table">
+      <tr><th>State</th><th>Return calculation</th><th>Return</th></tr>
+      <tr><td>Boom</td><td>[$5 + ($195 - $80)] / $80</td><td>150.00%</td></tr>
+      <tr><td>Normal</td><td>[$2 + ($100 - $80)] / $80</td><td>27.50%</td></tr>
+      <tr><td>Recession</td><td>[$0 + ($0 - $80)] / $80</td><td>-100.00%</td></tr>
+    </table>
+    <p>Expected return = (150.00% + 27.50% - 100.00%) / 3 = 25.83%.</p>
+    <p>Standard deviation = 102.07%. The expected return is high, but the downside is severe because the recession payoff is a total loss.</p>
+  </div>
+  <div class="worked">
+    <div class="worked-label">Worked example: stocks versus bonds</div>
+    <p>With recession probability 0.20, normal probability 0.60, and boom probability 0.20, stock returns are -5%, 15%, and 25%. Bond returns are 14%, 8%, and 4%.</p>
+    <p>Expected stock return = 0.20(-5%) + 0.60(15%) + 0.20(25%) = 13.00%. Stock standard deviation is about 9.80%.</p>
+    <p>Expected bond return = 0.20(14%) + 0.60(8%) + 0.20(4%) = 8.40%. Bond standard deviation is about 3.20%.</p>
+    <p>A risk-averse investor may prefer bonds because they offer lower volatility. A more risk-tolerant investor may prefer stocks because the expected return is higher.</p>
+  </div>
 </div>
 
 <div class="section" id="s6">
-  <div class="section-num">Part 06</div>
-  <h2>Exam Logic</h2>
-  <p>Do not confuse required return, realised return, and yield. The stronger answer always states which one is being discussed and why.</p>
+  <div class="section-num">06</div>
+  <h2>Risk Attitudes and Downside Risk</h2>
+  <p>The lecture distinguishes three basic risk attitudes. A <strong>risk-averse</strong> investor dislikes risk and requires compensation for bearing it. A <strong>risk-neutral</strong> investor cares only about expected return. A <strong>risk-seeking</strong> investor is willing to accept extra volatility for its own sake or strongly values upside exposure.</p>
+  <table class="compare-table">
+    <tr><th>Investor type</th><th>Decision rule</th><th>Example implication</th></tr>
+    <tr><td>Risk averse</td><td>Needs higher expected return to accept higher risk.</td><td>May choose bonds over stocks if the extra stock return is not enough.</td></tr>
+    <tr><td>Risk neutral</td><td>Ranks investments only by expected return.</td><td>Chooses the highest expected return regardless of dispersion.</td></tr>
+    <tr><td>Risk seeker</td><td>Actively accepts or prefers more volatile payoffs.</td><td>May choose a higher-risk share with only a small expected-return advantage.</td></tr>
+  </table>
+  <div class="eval-box">
+    <div class="eval-label">Downside risk</div>
+    <p>Variance and standard deviation treat upside and downside deviations symmetrically. In practice, many investors care more about bad outcomes, such as returns below zero or below a target benchmark. Downside standard deviation, or semi-deviation, focuses on volatility below the chosen benchmark.</p>
+  </div>
+  <div class="defn">
+    <div class="defn-label">Exam phrasing</div>
+    <p>Do not say risk means loss only. The standard lecture measure is dispersion. Then, if relevant, add that downside risk measures are useful because real investors often care more about negative deviations than positive surprises.</p>
+  </div>
 </div>
 
-<div class="eval-box"><div class="eval-label">Seminar angle</div><p>Seminar 8 is strong on returns arithmetic: bid-ask spread, dividend yield, capital gains yield, risk premium, and bond holding-period return.</p></div>
-<div class="mistake-box"><div class="mistake-label">Common mistake</div><p>Students often memorise the formula or definition but fail to explain what changes value, what changes risk, and which timing convention the problem is using. In finance, those details usually determine the correct answer.</p></div>
-<div class="exam-q"><div class="exam-q-header"><span>Assessment-style prompt</span><span class="exam-q-marks">10 marks</span></div><div class="exam-q-body"><p class="q">Explain the financial logic behind risk, return and preference shares and show how it would affect a decision faced by a manager, investor, or household.</p><p>Start with a precise definition, then explain the mechanism step by step. If a calculation is relevant, state which formula or convention should be used and why.</p></div></div>
+<div class="section" id="s7">
+  <div class="section-num">07</div>
+  <h2>Preference Shares as Hybrids</h2>
+  <p>Preference shares sit between ordinary shares and debt. They are legally part of shareholders' funds, but economically they have debt-like features: a fixed or pre-set dividend claim and priority over ordinary shareholders. They are not the same as bonds because the dividend can normally be skipped without triggering the same legal default process as unpaid interest.</p>
+  <table class="compare-table">
+    <tr><th>Feature</th><th>Debt</th><th>Preference shares</th><th>Ordinary shares</th></tr>
+    <tr><td>Income</td><td>Fixed interest coupon.</td><td>Usually fixed dividend.</td><td>Variable dividend, if declared.</td></tr>
+    <tr><td>Payment obligation</td><td>Contractual obligation.</td><td>Directors can normally decide not to pay.</td><td>No fixed obligation.</td></tr>
+    <tr><td>Priority</td><td>Paid before shareholders.</td><td>Paid before ordinary shareholders but after debtholders.</td><td>Lowest priority.</td></tr>
+    <tr><td>Upside</td><td>Limited to promised interest and principal.</td><td>Usually limited; does not normally share in exceptional growth.</td><td>High upside if the firm performs well.</td></tr>
+    <tr><td>Voting rights</td><td>No shareholder voting rights.</td><td>Usually no voting rights.</td><td>Usually voting rights.</td></tr>
+  </table>
+  <div class="defn">
+    <div class="defn-label">Core definition</div>
+    <p>A preference share is a hybrid because it is equity in legal classification but has fixed-income features in its dividend and priority structure.</p>
+  </div>
+  <div class="eval-box">
+    <div class="eval-label">Firm perspective</div>
+    <p>Preference shares may be useful when a firm wants to raise equity-like finance without giving ordinary voting control away. The trade-off is that fixed preference dividends can make ordinary shareholders' residual claim more sensitive to weak profits.</p>
+  </div>
+</div>
+
+<div class="section" id="s8">
+  <div class="section-num">08</div>
+  <h2>Preference Share Valuation</h2>
+  <p>The simplest preference share valuation treats the fixed dividend as a level perpetuity. If the dividend is expected to continue forever and the required return is constant, value is the annual preference dividend divided by the required return.</p>
+  <div class="formula-box">
+    <div class="formula-title">Irredeemable preference share</div>
+    <span class="formula">P0 = Dp / rp</span>
+    <p class="formula-note">Dp is the fixed annual preference dividend. rp is the required return on preference shares. Use decimals in the calculation.</p>
+  </div>
+  <div class="worked">
+    <div class="worked-label">Worked example: irredeemable preference share</div>
+    <p>A preference share pays a fixed dividend of &pound;7 per year. Investors require 8.75% on this risk class.</p>
+    <p>P0 = &pound;7 / 0.0875 = &pound;80.00.</p>
+    <p>If the required return rises to 10%, the value falls to &pound;7 / 0.10 = &pound;70.00. The price falls because the same fixed dividend is discounted at a higher rate.</p>
+  </div>
+  <div class="formula-box">
+    <div class="formula-title">Redeemable preference share</div>
+    <span class="formula">P0 = Dp/(1 + rp)^1 + Dp/(1 + rp)^2 + ... + (Dp + redemption value)/(1 + rp)^n</span>
+    <p class="formula-note">Redeemable preference shares are valued like a bond-style stream of fixed dividends plus a redemption payment.</p>
+  </div>
+  <div class="worked">
+    <div class="worked-label">Worked example: redeemable preference share</div>
+    <p>A preference share pays &pound;6 per year and will be redeemed for &pound;100 in three years. The required return is 8%.</p>
+    <p>P0 = &pound;6/1.08 + &pound;6/1.08^2 + &pound;106/1.08^3 = &pound;94.85.</p>
+    <p>This is below &pound;100 because the 6% dividend is lower than the required 8% return.</p>
+  </div>
+</div>
+
+<div class="section" id="s9">
+  <div class="section-num">09</div>
+  <h2>Exam Prompts and Model Structures</h2>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Calculation prompt</span><span class="exam-q-marks">6 marks</span></div>
+    <div class="exam-q-body">
+      <p class="q">A share is bought for 120p, pays a 10p dividend, and is sold one year later for 125p. Calculate cash return, holding-period return, dividend yield, and capital gains yield.</p>
+      <div class="answer-label">Model structure</div>
+      <p>Cash return = 10p + 5p = 15p. Holding-period return = 15p / 120p = 12.50%. Dividend yield = 10p / 120p = 8.33%. Capital gains yield = 5p / 120p = 4.17%.</p>
+    </div>
+  </div>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Written prompt</span><span class="exam-q-marks">8 marks</span></div>
+    <div class="exam-q-body">
+      <p class="q">Explain why the risk premium on bonds is normally expected to be lower than the risk premium on ordinary shares.</p>
+      <div class="answer-label">Model structure</div>
+      <p>Define risk premium as return above the risk-free rate. Explain that bonds usually have fixed contractual payments and higher priority in liquidation, while ordinary shareholders receive residual cash flows after other claimants. Equity returns are therefore more sensitive to business performance. Investors normally require a higher expected return for bearing that extra risk.</p>
+    </div>
+  </div>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Preference shares prompt</span><span class="exam-q-marks">10 marks</span></div>
+    <div class="exam-q-body">
+      <p class="q">Why are preference shares described as a hybrid source of finance? Include valuation logic in your answer.</p>
+      <div class="answer-label">Model structure</div>
+      <p>Start by stating that preference shares are legally equity but have debt-like features. They usually pay a fixed dividend, rank ahead of ordinary shares, and usually carry no ordinary voting rights. Unlike debt, dividends can normally be missed without the same default consequences, and preference shareholders rank behind lenders. If irredeemable, value can be modelled as P0 = Dp / rp because the fixed dividend resembles a perpetuity.</p>
+    </div>
+  </div>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Scenario prompt</span><span class="exam-q-marks">12 marks</span></div>
+    <div class="exam-q-body">
+      <p class="q">Given probabilities and state returns for two assets, calculate expected return and standard deviation. Which investment would you prefer?</p>
+      <div class="answer-label">Model structure</div>
+      <p>Calculate E(R) as the probability-weighted average. Calculate each deviation from E(R), square it, multiply by the probability, sum to get variance, and take the square root. The preference answer must depend on risk attitude: risk-averse investors may prefer lower volatility, while risk-tolerant investors may choose higher expected return.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="s10">
+  <div class="section-num">10</div>
+  <h2>Common Mistakes and Grade-Boosting Habits</h2>
+  <div class="mistake-box">
+    <div class="mistake-label">Common mistakes</div>
+    <p>Do not divide by the ending price when calculating holding-period return. The return is measured against the initial investment.</p>
+    <p>Do not confuse cash return with percentage return. A 15p gain means little until it is scaled by the purchase price.</p>
+    <p>Do not treat arithmetic and geometric averages as interchangeable. Arithmetic is the usual forecasting default; geometric is the compound historical return.</p>
+    <p>Do not call a preference dividend an interest payment. It is a dividend, even though it is often fixed.</p>
+    <p>Do not say higher standard deviation is always bad. It is bad for a risk-averse investor unless compensated by enough expected return.</p>
+  </div>
+  <div class="eval-box">
+    <div class="eval-label">What pushes answers up a grade</div>
+    <p>State the timing convention and the denominator before calculating. Label whether a return is expected, realised, arithmetic, geometric, or required. After every numerical answer, add one sentence of interpretation: what the number says about investor reward, risk, or valuation.</p>
+    <p>For preference shares, always explain both sides of the hybrid: fixed-priority features make them debt-like, but discretionary dividends and shareholder classification make them equity-like.</p>
+  </div>
+  <div class="defn">
+    <div class="defn-label">One-line summary</div>
+    <p><strong>Return measures reward, risk measures dispersion, risk premium links the two, and preference shares are valued by discounting their priority dividend claim.</strong></p>
+  </div>
+</div>
+
 <div class="footer">Lecture 8 · Risk, Return and Preference Shares · Finance Fundamentals revision guide</div>
 </div>
 <script>

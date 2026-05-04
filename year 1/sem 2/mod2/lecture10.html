@@ -12,17 +12,18 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .page{position:relative;max-width:860px;margin:0 auto;padding:0 2rem 6rem}.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;font-size:1rem;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s;z-index:10}.back-btn:hover{transform:translateY(-1px);background:var(--bg2)}
 .hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border2);margin-bottom:3rem;position:relative}.hero::before{content:'';position:absolute;top:0;left:-2rem;right:-2rem;bottom:0;background:linear-gradient(180deg,#e5eff2 0%,transparent 100%);z-index:-1}
 .lecture-tag,.meta-chip,.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label,.exam-q-header,.footer,.resource-path{font-family:'DM Mono',monospace}.lecture-tag{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;gap:8px;margin-bottom:1rem}.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent);margin-top:.6rem}
-h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{font-size:3.2rem;line-height:1.1;margin-bottom:1rem}.hero-sub{font-size:16px;color:var(--muted);max-width:660px;margin-bottom:1.5rem}
+h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{font-size:3.2rem;line-height:1.1;margin-bottom:1rem}h2{font-size:1.9rem;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}h3{font-size:1.25rem;margin-top:1.5rem;margin-bottom:.6rem;font-style:italic}.hero-sub{font-size:16px;color:var(--muted);max-width:660px;margin-bottom:1.5rem}
 .meta-row{display:flex;gap:1rem;flex-wrap:wrap}.meta-chip{font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}.chip-topic{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}.chip-exam{background:var(--accent-light);color:var(--accent);border:1px solid #bfd3da}.chip-module{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
 .alert-box{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin-bottom:2.5rem;font-size:13.5px;color:#173f4f}
 .toc{background:var(--surface);border:1px solid var(--border);padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem 2rem}.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase}.toc-title{color:var(--muted);grid-column:1/-1}.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;gap:8px}.toc a::before{content:attr(data-num);color:var(--border2)}
 .section{margin-bottom:3.5rem}.section-num{color:var(--accent);margin-bottom:.4rem}p{margin-bottom:.9rem}ul{padding-left:1.15rem;margin:1rem 0}li{margin-bottom:.45rem}
 .defn{background:var(--gold-light);border:1px solid #dcc888;border-radius:4px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}.defn-label{color:var(--gold);margin-bottom:4px}.defn p{margin-bottom:0;font-size:14.5px}
+.key-terms{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1.25rem 0}.term{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:.75rem 1rem}.term-def{font-size:12.5px;color:var(--muted)}.formula-box{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1rem 1.25rem;margin:1.25rem 0}.formula{display:block;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.02em;background:var(--bg2);border:1px solid var(--border);border-radius:4px;color:var(--accent);padding:.65rem .8rem;margin:.65rem 0}.compare-table{width:100%;border-collapse:collapse;font-size:13.5px;margin:1.25rem 0;border:1px solid var(--border)}.compare-table th{background:var(--bg2);padding:.65rem 1rem;text-align:left;font-weight:500;font-size:12px;font-family:'DM Mono',monospace;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border2)}.compare-table td{padding:.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top}.steps{margin:1.25rem 0}.step{display:flex;gap:1rem;margin-bottom:.75rem}.step-num{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--border2);min-width:28px}.step-content{font-size:14px}
 .eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.mistake-box{background:var(--red-light);border:1px solid var(--red-border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.eval-label{color:var(--teal);margin-bottom:.6rem}.mistake-label{color:var(--red-label);margin-bottom:.6rem}
 .resource-list{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}.resource-list ul{margin:.2rem 0 0 1rem}.resource-path{font-size:11px;color:var(--muted)}
 .exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0}.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between}.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px}.exam-q-body{padding:1.25rem 1.5rem}.exam-q-body .q{font-style:italic;margin-bottom:1rem}
 .footer{text-align:center;font-size:11px;color:var(--border2);padding-top:1rem;border-top:1px solid var(--border)}.page-transition-init{opacity:0;transform:translateY(8px)}.page-transition-ready{opacity:1;transform:none}.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
-@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}@media (max-width:640px){h1{font-size:2.2rem}.toc{grid-template-columns:1fr}.page{padding:0 1.25rem 4rem}}
+@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}@media (max-width:640px){h1{font-size:2.2rem}.toc,.key-terms{grid-template-columns:1fr}.page{padding:0 1.25rem 4rem}}
 
 </style>
 </head>
@@ -39,60 +40,179 @@ h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{f
     <span class="meta-chip chip-module">MAN00026C</span>
   </div>
 </div>
-<div class="alert-box"><strong>Lecture focus:</strong> these notes now include the seminar-style framing needed for problem solving, definitions, and exam explanation rather than only first-pass summary points.</div>
+<div class="alert-box"><strong>Lecture focus:</strong> personal finance applies the module's core tools to household decisions: plan cash flows, control debt, build liquid savings, invest tax-efficiently where suitable, and start retirement saving early because compounding needs time.</div>
 <div class="toc">
   <div class="toc-title">Contents</div>
   <a href="#s1" data-num="01">Why Personal Finance Belongs in the Module</a>
-  <a href="#s2" data-num="02">Budgeting Across Time</a>
-  <a href="#s3" data-num="03">Credit, Saving and Financial Planning</a>
-  <a href="#s4" data-num="04">Present Value in Everyday Decisions</a>
-  <a href="#s5" data-num="05">Risk and Household Decisions</a>
-  <a href="#s6" data-num="06">Module Integration</a>
+  <a href="#s2" data-num="02">Financial Planning and Budgeting</a>
+  <a href="#s3" data-num="03">Borrowing and Debt Management</a>
+  <a href="#s4" data-num="04">Student Loans and Repayments</a>
+  <a href="#s5" data-num="05">Savings, ISAs and Liquidity</a>
+  <a href="#s6" data-num="06">Investing and Retirement</a>
+  <a href="#s7" data-num="07">Common Mistakes</a>
+  <a href="#s8" data-num="08">Exam Practice</a>
 </div>
 <div class="resource-list">
   <div class="defn-label">Tightening sources</div>
-  <ul><li><span class="resource-path">resources/Personal Finance Students.pptx</span></li><li><span class="resource-path">resources/Seminar Questions Excel Practice.xlsx</span></li></ul>
+  <ul><li><span class="resource-path">resources/Personal Finance Students.pptx</span></li><li><span class="resource-path">resources/Seminar Questions Excel Practice.xlsx</span></li><li><span class="resource-path">resources/How to estimate Present values in excel.xlsx</span></li></ul>
 </div>
-<div class="defn"><div class="defn-label">Core finance rule</div><p>Use present value to compare alternatives that involve different timing, different rates, or different repayment structures.</p></div>
+<div class="defn"><div class="defn-label">Core finance rule</div><p>Use time value of money to compare alternatives that involve different timing, rates, risks, taxes, or repayment structures. A personal finance answer is strongest when it links the product to the household objective.</p></div>
+<div class="section">
+  <div class="section-num">Key Definitions</div>
+  <h2>Terms to Know Cold</h2>
+  <div class="key-terms">
+    <div class="term"><div class="term-word">Personal finance</div><div class="term-def">Planning one's own spending, financing and investing to improve financial security over time.</div></div>
+    <div class="term"><div class="term-word">Financial plan</div><div class="term-def">A structured plan covering objectives, budgeting, debt, protection, saving, investing, retirement and review.</div></div>
+    <div class="term"><div class="term-word">Budget</div><div class="term-def">A forward-looking statement of expected income, spending, saving and borrowing needs.</div></div>
+    <div class="term"><div class="term-word">Disposable income</div><div class="term-def">Income available after compulsory deductions such as tax and national insurance.</div></div>
+    <div class="term"><div class="term-word">Liquidity</div><div class="term-def">The ease with which money can be accessed without delay or value loss.</div></div>
+    <div class="term"><div class="term-word">Emergency fund</div><div class="term-def">Cash reserves held for unexpected expenses or income shocks, normally before riskier investing.</div></div>
+    <div class="term"><div class="term-word">APR</div><div class="term-def">Annual percentage rate: the annualised borrowing cost, including interest and relevant charges.</div></div>
+    <div class="term"><div class="term-word">ISA wrapper</div><div class="term-def">A UK tax-efficient savings or investment account where eligible interest, dividends and capital gains are sheltered from tax.</div></div>
+    <div class="term"><div class="term-word">Annuity</div><div class="term-def">A stream of equal cash flows paid at regular intervals, such as monthly pension contributions.</div></div>
+    <div class="term"><div class="term-word">Compound interest</div><div class="term-def">Interest earned on both the original amount and previously accumulated interest.</div></div>
+  </div>
+</div>
 <div class="section" id="s1">
   <div class="section-num">Part 01</div>
   <h2>Why Personal Finance Belongs in the Module</h2>
-  <p>Personal finance uses the same logic as corporate finance: cash flows arrive over time, borrowing is costly, saving earns returns, and decisions should be compared on a value-consistent basis.</p>
+  <p>Personal finance uses the same logic as corporate finance. Cash flows arrive at different dates, borrowing has a price, saving earns a return, risk must be managed, and taxes can change the final value of a decision.</p>
+  <p>The lecture starts with a practical warning: individual insolvency is not rare. The slide deck notes that in June 2025, 10,279 individuals entered insolvency in England and Wales, and in the 12 months ending 30 June 2025 the rate was 24.1 per 10,000 adults. That context explains why planning, debt control and liquidity are not optional extras.</p>
+  <div class="eval-box">
+    <div class="eval-label">Module connection</div>
+    <p>Bond pricing, annuities, present value, risk and return, and CAPM are not only tools for companies. They also help households compare loans, savings accounts, ISA contributions, pension saving and long-term investment risk.</p>
+  </div>
 </div>
 
 <div class="section" id="s2">
   <div class="section-num">Part 02</div>
-  <h2>Budgeting Across Time</h2>
-  <p>Households smooth consumption over time by borrowing, saving, insuring, or investing. That means time value of money is not only a corporate tool; it is a practical way of comparing financial choices across life stages.</p>
+  <h2>Financial Planning and Budgeting</h2>
+  <p>A financial plan starts with objectives. Short-term objectives might include paying rent, avoiding overdrafts and building a cash buffer. Medium-term objectives might include buying a car, funding study, or saving for a deposit. Long-term objectives include retirement income and protection against major shocks.</p>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Set financial objectives.</strong> Make goals measurable: amount, deadline and priority.</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Budget.</strong> Forecast income and classify spending as fixed, variable, discretionary or irregular.</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Manage debt.</strong> Identify high-cost borrowing first and check repayment affordability.</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-content"><strong>Protect assets and income.</strong> Use insurance or cash buffers where a shock would be damaging.</div></div>
+    <div class="step"><div class="step-num">5</div><div class="step-content"><strong>Save, invest and review.</strong> Match account type and risk level to the time horizon, then update the plan when income, rates or objectives change.</div></div>
+  </div>
+  <div class="formula-box">
+    <div class="defn-label">Budget identity</div>
+    <span class="formula">Net cash flow = disposable income - essential spending - discretionary spending - debt repayments - planned saving</span>
+    <p>If net cash flow is negative, the household must cut spending, raise income, use savings, or borrow. If it is positive, the surplus can build liquidity, repay expensive debt, or fund investment.</p>
+  </div>
+  <p>Example: monthly take-home pay is GBP 2,200. Essential costs are GBP 1,150, discretionary spending is GBP 350, minimum debt payments are GBP 180 and planned saving is GBP 250. Net cash flow is GBP 270. That surplus is a margin of safety; without it, a small shock could create borrowing.</p>
 </div>
 
 <div class="section" id="s3">
   <div class="section-num">Part 03</div>
-  <h2>Credit, Saving and Financial Planning</h2>
-  <p>A strong answer links financial planning to interest rates, liquidity needs, and risk tolerance. Good decisions depend not only on maximising return but on matching the product to the objective.</p>
+  <h2>Borrowing and Debt Management</h2>
+  <p>Borrowing brings spending forward, but the price is interest, fees, repayment pressure and reduced future flexibility. The lecture lists common personal borrowing: overdrafts, student loans, mortgages, credit cards and short-term lenders. Mortgages are usually the largest household debt; credit cards and payday loans are often the most dangerous because rates can be very high.</p>
+  <table class="compare-table">
+    <tr><th>Debt type</th><th>Typical use</th><th>Main finance issue</th></tr>
+    <tr><td>Mortgage</td><td>Buying property</td><td>Large principal, long maturity, affordability depends heavily on rates and income stability.</td></tr>
+    <tr><td>Student loan</td><td>Funding higher education</td><td>Repayments are income-contingent, so the headline balance is not the same as normal bank debt.</td></tr>
+    <tr><td>Overdraft</td><td>Short-term cash-flow gap</td><td>Convenient but expensive if persistent; may signal poor budgeting.</td></tr>
+    <tr><td>Credit card</td><td>Purchases and short credit period</td><td>Can provide more than 30 days of credit, but unpaid balances carry high interest and fees.</td></tr>
+    <tr><td>Payday loan</td><td>Very short-term borrowing</td><td>Small principal but extremely high annualised cost; lecture slides cite rates around 1000-1500%.</td></tr>
+  </table>
+  <div class="formula-box">
+    <div class="defn-label">Borrowing cost</div>
+    <span class="formula">Outstanding balance after n periods = initial balance x (1 + period rate)^n - repayments accumulated with interest</span>
+    <span class="formula">Debt-service ratio = required debt repayments / disposable income</span>
+    <p>For affordability, the interest rate is not enough. A loan can have a modest rate but still be unaffordable if repayments are large relative to income.</p>
+  </div>
+  <p>Credit-card example: a GBP 1,000 balance left unpaid for a year at 20% APR, approximated as 20%/12 monthly, grows to about GBP 1,219 before fees. The calculation is GBP 1,000 x (1 + 0.20/12)<sup>12</sup>. That illustrates why paying only minimum amounts can become expensive even when the original purchase was small.</p>
+  <div class="mistake-box">
+    <div class="mistake-label">Common debt mistake</div>
+    <p>Do not rank debt only by balance size. A small high-APR balance can be more urgent than a much larger low-rate or income-contingent balance.</p>
+  </div>
 </div>
 
 <div class="section" id="s4">
   <div class="section-num">Part 04</div>
-  <h2>Present Value in Everyday Decisions</h2>
-  <p>The same logic used for bond pricing and annuities can be applied to mortgages, loans, pension saving, or instalment plans. The stronger answer makes that connection explicit.</p>
+  <h2>Student Loans and Repayments</h2>
+  <p>The student loan material is important because it shows that the legal balance, interest rate and actual economic burden are different concepts. Under the lecture's 2025/26 rules, repayments are 9% of earnings above the threshold, interest is linked to RPI, and the debt is written off after 40 years for the newer system. The old system had a higher threshold and a 30-year write-off.</p>
+  <div class="formula-box">
+    <div class="defn-label">Income-contingent repayment</div>
+    <span class="formula">Annual repayment = 9% x max(0, earnings - repayment threshold)</span>
+    <span class="formula">Closing balance = opening balance x (1 + interest rate) - annual repayment</span>
+  </div>
+  <p>Worked example from the deck: initial student-loan debt is GBP 42,000, starting salary is GBP 30,000, salary grows at 5% per year, the repayment threshold is GBP 25,000, the loan rate is 3%, and payments are annual. In year 1 the repayment is 9% x (30,000 - 25,000) = GBP 450, while interest is GBP 1,260, so the balance initially rises to GBP 42,810.</p>
+  <p>Using the same annual process, the balance is about GBP 36,952 after 15 years. The balance is repaid during year 25, so by year 26 there is no remaining debt under these assumptions. The turning point happens because salary growth makes repayments rise faster than the interest charge.</p>
+  <div class="eval-box">
+    <div class="eval-label">Interpretation</div>
+    <p>For student loans, a higher balance does not automatically mean a higher annual repayment. Repayment depends on income above the threshold. That is why an exam answer should separate <strong>balance outstanding</strong>, <strong>interest accumulation</strong>, <strong>income-contingent repayments</strong> and <strong>write-off rules</strong>.</p>
+  </div>
 </div>
 
 <div class="section" id="s5">
   <div class="section-num">Part 05</div>
-  <h2>Risk and Household Decisions</h2>
-  <p>Individuals also face investment risk, inflation risk, and liquidity risk. Personal finance therefore involves choosing not just how much to save or borrow, but where to place resources and how much uncertainty to accept.</p>
+  <h2>Savings, ISAs and Liquidity</h2>
+  <p>Saving means giving up current consumption to improve future security. The lecture gives three motives: transaction balances for normal spending, precautionary balances for shocks, and speculative balances to take advantage of opportunities or expected asset-price changes.</p>
+  <table class="compare-table">
+    <tr><th>Saving option</th><th>Advantage</th><th>Trade-off</th></tr>
+    <tr><td>Instant access account</td><td>Cash available without penalty</td><td>Usually lower return.</td></tr>
+    <tr><td>Regular saver</td><td>Encourages saving habit</td><td>May restrict monthly deposits or withdrawals.</td></tr>
+    <tr><td>Fixed-rate account</td><td>Often pays a better rate</td><td>Withdrawal before maturity can trigger a penalty.</td></tr>
+    <tr><td>NS&amp;I</td><td>Government-backed savings products</td><td>Returns and access vary by product.</td></tr>
+    <tr><td>Credit union</td><td>Member-owned, often community-based</td><td>Product range may be narrower.</td></tr>
+    <tr><td>Peer-to-peer lending</td><td>Potentially higher return</td><td>Much greater risk and not usually FSCS protected.</td></tr>
+  </table>
+  <p>For UK savers, tax matters. The lecture explains ISAs as wrappers: eligible interest, dividends and capital gains are not taxed inside the account. Types include cash ISAs, stocks and shares ISAs, Lifetime ISAs, Innovative Finance ISAs and Junior ISAs. The slide deck states the annual ISA allowance as GBP 20,000, frozen until 2031, with separate limits such as GBP 4,000 for Lifetime ISAs and GBP 9,000 for Junior ISAs.</p>
+  <div class="formula-box">
+    <div class="defn-label">Future value of annual saving</div>
+    <span class="formula">FV of ordinary annuity = C x [((1 + r)^n - 1) / r]</span>
+    <p>Example: investing GBP 20,000 at the end of each year for 10 years at 4% gives about GBP 240,122. The contribution total is GBP 200,000, so roughly GBP 40,122 is investment growth before considering risk and fees.</p>
+  </div>
+  <p>Lifetime ISA example: saving GBP 4,000 qualifies for a 25% government bonus, so GBP 5,000 enters the account before investment returns. If GBP 5,000 is contributed at the end of each year for 30 years and grows at 4%, the future value is about GBP 280,425. The restrictions matter: it can normally be used for a first home within the rules or accessed for retirement after age 60.</p>
 </div>
 
 <div class="section" id="s6">
   <div class="section-num">Part 06</div>
-  <h2>Module Integration</h2>
-  <p>This final topic is useful because it brings the module full circle: finance fundamentals are not just formulas for markets, but a general framework for making intertemporal decisions well.</p>
+  <h2>Investing and Retirement</h2>
+  <p>Once liquidity needs and expensive debt are under control, longer-term money can be invested. The lecture distinguishes direct investment in asset classes, such as shares and bonds, from pooled investments, such as funds and ETFs. The correct choice depends on time horizon, risk tolerance, diversification, costs and tax treatment.</p>
+  <p>Retirement planning asks two connected questions: how much should be set aside each period, and how should that money be invested? Starting early matters because contributions have more periods to compound. Waiting forces a higher monthly contribution for the same target future value.</p>
+  <div class="formula-box">
+    <div class="defn-label">Retirement contribution formula</div>
+    <span class="formula">Required payment = target FV x r / ((1 + r)^n - 1)</span>
+    <p>Lecture example: target retirement fund is GBP 500,000 in 30 years, interest is 0.085% per month, and contributions are monthly. With n = 360 and r = 0.00085, the required monthly contribution is about GBP 1,188.</p>
+  </div>
+  <div class="formula-box">
+    <div class="defn-label">Present-value comparison</div>
+    <span class="formula">PV = FV / (1 + r)^n</span>
+    <span class="formula">PV of annuity = C x [1 - (1 + r)^-n] / r</span>
+    <p>Use present value when comparing a lump sum today with future payments, instalment plans, pension contributions, or loan repayments. Always match the rate to the payment frequency: monthly payments need a monthly rate.</p>
+  </div>
+  <div class="eval-box">
+    <div class="eval-label">Risk link</div>
+    <p>Households face investment risk, inflation risk, liquidity risk and longevity risk. A young investor may accept more market volatility for long-run growth; a household close to retirement may prioritise stability, liquidity and inflation protection.</p>
+  </div>
 </div>
 
-<div class="eval-box"><div class="eval-label">Seminar angle</div><p>The spreadsheet practice files are useful here because personal finance often becomes clearer when cash-flow comparisons are laid out period by period.</p></div>
-<div class="mistake-box"><div class="mistake-label">Common mistake</div><p>Students often memorise the formula or definition but fail to explain what changes value, what changes risk, and which timing convention the problem is using. In finance, those details usually determine the correct answer.</p></div>
-<div class="exam-q"><div class="exam-q-header"><span>Assessment-style prompt</span><span class="exam-q-marks">10 marks</span></div><div class="exam-q-body"><p class="q">Explain the financial logic behind personal finance and show how it would affect a decision faced by a manager, investor, or household.</p><p>Start with a precise definition, then explain the mechanism step by step. If a calculation is relevant, state which formula or convention should be used and why.</p></div></div>
+<div class="section" id="s7">
+  <div class="section-num">Part 07</div>
+  <h2>Common Mistakes</h2>
+  <div class="mistake-box">
+    <div class="mistake-label">Avoid these in calculations and written answers</div>
+    <p><strong>Mixing time units:</strong> using an annual rate with monthly payments without converting the rate or number of periods.</p>
+    <p><strong>Ignoring tax wrappers:</strong> comparing gross returns when an ISA or pension wrapper changes the after-tax return.</p>
+    <p><strong>Treating all debt alike:</strong> student loans, credit-card balances, overdrafts and mortgages have different repayment rules and risks.</p>
+    <p><strong>Forgetting liquidity:</strong> putting all savings into fixed-term or risky assets leaves no buffer for emergencies.</p>
+    <p><strong>Overstating certainty:</strong> investment returns are expected returns, not guaranteed returns. Fees, inflation and volatility can change outcomes.</p>
+  </div>
+  <div class="eval-box">
+    <div class="eval-label">Seminar angle</div>
+    <p>The spreadsheet practice files are useful here because personal finance becomes clearer when cash-flow comparisons are laid out period by period. For loans, track opening balance, interest, repayment and closing balance. For saving, track contribution, growth and closing value.</p>
+  </div>
+</div>
+
+<div class="section" id="s8">
+  <div class="section-num">Part 08</div>
+  <h2>Exam Practice</h2>
+  <div class="exam-q"><div class="exam-q-header"><span>Assessment-style prompt</span><span class="exam-q-marks">10 marks</span></div><div class="exam-q-body"><p class="q">Explain why personal finance decisions should be evaluated using time value of money, risk and liquidity.</p><p>Define personal finance and financial planning. Then explain budgeting, borrowing costs, saving motives, tax-efficient wrappers and retirement compounding. A strong answer does not just list products; it explains why the correct product depends on objective, horizon, risk tolerance and access needs.</p></div></div>
+  <div class="exam-q"><div class="exam-q-header"><span>Calculation prompt</span><span class="exam-q-marks">8 marks</span></div><div class="exam-q-body"><p class="q">An individual saves GBP 250 at the end of every month for 20 years. The monthly return is 0.3%. Estimate the future value and explain one limitation of the calculation.</p><p>Use FV = C[((1 + r)^n - 1) / r], with C = 250, r = 0.003 and n = 240. The future value is about GBP 91,830. A limitation is that the monthly return is assumed constant; real investments have volatility, fees and inflation risk.</p></div></div>
+  <div class="exam-q"><div class="exam-q-header"><span>Debt prompt</span><span class="exam-q-marks">8 marks</span></div><div class="exam-q-body"><p class="q">A graduate earns GBP 32,000 and has a student loan threshold of GBP 25,000. Calculate the annual repayment and explain why the outstanding balance may still rise.</p><p>Repayment is 9% x (32,000 - 25,000) = GBP 630. The balance may still rise if annual interest added to the loan is greater than the repayment. This is normal for income-contingent loans early in a graduate career.</p></div></div>
+</div>
 <div class="footer">Lecture 10 · Personal Finance · Finance Fundamentals revision guide</div>
 </div>
 <script>

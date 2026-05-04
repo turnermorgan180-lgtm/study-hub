@@ -11,18 +11,19 @@
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;transition:opacity .22s ease,transform .22s ease}
 .page{position:relative;max-width:860px;margin:0 auto;padding:0 2rem 6rem}.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;font-size:1rem;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s;z-index:10}.back-btn:hover{transform:translateY(-1px);background:var(--bg2)}
 .hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border2);margin-bottom:3rem;position:relative}.hero::before{content:'';position:absolute;top:0;left:-2rem;right:-2rem;bottom:0;background:linear-gradient(180deg,#e5eff2 0%,transparent 100%);z-index:-1}
-.lecture-tag,.meta-chip,.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label,.exam-q-header,.footer,.resource-path{font-family:'DM Mono',monospace}.lecture-tag{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;gap:8px;margin-bottom:1rem}.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent);margin-top:.6rem}
-h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{font-size:3.2rem;line-height:1.1;margin-bottom:1rem}.hero-sub{font-size:16px;color:var(--muted);max-width:660px;margin-bottom:1.5rem}
+.lecture-tag,.meta-chip,.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label,.exam-q-header,.footer,.resource-path,.answer-label{font-family:'DM Mono',monospace}.lecture-tag{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;gap:8px;margin-bottom:1rem}.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent);margin-top:.6rem}
+h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{font-size:3.2rem;line-height:1.1;margin-bottom:1rem}h2{font-size:1.9rem;font-weight:600;line-height:1.2;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}h3{font-size:1.25rem;font-weight:600;font-style:italic;margin:1.75rem 0 .6rem}.hero-sub{font-size:16px;color:var(--muted);max-width:660px;margin-bottom:1.5rem}
 .meta-row{display:flex;gap:1rem;flex-wrap:wrap}.meta-chip{font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}.chip-topic{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}.chip-exam{background:var(--accent-light);color:var(--accent);border:1px solid #bfd3da}.chip-module{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
 .alert-box{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin-bottom:2.5rem;font-size:13.5px;color:#173f4f}
-.toc{background:var(--surface);border:1px solid var(--border);padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem 2rem}.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase}.toc-title{color:var(--muted);grid-column:1/-1}.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;gap:8px}.toc a::before{content:attr(data-num);color:var(--border2)}
+.toc{background:var(--surface);border:1px solid var(--border);padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem 2rem}.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label,.answer-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase}.toc-title{color:var(--muted);grid-column:1/-1}.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;gap:8px}.toc a::before{content:attr(data-num);color:var(--border2)}
 .section{margin-bottom:3.5rem}.section-num{color:var(--accent);margin-bottom:.4rem}p{margin-bottom:.9rem}ul{padding-left:1.15rem;margin:1rem 0}li{margin-bottom:.45rem}
 .defn{background:var(--gold-light);border:1px solid #dcc888;border-radius:4px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}.defn-label{color:var(--gold);margin-bottom:4px}.defn p{margin-bottom:0;font-size:14.5px}
 .eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.mistake-box{background:var(--red-light);border:1px solid var(--red-border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.eval-label{color:var(--teal);margin-bottom:.6rem}.mistake-label{color:var(--red-label);margin-bottom:.6rem}
 .resource-list{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}.resource-list ul{margin:.2rem 0 0 1rem}.resource-path{font-size:11px;color:var(--muted)}
-.exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0}.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between}.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px}.exam-q-body{padding:1.25rem 1.5rem}.exam-q-body .q{font-style:italic;margin-bottom:1rem}
+.key-terms{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1.25rem 0}.term{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:.7rem 1rem}.term-word{font-size:1rem;font-weight:600;margin-bottom:2px}.term-def{font-size:12.5px;color:var(--muted);line-height:1.4}.compare-table{width:100%;border-collapse:collapse;font-size:13.5px;margin:1.25rem 0;border:1px solid var(--border);border-radius:4px;overflow:hidden}.compare-table th{background:var(--bg2);padding:.65rem 1rem;text-align:left;font-weight:500;font-size:12px;font-family:'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border2)}.compare-table td{padding:.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top}.compare-table tr:last-child td{border-bottom:none}.compare-table td:first-child{font-weight:500;color:var(--ink);width:170px}.steps{margin:1.25rem 0}.step{display:flex;gap:1rem;margin-bottom:.75rem;align-items:flex-start}.step-num{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--border2);line-height:1.2;min-width:28px;flex-shrink:0}.step-content{font-size:14px;color:var(--text);padding-top:2px}.diagram-box{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.diagram-label{color:var(--muted);margin-bottom:.75rem}.answer-label{color:var(--teal);margin-bottom:.4rem}.formula{font-family:'DM Mono',monospace;background:#fcfaf6;border:1px solid var(--border);border-radius:3px;padding:.85rem 1rem;margin:1rem 0;color:var(--ink);font-size:13px}
+.exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0}.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between}.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px}.exam-q-body{padding:1.25rem 1.5rem}.exam-q-body .q{font-style:italic;margin-bottom:1rem;color:var(--ink)}
 .footer{text-align:center;font-size:11px;color:var(--border2);padding-top:1rem;border-top:1px solid var(--border)}.page-transition-init{opacity:0;transform:translateY(8px)}.page-transition-ready{opacity:1;transform:none}.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
-@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}@media (max-width:640px){h1{font-size:2.2rem}.toc{grid-template-columns:1fr}.page{padding:0 1.25rem 4rem}}
+@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}@media (max-width:640px){h1{font-size:2.2rem}.toc,.key-terms{grid-template-columns:1fr}.page{padding:0 1.25rem 4rem}.compare-table{font-size:12.5px}.compare-table th,.compare-table td{padding:.55rem .65rem}}
 
 </style>
 </head>
@@ -39,60 +40,197 @@ h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{f
     <span class="meta-chip chip-module">MAN00026C</span>
   </div>
 </div>
-<div class="alert-box"><strong>Lecture focus:</strong> these notes now include the seminar-style framing needed for problem solving, definitions, and exam explanation rather than only first-pass summary points.</div>
+<div class="alert-box"><strong>Lecture focus:</strong> know both sides of the week: market institutions explain how capital moves through the economy, while compounding conventions explain how the same investment return is quoted and compared. Seminar 3 then tests whether you can turn those ideas into definitions, true/false reasoning, and short calculations.</div>
 <div class="toc">
   <div class="toc-title">Contents</div>
-  <a href="#s1" data-num="01">What Financial Markets Do</a>
-  <a href="#s2" data-num="02">Primary and Secondary Markets</a>
-  <a href="#s3" data-num="03">Intermediaries, Brokers and Dealers</a>
-  <a href="#s4" data-num="04">Market Mechanics and Clearing</a>
-  <a href="#s5" data-num="05">Short Selling, Margin and Market Orders</a>
-  <a href="#s6" data-num="06">Continuously Compounded Rates</a>
+  <a href="#terms" data-num="00">Key Terms</a>
+  <a href="#s1" data-num="01">Compounding and Effective Rates</a>
+  <a href="#s2" data-num="02">Financial Markets and Direct Finance</a>
+  <a href="#s3" data-num="03">Intermediaries and Indirect Finance</a>
+  <a href="#s4" data-num="04">Market Categories</a>
+  <a href="#s5" data-num="05">Exchanges, Orders and Spreads</a>
+  <a href="#s6" data-num="06">Clearing, Settlement and Margin</a>
+  <a href="#s7" data-num="07">Short Selling and Investment Funds</a>
+  <a href="#s8" data-num="08">Indices and Market Information</a>
+  <a href="#s9" data-num="09">Seminar Calculations</a>
+  <a href="#s10" data-num="10">Exam Prompts and Mistakes</a>
 </div>
 <div class="resource-list">
   <div class="defn-label">Tightening sources</div>
-  <ul><li><span class="resource-path">resources/Week 3 Introduction to Financial Markets.pptx</span></li><li><span class="resource-path">resources/Price History Students.xlsx</span></li><li><span class="resource-path">resources/Price History Sol.xlsx</span></li><li><span class="resource-path">resources/Seminar 3 Questions.docx</span></li></ul>
+  <ul><li><span class="resource-path">resources/Week 3 Introduction to Financial Markets.pptx</span></li><li><span class="resource-path">resources/Seminar 3 Questions.docx</span></li><li><span class="resource-path">resources/Price History Students.xlsx</span></li><li><span class="resource-path">resources/Price History Sol.xlsx</span></li></ul>
 </div>
-<div class="defn"><div class="defn-label">Core finance rule</div><p>The relevant return convention must match the timing convention used in the problem.</p></div>
+<div class="section" id="terms">
+  <div class="section-num">Key Definitions</div>
+  <h2>Terms to Know Cold</h2>
+  <div class="key-terms">
+    <div class="term"><div class="term-word">Financial market</div><div class="term-def">A market where funds move from lender-savers to borrower-spenders through securities or other financial claims.</div></div>
+    <div class="term"><div class="term-word">Security</div><div class="term-def">A financial instrument or claim. It is an asset for the buyer and a liability for the issuer.</div></div>
+    <div class="term"><div class="term-word">Direct finance</div><div class="term-def">Borrowers raise funds directly from savers by selling securities in financial markets.</div></div>
+    <div class="term"><div class="term-word">Indirect finance</div><div class="term-def">Funds pass through a financial intermediary such as a bank, pension fund, insurer, or investment fund.</div></div>
+    <div class="term"><div class="term-word">Primary market</div><div class="term-def">The market for newly issued securities, where the issuer raises new finance.</div></div>
+    <div class="term"><div class="term-word">Secondary market</div><div class="term-def">The market where existing securities are resold between investors.</div></div>
+    <div class="term"><div class="term-word">Broker</div><div class="term-def">An agent who matches buyers and sellers without normally holding inventory.</div></div>
+    <div class="term"><div class="term-word">Dealer</div><div class="term-def">A market participant who buys and sells from inventory and earns the bid-ask spread.</div></div>
+    <div class="term"><div class="term-word">Clearing house</div><div class="term-def">An institution that checks trades, becomes counterparty to each side, and reduces default risk before settlement.</div></div>
+    <div class="term"><div class="term-word">Margin account</div><div class="term-def">A broker account that allows borrowing to buy securities, creating leverage and margin-call risk.</div></div>
+    <div class="term"><div class="term-word">Maintenance margin</div><div class="term-def">The minimum equity percentage that must be maintained in a margin account.</div></div>
+    <div class="term"><div class="term-word">Continuously compounded rate</div><div class="term-def">A rate quoted as if interest is compounded at every instant, using FV = PV x e^(rt).</div></div>
+  </div>
+</div>
+<div class="defn"><div class="defn-label">Core finance rule</div><p>The relevant return convention must match the compounding and cash-flow timing in the problem. A stated annual rate, an effective annual rate, and a continuously compounded rate can describe different accumulations even when the headline percentages look similar.</p></div>
 <div class="section" id="s1">
-  <div class="section-num">Part 01</div>
-  <h2>What Financial Markets Do</h2>
-  <p>Financial markets transfer funds from savers to borrowers, generate tradable prices, and allow risk to be reallocated. A good finance answer treats them as information and funding systems, not just places where securities are bought and sold.</p>
+  <div class="section-num">01</div>
+  <h2>Compounding and Effective Rates</h2>
+  <p>The lecture begins with a simple but examinable point: a quoted annual rate is not automatically the return you actually earn over a year. If a bank quotes 5 percent per year compounded semi-annually, the investor receives 2.5 percent after six months and then earns interest on the new balance for the next six months. That is more than a simple 5 percent annual return.</p>
+  <div class="formula">Effective annual rate = (1 + stated annual rate / m)^m - 1</div>
+  <p>Here, <strong>m</strong> is the number of compounding periods per year. With quarterly payments, m = 4; with monthly compounding, m = 12; with daily compounding, m is normally 365. As m rises, the effective annual rate rises for the same stated annual rate because interest is added to the account more frequently.</p>
+  <table class="compare-table">
+    <tr><th>Rate convention</th><th>Meaning</th><th>Exam use</th></tr>
+    <tr><td>Annual stated rate</td><td>A nominal yearly rate annualised using simple interest. It does not itself include the effect of compounding within the year.</td><td>Convert it before comparing products with different compounding frequencies.</td></tr>
+    <tr><td>Effective annual rate</td><td>The actual one-year percentage growth after compounding is included.</td><td>Use this to compare investments or loans on a like-for-like annual basis.</td></tr>
+    <tr><td>APR</td><td>The total cost of borrowing or investing as a percentage rate, including interest and fees where relevant.</td><td>If there are no additional costs, APR and EAR may coincide; if there are fees, APR captures more than interest alone.</td></tr>
+    <tr><td>Continuous compounding</td><td>The limiting case as compounding becomes infinitely frequent.</td><td>Use FV = PV x e^(rt), PV = FV x e^(-rt), or r = ln(FV/PV) / t.</td></tr>
+  </table>
+  <div class="eval-box"><div class="eval-label">Exam insight</div><p>Do not compare a 13.7 percent annual rate with a 13.5 percent semi-annual rate by looking only at the headline number. Convert both to future values or effective annual rates first.</p></div>
 </div>
 
 <div class="section" id="s2">
-  <div class="section-num">Part 02</div>
-  <h2>Primary and Secondary Markets</h2>
-  <p>Primary markets issue new securities and raise funds for borrowers. Secondary markets trade existing securities and create liquidity. The stronger answer explains that firms mainly raise money in primary markets, but secondary markets matter because they support pricing and investor willingness to hold securities.</p>
+  <div class="section-num">02</div>
+  <h2>Financial Markets and Direct Finance</h2>
+  <p>Financial markets transfer funds from <strong>lender-savers</strong>, who have surplus funds, to <strong>borrower-spenders</strong>, who need funds. Households, companies, and governments can appear on either side. A household might save through shares or pension contributions, but it might also borrow through a mortgage. A government may borrow through bonds while also investing temporary cash balances.</p>
+  <p>In <strong>direct finance</strong>, the borrower obtains funds by selling securities directly to savers in a market. The security is an asset to the saver because it gives a claim to future cash flows; the same security is a liability to the borrower because it creates an obligation.</p>
+  <div class="diagram-box">
+    <div class="diagram-label">Direct finance flow</div>
+    <ul>
+      <li>Savers provide cash to borrowers through the financial market.</li>
+      <li>Borrowers issue financial claims such as shares, bonds, or other securities.</li>
+      <li>The market helps price those claims and lets investors decide whether the expected return compensates for the risk.</li>
+    </ul>
+  </div>
+  <h3>Why markets matter</h3>
+  <p>The slides identify three core economic functions. First, markets provide information about the economy because prices react to expectations about cash flows, interest rates, inflation, and risk. Second, they allow transfer of consumption timing: savers defer consumption today, while borrowers bring future spending forward. Third, they allow risk to be reallocated to investors who are more willing or able to bear it.</p>
 </div>
 
 <div class="section" id="s3">
-  <div class="section-num">Part 03</div>
-  <h2>Intermediaries, Brokers and Dealers</h2>
-  <p>Seminar questions distinguish brokers from dealers and ask about financial intermediaries. Brokers arrange trades for clients. Dealers trade from inventory. Intermediaries such as banks, pension funds, insurers, and investment funds help channel savings and reduce information or transaction costs.</p>
+  <div class="section-num">03</div>
+  <h2>Intermediaries and Indirect Finance</h2>
+  <p>Indirect finance routes funds through financial intermediaries. Intermediaries are important because they reduce transaction costs, pool funds, screen borrowers, monitor risk, transform maturity, and often provide liquidity to savers who do not want to negotiate directly with borrowers.</p>
+  <table class="compare-table">
+    <tr><th>Intermediary</th><th>Main role</th><th>Lecture or seminar angle</th></tr>
+    <tr><td>Building societies</td><td>Mutual institutions offering banking and financial services, especially residential mortgage lending.</td><td>Nationwide is a typical example.</td></tr>
+    <tr><td>Retail banks</td><td>Take deposits, make loans, provide payment services, and intermediate between savers and borrowers.</td><td>Classic indirect finance institution.</td></tr>
+    <tr><td>Investment banks</td><td>Help firms and governments raise finance and arrange deals.</td><td>Important in primary market issuance.</td></tr>
+    <tr><td>Finance houses</td><td>Finance hire purchase, leasing, and other instalment credit.</td><td>Connects markets to household and business credit.</td></tr>
+    <tr><td>Pension funds</td><td>Collect employer and employee contributions and invest to provide retirement income.</td><td>Often hold conservative portfolios because they must meet long-term liabilities.</td></tr>
+    <tr><td>Insurance companies</td><td>Collect premiums, insure against financial hazards, and invest pooled funds.</td><td>Risk pooling plus long-term investment.</td></tr>
+  </table>
+  <h3>Investment pool vehicles</h3>
+  <p>Unit trusts are open-ended funds: units are bought and sold directly from fund managers, and there is no fixed limit on the number of units. Investment trusts are closed-ended companies that issue shares; after launch, investors trade those shares with other investors in the secondary market. Exchange traded funds are pooled vehicles that trade on exchanges like shares and often track an index or sector.</p>
+  <div class="eval-box"><div class="eval-label">Evaluation</div><p>Intermediaries make finance easier, but they also add agency issues, fees, and potential systemic links. A strong answer says why intermediation improves allocation while recognising that it does not remove risk from the system.</p></div>
 </div>
 
 <div class="section" id="s4">
-  <div class="section-num">Part 04</div>
-  <h2>Market Mechanics and Clearing</h2>
-  <p>Clearing houses reduce counterparty risk by standing between trading parties and supporting settlement. This matters because a trade is only useful if buyers can trust that the asset and payment will actually be exchanged.</p>
+  <div class="section-num">04</div>
+  <h2>Market Categories</h2>
+  <p>Financial markets can be classified in several overlapping ways. These categories are useful because they explain who receives the money, how liquid the security is, what kind of risk is being traded, and how the market is organised.</p>
+  <table class="compare-table">
+    <tr><th>Category</th><th>Definition</th><th>Why it matters</th></tr>
+    <tr><td>Primary market</td><td>New issues of securities are sold to initial buyers.</td><td>The issuer raises new funds. Investment banks often assist the sale.</td></tr>
+    <tr><td>Secondary market</td><td>Previously issued securities are resold between investors.</td><td>Creates liquidity, supports price discovery, and makes primary issues more attractive.</td></tr>
+    <tr><td>Exchange</td><td>An organised market with trading facilities and specific regulation.</td><td>Trading is centralised and rules are clearer.</td></tr>
+    <tr><td>Over-the-counter market</td><td>A decentralised market with no single physical trading location.</td><td>Trading is arranged through dealer networks or electronic communication.</td></tr>
+    <tr><td>Money market</td><td>Short-term, marketable, liquid, low-risk debt securities.</td><td>Useful for short-term funding and cash management.</td></tr>
+    <tr><td>Capital market</td><td>Longer-term and generally riskier securities.</td><td>Used for long-term finance and investment.</td></tr>
+  </table>
+  <p>Another classification is by asset type: debt markets, share or equity markets, foreign exchange markets, and derivative markets. Debt markets focus on borrowing and fixed income claims. Equity markets give ownership claims. Foreign exchange markets trade currencies. Derivative markets trade contracts whose value depends on an underlying asset or rate.</p>
+  <div class="mistake-box"><div class="mistake-label">Common mistake</div><p>Do not say secondary markets raise money for the issuing firm. The company receives funds in the primary issue. Secondary markets matter because investors are more willing to buy primary issues when they know they can resell later.</p></div>
 </div>
 
 <div class="section" id="s5">
-  <div class="section-num">Part 05</div>
-  <h2>Short Selling, Margin and Market Orders</h2>
-  <p>This week also introduces basic trading logic: bid and ask prices, spreads, margin accounts, short selling, and maintenance margins. The exam-style move is to define each concept clearly and then explain the risk mechanism.</p>
+  <div class="section-num">05</div>
+  <h2>Exchanges, Orders and Spreads</h2>
+  <p>Stock exchanges are organised markets where governments and companies can raise capital and investors can buy and sell securities. The London Stock Exchange began in the eighteenth century and now operates without a physical trading floor; finance houses are connected electronically and by communication systems. It supports both primary and secondary market activity.</p>
+  <p>The LSE includes the <strong>Main Market</strong>, for companies seeking the official list, and the <strong>Alternative Investment Market</strong>, which is more lightly regulated and designed for smaller or growing companies. Most modern transactions are electronic, and the largest equity market globally is the United States.</p>
+  <table class="compare-table">
+    <tr><th>Trading concept</th><th>Definition</th><th>Interpretation</th></tr>
+    <tr><td>Market order</td><td>An order to buy or sell immediately at current market prices.</td><td>Prioritises speed and execution certainty over price control.</td></tr>
+    <tr><td>Limit order</td><td>An order to buy or sell only at a specified price or better.</td><td>Prioritises price control but may not execute.</td></tr>
+    <tr><td>Bid price</td><td>The price at which a dealer is willing to buy.</td><td>An investor selling immediately receives the bid.</td></tr>
+    <tr><td>Ask price</td><td>The price at which a dealer is willing to sell.</td><td>An investor buying immediately pays the ask.</td></tr>
+    <tr><td>Spread</td><td>The difference between the ask and bid prices.</td><td>Compensates dealers for immediacy, inventory risk, and costs. Competition tends to narrow spreads.</td></tr>
+    <tr><td>Tick size</td><td>The minimum allowed price movement.</td><td>In the UK example from the slides, this is 0.1p.</td></tr>
+  </table>
+  <div class="exam-q"><div class="exam-q-header"><span>Seminar true or false</span><span class="exam-q-marks">Orders</span></div><div class="exam-q-body"><p class="q">An investor who wishes to sell shares immediately should ask for a limit order; the ask price is less than the bid price.</p><div class="answer-label">Answer logic</div><p>Both statements are false. Immediate sale normally uses a market order, not a limit order. The ask price is normally above the bid price; otherwise dealers could not earn a positive spread.</p></div></div>
 </div>
 
 <div class="section" id="s6">
-  <div class="section-num">Part 06</div>
-  <h2>Continuously Compounded Rates</h2>
-  <p>Continuously compounded rates appear because finance often compares different compounding conventions. The important point is not memorising the label, but understanding that quoted conventions can change how returns are expressed while preserving the underlying time-value logic.</p>
+  <div class="section-num">06</div>
+  <h2>Clearing, Settlement and Margin</h2>
+  <p>After a trade is agreed, the exchange clears the trade. A clearing house checks the transaction and acts as counterparty, becoming the buyer to every seller and the seller to every buyer. This reduces counterparty default risk because each trader relies on the clearing system rather than only on the original trading partner.</p>
+  <p>Settlement is the completion of the transaction: securities and cash are transferred. Clearing and settlement are not decorative back-office details; they are what make market prices usable because traders trust that agreed trades will actually complete.</p>
+  <h3>Cash accounts and margin accounts</h3>
+  <p>A cash account works like a normal positive-balance account held with the broker. A margin account allows borrowing from the broker, so the investor can buy more securities than their own cash alone would permit. This creates <strong>leverage</strong>: gains and losses are magnified relative to the investor's own equity.</p>
+  <div class="formula">Margin = investor equity / value of securities</div>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Find security value:</strong> number of shares x share price.</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Find debt owed:</strong> broker loan plus any interest if the question asks for a later date.</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Find investor equity:</strong> security value minus debt owed.</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-content"><strong>Compare with maintenance margin:</strong> if the margin is below the required level, there is a margin call.</div></div>
+  </div>
+  <div class="mistake-box"><div class="mistake-label">Common mistake</div><p>When the question moves to the end of the year, include the interest owed on the broker loan. In Seminar 3, the loan is 4,000 at 8 percent, so the debt becomes 4,320 after one year.</p></div>
 </div>
 
-<div class="eval-box"><div class="eval-label">Seminar angle</div><p>Seminar 3 adds margin calculations, short-selling definitions, and questions on why financial markets are important. Those give practical depth to the lecture material.</p></div>
-<div class="mistake-box"><div class="mistake-label">Common mistake</div><p>Students often memorise the formula or definition but fail to explain what changes value, what changes risk, and which timing convention the problem is using. In finance, those details usually determine the correct answer.</p></div>
-<div class="exam-q"><div class="exam-q-header"><span>Assessment-style prompt</span><span class="exam-q-marks">10 marks</span></div><div class="exam-q-body"><p class="q">Explain the financial logic behind introduction to financial markets and show how it would affect a decision faced by a manager, investor, or household.</p><p>Start with a precise definition, then explain the mechanism step by step. If a calculation is relevant, state which formula or convention should be used and why.</p></div></div>
+<div class="section" id="s7">
+  <div class="section-num">07</div>
+  <h2>Short Selling and Investment Funds</h2>
+  <p>Short selling means borrowing shares, selling them now, and hoping to buy them back later at a lower price before returning them to the lender. The position profits when the share price falls. It loses when the share price rises, and the potential loss can be very large because there is no fixed upper bound on the share price.</p>
+  <p>Hedge funds are investment funds that try to generate positive returns from manager skill rather than simply from general market movements. The slides note that hedge funds are usually open only to wealthy or institutional investors and may use strategies not normally used by conventional funds, including short selling.</p>
+  <table class="compare-table">
+    <tr><th>Position</th><th>Profit when</th><th>Main risk</th></tr>
+    <tr><td>Long position</td><td>The asset price rises.</td><td>The price can fall, with loss limited to the invested amount if no borrowing is used.</td></tr>
+    <tr><td>Short position</td><td>The asset price falls.</td><td>The price can rise, creating potentially very large losses and margin pressure.</td></tr>
+    <tr><td>Leveraged long</td><td>The asset price rises enough to cover borrowing cost.</td><td>Losses are magnified and may trigger a margin call.</td></tr>
+  </table>
+  <div class="eval-box"><div class="eval-label">Evaluation</div><p>Short selling can improve price discovery by allowing negative information to enter prices, but it also increases sensitivity to liquidity, borrowing constraints, and margin requirements. In answers, separate the trading mechanism from the judgement about whether it is socially useful.</p></div>
+</div>
+
+<div class="section" id="s8">
+  <div class="section-num">08</div>
+  <h2>Indices and Market Information</h2>
+  <p>Equity indices summarise movements in groups of shares. They are useful reference points for investors because they convert many individual price changes into a single market signal. The lecture lists FTSE 100, FTSE 250, FTSE 350, FTSE SmallCap, FTSE All-Share, FTSE Fledgling, and FTSE AIM All-Share. Similar roles are played internationally by indices such as the Dow Jones, S&amp;P 500, and Nikkei.</p>
+  <table class="compare-table">
+    <tr><th>Index</th><th>Meaning</th><th>How to use in an answer</th></tr>
+    <tr><td>FTSE 100</td><td>Tracks the largest UK-listed companies by market capitalisation.</td><td>A large-cap benchmark, but not a full picture of every UK listed company.</td></tr>
+    <tr><td>FTSE All-Share</td><td>A broader UK equity index covering a much larger share of listed UK market value.</td><td>Better for discussing the wider listed equity market.</td></tr>
+    <tr><td>FTSE Fledgling</td><td>Contains smaller companies not large enough for the main larger-company indices.</td><td>Useful when discussing smaller listed firms and different liquidity/risk profiles.</td></tr>
+  </table>
+  <p>For graph discussion, move beyond describing up and down movement. Link index changes to likely information: expected earnings, macroeconomic conditions, interest rates, inflation expectations, risk appetite, and shocks such as the Covid period covered by the Seminar 3 FTSE prompt.</p>
+</div>
+
+<div class="section" id="s9">
+  <div class="section-num">09</div>
+  <h2>Seminar Calculations</h2>
+  <h3>Margin account worked structure</h3>
+  <p>Seminar 3 asks about buying 300 shares at 40 dollars each while borrowing 4,000 dollars from the broker at 8 percent. Initial security value is 300 x 40 = 12,000. Initial equity is 12,000 - 4,000 = 8,000. Initial margin is therefore 8,000 / 12,000 = 66.67 percent.</p>
+  <p>If the share price falls to 30 dollars by the end of the year, security value becomes 300 x 30 = 9,000. The loan has grown to 4,000 x 1.08 = 4,320. Equity is 9,000 - 4,320 = 4,680, so margin is 4,680 / 9,000 = 52 percent. Because 52 percent is above the 30 percent maintenance margin, there is no margin call.</p>
+  <h3>Continuously compounded rate</h3>
+  <p>For a deposit of 422.41 growing to 1,000 in 10 years, use the continuous compounding rearrangement:</p>
+  <div class="formula">r = ln(FV / PV) / t = ln(1000 / 422.41) / 10 = approximately 8.62 percent</div>
+  <h3>Semi-annual lease payment logic</h3>
+  <p>If cash flows arrive every six months and the annual discount rate is 9 percent, the six-month rate is 4.5 percent when the problem treats the stated annual rate as proportional. The immediate payment is already at time zero, so it is not discounted. The nine later payments are discounted one half-year, two half-years, and so on.</p>
+  <div class="formula">PV = 101,000 + 101,000/1.045 + 101,000/1.045^2 + ... + 101,000/1.045^9</div>
+  <p>This gives a present value of approximately 835,147.84 dollars.</p>
+</div>
+
+<div class="section" id="s10">
+  <div class="section-num">10</div>
+  <h2>Exam Prompts and Common Mistakes</h2>
+  <div class="exam-q"><div class="exam-q-header"><span>Assessment-style prompt</span><span class="exam-q-marks">8 marks</span></div><div class="exam-q-body"><p class="q">Why are financial markets important?</p><div class="answer-label">Model answer plan</div><p>Define financial markets, then explain capital allocation, price discovery, liquidity, consumption timing, and risk transfer. Add that secondary market liquidity supports primary market funding because investors are more willing to buy new securities when resale is possible.</p></div></div>
+  <div class="exam-q"><div class="exam-q-header"><span>Assessment-style prompt</span><span class="exam-q-marks">10 marks</span></div><div class="exam-q-body"><p class="q">Distinguish direct finance from indirect finance and explain the role of financial intermediaries.</p><div class="answer-label">Model answer plan</div><p>Direct finance involves borrowers selling securities directly to savers. Indirect finance uses institutions such as banks, pension funds, insurers, and investment funds. Explain how intermediaries pool funds, reduce transaction and information costs, transform maturity, monitor risk, and provide liquidity.</p></div></div>
+  <div class="exam-q"><div class="exam-q-header"><span>Assessment-style prompt</span><span class="exam-q-marks">10 marks</span></div><div class="exam-q-body"><p class="q">A stated annual rate is 8 percent compounded quarterly. Explain how to find the effective annual rate and why it differs from 8 percent.</p><div class="answer-label">Model answer plan</div><p>Use EAR = (1 + 0.08/4)^4 - 1. It differs from 8 percent because interest is credited each quarter and later quarters earn interest on earlier interest. The EAR is approximately 8.24 percent.</p></div></div>
+  <div class="eval-box"><div class="eval-label">Evaluation checklist</div><p>For institution questions, connect the definition to a function: liquidity, information, risk sharing, funding, or settlement. For calculation questions, state the timing convention before using the formula. For market-structure questions, separate who receives new money from who trades an existing claim.</p></div>
+  <div class="mistake-box"><div class="mistake-label">Common mistakes</div><p>Do not confuse bid and ask; the dealer buys at the bid and sells at the ask. Do not discount an immediate cash flow. Do not ignore loan interest in margin calculations. Do not treat APR, stated annual rate, EAR, and continuous compounding as interchangeable labels.</p></div>
+</div>
 <div class="footer">Lecture 3 · Introduction to Financial Markets · Finance Fundamentals revision guide</div>
 </div>
 <script>

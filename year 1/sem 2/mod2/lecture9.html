@@ -9,21 +9,26 @@
 :root{--bg:#faf8f4;--bg2:#f2ede4;--surface:#fff;--border:#e8ddd0;--border2:#d4c8b0;--text:#1a1612;--muted:#7a6e5e;--accent:#245b74;--accent-light:#e8f1f4;--gold:#8a6a2a;--gold-light:#f7f0e0;--teal:#1a5c52;--teal-light:#e8f4f1;--red-light:#fdf2f0;--red-border:#f0c4b8;--red-text:#7a2015;--red-label:#c0392b;--ink:#2c2416}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;transition:opacity .22s ease,transform .22s ease}
-.page{position:relative;max-width:860px;margin:0 auto;padding:0 2rem 6rem}.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;font-size:1rem;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s;z-index:10}.back-btn:hover{transform:translateY(-1px);background:var(--bg2)}
+.page{position:relative;max-width:860px;margin:0 auto;padding:0 2rem 6rem}
+.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;font-size:1rem;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s;z-index:10}.back-btn:hover{transform:translateY(-1px);background:var(--bg2)}
 .hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border2);margin-bottom:3rem;position:relative}.hero::before{content:'';position:absolute;top:0;left:-2rem;right:-2rem;bottom:0;background:linear-gradient(180deg,#e5eff2 0%,transparent 100%);z-index:-1}
-.lecture-tag,.meta-chip,.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label,.exam-q-header,.footer,.resource-path{font-family:'DM Mono',monospace}.lecture-tag{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;gap:8px;margin-bottom:1rem}.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent);margin-top:.6rem}
-h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{font-size:3.2rem;line-height:1.1;margin-bottom:1rem}.hero-sub{font-size:16px;color:var(--muted);max-width:660px;margin-bottom:1.5rem}
-.meta-row{display:flex;gap:1rem;flex-wrap:wrap}.meta-chip{font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}.chip-topic{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}.chip-exam{background:var(--accent-light);color:var(--accent);border:1px solid #bfd3da}.chip-module{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
-.alert-box{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin-bottom:2.5rem;font-size:13.5px;color:#173f4f}
-.toc{background:var(--surface);border:1px solid var(--border);padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem 2rem}.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase}.toc-title{color:var(--muted);grid-column:1/-1}.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;gap:8px}.toc a::before{content:attr(data-num);color:var(--border2)}
-.section{margin-bottom:3.5rem}.section-num{color:var(--accent);margin-bottom:.4rem}p{margin-bottom:.9rem}ul{padding-left:1.15rem;margin:1rem 0}li{margin-bottom:.45rem}
-.defn{background:var(--gold-light);border:1px solid #dcc888;border-radius:4px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}.defn-label{color:var(--gold);margin-bottom:4px}.defn p{margin-bottom:0;font-size:14.5px}
-.eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.mistake-box{background:var(--red-light);border:1px solid var(--red-border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.eval-label{color:var(--teal);margin-bottom:.6rem}.mistake-label{color:var(--red-label);margin-bottom:.6rem}
+.lecture-tag,.meta-chip,.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label,.exam-q-header,.footer,.resource-path,.formula-label,.answer-label,.table-label{font-family:'DM Mono',monospace}
+.lecture-tag{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;gap:8px;margin-bottom:1rem}.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent);margin-top:.6rem}
+h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{font-size:3.2rem;line-height:1.1;margin-bottom:1rem}h2{font-size:1.95rem;font-weight:600;line-height:1.2;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}h3{font-size:1.25rem;font-style:italic;margin:1.6rem 0 .6rem}
+.hero-sub{font-size:16px;color:var(--muted);max-width:700px;margin-bottom:1.5rem}.meta-row{display:flex;gap:1rem;flex-wrap:wrap}.meta-chip{font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}.chip-topic{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}.chip-exam{background:var(--accent-light);color:var(--accent);border:1px solid #bfd3da}.chip-module{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
+.alert-box{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin-bottom:2.5rem;font-size:13.5px;color:#173f4f}.alert-box strong{color:var(--accent)}
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem 2rem}.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label,.formula-label,.answer-label,.table-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase}.toc-title{color:var(--muted);grid-column:1/-1}.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;gap:8px;padding:3px 0}.toc a:hover{color:var(--accent)}.toc a::before{content:attr(data-num);color:var(--border2);font-family:'DM Mono',monospace;font-size:10px;min-width:16px}
+.section{margin-bottom:3.5rem;animation:fadeUp .5s ease both}@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}.section-num{color:var(--accent);margin-bottom:.4rem}p{margin-bottom:.9rem}ul{padding-left:1.15rem;margin:1rem 0}li{margin-bottom:.45rem}
+.defn{background:var(--gold-light);border:1px solid #dcc888;border-radius:4px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}.defn-label{color:var(--gold);margin-bottom:4px}.defn p{margin-bottom:0;font-size:14.5px;color:var(--ink)}
+.key-terms{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1.25rem 0}.term{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:.75rem 1rem}.term-word{font-size:1rem;font-weight:600;margin-bottom:2px}.term-def{font-size:12.5px;color:var(--muted);line-height:1.45}
+.formula-box{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin:1.25rem 0}.formula-label{color:var(--accent);margin-bottom:.45rem}.formula{font-family:'DM Mono',monospace;font-size:13px;line-height:1.65;color:var(--ink);background:#fcfaf6;border:1px solid var(--border);border-radius:3px;padding:.7rem .85rem;margin:.55rem 0}.formula-note{font-size:13px;color:var(--muted);margin-bottom:0}
+.steps{margin:1.25rem 0}.step{display:flex;gap:1rem;margin-bottom:.75rem;align-items:flex-start}.step-num{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:700;color:var(--border2);line-height:1.2;min-width:28px;flex-shrink:0}.step-content{font-size:14px;color:var(--text);padding-top:2px}.step-content strong{color:var(--ink)}
+.table-wrap{margin:1.25rem 0;overflow-x:auto}.table-label{color:var(--muted);margin-bottom:.65rem}.calc-table,.compare-table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--surface);border:1px solid var(--border)}.calc-table th,.calc-table td,.compare-table th,.compare-table td{border-bottom:1px solid var(--border);padding:.62rem .8rem;text-align:left;vertical-align:top}.calc-table th,.compare-table th{background:var(--bg2);font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500}.calc-table td.num{text-align:right;font-family:'DM Mono',monospace;font-size:12.5px}.calc-table tr:last-child td,.compare-table tr:last-child td{border-bottom:none}.highlight{background:var(--teal-light);color:var(--teal);font-weight:500}
+.eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.mistake-box{background:var(--red-light);border:1px solid var(--red-border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.eval-label{color:var(--teal);margin-bottom:.6rem}.mistake-label{color:var(--red-label);margin-bottom:.6rem}.eval-box p{color:#1a4a42;font-size:14px}.mistake-box p{color:var(--red-text);font-size:14px}
 .resource-list{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}.resource-list ul{margin:.2rem 0 0 1rem}.resource-path{font-size:11px;color:var(--muted)}
-.exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0}.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between}.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px}.exam-q-body{padding:1.25rem 1.5rem}.exam-q-body .q{font-style:italic;margin-bottom:1rem}
-.footer{text-align:center;font-size:11px;color:var(--border2);padding-top:1rem;border-top:1px solid var(--border)}.page-transition-init{opacity:0;transform:translateY(8px)}.page-transition-ready{opacity:1;transform:none}.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
-@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}@media (max-width:640px){h1{font-size:2.2rem}.toc{grid-template-columns:1fr}.page{padding:0 1.25rem 4rem}}
-
+.exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0}.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center}.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px}.exam-q-body{padding:1.25rem 1.5rem}.exam-q-body .q{font-style:italic;margin-bottom:1rem;color:var(--ink)}.answer-label{color:var(--teal);margin-bottom:.4rem}.exam-q-body p{font-size:14px;margin-bottom:.6rem}
+.footer{text-align:center;font-size:11px;color:var(--border2);letter-spacing:.08em;padding-top:2rem;border-top:1px solid var(--border)}.page-transition-init{opacity:0;transform:translateY(8px)}.page-transition-ready{opacity:1;transform:none}.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
+@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}@media (max-width:640px){h1{font-size:2.2rem}.toc,.key-terms{grid-template-columns:1fr}.page{padding:0 1.25rem 4rem}}
 </style>
 </head>
 <body>
@@ -32,67 +37,253 @@ h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{f
 <div class="hero">
   <div class="lecture-tag">Lecture 9 · Finance Fundamentals · University of York</div>
   <h1>Portfolios, Diversification and CAPM</h1>
-  <p class="hero-sub">Portfolio construction, diversification, systematic versus unsystematic risk, expected return, standard deviation, and the logic of CAPM.</p>
+  <p class="hero-sub">How portfolio weights, covariance, correlation, systematic risk, beta, and the security market line connect risk to required return.</p>
   <div class="meta-row">
-    <span class="meta-chip chip-topic">Finance topic</span>
-    <span class="meta-chip chip-exam">Tightened with seminar material</span>
+    <span class="meta-chip chip-topic">Portfolio theory</span>
+    <span class="meta-chip chip-exam">Calculations + explanation</span>
     <span class="meta-chip chip-module">MAN00026C</span>
   </div>
 </div>
-<div class="alert-box"><strong>Lecture focus:</strong> these notes now include the seminar-style framing needed for problem solving, definitions, and exam explanation rather than only first-pass summary points.</div>
+
+<div class="alert-box"><strong>Lecture focus:</strong> this topic is calculation-heavy, but the marks usually come from method and interpretation. Show how portfolio return is a weighted average, why portfolio risk is not normally a weighted average, and why CAPM rewards only market risk.</div>
+
 <div class="toc">
   <div class="toc-title">Contents</div>
-  <a href="#s1" data-num="01">Why Investors Hold Portfolios</a>
-  <a href="#s2" data-num="02">Diversification</a>
-  <a href="#s3" data-num="03">Two Types of Risk</a>
-  <a href="#s4" data-num="04">Expected Return and Portfolio Risk</a>
-  <a href="#s5" data-num="05">CAPM Logic</a>
-  <a href="#s6" data-num="06">Exam Framing</a>
+  <a href="#terms" data-num="00">Key terms</a>
+  <a href="#s1" data-num="01">Portfolio return</a>
+  <a href="#s2" data-num="02">Portfolio variance and correlation</a>
+  <a href="#s3" data-num="03">Diversification and risk types</a>
+  <a href="#s4" data-num="04">Beta and market risk</a>
+  <a href="#s5" data-num="05">CAPM and the SML</a>
+  <a href="#s6" data-num="06">Portfolio beta</a>
+  <a href="#s7" data-num="07">Worked seminar problems</a>
+  <a href="#s8" data-num="08">Exam prompts and mistakes</a>
 </div>
+
 <div class="resource-list">
-  <div class="defn-label">Tightening sources</div>
-  <ul><li><span class="resource-path">resources/week 9 Portfolios and diversification and CAPM Students.pptx</span></li><li><span class="resource-path">resources/Seminar 9.doc</span></li></ul>
+  <div class="defn-label">Source files used</div>
+  <ul>
+    <li><span class="resource-path">resources/week 9 Portfolios and diversification and CAPM Students.pptx</span></li>
+    <li><span class="resource-path">resources/Seminar 9.doc</span></li>
+    <li><span class="resource-path">seminar9.html</span> for existing worked seminar answer checks</li>
+  </ul>
 </div>
-<div class="defn"><div class="defn-label">Core finance rule</div><p>Expected portfolio return is the weighted average of asset returns; diversification changes risk through covariance, not through arithmetic averaging alone.</p></div>
+
+<div class="section" id="terms">
+  <div class="section-num">Key Definitions</div>
+  <h2>Terms to Know Cold</h2>
+  <div class="key-terms">
+    <div class="term"><div class="term-word">Portfolio</div><div class="term-def">A collection of investments held together. The investor cares about the combined risk and return, not each asset in isolation.</div></div>
+    <div class="term"><div class="term-word">Portfolio weight</div><div class="term-def">The proportion of total funds invested in an asset. Weights normally sum to 1, or 100 percent.</div></div>
+    <div class="term"><div class="term-word">Expected return</div><div class="term-def">The probability-weighted average return across possible states of the economy.</div></div>
+    <div class="term"><div class="term-word">Standard deviation</div><div class="term-def">A measure of total volatility around expected return. For a single asset it captures both market and unique risk.</div></div>
+    <div class="term"><div class="term-word">Covariance</div><div class="term-def">A measure of whether two returns tend to move above or below their means together.</div></div>
+    <div class="term"><div class="term-word">Correlation</div><div class="term-def">A standardised covariance between -1 and +1. It tells you the strength and direction of co-movement.</div></div>
+    <div class="term"><div class="term-word">Unsystematic risk</div><div class="term-def">Firm-specific risk, such as a product recall, strike, fraud, or factory fire. It can largely be diversified away.</div></div>
+    <div class="term"><div class="term-word">Systematic risk</div><div class="term-def">Market-wide risk from macroeconomic shocks, rates, inflation, recession, or financial crises. It cannot be diversified away.</div></div>
+    <div class="term"><div class="term-word">Beta</div><div class="term-def">Sensitivity of a security's return to the market portfolio. It measures systematic risk, not total risk.</div></div>
+    <div class="term"><div class="term-word">CAPM</div><div class="term-def">The model linking expected return to beta: risk-free return plus beta times the market risk premium.</div></div>
+  </div>
+</div>
+
 <div class="section" id="s1">
   <div class="section-num">Part 01</div>
-  <h2>Why Investors Hold Portfolios</h2>
-  <p>Most investors care about portfolio outcomes rather than the risk of one security in isolation. Combining assets can reduce overall risk if returns are not perfectly positively correlated.</p>
+  <h2>Portfolio Return</h2>
+  <div class="defn"><div class="defn-label">Core rule</div><p>The return on a portfolio is the weighted average of the returns on its component assets. This applies state by state and also to expected returns.</p></div>
+  <div class="formula-box">
+    <div class="formula-label">Formula box</div>
+    <div class="formula">R<sub>p</sub> = w<sub>1</sub>R<sub>1</sub> + w<sub>2</sub>R<sub>2</sub> + ... + w<sub>n</sub>R<sub>n</sub><br>E(R<sub>p</sub>) = w<sub>1</sub>E(R<sub>1</sub>) + w<sub>2</sub>E(R<sub>2</sub>) + ... + w<sub>n</sub>E(R<sub>n</sub>)</div>
+    <p class="formula-note">Use the same units throughout. If returns are in percentages, keep every return in percentages; if using decimals, convert all of them.</p>
+  </div>
+  <h3>Lecture example: 75 percent auto stock, 25 percent gold</h3>
+  <div class="table-wrap">
+    <div class="table-label">Scenario returns from the lecture slides</div>
+    <table class="calc-table">
+      <tr><th>State</th><th>Probability</th><th>Auto</th><th>Gold</th><th>Portfolio return</th></tr>
+      <tr><td>Recession</td><td class="num">0.333</td><td class="num">1%</td><td class="num">20%</td><td class="num">0.75(1) + 0.25(20) = 5.75%</td></tr>
+      <tr><td>Normal</td><td class="num">0.333</td><td class="num">3%</td><td class="num">10%</td><td class="num">0.75(3) + 0.25(10) = 4.75%</td></tr>
+      <tr><td>Boom</td><td class="num">0.333</td><td class="num">4%</td><td class="num">-20%</td><td class="num">0.75(4) + 0.25(-20) = -2.00%</td></tr>
+      <tr><td class="highlight">Expected return</td><td></td><td></td><td></td><td class="num highlight">0.333(5.75 + 4.75 - 2.00) = 2.83%</td></tr>
+    </table>
+  </div>
+  <p>You can reach the same expected return by weighting the individual expected returns: 0.75(2.67%) + 0.25(3.33%) = 2.83%. This equality is useful because portfolio expected return is linear in the weights.</p>
 </div>
 
 <div class="section" id="s2">
   <div class="section-num">Part 02</div>
-  <h2>Diversification</h2>
-  <p>Diversification works because asset returns do not move together in exactly the same way. That means firm-specific shocks can offset each other inside a portfolio.</p>
+  <h2>Portfolio Variance and Correlation</h2>
+  <p>Portfolio risk is different. You cannot usually take the weighted average of individual standard deviations because the assets may not move together. The missing piece is covariance, or equivalently correlation.</p>
+  <div class="formula-box">
+    <div class="formula-label">Two-asset variance</div>
+    <div class="formula">&sigma;<sub>p</sub><sup>2</sup> = w<sub>A</sub><sup>2</sup>&sigma;<sub>A</sub><sup>2</sup> + w<sub>B</sub><sup>2</sup>&sigma;<sub>B</sub><sup>2</sup> + 2w<sub>A</sub>w<sub>B</sub>Cov(R<sub>A</sub>,R<sub>B</sub>)<br>Cov(R<sub>A</sub>,R<sub>B</sub>) = &rho;<sub>AB</sub>&sigma;<sub>A</sub>&sigma;<sub>B</sub><br>&sigma;<sub>p</sub> = &radic;&sigma;<sub>p</sub><sup>2</sup></div>
+    <p class="formula-note">The covariance term decides whether assets reinforce each other's volatility or offset it.</p>
+  </div>
+  <table class="compare-table">
+    <tr><th>Correlation</th><th>Meaning</th><th>Diversification effect</th></tr>
+    <tr><td>+1</td><td>Returns move perfectly together.</td><td>No risk reduction from combining assets; deviations reinforce each other.</td></tr>
+    <tr><td>0</td><td>Returns have no linear relationship.</td><td>Some risk reduction, because movements are not coordinated.</td></tr>
+    <tr><td>-1</td><td>Returns move perfectly in opposite directions.</td><td>Maximum risk reduction; in special weight combinations risk can be eliminated.</td></tr>
+  </table>
+  <div class="eval-box"><div class="eval-label">Interpretation</div><p>The lecture slide result is the exam point: as long as correlation is below +1, portfolio standard deviation is below the weighted average of component standard deviations. In the auto/gold example, the weighted average of individual risk is about 5.18%, but the actual portfolio risk is about 3.44% because correlation is strongly negative.</p></div>
 </div>
 
 <div class="section" id="s3">
   <div class="section-num">Part 03</div>
-  <h2>Two Types of Risk</h2>
-  <p>The standard distinction is between unsystematic risk, which can be diversified away, and systematic risk, which cannot. CAPM builds directly on this distinction.</p>
+  <h2>Diversification and Risk Types</h2>
+  <div class="defn"><div class="defn-label">Definition</div><p>Diversification is a strategy designed to reduce risk by spreading a portfolio across many investments whose returns do not move exactly together.</p></div>
+  <p>Diversification reduces total portfolio volatility because bad news affecting one asset can be partly offset by good or neutral news affecting another. The important limit is that not all risk is asset-specific.</p>
+  <table class="compare-table">
+    <tr><th>Risk type</th><th>Also called</th><th>Examples</th><th>Diversifiable?</th></tr>
+    <tr><td>Unsystematic risk</td><td>Unique, firm-specific, idiosyncratic</td><td>Factory fire, bad management, product recall, lawsuit, failed project</td><td>Yes. Holding many unrelated assets can largely remove it.</td></tr>
+    <tr><td>Systematic risk</td><td>Market, non-diversifiable, macro risk</td><td>Inflation shock, recession, rate rise, energy shock, financial crisis</td><td>No. It affects most securities at the same time.</td></tr>
+  </table>
+  <p>The slides note that an investor holding the market portfolio has only market risk. They also cite the practical rule of thumb that around 30 stocks can be sufficient for strong diversification, although the exact number depends on how correlated those stocks are.</p>
+  <div class="mistake-box"><div class="mistake-label">Precise wording</div><p>Do not write "diversification removes risk." It removes or reduces unsystematic risk. A well-diversified investor is still exposed to systematic risk, which is exactly the risk CAPM prices.</p></div>
 </div>
 
 <div class="section" id="s4">
   <div class="section-num">Part 04</div>
-  <h2>Expected Return and Portfolio Risk</h2>
-  <p>Seminar work here is computational. Students calculate portfolio returns under different scenarios, then compute expected return and standard deviation. The better answer explains the interpretation as well as the arithmetic.</p>
+  <h2>Beta and Market Risk</h2>
+  <p>Finance commonly assumes investors are rational and risk averse. If investors can diversify cheaply, they should not require compensation for bearing firm-specific risk. The risk that matters for expected return is therefore exposure to market-wide movements.</p>
+  <div class="formula-box">
+    <div class="formula-label">Beta formula</div>
+    <div class="formula">&beta;<sub>i</sub> = Cov(R<sub>i</sub>,R<sub>m</sub>) / &sigma;<sub>m</sub><sup>2</sup><br>Equivalently: &beta;<sub>i</sub> = &rho;<sub>i,m</sub>(&sigma;<sub>i</sub> / &sigma;<sub>m</sub>)</div>
+    <p class="formula-note">Beta is the slope in a regression of the security's return on the market return.</p>
+  </div>
+  <table class="compare-table">
+    <tr><th>Beta</th><th>Name</th><th>Meaning</th></tr>
+    <tr><td>&beta; = 0</td><td>Risk-free style exposure</td><td>No sensitivity to market movements; expected return should be the risk-free rate in CAPM.</td></tr>
+    <tr><td>0 &lt; &beta; &lt; 1</td><td>Defensive</td><td>Moves in the same direction as the market but less strongly.</td></tr>
+    <tr><td>&beta; = 1</td><td>Market risk</td><td>Same systematic risk as the market portfolio.</td></tr>
+    <tr><td>&beta; &gt; 1</td><td>Aggressive</td><td>More sensitive than the market; tends to amplify market movements.</td></tr>
+    <tr><td>&beta; &lt; 0</td><td>Counter-market</td><td>Tends to move against the market; uncommon but possible for hedging assets.</td></tr>
+  </table>
+  <div class="eval-box"><div class="eval-label">Lecture intuition</div><p>If a stock has beta 1.5 and the market rises by 1%, the stock is expected to rise by about 1.5% because of its market sensitivity. If the market falls by 1%, it is expected to fall by about 1.5%. This is about average sensitivity, not a guarantee in every period.</p></div>
 </div>
 
 <div class="section" id="s5">
   <div class="section-num">Part 05</div>
-  <h2>CAPM Logic</h2>
-  <p>CAPM says expected return depends on systematic risk, often captured by beta. The logic is that markets do not reward investors for bearing risk that could have been diversified away.</p>
+  <h2>CAPM and the Security Market Line</h2>
+  <div class="defn"><div class="defn-label">Definition</div><p>The Capital Asset Pricing Model states that the expected return on a security equals the risk-free rate plus beta multiplied by the market risk premium.</p></div>
+  <div class="formula-box">
+    <div class="formula-label">CAPM</div>
+    <div class="formula">E(R<sub>i</sub>) = R<sub>f</sub> + &beta;<sub>i</sub>[E(R<sub>m</sub>) - R<sub>f</sub>]</div>
+    <p class="formula-note">The term [E(Rm) - Rf] is the market risk premium: the extra return investors require for holding the market portfolio instead of the risk-free asset.</p>
+  </div>
+  <h3>Worked CAPM example</h3>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Seminar-style calculation</span><span class="exam-q-marks">CAPM</span></div>
+    <div class="exam-q-body">
+      <p class="q">Risk-free rate = 7%, expected market return = 17%, beta = 1.3. What is the expected return?</p>
+      <div class="answer-label">Model answer</div>
+      <p>Market risk premium = 17% - 7% = 10%.</p>
+      <p>E(R) = 7% + 1.3(10%) = 20%.</p>
+      <p>If another share has expected return 25%, then 25% = 7% + beta(10%), so beta = (25% - 7%) / 10% = 1.8.</p>
+    </div>
+  </div>
+  <p>The Security Market Line plots expected return against beta. A fairly priced asset lies on the line. An asset above the line offers too much expected return for its beta and is underpriced. An asset below the line offers too little expected return for its beta and is overpriced.</p>
 </div>
 
 <div class="section" id="s6">
   <div class="section-num">Part 06</div>
-  <h2>Exam Framing</h2>
-  <p>Do not say diversification removes all risk. The stronger answer says diversification lowers idiosyncratic risk but leaves market-wide risk in place.</p>
+  <h2>Portfolio Beta</h2>
+  <p>Portfolio beta is simpler than portfolio standard deviation because beta is a linear covariance-based measure with the market. You can take the weighted average of asset betas.</p>
+  <div class="formula-box">
+    <div class="formula-label">Portfolio beta</div>
+    <div class="formula">&beta;<sub>p</sub> = w<sub>1</sub>&beta;<sub>1</sub> + w<sub>2</sub>&beta;<sub>2</sub> + ... + w<sub>n</sub>&beta;<sub>n</sub></div>
+    <p class="formula-note">This does not contradict the portfolio variance rule. Standard deviation depends on covariance between component assets; beta depends on covariance with the market and aggregates linearly.</p>
+  </div>
+  <h3>Worked portfolio beta example</h3>
+  <p>Share A has beta 1.3 and Share B has beta 0.9. A portfolio invests 30% in A and 70% in B.</p>
+  <div class="formula-box">
+    <div class="formula-label">Calculation</div>
+    <div class="formula">&beta;<sub>p</sub> = 0.30(1.3) + 0.70(0.9) = 1.02<br>If R<sub>f</sub> = 0.5% and market risk premium = 4%, E(R<sub>p</sub>) = 0.5% + 1.02(4%) = 4.58%</div>
+  </div>
+  <p>Because the portfolio beta is slightly above 1, the portfolio has slightly more systematic risk than the market. It should therefore have a slightly higher expected return than an asset with beta exactly 1 only if the market risk premium is positive.</p>
 </div>
 
-<div class="eval-box"><div class="eval-label">Seminar angle</div><p>Seminar 9 is central because it translates diversification into scenario analysis and helps make the systematic/unsystematic split concrete.</p></div>
-<div class="mistake-box"><div class="mistake-label">Common mistake</div><p>Students often memorise the formula or definition but fail to explain what changes value, what changes risk, and which timing convention the problem is using. In finance, those details usually determine the correct answer.</p></div>
-<div class="exam-q"><div class="exam-q-header"><span>Assessment-style prompt</span><span class="exam-q-marks">10 marks</span></div><div class="exam-q-body"><p class="q">Explain the financial logic behind portfolios, diversification and capm and show how it would affect a decision faced by a manager, investor, or household.</p><p>Start with a precise definition, then explain the mechanism step by step. If a calculation is relevant, state which formula or convention should be used and why.</p></div></div>
+<div class="section" id="s7">
+  <div class="section-num">Part 07</div>
+  <h2>Worked Seminar Problems</h2>
+  <h3>Stocks and bonds portfolio</h3>
+  <div class="table-wrap">
+    <div class="table-label">60% stocks and 40% bonds</div>
+    <table class="calc-table">
+      <tr><th>State</th><th>Probability</th><th>Stocks</th><th>Bonds</th><th>Portfolio return</th></tr>
+      <tr><td>Recession</td><td class="num">0.20</td><td class="num">-5%</td><td class="num">14%</td><td class="num">0.6(-5) + 0.4(14) = 2.6%</td></tr>
+      <tr><td>Normal economy</td><td class="num">0.60</td><td class="num">15%</td><td class="num">8%</td><td class="num">0.6(15) + 0.4(8) = 12.2%</td></tr>
+      <tr><td>Boom</td><td class="num">0.20</td><td class="num">25%</td><td class="num">4%</td><td class="num">0.6(25) + 0.4(4) = 16.6%</td></tr>
+      <tr><td class="highlight">Expected return</td><td></td><td></td><td></td><td class="num highlight">11.16%</td></tr>
+    </table>
+  </div>
+  <div class="formula-box">
+    <div class="formula-label">Standard deviation method</div>
+    <div class="formula">&sigma;<sub>p</sub><sup>2</sup> = 0.20(2.6 - 11.16)<sup>2</sup> + 0.60(12.2 - 11.16)<sup>2</sup> + 0.20(16.6 - 11.16)<sup>2</sup> = 21.25<br>&sigma;<sub>p</sub> = &radic;21.25 = 4.61%</div>
+  </div>
+  <p>The portfolio is less risky than stocks alone and offers a higher expected return than bonds alone. Preference still depends on risk aversion: a very risk-averse investor may prefer bonds, while an investor willing to bear more volatility may prefer stocks.</p>
+
+  <h3>Two-stock portfolio with negative correlation</h3>
+  <div class="table-wrap">
+    <div class="table-label">Seminar 9: XYZ and HGJ</div>
+    <table class="calc-table">
+      <tr><th>Measure</th><th>XYZ</th><th>HGJ</th><th>50/50 portfolio</th></tr>
+      <tr><td>Expected return</td><td class="num">3.80%</td><td class="num">6.92%</td><td class="num">5.36%</td></tr>
+      <tr><td>Standard deviation</td><td class="num">6.37%</td><td class="num">9.06%</td><td class="num">2.19%</td></tr>
+      <tr><td>Correlation</td><td class="num" colspan="3">XYZ/HGJ correlation = -0.89643</td></tr>
+    </table>
+  </div>
+  <p>The 50/50 portfolio's expected return is exactly the average of the two expected returns. Its standard deviation is not the average of 6.37% and 9.06%, because the two shares move in strongly opposite directions. That negative correlation creates a major diversification benefit.</p>
+
+  <h3>Beta from correlation and standard deviation</h3>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Seminar-style calculation</span><span class="exam-q-marks">Beta</span></div>
+    <div class="exam-q-body">
+      <p class="q">Security A has standard deviation 9.80%, correlation with the market 0.8, and the market standard deviation is 10%. Security B has standard deviation 12% and correlation with the market 0.2. What are their betas?</p>
+      <div class="answer-label">Model answer</div>
+      <p>Beta A = 0.8(9.80 / 10) = 0.784.</p>
+      <p>Beta B = 0.2(12 / 10) = 0.24.</p>
+      <p>For a 70% A and 30% B portfolio, beta = 0.70(0.784) + 0.30(0.24) = 0.621.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="s8">
+  <div class="section-num">Part 08</div>
+  <h2>Exam Prompts and Common Mistakes</h2>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Assessment-style prompt</span><span class="exam-q-marks">8 marks</span></div>
+    <div class="exam-q-body">
+      <p class="q">Explain why diversification reduces portfolio risk but does not remove all risk.</p>
+      <div class="answer-label">Answer structure</div>
+      <p>Define diversification. Explain correlation below +1 and offsetting returns. Distinguish unsystematic risk from systematic risk. Finish by linking CAPM: only systematic risk is priced because diversified investors can remove unique risk.</p>
+    </div>
+  </div>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Calculation prompt</span><span class="exam-q-marks">10 marks</span></div>
+    <div class="exam-q-body">
+      <p class="q">Given state probabilities and asset returns, calculate portfolio returns in each state, expected portfolio return, and standard deviation.</p>
+      <div class="answer-label">Method checklist</div>
+      <p>First calculate the portfolio return in each state using weights. Then probability-weight those state returns for E(Rp). Then calculate squared deviations from E(Rp), multiply by probabilities, sum for variance, and square root for standard deviation.</p>
+    </div>
+  </div>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>CAPM prompt</span><span class="exam-q-marks">6 marks</span></div>
+    <div class="exam-q-body">
+      <p class="q">A share has beta 1.2, the expected market return is 5%, and the risk-free rate is 0.5%. Calculate the expected return and interpret the beta.</p>
+      <div class="answer-label">Model answer</div>
+      <p>E(R) = 0.5% + 1.2(5% - 0.5%) = 5.9%. Beta 1.2 means the share has 20% more systematic risk than the market portfolio, so it requires a higher expected return than the market risk premium alone would imply for beta 1.</p>
+    </div>
+  </div>
+
+  <div class="mistake-box"><div class="mistake-label">Mistake 1 — averaging standard deviations</div><p>Expected returns and betas are weighted averages. Standard deviations are not, unless assets are perfectly positively correlated. Always include covariance or compute variance from state returns.</p></div>
+  <div class="mistake-box"><div class="mistake-label">Mistake 2 — mixing decimals and percentages</div><p>Do not combine 0.07 with 17 in the same CAPM calculation. Use either 7% and 17%, or 0.07 and 0.17 consistently.</p></div>
+  <div class="mistake-box"><div class="mistake-label">Mistake 3 — calling beta total risk</div><p>Beta measures systematic risk only. A company can have high firm-specific volatility but a low beta if that volatility is mostly unrelated to market movements.</p></div>
+  <div class="mistake-box"><div class="mistake-label">Mistake 4 — saying high beta is always bad</div><p>High beta means higher exposure to market movements. It increases downside in market falls, but in CAPM it also commands a higher expected return when the market risk premium is positive.</p></div>
+  <div class="mistake-box"><div class="mistake-label">Mistake 5 — misreading the Security Market Line</div><p>Above the SML means underpriced for its beta, because expected return is higher than required return. Below the SML means overpriced for its beta, because expected return is too low.</p></div>
+
+  <div class="eval-box"><div class="eval-label">Final exam habit</div><p>For every calculation, add one interpretation sentence. For example: "The portfolio standard deviation is lower than the weighted average of individual risks because correlation is below +1." That sentence often separates a numerical answer from a finance answer.</p></div>
+</div>
+
 <div class="footer">Lecture 9 · Portfolios, Diversification and CAPM · Finance Fundamentals revision guide</div>
 </div>
 <script>

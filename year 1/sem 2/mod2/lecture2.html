@@ -11,19 +11,24 @@
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;transition:opacity .22s ease,transform .22s ease}
 .page{position:relative;max-width:860px;margin:0 auto;padding:0 2rem 6rem}.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;font-size:1rem;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s;z-index:10}.back-btn:hover{transform:translateY(-1px);background:var(--bg2)}
 .hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border2);margin-bottom:3rem;position:relative}.hero::before{content:'';position:absolute;top:0;left:-2rem;right:-2rem;bottom:0;background:linear-gradient(180deg,#e5eff2 0%,transparent 100%);z-index:-1}
-.lecture-tag,.meta-chip,.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label,.exam-q-header,.footer,.resource-path{font-family:'DM Mono',monospace}.lecture-tag{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;gap:8px;margin-bottom:1rem}.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent);margin-top:.6rem}
-h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{font-size:3.2rem;line-height:1.1;margin-bottom:1rem}.hero-sub{font-size:16px;color:var(--muted);max-width:660px;margin-bottom:1.5rem}
+.lecture-tag,.meta-chip,.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label,.exam-q-header,.footer,.resource-path,.formula-label,.answer-label,.table-label{font-family:'DM Mono',monospace}.lecture-tag{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;gap:8px;margin-bottom:1rem}.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent);margin-top:.6rem}
+h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{font-size:3.2rem;line-height:1.1;margin-bottom:1rem}h2{font-size:1.9rem;font-weight:600;line-height:1.2;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}h3{font-size:1.25rem;font-weight:600;margin-top:1.75rem;margin-bottom:.6rem;font-style:italic}.hero-sub{font-size:16px;color:var(--muted);max-width:700px;margin-bottom:1.5rem}
 .meta-row{display:flex;gap:1rem;flex-wrap:wrap}.meta-chip{font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}.chip-topic{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}.chip-exam{background:var(--accent-light);color:var(--accent);border:1px solid #bfd3da}.chip-module{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
-.alert-box{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin-bottom:2.5rem;font-size:13.5px;color:#173f4f}
-.toc{background:var(--surface);border:1px solid var(--border);padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem 2rem}.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase}.toc-title{color:var(--muted);grid-column:1/-1}.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;gap:8px}.toc a::before{content:attr(data-num);color:var(--border2)}
-.section{margin-bottom:3.5rem}.section-num{color:var(--accent);margin-bottom:.4rem}p{margin-bottom:.9rem}ul{padding-left:1.15rem;margin:1rem 0}li{margin-bottom:.45rem}
-.defn{background:var(--gold-light);border:1px solid #dcc888;border-radius:4px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}.defn-label{color:var(--gold);margin-bottom:4px}.defn p{margin-bottom:0;font-size:14.5px}
-.eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.mistake-box{background:var(--red-light);border:1px solid var(--red-border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.eval-label{color:var(--teal);margin-bottom:.6rem}.mistake-label{color:var(--red-label);margin-bottom:.6rem}
+.alert-box{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin-bottom:2.5rem;font-size:13.5px;color:#173f4f}.alert-box strong{color:var(--accent)}
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem 2rem}.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label,.formula-label,.answer-label,.table-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase}.toc-title{color:var(--muted);grid-column:1/-1;margin-bottom:.5rem}.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;gap:8px;padding:3px 0}.toc a:hover{color:var(--accent)}.toc a::before{content:attr(data-num);font-family:'DM Mono',monospace;font-size:10px;color:var(--border2);min-width:16px}
+.section{margin-bottom:3.5rem;animation:fadeUp .5s ease both}@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}.section-num{color:var(--accent);margin-bottom:.4rem}p{margin-bottom:.9rem}ul{padding-left:1.15rem;margin:1rem 0}li{margin-bottom:.45rem}
+.defn{background:var(--gold-light);border:1px solid #dcc888;border-radius:4px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}.defn-label{color:var(--gold);margin-bottom:4px}.defn p{margin-bottom:0;font-size:14.5px;color:var(--ink)}
+.key-terms{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1.25rem 0}.term{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:.7rem 1rem}.term-word{font-size:1rem;font-weight:600;margin-bottom:2px}.term-def{font-size:12.5px;color:var(--muted);line-height:1.4}
+.formula-box{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.15rem 1.35rem;margin:1.25rem 0}.formula-label{color:var(--accent);margin-bottom:.5rem}.formula{font-family:'DM Mono',monospace;background:var(--bg2);border:1px solid var(--border);border-radius:3px;padding:.7rem .85rem;margin:.65rem 0;font-size:13px;color:var(--ink);overflow-x:auto}.formula-note{font-size:13px;color:var(--muted);margin-bottom:0}
+.working-box{background:#fcfaf6;border:1px solid #dcc888;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.working-box p{font-size:14px}.answer-label{color:var(--teal);margin-bottom:.45rem}
+.eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.mistake-box{background:var(--red-light);border:1px solid var(--red-border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.eval-label{color:var(--teal);margin-bottom:.6rem;display:flex;align-items:center;gap:6px}.eval-label::before{content:'+';font-size:12px}.mistake-label{color:var(--red-label);margin-bottom:.6rem;display:flex;align-items:center;gap:6px}.mistake-label::before{content:'x';font-size:11px}.eval-box p{color:#1a4a42;font-size:14px}.mistake-box p{color:var(--red-text);font-size:14px}
 .resource-list{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}.resource-list ul{margin:.2rem 0 0 1rem}.resource-path{font-size:11px;color:var(--muted)}
-.exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0}.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between}.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px}.exam-q-body{padding:1.25rem 1.5rem}.exam-q-body .q{font-style:italic;margin-bottom:1rem}
-.footer{text-align:center;font-size:11px;color:var(--border2);padding-top:1rem;border-top:1px solid var(--border)}.page-transition-init{opacity:0;transform:translateY(8px)}.page-transition-ready{opacity:1;transform:none}.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
-@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}@media (max-width:640px){h1{font-size:2.2rem}.toc{grid-template-columns:1fr}.page{padding:0 1.25rem 4rem}}
-
+.compare-table{width:100%;border-collapse:collapse;font-size:13.5px;margin:1.25rem 0;border:1px solid var(--border);border-radius:4px;overflow:hidden}.compare-table th{background:var(--bg2);padding:.65rem 1rem;text-align:left;font-weight:500;font-size:12px;font-family:'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border2)}.compare-table td{padding:.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top}.compare-table tr:last-child td{border-bottom:none}.compare-table td:first-child{font-weight:500;color:var(--ink);width:170px}
+.steps{margin:1.25rem 0}.step{display:flex;gap:1rem;margin-bottom:.75rem;align-items:flex-start}.step-num{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--border2);line-height:1.2;min-width:28px;flex-shrink:0}.step-content{font-size:14px;color:var(--text);padding-top:2px}.step-content strong{color:var(--ink)}
+.diagram-box{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.diagram-label{color:var(--muted);margin-bottom:.75rem}.timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:.45rem;margin-top:.75rem}.time-cell{border-top:2px solid var(--border2);padding-top:.45rem;font-size:12.5px;color:var(--muted)}.time-cell strong{display:block;color:var(--ink);font-family:'DM Mono',monospace;font-size:11px;margin-bottom:.1rem}
+.exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0}.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center}.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px;font-size:10px}.exam-q-body{padding:1.25rem 1.5rem}.exam-q-body .q{font-style:italic;color:var(--ink);margin-bottom:1rem;font-size:15px}.exam-q-body p{font-size:14px;margin-bottom:.6rem}
+.footer{text-align:center;font-size:11px;color:var(--border2);letter-spacing:.08em;padding-top:2rem;border-top:1px solid var(--border)}.page-transition-init{opacity:0;transform:translateY(8px)}.page-transition-ready{opacity:1;transform:none}.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
+@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}@media (max-width:640px){h1{font-size:2.2rem}.toc,.key-terms{grid-template-columns:1fr}.timeline{grid-template-columns:1fr}.page{padding:0 1.25rem 4rem}}
 </style>
 </head>
 <body>
@@ -32,67 +37,282 @@ h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{f
 <div class="hero">
   <div class="lecture-tag">Lecture 2 · Finance Fundamentals · University of York</div>
   <h1>Present and Future Values of Cash Flows</h1>
-  <p class="hero-sub">Discounting, compounding, annuities, perpetuities, mortgage-style cash-flow streams, and the mechanics behind time value calculations.</p>
+  <p class="hero-sub">Discounting, compounding, annuities, perpetuities, mortgage-style cash-flow streams, and the decision rule behind comparing money received at different dates.</p>
   <div class="meta-row">
-    <span class="meta-chip chip-topic">Finance topic</span>
-    <span class="meta-chip chip-exam">Tightened with seminar material</span>
+    <span class="meta-chip chip-topic">Time value of money</span>
+    <span class="meta-chip chip-exam">Calculation heavy</span>
     <span class="meta-chip chip-module">MAN00026C</span>
   </div>
 </div>
-<div class="alert-box"><strong>Lecture focus:</strong> these notes now include the seminar-style framing needed for problem solving, definitions, and exam explanation rather than only first-pass summary points.</div>
+
+<div class="alert-box"><strong>Lecture focus:</strong> a finance calculation is only meaningful once the cash flows have been put on the same date. Most Week 2 errors come from using the right formula with the wrong timing convention.</div>
+
 <div class="toc">
   <div class="toc-title">Contents</div>
-  <a href="#s1" data-num="01">The Time Value Principle</a>
-  <a href="#s2" data-num="02">Present Value and Discounting</a>
-  <a href="#s3" data-num="03">Future Value and Compounding</a>
-  <a href="#s4" data-num="04">Cash-Flow Patterns</a>
-  <a href="#s5" data-num="05">Excel and Financial Logic</a>
-  <a href="#s6" data-num="06">Common Mistakes</a>
+  <a href="#terms" data-num="00">Terms to know cold</a>
+  <a href="#s1" data-num="01">The time value principle</a>
+  <a href="#s2" data-num="02">Present value and discounting</a>
+  <a href="#s3" data-num="03">Future value and compounding</a>
+  <a href="#s4" data-num="04">Annuities and annuities due</a>
+  <a href="#s5" data-num="05">Perpetuities and growing cash flows</a>
+  <a href="#s6" data-num="06">Mortgages and loan balances</a>
+  <a href="#s7" data-num="07">Compounding frequency and EAR</a>
+  <a href="#s8" data-num="08">Excel and calculator workflow</a>
+  <a href="#s9" data-num="09">Exam prompts and mistakes</a>
 </div>
+
 <div class="resource-list">
   <div class="defn-label">Tightening sources</div>
-  <ul><li><span class="resource-path">resources/Present and Future values of a stream of cash flows - Tagged.pdf</span></li><li><span class="resource-path">resources/How to estimate Present values in excel.xlsx</span></li><li><span class="resource-path">resources/Formulae.docx</span></li><li><span class="resource-path">resources/Seminar 2 questions.docx</span></li><li><span class="resource-path">resources/Seminar 2 solutions.docx</span></li></ul>
+  <ul>
+    <li><span class="resource-path">resources/Present and Future values of a stream of cash flows - Tagged.pdf</span></li>
+    <li><span class="resource-path">resources/Seminar 2 questions.docx</span></li>
+    <li><span class="resource-path">resources/Seminar 2 solutions.docx</span></li>
+    <li><span class="resource-path">resources/How to estimate Present values in excel.xlsx</span></li>
+    <li><span class="resource-path">resources/Formulae.docx</span></li>
+  </ul>
 </div>
-<div class="defn"><div class="defn-label">Core finance rule</div><p>PV = C / (1 + r)^t ; FV = PV(1 + r)^t ; annuity and perpetuity formulas depend on recognising the cash-flow pattern correctly.</p></div>
+
+<div class="section" id="terms">
+  <div class="section-num">Key Definitions</div>
+  <h2>Terms to Know Cold</h2>
+  <div class="key-terms">
+    <div class="term"><div class="term-word">Present value (PV)</div><div class="term-def">The value today of a future cash flow or stream of cash flows, discounted at the required return.</div></div>
+    <div class="term"><div class="term-word">Future value (FV)</div><div class="term-def">The amount a current cash flow will grow to after earning interest over time.</div></div>
+    <div class="term"><div class="term-word">Discount rate</div><div class="term-def">The required rate of return used to translate future cash flows into today’s money.</div></div>
+    <div class="term"><div class="term-word">Compounding</div><div class="term-def">Earning interest on both the original principal and accumulated interest.</div></div>
+    <div class="term"><div class="term-word">Annuity</div><div class="term-def">A finite series of equal payments made at regular intervals, usually at the end of each period.</div></div>
+    <div class="term"><div class="term-word">Annuity due</div><div class="term-def">A finite series of equal payments where the first payment is made immediately, at the start of the first period.</div></div>
+    <div class="term"><div class="term-word">Amortisation</div><div class="term-def">The gradual repayment of a loan through scheduled payments that cover interest first and then reduce principal.</div></div>
+    <div class="term"><div class="term-word">Amortisation table</div><div class="term-def">A schedule showing each period's opening balance, interest charge, payment, principal repaid, and closing balance.</div></div>
+    <div class="term"><div class="term-word">Perpetuity</div><div class="term-def">A constant cash flow paid forever. Its value is finite because distant payments are heavily discounted.</div></div>
+    <div class="term"><div class="term-word">Growing perpetuity</div><div class="term-def">A cash-flow stream paid forever where payments grow at a constant rate lower than the discount rate.</div></div>
+    <div class="term"><div class="term-word">APR / stated rate</div><div class="term-def">A quoted annual rate before allowing fully for intra-year compounding.</div></div>
+    <div class="term"><div class="term-word">Effective annual rate (EAR)</div><div class="term-def">The true annual return once compounding within the year is included.</div></div>
+  </div>
+</div>
+
+<div class="defn"><div class="defn-label">Core finance rule</div><p>Only compare alternatives after expressing every cash flow at the same point in time. A larger nominal payment can be worth less than a smaller payment received sooner.</p></div>
+
 <div class="section" id="s1">
   <div class="section-num">Part 01</div>
   <h2>The Time Value Principle</h2>
-  <p>A pound today is worth more than a pound later because it can be invested, future receipts are uncertain, and waiting carries an opportunity cost. This principle underlies discounting, compounding, bond pricing, equity valuation, and personal finance.</p>
+  <p>A pound today is worth more than a pound in the future because it can be invested, because waiting has an opportunity cost, and because future receipts normally carry risk. Even when a seminar question says the payoff is guaranteed, the timing still matters because money received earlier can earn interest.</p>
+  <p>This principle is the bridge between finance theory and decisions. Managers use it to decide whether projects create value. Households use it to compare mortgages, instalment plans, and savings targets. Investors use it to price securities as claims on future cash flows.</p>
+  <div class="diagram-box">
+    <div class="diagram-label">Timeline convention</div>
+    <p>Draw a timeline before choosing a formula. Put today at time 0. Put each cash flow at the date it is actually received or paid. Then decide whether you need to move cash flows left by discounting or right by compounding.</p>
+    <div class="timeline">
+      <div class="time-cell"><strong>t = 0</strong>Today; immediate cash flows</div>
+      <div class="time-cell"><strong>t = 1</strong>End of first period</div>
+      <div class="time-cell"><strong>t = 2</strong>End of second period</div>
+      <div class="time-cell"><strong>...</strong>Regular intervals</div>
+      <div class="time-cell"><strong>t = N</strong>Final date or target value</div>
+    </div>
+  </div>
+  <div class="eval-box"><div class="eval-label">Exam insight</div><p>In written answers, do not say simply that money "changes value". State the mechanism: receiving cash earlier allows investment and avoids waiting, so later cash flows must be discounted at the opportunity cost of capital.</p></div>
 </div>
 
 <div class="section" id="s2">
   <div class="section-num">Part 02</div>
   <h2>Present Value and Discounting</h2>
-  <p>Present value converts future cash flows into today's money. The key exam step is to explain what the discount rate is doing: it scales future receipts down because investors require compensation for time and risk.</p>
+  <p>Present value answers the question: what is a future amount worth today? Discounting moves cash flows backwards in time. The further away the payment and the higher the discount rate, the lower the present value.</p>
+  <div class="formula-box">
+    <div class="formula-label">Single future cash flow</div>
+    <div class="formula">PV = C<sub>t</sub> / (1 + r)<sup>t</sup></div>
+    <p class="formula-note">C<sub>t</sub> is the cash flow received at time t, r is the discount rate per period, and t is the number of matching periods.</p>
+  </div>
+  <h3>Worked example: lottery choice</h3>
+  <p>The seminar asks you to choose between guaranteed lottery payoffs at a 5% interest rate. The mark-scoring move is not guessing which total is largest; it is converting every option to present value.</p>
+  <table class="compare-table">
+    <tr><th>Option</th><th>Present-value logic</th><th>PV at 5%</th></tr>
+    <tr><td>&pound;80,000 today</td><td>Already at time 0.</td><td>&pound;80,000</td></tr>
+    <tr><td>&pound;110,000 in 5 years</td><td>Discount for five years: 110,000 / 1.05<sup>5</sup>.</td><td>About &pound;86,185</td></tr>
+    <tr><td>&pound;50,000 today + &pound;40,000 in 4 years</td><td>Keep the immediate cash and discount the later payment.</td><td>About &pound;82,908</td></tr>
+    <tr><td>&pound;17,000 per year for 6 years, first payment today</td><td>Annuity due: one immediate payment plus five discounted payments.</td><td>About &pound;90,601</td></tr>
+  </table>
+  <div class="answer-label">Decision</div>
+  <p>The annuity-due option has the highest present value, so it is the best financial choice under the stated assumptions.</p>
+  <div class="mistake-box"><div class="mistake-label">Common mistake</div><p>Do not add nominal cash flows across different dates. &pound;110,000 in five years is not directly comparable with &pound;80,000 today until both are valued at the same date.</p></div>
 </div>
 
 <div class="section" id="s3">
   <div class="section-num">Part 03</div>
   <h2>Future Value and Compounding</h2>
-  <p>Future value moves cash in the opposite direction. If current money earns returns over time, compounding shows what it becomes later. Discounting and compounding are therefore reverse operations.</p>
+  <p>Future value moves cash in the opposite direction. It asks what today’s investment will become after earning returns. Discounting and compounding are reverse operations: discounting divides by the growth factor; compounding multiplies by it.</p>
+  <div class="formula-box">
+    <div class="formula-label">Single current cash flow</div>
+    <div class="formula">FV = PV(1 + r)<sup>t</sup></div>
+    <p class="formula-note">The growth factor (1 + r)<sup>t</sup> captures interest on principal plus interest on accumulated interest.</p>
+  </div>
+  <h3>Worked example: saving to a target</h3>
+  <p>Seminar 2 asks how much must be saved each year to have $500,000 in 40 years at 6% interest. Because the target is a future amount, use the future value of an annuity rather than discounting the target and stopping there.</p>
+  <div class="formula-box">
+    <div class="formula-label">Future value of ordinary annuity</div>
+    <div class="formula">FV = C[(1 + r)<sup>N</sup> - 1] / r</div>
+  </div>
+  <div class="working-box">
+    <div class="answer-label">Working</div>
+    <p>500,000 = C[(1.06)<sup>40</sup> - 1] / 0.06</p>
+    <p>C = about $3,230.77 per year.</p>
+  </div>
+  <p>The economic intuition is that early savings do more work than late savings because they compound for longer. This is why the annual contribution is much smaller than $500,000 / 40.</p>
 </div>
 
 <div class="section" id="s4">
   <div class="section-num">Part 04</div>
-  <h2>Cash-Flow Patterns</h2>
-  <p>This week is not only about single sums. Seminar material covers perpetuities, growing perpetuities, annuities, annuities due, mortgages, and uneven cash-flow streams. The stronger answer identifies the correct pattern before calculating.</p>
+  <h2>Annuities and Annuities Due</h2>
+  <p>An annuity is a finite series of equal cash flows at regular intervals. Mortgages, car loans, retirement contributions, and some prize payments are all annuity-style problems. The first question is whether payments happen at the end or the start of each period.</p>
+  <div class="formula-box">
+    <div class="formula-label">Present value of ordinary annuity</div>
+    <div class="formula">PV = C[1 - 1/(1 + r)<sup>N</sup>] / r</div>
+    <p class="formula-note">Ordinary annuity means the first payment is one period from now.</p>
+  </div>
+  <div class="formula-box">
+    <div class="formula-label">Annuity due adjustment</div>
+    <div class="formula">PV<sub>due</sub> = PV<sub>ordinary</sub>(1 + r)</div>
+    <p class="formula-note">Each payment arrives one period earlier, so the stream is worth more. For a loan, that means the required payment is lower.</p>
+  </div>
+  <h3>Worked example: end-of-year versus immediate loan payments</h3>
+  <p>If you borrow $1,000 and repay it in five equal annual payments at 12%, the ordinary annuity payment is about $277.41. If the first payment is made immediately, the stream becomes an annuity due and the payment falls to about $247.69.</p>
+  <div class="eval-box"><div class="eval-label">Economic intuition</div><p>The lender receives money sooner under an annuity due, so each equal instalment can be smaller while still having a present value of $1,000.</p></div>
+  <h3>Payment-plan comparison</h3>
+  <p>For the store instalment question, assume the product price is 100. The instalment plan costs 25 today plus 25 in each of the next three years. At 5%, its PV is about 93.08. Immediate payment with a 10% discount costs 90, so paying immediately is cheaper in present-value terms.</p>
 </div>
 
 <div class="section" id="s5">
   <div class="section-num">Part 05</div>
-  <h2>Excel and Financial Logic</h2>
-  <p>Spreadsheet functions are useful for speed, but marks still depend on understanding the structure of the cash flow. Students should be able to say why a mortgage is an annuity, why an upfront payment creates an annuity due, and why alternative payment plans must be compared at the same date.</p>
+  <h2>Perpetuities and Growing Cash Flows</h2>
+  <p>A perpetuity lasts forever. This sounds infinite, but its present value can be finite because later and later payments are discounted more heavily. The standard formula assumes the first payment is one period from now.</p>
+  <div class="formula-box">
+    <div class="formula-label">Constant perpetuity</div>
+    <div class="formula">PV = C / r</div>
+  </div>
+  <div class="working-box">
+    <div class="answer-label">Seminar example</div>
+    <p>A property pays $10,000 per year forever and is worth $125,000. Since PV = C / r, the implied discount rate is r = 10,000 / 125,000 = 8%.</p>
+  </div>
+  <div class="formula-box">
+    <div class="formula-label">Growing perpetuity</div>
+    <div class="formula">PV = C<sub>1</sub> / (r - g)</div>
+    <p class="formula-note">C<sub>1</sub> is next period’s cash flow. The formula only works when r &gt; g.</p>
+  </div>
+  <h3>Worked examples</h3>
+  <p>If the first payment is &pound;150, the discount rate is 4%, and annual growth is 1.5%, PV = 150 / (0.04 - 0.015) = &pound;6,000.</p>
+  <p>If a project pays &pound;1,000 every two years forever and the annual interest rate is 8%, first convert the rate to a two-year rate: (1.08)<sup>2</sup> - 1 = 16.64%. Then PV = 1,000 / 0.1664 = about &pound;6,009.62.</p>
+  <div class="mistake-box"><div class="mistake-label">Common mistake</div><p>Do not discount a two-year perpetuity using the annual rate. The payment interval and the interest-rate interval must match.</p></div>
+  <h3>Delayed growing perpetuity</h3>
+  <p>Company X expects first annual sales cash flow of 2,000 units x &pound;200 = &pound;400,000 in year 2, growing at 5% forever with a 10% discount rate. The growing perpetuity value one period before the first cash flow is 400,000 / (0.10 - 0.05) = &pound;8,000,000 at year 1. Discount once to today: 8,000,000 / 1.10 = about &pound;7,272,727.</p>
 </div>
 
 <div class="section" id="s6">
   <div class="section-num">Part 06</div>
-  <h2>Common Mistakes</h2>
-  <p>Do not compare two payment options without converting them to the same point in time. Do not mix annual and monthly rates without adjusting both the rate and the number of periods.</p>
+  <h2>Mortgages and Loan Balances</h2>
+  <p>A repayment mortgage is an annuity: the borrower makes equal periodic payments and those payments cover both interest and principal. The contract rate and payment frequency must match. Monthly mortgage problems use a monthly rate and the number of monthly payments.</p>
+  <div class="formula-box">
+    <div class="formula-label">Loan payment from present value</div>
+    <div class="formula">Loan amount = C[1 - 1/(1 + r)<sup>N</sup>] / r</div>
+  </div>
+  <h3>Worked example: house purchase</h3>
+  <p>Mr. and Mrs. Palin buy a &pound;200,000 house with a &pound;50,000 deposit, so they borrow &pound;150,000. The mortgage is paid monthly for 30 years, so N = 360 and r = 0.5% per month.</p>
+  <div class="working-box">
+    <div class="answer-label">Working</div>
+    <p>150,000 = C[1 - 1/(1.005)<sup>360</sup>] / 0.005</p>
+    <p>C = about &pound;899.33 per month.</p>
+  </div>
+  <h3>Outstanding balance after payments</h3>
+  <p>The remaining mortgage balance is the present value, at that date, of the remaining payments. For a 30-year &pound;200,000 mortgage at 0.5% per month, the monthly payment is about &pound;1,199.10. After 14 years there are 192 payments left, so the balance is about &pound;147,774.85.</p>
+  <div class="formula-box">
+    <div class="formula-label">Outstanding balance formula</div>
+    <div class="formula">Balance after k payments = C[1 - 1/(1 + r)<sup>N-k</sup>] / r</div>
+    <p class="formula-note">This is the present value, at month k, of the payments still left to make. It is not original principal minus a straight-line share of time passed.</p>
+  </div>
+  <h3>Amortisation tables</h3>
+  <p>An amortisation table shows how each mortgage payment is split between interest and principal repayment. The payment is constant, but the split changes over time. Early payments mostly cover interest because the outstanding balance is still high. Later payments repay more principal because the balance has fallen.</p>
+  <table class="compare-table">
+    <tr><th>Month</th><th>Opening balance</th><th>Interest at 0.5%</th><th>Payment</th><th>Principal repaid</th><th>Closing balance</th></tr>
+    <tr><td>1</td><td>&pound;200,000.00</td><td>&pound;1,000.00</td><td>&pound;1,199.10</td><td>&pound;199.10</td><td>&pound;199,800.90</td></tr>
+    <tr><td>2</td><td>&pound;199,800.90</td><td>&pound;999.00</td><td>&pound;1,199.10</td><td>&pound;200.10</td><td>&pound;199,600.80</td></tr>
+    <tr><td>3</td><td>&pound;199,600.80</td><td>&pound;998.00</td><td>&pound;1,199.10</td><td>&pound;201.10</td><td>&pound;199,399.71</td></tr>
+  </table>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Calculate interest:</strong> opening balance x monthly interest rate.</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Calculate principal repaid:</strong> fixed payment - interest for the month.</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Calculate closing balance:</strong> opening balance - principal repaid.</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-content"><strong>Repeat:</strong> the closing balance becomes next month's opening balance.</div></div>
+  </div>
+  <div class="eval-box"><div class="eval-label">Reconciling the seminar figures</div><p>A &pound;200,000 loan gives a payment of about &pound;1,199.10 and a balance after 14 years of about &pound;147,774.85. A &pound;150,000 loan at the same rate and term gives a payment of about &pound;899.33 and a balance after 14 years of about &pound;110,831.13. The method is identical; the difference is the starting loan principal.</p></div>
+  <div class="mistake-box"><div class="mistake-label">Common mistake</div><p>Do not estimate the balance by subtracting 14/30 of the principal. Early mortgage payments contain more interest and less principal, so amortisation is not linear. Use either the outstanding-balance formula or an amortisation table.</p></div>
 </div>
 
-<div class="eval-box"><div class="eval-label">Seminar angle</div><p>Seminar 2 adds mortgages, lottery-style payout choices, and discount-versus-instalment comparisons. Those are worth revising because they force you to translate formulas into decisions.</p></div>
-<div class="mistake-box"><div class="mistake-label">Common mistake</div><p>Students often memorise the formula or definition but fail to explain what changes value, what changes risk, and which timing convention the problem is using. In finance, those details usually determine the correct answer.</p></div>
-<div class="exam-q"><div class="exam-q-header"><span>Assessment-style prompt</span><span class="exam-q-marks">10 marks</span></div><div class="exam-q-body"><p class="q">Explain the financial logic behind present and future values of cash flows and show how it would affect a decision faced by a manager, investor, or household.</p><p>Start with a precise definition, then explain the mechanism step by step. If a calculation is relevant, state which formula or convention should be used and why.</p></div></div>
+<div class="section" id="s7">
+  <div class="section-num">Part 07</div>
+  <h2>Compounding Frequency and EAR</h2>
+  <p>When interest compounds more than once per year, the effective annual rate is higher than the stated annual proportional rate. The more frequent the compounding, the more often interest earns further interest.</p>
+  <div class="formula-box">
+    <div class="formula-label">Effective annual rate</div>
+    <div class="formula">EAR = (1 + APR / m)<sup>m</sup> - 1</div>
+    <p class="formula-note">m is the number of compounding periods per year.</p>
+  </div>
+  <table class="compare-table">
+    <tr><th>Question type</th><th>Correct period rate</th><th>Correct number of periods</th></tr>
+    <tr><td>Monthly mortgage</td><td>Monthly rate</td><td>Years x 12</td></tr>
+    <tr><td>Quarterly compounding</td><td>Annual stated rate / 4</td><td>Years x 4</td></tr>
+    <tr><td>Two-year perpetuity</td><td>Two-year effective rate</td><td>One perpetuity period</td></tr>
+  </table>
+  <div class="working-box">
+    <div class="answer-label">Seminar examples</div>
+    <p>14% stated annually with monthly compounding gives EAR = (1 + 0.14/12)<sup>12</sup> - 1 = about 14.93%.</p>
+    <p>To receive &pound;10,000 in six years at an 8% stated rate compounded quarterly: PV = 10,000 / (1 + 0.08/4)<sup>24</sup> = about &pound;6,217.21. The EAR is (1.02)<sup>4</sup> - 1 = about 8.24%.</p>
+  </div>
+</div>
+
+<div class="section" id="s8">
+  <div class="section-num">Part 08</div>
+  <h2>Excel and Calculator Workflow</h2>
+  <p>Excel is useful for speed, but it does not remove the need to classify the cash-flow pattern. The Week 2 spreadsheet resource is best treated as a check on your finance logic, not a substitute for it.</p>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Identify the date of comparison.</strong> Usually this is today, but retirement questions may first require a value at the retirement date.</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Match the period.</strong> Monthly cash flows use monthly rates and monthly N. Annual cash flows use annual rates and annual N.</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Classify the stream.</strong> Single cash flow, ordinary annuity, annuity due, perpetuity, growing perpetuity, or uneven cash-flow stream.</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-content"><strong>Check the sign convention.</strong> In spreadsheets, money paid out and money received usually need opposite signs.</div></div>
+    <div class="step"><div class="step-num">5</div><div class="step-content"><strong>Interpret the result.</strong> A lower PV is preferred for a cost; a higher PV is preferred for a payoff or asset value.</div></div>
+  </div>
+  <div class="formula-box">
+    <div class="formula-label">Useful Excel functions</div>
+    <div class="formula">=PV(rate, nper, pmt, fv, type)</div>
+    <div class="formula">=FV(rate, nper, pmt, pv, type)</div>
+    <div class="formula">=PMT(rate, nper, pv, fv, type)</div>
+    <p class="formula-note">Use type = 0 for end-of-period payments and type = 1 for beginning-of-period payments.</p>
+  </div>
+</div>
+
+<div class="section" id="s9">
+  <div class="section-num">Part 09</div>
+  <h2>Exam Prompts and Common Mistakes</h2>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Assessment-style prompt</span><span class="exam-q-marks">10 marks</span></div>
+    <div class="exam-q-body">
+      <p class="q">A firm can receive &pound;90,000 today or &pound;120,000 in four years. Explain how the firm should decide which option is more valuable if its opportunity cost of capital is 7%.</p>
+      <p><strong>Answer structure:</strong> define present value, discount the four-year cash flow, compare both values at time 0, then explain that the opportunity cost of capital is the return sacrificed by waiting.</p>
+    </div>
+  </div>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Calculation prompt</span><span class="exam-q-marks">12 marks</span></div>
+    <div class="exam-q-body">
+      <p class="q">A household borrows &pound;180,000 over 25 years with monthly payments and a monthly interest rate of 0.45%. Calculate the monthly payment and explain why monthly timing matters.</p>
+      <p><strong>Answer structure:</strong> state N = 25 x 12, r = 0.0045 per month, use the annuity PV equation, solve for C, and note that annual rates or annual periods would misprice the loan.</p>
+    </div>
+  </div>
+  <div class="mistake-box">
+    <div class="mistake-label">Checklist of avoidable errors</div>
+    <p>Using annual N with monthly r; treating an annuity due as an ordinary annuity; forgetting to discount a delayed perpetuity back to today; comparing costs by choosing the largest nominal discount; assuming a mortgage principal falls in a straight line; and writing a numerical answer without explaining the financial decision rule.</p>
+  </div>
+  <div class="eval-box">
+    <div class="eval-label">Best answer habit</div>
+    <p>Before calculating, write one sentence naming the cash-flow pattern and the comparison date. That sentence usually prevents the main timing error and makes the answer easier to award marks for.</p>
+  </div>
+</div>
+
 <div class="footer">Lecture 2 · Present and Future Values of Cash Flows · Finance Fundamentals revision guide</div>
 </div>
 <script>

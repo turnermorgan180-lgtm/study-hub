@@ -9,90 +9,362 @@
 :root{--bg:#faf8f4;--bg2:#f2ede4;--surface:#fff;--border:#e8ddd0;--border2:#d4c8b0;--text:#1a1612;--muted:#7a6e5e;--accent:#245b74;--accent-light:#e8f1f4;--gold:#8a6a2a;--gold-light:#f7f0e0;--teal:#1a5c52;--teal-light:#e8f4f1;--red-light:#fdf2f0;--red-border:#f0c4b8;--red-text:#7a2015;--red-label:#c0392b;--ink:#2c2416}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;transition:opacity .22s ease,transform .22s ease}
-.page{position:relative;max-width:860px;margin:0 auto;padding:0 2rem 6rem}.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;font-size:1rem;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s;z-index:10}.back-btn:hover{transform:translateY(-1px);background:var(--bg2)}
-.hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border2);margin-bottom:3rem;position:relative}.hero::before{content:'';position:absolute;top:0;left:-2rem;right:-2rem;bottom:0;background:linear-gradient(180deg,#e5eff2 0%,transparent 100%);z-index:-1}
-.lecture-tag,.meta-chip,.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label,.exam-q-header,.footer,.resource-path{font-family:'DM Mono',monospace}.lecture-tag{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;gap:8px;margin-bottom:1rem}.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent);margin-top:.6rem}
-h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{font-size:3.2rem;line-height:1.1;margin-bottom:1rem}.hero-sub{font-size:16px;color:var(--muted);max-width:660px;margin-bottom:1.5rem}
-.meta-row{display:flex;gap:1rem;flex-wrap:wrap}.meta-chip{font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}.chip-topic{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}.chip-exam{background:var(--accent-light);color:var(--accent);border:1px solid #bfd3da}.chip-module{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
+.page{position:relative;max-width:860px;margin:0 auto;padding:0 2rem 6rem}
+.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;font-size:1rem;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s;z-index:10}
+.back-btn:hover{transform:translateY(-1px);background:var(--bg2)}
+.hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border2);margin-bottom:3rem;position:relative}
+.hero::before{content:'';position:absolute;top:0;left:-2rem;right:-2rem;bottom:0;background:linear-gradient(180deg,#e5eff2 0%,transparent 100%);z-index:-1}
+.lecture-tag,.meta-chip,.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label,.exam-q-header,.footer,.resource-path,.formula-label,.answer-label{font-family:'DM Mono',monospace}
+.lecture-tag{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;gap:8px;margin-bottom:1rem}
+.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent);margin-top:.6rem}
+h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}
+h1{font-size:3.2rem;line-height:1.1;margin-bottom:1rem}
+h2{font-size:1.95rem;line-height:1.2;margin-bottom:1.1rem;padding-bottom:.7rem;border-bottom:1px solid var(--border)}
+h3{font-size:1.25rem;font-style:italic;font-weight:600;margin:1.6rem 0 .6rem}
+.hero-sub{font-size:16px;color:var(--muted);max-width:690px;margin-bottom:1.5rem}
+.meta-row{display:flex;gap:1rem;flex-wrap:wrap}
+.meta-chip{font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}
+.chip-topic{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}
+.chip-exam{background:var(--accent-light);color:var(--accent);border:1px solid #bfd3da}
+.chip-module{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
 .alert-box{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin-bottom:2.5rem;font-size:13.5px;color:#173f4f}
-.toc{background:var(--surface);border:1px solid var(--border);padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem 2rem}.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase}.toc-title{color:var(--muted);grid-column:1/-1}.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;gap:8px}.toc a::before{content:attr(data-num);color:var(--border2)}
-.section{margin-bottom:3.5rem}.section-num{color:var(--accent);margin-bottom:.4rem}p{margin-bottom:.9rem}ul{padding-left:1.15rem;margin:1rem 0}li{margin-bottom:.45rem}
-.defn{background:var(--gold-light);border:1px solid #dcc888;border-radius:4px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}.defn-label{color:var(--gold);margin-bottom:4px}.defn p{margin-bottom:0;font-size:14.5px}
-.eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.mistake-box{background:var(--red-light);border:1px solid var(--red-border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.eval-label{color:var(--teal);margin-bottom:.6rem}.mistake-label{color:var(--red-label);margin-bottom:.6rem}
-.resource-list{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}.resource-list ul{margin:.2rem 0 0 1rem}.resource-path{font-size:11px;color:var(--muted)}
-.exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0}.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between}.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px}.exam-q-body{padding:1.25rem 1.5rem}.exam-q-body .q{font-style:italic;margin-bottom:1rem}
-.footer{text-align:center;font-size:11px;color:var(--border2);padding-top:1rem;border-top:1px solid var(--border)}.page-transition-init{opacity:0;transform:translateY(8px)}.page-transition-ready{opacity:1;transform:none}.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
-@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}@media (max-width:640px){h1{font-size:2.2rem}.toc{grid-template-columns:1fr}.page{padding:0 1.25rem 4rem}}
-
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem 2rem}
+.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label,.formula-label,.answer-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.toc-title{color:var(--muted);grid-column:1/-1}
+.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;gap:8px;padding:3px 0}
+.toc a:hover{color:var(--accent)}
+.toc a::before{content:attr(data-num);font-family:'DM Mono',monospace;color:var(--border2);min-width:16px}
+.section{margin-bottom:3.5rem}
+.section-num{color:var(--accent);margin-bottom:.4rem}
+p{margin-bottom:.9rem}
+ul.standard{padding-left:1.15rem;margin:1rem 0 1.15rem}
+ul.standard li{margin-bottom:.45rem}
+.key-terms{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1.25rem 0}
+.term{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:.75rem 1rem}
+.term-word{font-size:1.03rem;font-weight:600;margin-bottom:2px}
+.term-def{font-size:12.5px;color:var(--muted);line-height:1.45}
+.defn{background:var(--gold-light);border:1px solid #dcc888;border-radius:4px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}
+.defn-label{color:var(--gold);margin-bottom:4px}
+.defn p{margin-bottom:0;font-size:14.5px;color:var(--ink)}
+.formula-box{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin:1.2rem 0}
+.formula-label{color:var(--accent);margin-bottom:.55rem}
+.formula{font-family:'DM Mono',monospace;background:var(--accent-light);color:#173f4f;padding:.55rem .7rem;border-radius:3px;margin:.45rem 0;font-size:13px;overflow-x:auto}
+.formula-box p{font-size:14px;margin-bottom:.55rem}
+.steps{margin:1.25rem 0}
+.step{display:flex;gap:1rem;margin-bottom:.75rem;align-items:flex-start}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--border2);line-height:1.2;min-width:28px;flex-shrink:0}
+.step-content{font-size:14px;color:var(--text);padding-top:2px}
+.step-content strong{color:var(--ink)}
+.compare-table{width:100%;border-collapse:collapse;font-size:13.5px;margin:1.25rem 0;border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.compare-table th{background:var(--bg2);padding:.65rem 1rem;text-align:left;font-weight:500;font-size:12px;font-family:'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border2)}
+.compare-table td{padding:.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table td:first-child{font-weight:500;color:var(--ink);width:150px}
+.eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.mistake-box{background:var(--red-light);border:1px solid var(--red-border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.eval-label{color:var(--teal);margin-bottom:.6rem}
+.eval-label::before{content:'⊕ ';font-size:12px}
+.mistake-label{color:var(--red-label);margin-bottom:.6rem}
+.mistake-label::before{content:'✕ ';font-size:11px}
+.eval-box p{color:#1a4a42;font-size:14px;margin-bottom:.5rem}
+.mistake-box p{color:var(--red-text);font-size:14px;margin-bottom:.5rem}
+.resource-list{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1rem 1.25rem;margin:1rem 0 1.5rem}
+.resource-list ul{margin:.2rem 0 0 1rem}
+.resource-path{font-size:11px;color:var(--muted)}
+.diagram-box{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.diagram-label{color:var(--muted);margin-bottom:.75rem}
+.diagram-box ul{padding-left:1.15rem}
+.diagram-box li{margin-bottom:.45rem}
+.exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0}
+.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center}
+.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px}
+.exam-q-body{padding:1.25rem 1.5rem}
+.exam-q-body .q{font-style:italic;color:var(--ink);margin-bottom:1rem}
+.answer-label{color:var(--teal);margin-bottom:.4rem}
+.exam-q-body p{font-size:14px;margin-bottom:.6rem}
+.footer{text-align:center;font-size:11px;color:var(--border2);padding-top:1rem;border-top:1px solid var(--border)}
+.page-transition-init{opacity:0;transform:translateY(8px)}
+.page-transition-ready{opacity:1;transform:none}
+.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
+@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}
+@media (max-width:640px){h1{font-size:2.2rem}.toc,.key-terms{grid-template-columns:1fr}.page{padding:0 1.25rem 4rem}.compare-table{font-size:12.5px}}
 </style>
 </head>
 <body>
 <div class="page">
 <a class="back-btn" href="index.html" aria-label="Back to Finance Fundamentals hub">←</a>
+
 <div class="hero">
   <div class="lecture-tag">Lecture 7 · Finance Fundamentals · University of York</div>
   <h1>Equity Valuation and Share Prices</h1>
-  <p class="hero-sub">P/E ratios, plowback, ROE, growth opportunities, multi-stage valuation, and the way share prices reflect expected future profitability.</p>
+  <p class="hero-sub">How dividends, earnings, free cash flow, P/E ratios, plowback, ROE, and growth opportunities combine to explain ordinary share prices.</p>
   <div class="meta-row">
-    <span class="meta-chip chip-topic">Finance topic</span>
-    <span class="meta-chip chip-exam">Tightened with seminar material</span>
+    <span class="meta-chip chip-topic">Equity valuation</span>
+    <span class="meta-chip chip-exam">Calculation + explanation</span>
     <span class="meta-chip chip-module">MAN00026C</span>
   </div>
 </div>
-<div class="alert-box"><strong>Lecture focus:</strong> these notes now include the seminar-style framing needed for problem solving, definitions, and exam explanation rather than only first-pass summary points.</div>
+
+<div class="alert-box"><strong>Lecture focus:</strong> equity value is the present value of cash flows to investors. Exam answers usually need both the calculation and the interpretation: <strong>what part of the price comes from existing assets, what part comes from growth opportunities, and whether reinvestment creates value.</strong></div>
+
 <div class="toc">
   <div class="toc-title">Contents</div>
-  <a href="#s1" data-num="01">From Dividends to Price Multiples</a>
-  <a href="#s2" data-num="02">Plowback and Growth</a>
-  <a href="#s3" data-num="03">P/E Ratios and Interpretation</a>
-  <a href="#s4" data-num="04">Valuing Growth Opportunities</a>
-  <a href="#s5" data-num="05">Multi-Stage Equity Valuation</a>
-  <a href="#s6" data-num="06">Exam Framing</a>
+  <a href="#terms" data-num="00">Key terms</a>
+  <a href="#s1" data-num="01">Share price fundamentals</a>
+  <a href="#s2" data-num="02">Dividend discount model</a>
+  <a href="#s3" data-num="03">P/E ratios</a>
+  <a href="#s4" data-num="04">Plowback, ROE, and growth</a>
+  <a href="#s5" data-num="05">PVGO and value creation</a>
+  <a href="#s6" data-num="06">Multi-stage valuation</a>
+  <a href="#s7" data-num="07">Free cash flow valuation</a>
+  <a href="#s8" data-num="08">Worked examples</a>
+  <a href="#s9" data-num="09">Exam prompts</a>
+  <a href="#s10" data-num="10">Common mistakes</a>
 </div>
+
 <div class="resource-list">
-  <div class="defn-label">Tightening sources</div>
-  <ul><li><span class="resource-path">resources/Students Equity.pptx</span></li><li><span class="resource-path">resources/Seminar 7 Questions.docx</span></li><li><span class="resource-path">resources/Seminar 7 Solutions.doc</span></li></ul>
+  <div class="defn-label">Source files used</div>
+  <ul>
+    <li><span class="resource-path">year 1/sem 2/mod2/resources/Students Equity.pptx</span></li>
+    <li><span class="resource-path">year 1/sem 2/mod2/resources/Seminar 6.docx</span> and <span class="resource-path">Seminar 6 Solutions.docx</span></li>
+    <li><span class="resource-path">year 1/sem 2/mod2/resources/Seminar 7 Questions.docx</span> and <span class="resource-path">Seminar 7 Solutions.doc</span></li>
+  </ul>
 </div>
-<div class="defn"><div class="defn-label">Core finance rule</div><p>Growth in simple settings is often written as g = retention rate × ROE.</p></div>
+
+<div class="section" id="terms">
+  <div class="section-num">Key Definitions</div>
+  <h2>Terms to Know Cold</h2>
+  <div class="key-terms">
+    <div class="term"><div class="term-word">Ordinary share</div><div class="term-def">A claim on the residual cash flows of a company after debt and other senior claims have been met.</div></div>
+    <div class="term"><div class="term-word">Market capitalisation</div><div class="term-def">Total market value of equity: current share price multiplied by the number of ordinary shares outstanding.</div></div>
+    <div class="term"><div class="term-word">Dividend yield</div><div class="term-def">Next dividend divided by today’s share price. It measures the income component of expected return.</div></div>
+    <div class="term"><div class="term-word">Capital gains yield</div><div class="term-def">Expected percentage price appreciation. In a constant-growth model, it equals the dividend growth rate.</div></div>
+    <div class="term"><div class="term-word">P/E ratio</div><div class="term-def">Share price divided by earnings per share. It shows how much investors pay for each pound of expected earnings.</div></div>
+    <div class="term"><div class="term-word">Payout ratio</div><div class="term-def">Dividends divided by earnings. It is the proportion of earnings distributed to shareholders.</div></div>
+    <div class="term"><div class="term-word">Plowback ratio</div><div class="term-def">The proportion of earnings retained and reinvested in the firm. It equals 1 minus the payout ratio.</div></div>
+    <div class="term"><div class="term-word">Return on equity (ROE)</div><div class="term-def">Accounting return earned on shareholders’ equity. In this topic it drives sustainable growth when earnings are retained.</div></div>
+    <div class="term"><div class="term-word">PVGO</div><div class="term-def">Present value of growth opportunities: the part of share price created by positive-NPV future investments.</div></div>
+    <div class="term"><div class="term-word">Free cash flow</div><div class="term-def">Cash flow left after operating needs, tax, and investment expenditure; used in discounted cash flow valuation.</div></div>
+  </div>
+</div>
+
 <div class="section" id="s1">
-  <div class="section-num">Part 01</div>
-  <h2>From Dividends to Price Multiples</h2>
-  <p>Once students understand the dividend discount model, equity analysis expands to P/E ratios, payout, plowback, and return on equity. The stronger answer explains how these measures fit together rather than listing them separately.</p>
+  <div class="section-num">01</div>
+  <h2>Share Price Fundamentals</h2>
+  <p>The finance principle is the same as for bonds: today’s value equals the present value of future cash flows. For equity, the difficulty is that cash flows are uncertain, dividends may change, and firms may retain earnings rather than distribute them immediately.</p>
+  <div class="formula-box">
+    <div class="formula-label">One-period share price</div>
+    <div class="formula">P0 = (D1 + P1) / (1 + r)</div>
+    <p><strong>D1</strong> is the dividend expected in one year, <strong>P1</strong> is the expected sale price in one year, and <strong>r</strong> is the required return for shares of similar risk.</p>
+  </div>
+  <p>If the market price is below the present value implied by the required return, the share is underpriced. If the market price is above that value, it is overpriced. The lecture slide example uses a dividend of 10p, sale price of 200p, and required return of 16.67%: the fair price is about 180p, so a market price of 190p would be too high.</p>
+  <div class="defn"><div class="defn-label">Core rule</div><p>Equity valuation is not about whether a firm is famous or growing fast. It is about whether expected cash flows, discounted for risk and timing, justify the share price.</p></div>
 </div>
 
 <div class="section" id="s2">
-  <div class="section-num">Part 02</div>
-  <h2>Plowback and Growth</h2>
-  <p>Growth depends on how much earnings are retained and how productively those retained earnings are invested. Seminar material repeatedly uses the relation between payout ratio, plowback ratio, ROE, and dividend growth.</p>
+  <div class="section-num">02</div>
+  <h2>Dividend Discount Model</h2>
+  <p>The dividend discount model values a share as the present value of all expected future dividends. It is easiest to use when dividends grow at a constant rate forever.</p>
+  <div class="formula-box">
+    <div class="formula-label">Constant-growth DDM</div>
+    <div class="formula">P0 = D1 / (r - g)</div>
+    <div class="formula">r = D1 / P0 + g</div>
+    <p><strong>D1</strong> is next year’s dividend, <strong>g</strong> is the constant dividend growth rate, and <strong>r</strong> must be greater than <strong>g</strong>.</p>
+  </div>
+  <p>The model also separates total expected return into two pieces: dividend yield and capital gains yield. A high-growth company may have a low dividend yield but a high expected capital gain. A no-growth company may have a high dividend yield and no capital gain.</p>
+  <table class="compare-table">
+    <tr><th>Company type</th><th>Likely dividend yield</th><th>Likely capital gains yield</th><th>Reason</th></tr>
+    <tr><td>Mature cash cow</td><td>High</td><td>Low</td><td>Most earnings are paid out rather than reinvested.</td></tr>
+    <tr><td>Stable grower</td><td>Moderate</td><td>Moderate</td><td>Some earnings are retained at productive returns.</td></tr>
+    <tr><td>Growth firm</td><td>Low</td><td>High</td><td>Cash is retained for investments expected to increase future earnings.</td></tr>
+    <tr><td>No-dividend firm</td><td>Zero today</td><td>Potentially high</td><td>Value can still be positive if future cash flows or future dividends are expected.</td></tr>
+  </table>
+  <div class="eval-box"><div class="eval-label">Evaluation point</div><p>The assumptions of perpetual dividends and constant growth are stylised. They are most defensible for mature, dividend-paying firms and weakest for start-ups, distressed firms, and firms changing payout policy.</p></div>
 </div>
 
 <div class="section" id="s3">
-  <div class="section-num">Part 03</div>
-  <h2>P/E Ratios and Interpretation</h2>
-  <p>A P/E ratio is not just a market statistic. It embeds assumptions about discount rates, growth, and expected profitability. If risk falls or growth prospects rise, P/E ratios can rise even if current earnings do not.</p>
+  <div class="section-num">03</div>
+  <h2>P/E Ratios and Market Interpretation</h2>
+  <p>The P/E ratio compares a firm’s share price with its expected earnings per share. If a company is expected to produce EPS of 10p and the share price is 200p, its P/E is 20. Investors are paying 20 times earnings for the share.</p>
+  <div class="formula-box">
+    <div class="formula-label">P/E multiple</div>
+    <div class="formula">P/E = Share price / Earnings per share</div>
+    <div class="formula">Equity value = Comparator P/E x Total earnings</div>
+    <p>A comparator multiple is only useful if the comparator has similar risk, growth prospects, accounting quality, and business model.</p>
+  </div>
+  <p>A high P/E can indicate strong growth prospects, but it can also happen because current earnings are temporarily depressed. A low P/E can indicate weak prospects, high risk, or simply a temporarily high level of earnings. The lecture’s warning is important: <strong>do not interpret P/E mechanically.</strong></p>
+  <div class="formula-box">
+    <div class="formula-label">No-growth P/E</div>
+    <div class="formula">If g = 0 and all earnings are paid out: P0 = EPS1 / r, so P/E = 1 / r</div>
+    <p>With a 12% discount rate, no-growth P/E is 1 / 0.12 = 8.33. If the discount rate falls to 10%, P/E rises to 10. Lower risk or lower required return raises valuation multiples.</p>
+  </div>
+  <div class="mistake-box"><div class="mistake-label">Common mistake</div><p>Do not say “high P/E means good company” without qualification. A high P/E means the market price is high relative to current earnings; the reason could be good growth, low risk, accounting effects, or temporarily depressed earnings.</p></div>
 </div>
 
 <div class="section" id="s4">
-  <div class="section-num">Part 04</div>
-  <h2>Valuing Growth Opportunities</h2>
-  <p>Seminar questions emphasise the difference between a firm with no new investments and one with positive-NPV growth opportunities. This is important because share price can be decomposed into current earnings power plus the value of growth opportunities.</p>
+  <div class="section-num">04</div>
+  <h2>Plowback, ROE, and Growth</h2>
+  <p>For firms to grow internally, earnings have to be retained and invested. The simple sustainable-growth relationship used across the seminars is:</p>
+  <div class="formula-box">
+    <div class="formula-label">Growth from reinvestment</div>
+    <div class="formula">g = plowback ratio x ROE</div>
+    <div class="formula">plowback ratio = 1 - payout ratio</div>
+    <div class="formula">payout ratio = dividend per share / earnings per share</div>
+  </div>
+  <p>Retention is not automatically good. It creates value only if the firm earns a return on retained funds above the shareholders’ required return. If ROE is below the cost of equity, more reinvestment can reduce value even though it increases accounting growth.</p>
+  <table class="compare-table">
+    <tr><th>Relationship</th><th>PVGO</th><th>Interpretation</th><th>Managerial implication</th></tr>
+    <tr><td>ROE &gt; r</td><td>Positive</td><td>New projects earn more than shareholders require.</td><td>Retention can raise share price.</td></tr>
+    <tr><td>ROE = r</td><td>Zero</td><td>New projects just earn the fair required return.</td><td>Retention changes timing, not value.</td></tr>
+    <tr><td>ROE &lt; r</td><td>Negative</td><td>New projects earn too little for their risk.</td><td>Shareholders may prefer payout.</td></tr>
+  </table>
+  <div class="eval-box"><div class="eval-label">Seminar link</div><p>Stormy Weather has ROE equal to the discount rate. Changing plowback from 0% to 40% to 80% changes dividend growth, but price and P/E stay the same because the reinvestment has zero NPV.</p></div>
 </div>
 
 <div class="section" id="s5">
-  <div class="section-num">Part 05</div>
-  <h2>Multi-Stage Equity Valuation</h2>
-  <p>Not all firms have one stable growth rate forever. A better answer explains when multi-stage growth is more realistic and how the valuation is stitched together across stages.</p>
+  <div class="section-num">05</div>
+  <h2>PVGO and Value Creation</h2>
+  <p>PVGO is the part of the share price attributable to future growth opportunities. The lecture frames equity value as value from existing assets plus the present value of future investments.</p>
+  <div class="formula-box">
+    <div class="formula-label">Earnings model</div>
+    <div class="formula">P0 = EPS1 / r + PVGO</div>
+    <p><strong>EPS1 / r</strong> is the value per share if the firm pays out all earnings and undertakes no new investments. <strong>PVGO</strong> adds the value created by future positive-NPV projects.</p>
+  </div>
+  <p>This is why growth is not the same as value creation. A firm can grow by reinvesting at poor returns, but that destroys value. A firm can also pay high dividends and still be valuable if its current assets generate durable earnings.</p>
+  <div class="diagram-box">
+    <div class="diagram-label">PVGO logic chain</div>
+    <ul>
+      <li>Start with the no-growth value of existing earnings.</li>
+      <li>Identify the investment cash outflows required for future projects.</li>
+      <li>Estimate the future cash flows or earnings generated by those projects.</li>
+      <li>Discount all incremental project cash flows at the required return.</li>
+      <li>Add positive PVGO to existing-asset value, or subtract negative PVGO if projects earn too little.</li>
+    </ul>
+  </div>
 </div>
 
 <div class="section" id="s6">
-  <div class="section-num">Part 06</div>
-  <h2>Exam Framing</h2>
-  <p>Do not treat higher retention as automatically good. Retained earnings create value only if reinvested at attractive returns. That evaluative step separates finance reasoning from mechanical formula use.</p>
+  <div class="section-num">06</div>
+  <h2>Multi-Stage Equity Valuation</h2>
+  <p>Many firms do not have one stable growth rate forever. A firm may grow quickly for a few years, then settle into mature growth. Multi-stage valuation handles this by valuing explicit dividends first and then adding a terminal or horizon value.</p>
+  <div class="formula-box">
+    <div class="formula-label">Two-stage DDM structure</div>
+    <div class="formula">P0 = PV(explicit dividends) + PV(horizon value)</div>
+    <div class="formula">Horizon value at time T = D(T+1) / (r - stable g)</div>
+  </div>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Forecast explicit dividends:</strong> calculate each dividend during the high-growth or transition period.</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Find the horizon value:</strong> apply the constant-growth formula at the date just before the first stable dividend.</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Discount everything to today:</strong> each dividend and the horizon value must be discounted using the same timing convention.</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-content"><strong>Explain the result:</strong> identify whether value mainly comes from near-term distributions or from later growth.</div></div>
+  </div>
+  <div class="mistake-box"><div class="mistake-label">Timing warning</div><p>If the first stable dividend is at year 5, the horizon value is usually at year 4. If the problem gives the year-5 dividend directly, do not grow it again before using it in the formula.</p></div>
 </div>
 
-<div class="eval-box"><div class="eval-label">Seminar angle</div><p>Seminar 7 is the best source for tightening this topic because it pushes from simple DDM logic into P/E interpretation and growth-opportunity valuation.</p></div>
-<div class="mistake-box"><div class="mistake-label">Common mistake</div><p>Students often memorise the formula or definition but fail to explain what changes value, what changes risk, and which timing convention the problem is using. In finance, those details usually determine the correct answer.</p></div>
-<div class="exam-q"><div class="exam-q-header"><span>Assessment-style prompt</span><span class="exam-q-marks">10 marks</span></div><div class="exam-q-body"><p class="q">Explain the financial logic behind equity valuation and share prices and show how it would affect a decision faced by a manager, investor, or household.</p><p>Start with a precise definition, then explain the mechanism step by step. If a calculation is relevant, state which formula or convention should be used and why.</p></div></div>
+<div class="section" id="s7">
+  <div class="section-num">07</div>
+  <h2>Free Cash Flow Valuation</h2>
+  <p>Some companies do not pay dividends, especially firms with many growth opportunities. They are not worth zero. Instead, analysts often value free cash flow, which captures cash available after operating and investment needs.</p>
+  <div class="formula-box">
+    <div class="formula-label">Free cash flow</div>
+    <div class="formula">FCF = Cash flow from operations - Cash flow from investing activities</div>
+    <div class="formula">If interest is included in CFO: FCF = CFO - investing cash flow + net interest paid x (1 - tax rate)</div>
+  </div>
+  <p>The lecture’s cash-flow example adds back after-tax interest where interest has been included in cash flow from operations, because interest is a cash flow available to capital providers before being paid to debt holders.</p>
+  <div class="formula-box">
+    <div class="formula-label">DCF value</div>
+    <div class="formula">Company value = PV(forecast FCFs) + PV(horizon value)</div>
+    <div class="formula">Horizon value = FCF(T+1) / (r - g)</div>
+  </div>
+  <div class="eval-box"><div class="eval-label">When FCF is useful</div><p>FCF valuation is especially useful when dividends are zero, unstable, or not representative of the firm’s capacity to generate cash. Dividend models are easier, but FCF is often more informative for growth firms and firms changing payout policy.</p></div>
+</div>
+
+<div class="section" id="s8">
+  <div class="section-num">08</div>
+  <h2>Worked Examples</h2>
+  <h3>Example 1: Constant-growth dividend valuation</h3>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Worked calculation</span><span class="exam-q-marks">DDM</span></div>
+    <div class="exam-q-body">
+      <p class="q">Brilliant plc will pay a dividend of 40p next year. Required return is 10% and dividends grow at 4% forever. Find the share price.</p>
+      <div class="answer-label">Answer</div>
+      <p>P0 = D1 / (r - g) = 0.40 / (0.10 - 0.04) = £6.67, or 666.7p.</p>
+      <p>The dividend is already next year’s dividend, so there is no extra multiplication by 1.04 before applying the model.</p>
+    </div>
+  </div>
+
+  <h3>Example 2: Growth from ROE and plowback</h3>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Worked calculation</span><span class="exam-q-marks">Growth</span></div>
+    <div class="exam-q-body">
+      <p class="q">A stock sells for $40. Next dividend is $4. ROE on reinvested funds is 15% and the firm reinvests 40% of earnings. What discount rate is implied?</p>
+      <div class="answer-label">Answer</div>
+      <p>Growth = ROE x plowback = 15% x 40% = 6%.</p>
+      <p>Required return = D1 / P0 + g = 4 / 40 + 6% = 16%.</p>
+    </div>
+  </div>
+
+  <h3>Example 3: PVGO from a new project</h3>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Worked calculation</span><span class="exam-q-marks">PVGO</span></div>
+    <div class="exam-q-body">
+      <p class="q">Firm Y earns £43m per year forever with no new investments. It can invest £31m today and £33m in one year to generate £36m per year forever from year 2. There are 10m shares and the required return is 10%.</p>
+      <div class="answer-label">Answer</div>
+      <p>No-project value = 43 / 0.10 = £430m, so price = £43 per share.</p>
+      <p>Project value at year 1 = 36 / 0.10 = £360m. Present value today = 360 / 1.10 = £327.27m. Subtract the investment costs: 327.27 - 31 - (33 / 1.10) = £266.27m PVGO.</p>
+      <p>PVGO per share = 266.27 / 10 = £26.63. Share price with the project = £43 + £26.63 = £69.63.</p>
+    </div>
+  </div>
+
+  <h3>Example 4: No-growth P/E</h3>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Worked calculation</span><span class="exam-q-marks">P/E</span></div>
+    <div class="exam-q-body">
+      <p class="q">No-Growth Industries pays out all earnings as dividends. Next dividend and EPS are $4. The discount rate is 12%. What is the P/E?</p>
+      <div class="answer-label">Answer</div>
+      <p>Price = 4 / 0.12 = $33.33. P/E = 33.33 / 4 = 8.33.</p>
+      <p>If the discount rate falls to 10%, price becomes $40 and P/E becomes 10. This shows why lower required returns produce higher valuation multiples.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="s9">
+  <div class="section-num">09</div>
+  <h2>Exam Prompts and Answer Structures</h2>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Assessment-style prompt</span><span class="exam-q-marks">8 marks</span></div>
+    <div class="exam-q-body">
+      <p class="q">Explain why a firm can have a high share price even when it pays no dividends today.</p>
+      <p>Define share value as the present value of future cash flows. Explain that dividends may be delayed because the firm has positive-NPV investments. Link retention to future earnings, future free cash flow, or future dividends. Add the limitation that retention only creates value when project returns exceed the cost of equity.</p>
+    </div>
+  </div>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Assessment-style prompt</span><span class="exam-q-marks">10 marks</span></div>
+    <div class="exam-q-body">
+      <p class="q">A firm increases its plowback ratio. Explain the likely effect on share price and P/E ratio.</p>
+      <p>Start with g = plowback x ROE. Then separate three cases: ROE greater than r, equal to r, and less than r. The strongest answer says higher plowback increases growth but does not necessarily increase value.</p>
+    </div>
+  </div>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Calculation prompt</span><span class="exam-q-marks">12 marks</span></div>
+    <div class="exam-q-body">
+      <p class="q">A company has a period of high dividend growth followed by stable growth. Calculate the share price using a two-stage dividend discount model.</p>
+      <p>Write down each explicit dividend, calculate the horizon value at the correct date, discount every cash flow to today, and state the timing convention. Most lost marks come from placing the terminal value one year too early or too late.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="s10">
+  <div class="section-num">10</div>
+  <h2>Common Mistakes</h2>
+  <div class="mistake-box"><div class="mistake-label">Mistake 1: Confusing D0 and D1</div><p>The Gordon formula uses next year’s dividend. If the problem gives the most recent dividend, grow it once. If it gives next year’s dividend, use it directly.</p></div>
+  <div class="mistake-box"><div class="mistake-label">Mistake 2: Treating growth as automatically valuable</div><p>Growth creates value only when reinvested earnings earn more than the required return. If ROE is below r, growth can reduce value.</p></div>
+  <div class="mistake-box"><div class="mistake-label">Mistake 3: Ignoring the discount rate in P/E comparisons</div><p>Different P/E ratios may reflect different risk, not just different growth. A safer firm can deserve a higher P/E even with the same earnings.</p></div>
+  <div class="mistake-box"><div class="mistake-label">Mistake 4: Applying DDM to unsuitable firms without comment</div><p>If dividends are zero, irregular, or unrelated to cash generation, explain why FCF valuation may be more appropriate.</p></div>
+  <div class="mistake-box"><div class="mistake-label">Mistake 5: Losing the units</div><p>Keep pence, pounds, euros, millions, and per-share figures separate. PVGO for the whole firm must be divided by shares outstanding before adding it to a per-share value.</p></div>
+  <div class="eval-box"><div class="eval-label">Final exam habit</div><p>After every calculation, add one sentence of interpretation. For example: “The project adds £26.63 per share because its return exceeds the shareholders’ required return.” That sentence often turns a mechanical answer into a finance answer.</p></div>
+</div>
+
 <div class="footer">Lecture 7 · Equity Valuation and Share Prices · Finance Fundamentals revision guide</div>
 </div>
 <script>
@@ -124,6 +396,5 @@ h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{f
   });
 })();
 </script>
-
 </body>
 </html>

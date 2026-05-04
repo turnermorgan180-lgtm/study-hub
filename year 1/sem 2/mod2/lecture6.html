@@ -11,18 +11,22 @@
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;transition:opacity .22s ease,transform .22s ease}
 .page{position:relative;max-width:860px;margin:0 auto;padding:0 2rem 6rem}.back-btn{position:absolute;top:1.5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;font-size:1rem;box-shadow:0 10px 20px rgba(0,0,0,.08);transition:transform .15s,background .15s;z-index:10}.back-btn:hover{transform:translateY(-1px);background:var(--bg2)}
 .hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border2);margin-bottom:3rem;position:relative}.hero::before{content:'';position:absolute;top:0;left:-2rem;right:-2rem;bottom:0;background:linear-gradient(180deg,#e5eff2 0%,transparent 100%);z-index:-1}
-.lecture-tag,.meta-chip,.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label,.exam-q-header,.footer,.resource-path{font-family:'DM Mono',monospace}.lecture-tag{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;gap:8px;margin-bottom:1rem}.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent);margin-top:.6rem}
-h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{font-size:3.2rem;line-height:1.1;margin-bottom:1rem}.hero-sub{font-size:16px;color:var(--muted);max-width:660px;margin-bottom:1.5rem}
+.lecture-tag,.meta-chip,.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label,.exam-q-header,.footer,.resource-path,.answer-label{font-family:'DM Mono',monospace}.lecture-tag{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;gap:8px;margin-bottom:1rem}.lecture-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent);margin-top:.6rem}
+h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{font-size:3.2rem;line-height:1.1;margin-bottom:1rem}h2{font-size:1.9rem;font-weight:600;line-height:1.2;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}h3{font-size:1.25rem;font-weight:600;margin-top:1.75rem;margin-bottom:.6rem;font-style:italic}.hero-sub{font-size:16px;color:var(--muted);max-width:690px;margin-bottom:1.5rem}
 .meta-row{display:flex;gap:1rem;flex-wrap:wrap}.meta-chip{font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}.chip-topic{background:var(--teal-light);color:var(--teal);border:1px solid #b8d8d3}.chip-exam{background:var(--accent-light);color:var(--accent);border:1px solid #bfd3da}.chip-module{background:var(--gold-light);color:var(--gold);border:1px solid #dcc888}
 .alert-box{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin-bottom:2.5rem;font-size:13.5px;color:#173f4f}
-.toc{background:var(--surface);border:1px solid var(--border);padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem 2rem}.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase}.toc-title{color:var(--muted);grid-column:1/-1}.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;gap:8px}.toc a::before{content:attr(data-num);color:var(--border2)}
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem 2rem}.toc-title,.section-num,.defn-label,.eval-label,.mistake-label,.diagram-label,.answer-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase}.toc-title{color:var(--muted);grid-column:1/-1}.toc a{font-size:13px;color:var(--muted);text-decoration:none;display:flex;gap:8px;padding:3px 0}.toc a::before{content:attr(data-num);font-size:10px;color:var(--border2);min-width:16px}
 .section{margin-bottom:3.5rem}.section-num{color:var(--accent);margin-bottom:.4rem}p{margin-bottom:.9rem}ul{padding-left:1.15rem;margin:1rem 0}li{margin-bottom:.45rem}
-.defn{background:var(--gold-light);border:1px solid #dcc888;border-radius:4px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}.defn-label{color:var(--gold);margin-bottom:4px}.defn p{margin-bottom:0;font-size:14.5px}
-.eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.mistake-box{background:var(--red-light);border:1px solid var(--red-border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.eval-label{color:var(--teal);margin-bottom:.6rem}.mistake-label{color:var(--red-label);margin-bottom:.6rem}
+.defn{background:var(--gold-light);border:1px solid #dcc888;border-radius:4px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}.defn-label{color:var(--gold);margin-bottom:4px}.defn p{margin-bottom:0;font-size:14.5px;color:var(--ink)}
+.key-terms{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1.25rem 0}.term{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:.7rem 1rem}.term-word{font-size:1rem;font-weight:600;margin-bottom:2px}.term-def{font-size:12.5px;color:var(--muted);line-height:1.4}
+.compare-table{width:100%;border-collapse:collapse;font-size:13.5px;margin:1.25rem 0;border:1px solid var(--border);border-radius:4px;overflow:hidden}.compare-table th{background:var(--bg2);padding:.65rem 1rem;text-align:left;font-weight:500;font-size:12px;font-family:'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border2)}.compare-table td{padding:.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top}.compare-table tr:last-child td{border-bottom:none}.compare-table td:first-child{font-weight:500;color:var(--ink)}
+.eval-box{background:var(--teal-light);border:1px solid #b8d8d3;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.mistake-box{background:var(--red-light);border:1px solid var(--red-border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.eval-label{color:var(--teal);margin-bottom:.6rem}.mistake-label{color:var(--red-label);margin-bottom:.6rem}.mistake-box p{color:var(--red-text);font-size:14px}.eval-box p{color:#1a4a42;font-size:14px}
+.steps{margin:1.25rem 0}.step{display:flex;gap:1rem;margin-bottom:.75rem;align-items:flex-start}.step-num{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--border2);line-height:1.2;min-width:28px;flex-shrink:0}.step-content{font-size:14px;padding-top:2px}.step-content strong{color:var(--ink)}
+.diagram-box{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0}.diagram-label{color:var(--muted);margin-bottom:.75rem}
 .resource-list{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1rem 1.25rem;margin:1rem 0 1.25rem}.resource-list ul{margin:.2rem 0 0 1rem}.resource-path{font-size:11px;color:var(--muted)}
-.exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0}.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between}.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px}.exam-q-body{padding:1.25rem 1.5rem}.exam-q-body .q{font-style:italic;margin-bottom:1rem}
+.exam-q{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0}.exam-q-header{background:var(--ink);color:#f5f0e8;padding:.6rem 1.25rem;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between}.exam-q-marks{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px}.exam-q-body{padding:1.25rem 1.5rem}.exam-q-body .q{font-style:italic;margin-bottom:1rem;color:var(--ink)}.answer-label{color:var(--teal);margin-bottom:.4rem}
 .footer{text-align:center;font-size:11px;color:var(--border2);padding-top:1rem;border-top:1px solid var(--border)}.page-transition-init{opacity:0;transform:translateY(8px)}.page-transition-ready{opacity:1;transform:none}.page-transition-leaving{opacity:0;transform:translateY(6px);pointer-events:none}
-@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}@media (max-width:640px){h1{font-size:2.2rem}.toc{grid-template-columns:1fr}.page{padding:0 1.25rem 4rem}}
+@media (prefers-reduced-motion: reduce){body,.page-transition-init,.page-transition-ready,.page-transition-leaving{transition:none!important;transform:none!important}}@media (max-width:640px){h1{font-size:2.2rem}.toc,.key-terms{grid-template-columns:1fr}.page{padding:0 1.25rem 4rem}}
 
 </style>
 </head>
@@ -32,67 +36,199 @@ h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{f
 <div class="hero">
   <div class="lecture-tag">Lecture 6 · Finance Fundamentals · University of York</div>
   <h1>Introduction to Equity</h1>
-  <p class="hero-sub">Residual ownership, dividends, shareholder rights, required return, and the logic behind equity as a claim on future business performance.</p>
+  <p class="hero-sub">Ordinary shares as residual ownership, shareholder rights, dividend and capital gain returns, and the valuation logic behind no-growth, constant-growth and multi-stage equity models.</p>
   <div class="meta-row">
-    <span class="meta-chip chip-topic">Finance topic</span>
-    <span class="meta-chip chip-exam">Tightened with seminar material</span>
+    <span class="meta-chip chip-topic">Equity valuation</span>
+    <span class="meta-chip chip-exam">Seminar 6 linked</span>
     <span class="meta-chip chip-module">MAN00026C</span>
   </div>
 </div>
-<div class="alert-box"><strong>Lecture focus:</strong> these notes now include the seminar-style framing needed for problem solving, definitions, and exam explanation rather than only first-pass summary points.</div>
+<div class="alert-box"><strong>Lecture focus:</strong> equity is valued as the present value of future cash flows to shareholders. The exam move is to connect ownership rights and risk to the dividend discount model, then handle timing conventions carefully.</div>
 <div class="toc">
   <div class="toc-title">Contents</div>
-  <a href="#s1" data-num="01">What Equity Represents</a>
-  <a href="#s2" data-num="02">Dividends, Retention and Growth</a>
-  <a href="#s3" data-num="03">Required Return on Equity</a>
-  <a href="#s4" data-num="04">Dividend Discount Logic</a>
-  <a href="#s5" data-num="05">When Model Assumptions Matter</a>
-  <a href="#s6" data-num="06">Equity as a Finance Decision Tool</a>
+  <a href="#terms" data-num="00">Terms to know cold</a>
+  <a href="#s1" data-num="01">What equity represents</a>
+  <a href="#s2" data-num="02">Shareholder rights and risk</a>
+  <a href="#s3" data-num="03">Holding-period return</a>
+  <a href="#s4" data-num="04">Share valuation logic</a>
+  <a href="#s5" data-num="05">Dividend discount model</a>
+  <a href="#s6" data-num="06">Growth, payout and ROE</a>
+  <a href="#s7" data-num="07">PVGO and cash cows</a>
+  <a href="#s8" data-num="08">Exam technique and pitfalls</a>
 </div>
 <div class="resource-list">
   <div class="defn-label">Tightening sources</div>
-  <ul><li><span class="resource-path">resources/Students Introduction to Equity.pptx</span></li><li><span class="resource-path">resources/Seminar 6.docx</span></li><li><span class="resource-path">resources/Seminar 6 Solutions.docx</span></li></ul>
+  <ul>
+    <li><span class="resource-path">resources/Students Introduction to Equity.pptx</span></li>
+    <li><span class="resource-path">resources/Seminar 6.docx</span></li>
+    <li><span class="resource-path">resources/Seminar 6 Solutions.docx</span></li>
+  </ul>
 </div>
-<div class="defn"><div class="defn-label">Core finance rule</div><p>r = D1 / P0 + g ; with constant growth, P0 = D1 / (r - g), provided r > g.</p></div>
+<div class="defn"><div class="defn-label">Core finance rule</div><p>For a constant-growth dividend stock: <strong>P0 = D1 / (r - g)</strong> and <strong>r = D1 / P0 + g</strong>, provided <strong>r &gt; g</strong>.</p></div>
+
+<div class="section" id="terms">
+  <div class="section-num">Key Definitions</div>
+  <h2>Terms to Know Cold</h2>
+  <div class="key-terms">
+    <div class="term"><div class="term-word">Equity</div><div class="term-def">The value of the firm that belongs to shareholders after other claims have been met.</div></div>
+    <div class="term"><div class="term-word">Ordinary share</div><div class="term-def">A unit of ownership in the company, carrying residual cash-flow and control rights.</div></div>
+    <div class="term"><div class="term-word">Par value</div><div class="term-def">The nominal or face value stated on shares; not the same as market value.</div></div>
+    <div class="term"><div class="term-word">Outstanding shares</div><div class="term-def">Shares currently issued and held by investors.</div></div>
+    <div class="term"><div class="term-word">Dividend yield</div><div class="term-def">Dividend received over the share price, usually D1 / P0 for a forward-looking valuation.</div></div>
+    <div class="term"><div class="term-word">Capital gains yield</div><div class="term-def">Percentage return from price appreciation or depreciation over the holding period.</div></div>
+    <div class="term"><div class="term-word">Equity cost of capital</div><div class="term-def">The return investors require on shares with equivalent risk.</div></div>
+    <div class="term"><div class="term-word">Plowback ratio</div><div class="term-def">The fraction of earnings retained in the firm for reinvestment, denoted b.</div></div>
+    <div class="term"><div class="term-word">Payout ratio</div><div class="term-def">The fraction of earnings paid as dividends, equal to 1 - b.</div></div>
+    <div class="term"><div class="term-word">PVGO</div><div class="term-def">Present value of growth opportunities: the part of share value due to future positive-NPV investment.</div></div>
+  </div>
+</div>
+
 <div class="section" id="s1">
   <div class="section-num">Part 01</div>
   <h2>What Equity Represents</h2>
-  <p>Equity gives investors a residual claim on firm value after other obligations are met. That makes equity riskier than debt, but it also gives investors upside when firms perform strongly.</p>
+  <p>Equity is the shareholder-owned part of the firm. Ordinary shares represent this equity claim, so shareholders are the residual owners rather than fixed creditors. They benefit when the company does well, but they also absorb downside once contractual claims have been satisfied.</p>
+  <p>This is why equity is riskier than debt. A lender expects promised interest and principal. A shareholder has no guaranteed dividend, no promised repayment date, and no fixed maturity value. The upside is that a successful firm can produce rising dividends and a higher share price.</p>
+  <table class="compare-table">
+    <tr><th>Feature</th><th>Debt holder</th><th>Ordinary shareholder</th></tr>
+    <tr><td>Claim type</td><td>Contractual interest and principal</td><td>Residual claim on firm value</td></tr>
+    <tr><td>Return pattern</td><td>Usually fixed or pre-agreed</td><td>Dividend income plus capital gains or losses</td></tr>
+    <tr><td>Liquidation</td><td>Paid before equity if assets remain</td><td>Last in the queue</td></tr>
+    <tr><td>Control</td><td>Normally limited unless covenants are breached</td><td>Voting rights and influence over company decisions</td></tr>
+  </table>
 </div>
 
 <div class="section" id="s2">
   <div class="section-num">Part 02</div>
-  <h2>Dividends, Retention and Growth</h2>
-  <p>Equity returns can come from dividends and capital gains. The link between payout and growth is crucial: if the firm retains earnings and earns a return on them, future dividends may grow faster.</p>
+  <h2>Shareholder Rights and Equity Risk</h2>
+  <p>The lecture highlights three central rights: shareholders may have control rights, they may receive dividends if distributed, and they share in liquidation proceeds after higher-priority claims. They can also sell shares in the market, but the price depends on what investors believe the future cash flows are worth.</p>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Control:</strong> ordinary shareholders can vote on key company matters, usually through general meetings and director appointments.</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Dividends:</strong> dividends are discretionary distributions. A company may retain earnings instead of paying them out.</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Residual liquidation claim:</strong> shareholders receive what is left only after creditors and other senior claimants are paid.</div></div>
+  </div>
+  <div class="mistake-box">
+    <div class="mistake-label">Common mistake</div>
+    <p>Do not write that shareholders are guaranteed dividends or guaranteed return of capital. Equity value comes from expected future cash flows, but those cash flows are risky and conditional on business performance.</p>
+  </div>
 </div>
 
 <div class="section" id="s3">
   <div class="section-num">Part 03</div>
-  <h2>Required Return on Equity</h2>
-  <p>Investors require compensation for time and risk. In simple dividend-growth settings, required return can be decomposed into dividend yield plus growth, which is a core seminar result.</p>
+  <h2>Holding-Period Return: Income plus Capital Gain</h2>
+  <p>From a pure financial perspective, investors buy shares for cash flows. Those cash flows arrive through dividends and through resale value. The one-period holding-period return therefore combines the dividend received with the price change over the period.</p>
+  <div class="defn">
+    <div class="defn-label">One-period return</div>
+    <p><strong>HPR = (D1 + P1 - P0) / P0</strong>. Dividend yield is <strong>D1 / P0</strong>; capital gains yield is <strong>(P1 - P0) / P0</strong>.</p>
+  </div>
+  <p>Example from the lecture logic: if a share is bought for 120p, sold after one year for 125p, and pays a 5p dividend, total return is (5 + 125 - 120) / 120 = 8.33 percent. Half the gain is dividend income and half is price appreciation.</p>
+  <table class="compare-table">
+    <tr><th>Return component</th><th>Formula</th><th>Interpretation</th></tr>
+    <tr><td>Dividend yield</td><td>D1 / P0</td><td>Current income from holding the share</td></tr>
+    <tr><td>Capital gains yield</td><td>(P1 - P0) / P0</td><td>Price growth or price loss during the holding period</td></tr>
+    <tr><td>Total return</td><td>Dividend yield + capital gains yield</td><td>Overall reward for bearing equity risk</td></tr>
+  </table>
 </div>
 
 <div class="section" id="s4">
   <div class="section-num">Part 04</div>
-  <h2>Dividend Discount Logic</h2>
-  <p>Seminar 6 introduces the constant-growth dividend discount model. The key point is not only the formula, but the economic logic: price reflects the present value of expected future dividends.</p>
+  <h2>Share Valuation Starts with Present Value</h2>
+  <p>The basic valuation claim is the same as in bonds: <strong>the price of a security is the present value of its future cash flows</strong>. For a one-period investor, the relevant cash flows are next year's dividend and next year's resale price.</p>
+  <div class="defn">
+    <div class="defn-label">One-period share price</div>
+    <p><strong>P0 = (D1 + P1) / (1 + r)</strong>, where r is the equity cost of capital for investments with equivalent risk.</p>
+  </div>
+  <p>The discount rate is not arbitrary. It is the expected return available on shares with the same level of risk. If equivalent-risk investments offer 8.5 percent, a share expected to pay £0.44 and sell for £33 in one year is worth (£0.44 + £33) / 1.085 = about £30.82.</p>
+  <div class="eval-box">
+    <div class="eval-label">Decision rule</div>
+    <p>Buy only if the market price is below intrinsic value, all else equal. If the same share were offered for £28, the valuation logic says it is priced below the present value of expected future cash flows.</p>
+  </div>
 </div>
 
 <div class="section" id="s5">
   <div class="section-num">Part 05</div>
-  <h2>When Model Assumptions Matter</h2>
-  <p>A strong answer evaluates the model. Constant growth forever is a simplifying assumption, not a literal claim that firms never change. Students score better when they explain where the model helps and where it becomes unrealistic.</p>
+  <h2>The Dividend Discount Model</h2>
+  <p>The dividend discount model extends the one-period logic. The future resale price is itself determined by the next investor's expectations of future dividends and resale price. Repeated substitution leaves the value of the share as the present value of expected future dividends.</p>
+  <div class="diagram-box">
+    <div class="diagram-label">DDM logic chain</div>
+    <ul>
+      <li>One-period price: <strong>P0 = (D1 + P1) / (1 + r)</strong>.</li>
+      <li>Two-period price substitutes <strong>P1</strong> with <strong>D2 + P2</strong> discounted at the same risk-adjusted rate.</li>
+      <li>With horizon H, investors with different holding periods should reach the same value if prices are based on future dividends.</li>
+      <li>Unlike bonds, ordinary shares have no specified maturity date and no fixed maturity value.</li>
+    </ul>
+  </div>
+  <table class="compare-table">
+    <tr><th>DDM case</th><th>When it fits</th><th>Formula or method</th></tr>
+    <tr><td>No growth</td><td>Dividends are constant forever</td><td>P0 = D / r</td></tr>
+    <tr><td>Constant growth</td><td>Dividends grow at stable rate g forever</td><td>P0 = D1 / (r - g)</td></tr>
+    <tr><td>Differential growth</td><td>Growth changes over phases</td><td>Discount explicit dividends, then add terminal value</td></tr>
+  </table>
+  <div class="mistake-box">
+    <div class="mistake-label">Timing convention</div>
+    <p>The Gordon formula gives the value one period before the first dividend in the formula. If D10 is the first dividend, D10 / (r - g) is P9, not P10 and not P0.</p>
+  </div>
 </div>
 
 <div class="section" id="s6">
   <div class="section-num">Part 06</div>
-  <h2>Equity as a Finance Decision Tool</h2>
-  <p>This topic matters because it links pricing to payout policy, growth opportunities, and investor expectations. That moves the module beyond description into valuation logic.</p>
+  <h2>Growth, Payout and Return on Equity</h2>
+  <p>Dividend growth can be estimated from history, but the more useful finance logic asks where growth comes from. If the firm retains earnings and earns a return on those retained funds, future earnings and dividends can grow.</p>
+  <div class="defn">
+    <div class="defn-label">Sustainable growth</div>
+    <p><strong>g = ROE x b</strong>, where <strong>b</strong> is the plowback ratio. Payout ratio is <strong>1 - b</strong>.</p>
+  </div>
+  <p>This creates a trade-off. Paying out more earnings increases the near-term dividend. Retaining more earnings can increase future growth, but only if the firm can earn attractive returns on reinvested funds.</p>
+  <table class="compare-table">
+    <tr><th>Policy</th><th>Immediate dividend</th><th>Future growth</th><th>Value effect</th></tr>
+    <tr><td>High payout</td><td>Higher now</td><td>Lower if little is reinvested</td><td>Good for mature income shares if growth options are weak</td></tr>
+    <tr><td>High plowback</td><td>Lower now</td><td>Higher if ROE on reinvestment is strong</td><td>Good only when retained funds create value</td></tr>
+    <tr><td>Poor reinvestment</td><td>Lower now</td><td>Growth may still disappoint</td><td>Can destroy value despite a higher accounting growth rate</td></tr>
+  </table>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Seminar link</span><span class="exam-q-marks">Q8</span></div>
+    <div class="exam-q-body"><p class="q">A stock sells for $40. The next dividend is $4. ROE on reinvested funds is 15 percent and the firm reinvests 40 percent of earnings. What is the discount rate?</p><p>Growth is 15 percent x 40 percent = 6 percent. Therefore r = D1 / P0 + g = 4 / 40 + 6 percent = 16 percent.</p></div>
+  </div>
 </div>
 
-<div class="eval-box"><div class="eval-label">Seminar angle</div><p>Seminar 6 is where the topic becomes computational. Use it to revise dividend yield, growth, no-dividend periods, and multi-stage share valuation intuition.</p></div>
-<div class="mistake-box"><div class="mistake-label">Common mistake</div><p>Students often memorise the formula or definition but fail to explain what changes value, what changes risk, and which timing convention the problem is using. In finance, those details usually determine the correct answer.</p></div>
-<div class="exam-q"><div class="exam-q-header"><span>Assessment-style prompt</span><span class="exam-q-marks">10 marks</span></div><div class="exam-q-body"><p class="q">Explain the financial logic behind introduction to equity and show how it would affect a decision faced by a manager, investor, or household.</p><p>Start with a precise definition, then explain the mechanism step by step. If a calculation is relevant, state which formula or convention should be used and why.</p></div></div>
+<div class="section" id="s7">
+  <div class="section-num">Part 07</div>
+  <h2>PVGO and Cash Cow Logic</h2>
+  <p>A company that pays all earnings as dividends has no retained earnings to fund growth, so a simple no-growth valuation is <strong>EPS / r</strong>. This is the cash cow benchmark: value comes from current earnings distributed to shareholders.</p>
+  <p>PVGO measures the part of share price attributable to future growth opportunities. If actual price is above the no-growth value, the difference reflects the market's valuation of investment opportunities. If the difference is negative, investors believe future investments reduce value.</p>
+  <div class="defn">
+    <div class="defn-label">PVGO</div>
+    <p><strong>PVGO = P0 - EPS / r</strong>. Positive PVGO means growth opportunities add value beyond a no-growth earnings stream.</p>
+  </div>
+  <div class="eval-box">
+    <div class="eval-label">Exam insight</div>
+    <p>Growth is not automatically good. Retention creates value only when reinvested earnings earn more than investors require for that level of risk.</p>
+  </div>
+</div>
+
+<div class="section" id="s8">
+  <div class="section-num">Part 08</div>
+  <h2>Exam Technique and Common Pitfalls</h2>
+  <p>Most equity questions reward a clear sequence: identify the cash flows, choose the correct dividend model, check timing, discount at the required return, then interpret the result. In written answers, explain that the model is useful because it links price to expected cash flows, but simplified because it assumes forecastable dividends and stable risk.</p>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Label D0 and D1.</strong> If the question gives the most recent dividend, grow it once before using a forward-looking formula.</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Check r &gt; g.</strong> The constant-growth model breaks if growth is equal to or greater than the discount rate.</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Separate income and growth.</strong> Dividend yield plus capital gains yield equals required return in the constant-growth setting.</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-content"><strong>Use terminal values carefully.</strong> In multi-stage questions, discount explicit dividends and the terminal value back to today.</div></div>
+  </div>
+  <div class="mistake-box">
+    <div class="mistake-label">Common mistakes</div>
+    <p>Do not use D0 in the numerator of P0 = D1 / (r - g) unless g = 0. Do not treat par value as market value. Do not assume a low dividend yield means a low total return; high-growth shares often deliver more of their return through capital gains.</p>
+  </div>
+  <div class="exam-q">
+    <div class="exam-q-header"><span>Assessment-style prompt</span><span class="exam-q-marks">12 marks</span></div>
+    <div class="exam-q-body">
+      <p class="q">Explain how ordinary shares create value for investors and show how the constant-growth dividend discount model links share price, dividend yield and capital gains yield.</p>
+      <div class="answer-label">Model structure</div>
+      <p>Define equity as residual ownership, then explain shareholder rights and risk. Set out HPR as dividend yield plus capital gain. Move from one-period valuation to the DDM and state P0 = D1 / (r - g), with r = D1 / P0 + g. Finish by evaluating assumptions: constant growth is plausible for mature dividend-paying firms, weaker for start-ups, no-dividend firms and firms with changing growth phases.</p>
+    </div>
+  </div>
+</div>
+
 <div class="footer">Lecture 6 · Introduction to Equity · Finance Fundamentals revision guide</div>
 </div>
 <script>
