@@ -345,5 +345,5 @@ h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{f
 })();
 </script>
 
-</body>
+<script id="study-hub-smart-back">(function(){var key='studyHubReturnTo';function sameOrigin(url){try{return new URL(url,window.location.href).origin===window.location.origin;}catch(e){return false;}}function go(url){document.body.classList.remove('page-transition-ready');document.body.classList.add('page-transition-leaving');window.setTimeout(function(){window.location.href=url;},160);}document.addEventListener('click',function(event){var link=event.target.closest('a[href]');if(!link)return;if(link.classList.contains('topic-link')){var card=link.closest('.question-card[id]');if(card){var here=new URL(window.location.href);here.hash=card.id;try{sessionStorage.setItem(key,here.href);}catch(e){}}return;}if(!link.classList.contains('back-btn'))return;if(event.defaultPrevented||event.button!==0)return;if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;var stored=null;try{stored=sessionStorage.getItem(key);}catch(e){}if(stored&&sameOrigin(stored)){event.preventDefault();try{sessionStorage.removeItem(key);}catch(e){}go(stored);return;}if(document.referrer&&sameOrigin(document.referrer)){event.preventDefault();history.back();}},true);})();</script></body>
 </html>
