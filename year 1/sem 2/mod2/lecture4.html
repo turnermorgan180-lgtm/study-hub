@@ -114,7 +114,7 @@ h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{f
   <p>The value of any bond is the present value of its future cash flows. The only thing that changes across bond types is the cash-flow pattern. A consol has coupons forever. A zero has one cash flow at maturity. A coupon bond has coupons plus repayment of face value.</p>
   <div class="formula-box">
     <div class="formula-label">General coupon bond price</div>
-    <div class="formula">P0 = C/(1+y)^1 + C/(1+y)^2 + ... + (C + F)/(1+y)^n</div>
+    <div class="formula">[[display:P0 = C/(1+y)^{1} + C/(1+y)^{2} + ... + (C + F)/(1+y)^{n}]]</div>
     <p class="formula-note">C = annual coupon, F = face value, y = required return or YTM per period, n = number of periods.</p>
   </div>
   <div class="steps">
@@ -132,7 +132,7 @@ h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{f
   <p>Consols and zero-coupon bonds are useful because they isolate the two ends of the bond-pricing logic. A consol has no final principal repayment, so price is the PV of a perpetuity. A zero has no coupons, so price is the PV of the final face value.</p>
   <div class="formula-box">
     <div class="formula-label">Consol and zero formulas</div>
-    <div class="formula">Consol price = C / y<br>Zero-coupon price = F / (1+y)^n</div>
+    <div class="formula">[[display:\frac{Consol price = C}{yZero-coupon price = F / (1+y)^{n}}]]</div>
   </div>
   <h3>Worked example: consol</h3>
   <p>Perpetual Life Corp. issues consols with coupon payments of $60 and nominal value of $1,000. If the required return is 6%, price is $60 / 0.06 = $1,000. If the required return later rises to 10%, price is $60 / 0.10 = $600.</p>
@@ -147,7 +147,7 @@ h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{f
   <p>A conventional coupon bond, sometimes called a vanilla or straight bond, pays regular coupons and repays face value at maturity. In the lecture example, a 3-year GILT with nominal value &pound;100 and a 10% annual coupon pays &pound;10 in years 1 and 2, then &pound;110 in year 3.</p>
   <div class="formula-box">
     <div class="formula-label">Lecture example cash flows</div>
-    <div class="formula">P0 = 10/(1.05) + 10/(1.05)^2 + 110/(1.05)^3 = &pound;113.62</div>
+    <div class="formula">[[display:P0 = 10/(1.05) + 10/(1.05)^{2} + 110/(1.05)^{3} = &pound;113.62]]</div>
     <p class="formula-note">The quoted price is above par because the 10% coupon is higher than the 5% required return implied by the price.</p>
   </div>
   <table class="compare-table">
@@ -171,7 +171,7 @@ h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{f
   <p>In practice, YTM is usually found by trial and error, interpolation, a financial calculator, spreadsheet functions, or solver. The important exam skill is to set up the equation and interpret whether the result should be above or below the coupon rate.</p>
   <div class="formula-box">
     <div class="formula-label">YTM equation</div>
-    <div class="formula">Market price = PV of coupons + PV of face value, discounted at YTM</div>
+    <div class="formula">[[display:Market price = PV of coupons + PV of face value, discounted at YTM]]</div>
   </div>
   <div class="logic-box">If a bond sells at a discount, YTM must be above the coupon rate. If it sells at a premium, YTM must be below the coupon rate.</div>
 </div>
@@ -201,7 +201,7 @@ h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{f
   <p>Current yield and holding-period return answer different questions. Current yield measures coupon income relative to today&#39;s price. Holding-period return measures the actual return over the time you held the bond, including the price change.</p>
   <div class="formula-box">
     <div class="formula-label">Yield measures</div>
-    <div class="formula">Current yield = annual coupon / current price<br>HPR = (coupon received + sale price - purchase price) / purchase price</div>
+    <div class="formula">[[display:\frac{Current yield = annual coupon}{current priceHPR = (coupon received + sale price - purchase price) / purchase price}]]</div>
   </div>
   <h3>Worked example: current yield</h3>
   <p>The lecture&#39;s 10% coupon GILT is priced at &pound;113.62. Current yield = &pound;10 / &pound;113.62 = 8.80%. This is not the same as YTM because it ignores the capital loss expected when a premium bond is redeemed at &pound;100.</p>
@@ -219,7 +219,7 @@ h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{f
   <p>Many bonds pay coupons semi-annually. The rule is consistency: halve the annual coupon, halve the quoted annual yield when rates are proportional, and double the number of years to get the number of half-year periods.</p>
   <div class="formula-box">
     <div class="formula-label">Semi-annual pricing</div>
-    <div class="formula">P0 = (C/2)/(1+y/2)^1 + ... + (C/2 + F)/(1+y/2)^(2T)</div>
+    <div class="formula">[[display:P0 = (C/2)/(1+y/2)^{1} + ... + (C/2 + F)/(1+y/2)^(2T)]]</div>
     <p class="formula-note">T = years to maturity. If the annual coupon rate is 7% on &pound;100, the half-year coupon is &pound;3.50.</p>
   </div>
   <h3>Worked example: 10-year semi-annual bond</h3>
@@ -335,5 +335,5 @@ h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{f
 })();
 </script>
 
-<script id="study-hub-smart-back">(function(){var key='studyHubReturnTo';function sameOrigin(url){try{return new URL(url,window.location.href).origin===window.location.origin;}catch(e){return false;}}function go(url){document.body.classList.remove('page-transition-ready');document.body.classList.add('page-transition-leaving');window.setTimeout(function(){window.location.href=url;},160);}document.addEventListener('click',function(event){var link=event.target.closest('a[href]');if(!link)return;if(link.classList.contains('topic-link')){var card=link.closest('.question-card[id]');if(card){var here=new URL(window.location.href);here.hash=card.id;try{sessionStorage.setItem(key,here.href);}catch(e){}}return;}if(!link.classList.contains('back-btn'))return;if(event.defaultPrevented||event.button!==0)return;if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;var stored=null;try{stored=sessionStorage.getItem(key);}catch(e){}if(stored&&sameOrigin(stored)){event.preventDefault();try{sessionStorage.removeItem(key);}catch(e){}go(stored);return;}if(document.referrer&&sameOrigin(document.referrer)){event.preventDefault();history.back();}},true);})();</script></body>
+<script id="study-hub-smart-back">(function(){var key='studyHubReturnTo';function sameOrigin(url){try{return new URL(url,window.location.href).origin===window.location.origin;}catch(e){return false;}}function go(url){document.body.classList.remove('page-transition-ready');document.body.classList.add('page-transition-leaving');window.setTimeout(function(){window.location.href=url;},160);}document.addEventListener('click',function(event){var link=event.target.closest('a[href]');if(!link)return;if(link.classList.contains('topic-link')){var card=link.closest('.question-card[id]');if(card){var here=new URL(window.location.href);here.hash=card.id;try{sessionStorage.setItem(key,here.href);}catch(e){}}return;}if(!link.classList.contains('back-btn'))return;if(event.defaultPrevented||event.button!==0)return;if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;var stored=null;try{stored=sessionStorage.getItem(key);}catch(e){}if(stored&&sameOrigin(stored)){event.preventDefault();try{sessionStorage.removeItem(key);}catch(e){}go(stored);return;}if(document.referrer&&sameOrigin(document.referrer)){event.preventDefault();history.back();}},true);})();</script><script id="study-hub-math-renderer">(function(){if(window.__studyHubMathRenderer)return;window.__studyHubMathRenderer=true;window.MathJax=window.MathJax||{};window.MathJax.tex={inlineMath:[["\\(","\\)"],["$math(",")math$"]],displayMath:[["\\[","\\]"],["$display(",")display$"]],processEscapes:true};window.MathJax.options={skipHtmlTags:['script','noscript','style','textarea','pre','code']};var busy=false;function makeNode(kind,tex){var span=document.createElement('span');span.className=kind==='display'?'math-display':'math-inline';span.textContent=kind==='display'?'\\['+tex+'\\]':'\\('+tex+'\\)';return span;}function normalize(root){if(!root||busy)return;busy=true;var walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:function(node){var parent=node.parentNode;if(!parent)return NodeFilter.FILTER_REJECT;var tag=parent.nodeName.toLowerCase();if(['script','style','textarea','pre','code'].indexOf(tag)!==-1)return NodeFilter.FILTER_REJECT;return node.nodeValue.indexOf('[[math:')!==-1||node.nodeValue.indexOf('[[display:')!==-1?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT;}});var nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);nodes.forEach(function(node){var text=node.nodeValue;var frag=document.createDocumentFragment();var re=/[[(math|display):([ S]*?)]]/g;var last=0;var match;while((match=re.exec(text))){if(match.index>last)frag.appendChild(document.createTextNode(text.slice(last,match.index)));frag.appendChild(makeNode(match[1],match[2]));last=re.lastIndex;}if(last<text.length)frag.appendChild(document.createTextNode(text.slice(last)));node.parentNode.replaceChild(frag,node);});busy=false;}function typeset(root){normalize(root||document.body);if(window.MathJax&&window.MathJax.typesetPromise){window.MathJax.typesetPromise(root?[root]:undefined).catch(function(){});}}window.studyHubTypesetMath=typeset;function boot(){typeset(document.body);var observer=new MutationObserver(function(records){if(busy)return;records.forEach(function(record){record.addedNodes.forEach(function(node){if(node.nodeType===1)typeset(node);else if(node.nodeType===3&&node.nodeValue.indexOf('[[')!==-1&&node.parentNode)typeset(node.parentNode);});});});observer.observe(document.body,{childList:true,subtree:true});}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',boot);}else{boot();}if(!document.getElementById('mathjax-script')){var script=document.createElement('script');script.id='mathjax-script';script.async=true;script.src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js';document.head.appendChild(script);}})();</script></body>
 </html>

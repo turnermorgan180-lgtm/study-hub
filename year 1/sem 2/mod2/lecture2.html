@@ -118,7 +118,7 @@ h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{f
   <p>Present value answers the question: what is a future amount worth today? Discounting moves cash flows backwards in time. The further away the payment and the higher the discount rate, the lower the present value.</p>
   <div class="formula-box">
     <div class="formula-label">Single future cash flow</div>
-    <div class="formula">PV = C<sub>t</sub> / (1 + r)<sup>t</sup></div>
+    <div class="formula">[[display:PV=\frac{C_t}{(1+r)^t}]]</div>
     <p class="formula-note">C<sub>t</sub> is the cash flow received at time t, r is the discount rate per period, and t is the number of matching periods.</p>
   </div>
   <h3>Worked example: lottery choice</h3>
@@ -141,14 +141,14 @@ h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{f
   <p>Future value moves cash in the opposite direction. It asks what today’s investment will become after earning returns. Discounting and compounding are reverse operations: discounting divides by the growth factor; compounding multiplies by it.</p>
   <div class="formula-box">
     <div class="formula-label">Single current cash flow</div>
-    <div class="formula">FV = PV(1 + r)<sup>t</sup></div>
+    <div class="formula">[[display:FV=PV(1+r)^t]]</div>
     <p class="formula-note">The growth factor (1 + r)<sup>t</sup> captures interest on principal plus interest on accumulated interest.</p>
   </div>
   <h3>Worked example: saving to a target</h3>
   <p>Seminar 2 asks how much must be saved each year to have $500,000 in 40 years at 6% interest. Because the target is a future amount, use the future value of an annuity rather than discounting the target and stopping there.</p>
   <div class="formula-box">
     <div class="formula-label">Future value of ordinary annuity</div>
-    <div class="formula">FV = C[(1 + r)<sup>N</sup> - 1] / r</div>
+    <div class="formula">[[display:FV=C\frac{(1+r)^N-1}{r}]]</div>
   </div>
   <div class="working-box">
     <div class="answer-label">Working</div>
@@ -164,12 +164,12 @@ h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{f
   <p>An annuity is a finite series of equal cash flows at regular intervals. Mortgages, car loans, retirement contributions, and some prize payments are all annuity-style problems. The first question is whether payments happen at the end or the start of each period.</p>
   <div class="formula-box">
     <div class="formula-label">Present value of ordinary annuity</div>
-    <div class="formula">PV = C[1 - 1/(1 + r)<sup>N</sup>] / r</div>
+    <div class="formula">[[display:PV=C\frac{1-(1+r)^{-N}}{r}]]</div>
     <p class="formula-note">Ordinary annuity means the first payment is one period from now.</p>
   </div>
   <div class="formula-box">
     <div class="formula-label">Annuity due adjustment</div>
-    <div class="formula">PV<sub>due</sub> = PV<sub>ordinary</sub>(1 + r)</div>
+    <div class="formula">[[display:PV_{due} = PV_{ordinary}(1 + r)]]</div>
     <p class="formula-note">Each payment arrives one period earlier, so the stream is worth more. For a loan, that means the required payment is lower.</p>
   </div>
   <h3>Worked example: end-of-year versus immediate loan payments</h3>
@@ -185,20 +185,20 @@ h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{f
   <p>A perpetuity lasts forever. This sounds infinite, but its present value can be finite because later and later payments are discounted more heavily. The standard formula assumes the first payment is one period from now.</p>
   <div class="formula-box">
     <div class="formula-label">Constant perpetuity</div>
-    <div class="formula">PV = C / r</div>
+    <div class="formula">[[display:PV=\frac{C}{r}]]</div>
   </div>
   <div class="working-box">
     <div class="answer-label">Seminar example</div>
-    <p>A property pays $10,000 per year forever and is worth $125,000. Since PV = C / r, the implied discount rate is r = 10,000 / 125,000 = 8%.</p>
+    <p>A property pays $10,000 per year forever and is worth $125,000. Since [[math:PV=\frac{C}{r}]], the implied discount rate is r = 10,000 / 125,000 = 8%.</p>
   </div>
   <div class="formula-box">
     <div class="formula-label">Growing perpetuity</div>
-    <div class="formula">PV = C<sub>1</sub> / (r - g)</div>
+    <div class="formula">[[display:PV=\frac{C_1}{r-g}]]</div>
     <p class="formula-note">C<sub>1</sub> is next period’s cash flow. The formula only works when r &gt; g.</p>
   </div>
   <h3>Worked examples</h3>
-  <p>If the first payment is &pound;150, the discount rate is 4%, and annual growth is 1.5%, PV = 150 / (0.04 - 0.015) = &pound;6,000.</p>
-  <p>If a project pays &pound;1,000 every two years forever and the annual interest rate is 8%, first convert the rate to a two-year rate: (1.08)<sup>2</sup> - 1 = 16.64%. Then PV = 1,000 / 0.1664 = about &pound;6,009.62.</p>
+  <p>If the first payment is &pound;150, the discount rate is 4%, and annual growth is 1.5%, [[math:PV=\frac{150}{0.04-0.015}=6{,}000]].</p>
+  <p>If a project pays &pound;1,000 every two years forever and the annual interest rate is 8%, first convert the rate to a two-year rate: (1.08)<sup>2</sup> - 1 = 16.64%. Then [[math:PV=\frac{1{,}000}{0.1664}\approx6{,}009.62]].</p>
   <div class="mistake-box"><div class="mistake-label">Common mistake</div><p>Do not discount a two-year perpetuity using the annual rate. The payment interval and the interest-rate interval must match.</p></div>
   <h3>Delayed growing perpetuity</h3>
   <p>Company X expects first annual sales cash flow of 2,000 units x &pound;200 = &pound;400,000 in year 2, growing at 5% forever with a 10% discount rate. The growing perpetuity value one period before the first cash flow is 400,000 / (0.10 - 0.05) = &pound;8,000,000 at year 1. Discount once to today: 8,000,000 / 1.10 = about &pound;7,272,727.</p>
@@ -210,7 +210,7 @@ h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{f
   <p>A repayment mortgage is an annuity: the borrower makes equal periodic payments and those payments cover both interest and principal. The contract rate and payment frequency must match. Monthly mortgage problems use a monthly rate and the number of monthly payments.</p>
   <div class="formula-box">
     <div class="formula-label">Loan payment from present value</div>
-    <div class="formula">Loan amount = C[1 - 1/(1 + r)<sup>N</sup>] / r</div>
+    <div class="formula">[[display:\text{Loan amount}=C\frac{1-(1+r)^{-N}}{r}]]</div>
   </div>
   <h3>Worked example: house purchase</h3>
   <p>Mr. and Mrs. Palin buy a &pound;200,000 house with a &pound;50,000 deposit, so they borrow &pound;150,000. The mortgage is paid monthly for 30 years, so N = 360 and r = 0.5% per month.</p>
@@ -223,7 +223,7 @@ h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{f
   <p>The remaining mortgage balance is the present value, at that date, of the remaining payments. For a 30-year &pound;200,000 mortgage at 0.5% per month, the monthly payment is about &pound;1,199.10. After 14 years there are 192 payments left, so the balance is about &pound;147,774.85.</p>
   <div class="formula-box">
     <div class="formula-label">Outstanding balance formula</div>
-    <div class="formula">Balance after k payments = C[1 - 1/(1 + r)<sup>N-k</sup>] / r</div>
+    <div class="formula">[[display:B_k=C\frac{1-(1+r)^{-(N-k)}}{r}]]</div>
     <p class="formula-note">This is the present value, at month k, of the payments still left to make. It is not original principal minus a straight-line share of time passed.</p>
   </div>
   <h3>Amortisation tables</h3>
@@ -250,7 +250,7 @@ h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{f
   <p>When interest compounds more than once per year, the effective annual rate is higher than the stated annual proportional rate. The more frequent the compounding, the more often interest earns further interest.</p>
   <div class="formula-box">
     <div class="formula-label">Effective annual rate</div>
-    <div class="formula">EAR = (1 + APR / m)<sup>m</sup> - 1</div>
+    <div class="formula">[[display:EAR=\left(1+\frac{APR}{m}\right)^m-1]]</div>
     <p class="formula-note">m is the number of compounding periods per year.</p>
   </div>
   <table class="compare-table">
@@ -279,9 +279,9 @@ h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{f
   </div>
   <div class="formula-box">
     <div class="formula-label">Useful Excel functions</div>
-    <div class="formula">=PV(rate, nper, pmt, fv, type)</div>
-    <div class="formula">=FV(rate, nper, pmt, pv, type)</div>
-    <div class="formula">=PMT(rate, nper, pv, fv, type)</div>
+    <div class="formula"><code>=PV(rate, nper, pmt, fv, type)</code></div>
+    <div class="formula"><code>=FV(rate, nper, pmt, pv, type)</code></div>
+    <div class="formula"><code>=PMT(rate, nper, pv, fv, type)</code></div>
     <p class="formula-note">Use type = 0 for end-of-period payments and type = 1 for beginning-of-period payments.</p>
   </div>
 </div>
@@ -345,5 +345,5 @@ h1,h2,h3,.term-word{font-family:'Cormorant Garamond',serif;color:var(--ink)}h1{f
 })();
 </script>
 
-<script id="study-hub-smart-back">(function(){var key='studyHubReturnTo';function sameOrigin(url){try{return new URL(url,window.location.href).origin===window.location.origin;}catch(e){return false;}}function go(url){document.body.classList.remove('page-transition-ready');document.body.classList.add('page-transition-leaving');window.setTimeout(function(){window.location.href=url;},160);}document.addEventListener('click',function(event){var link=event.target.closest('a[href]');if(!link)return;if(link.classList.contains('topic-link')){var card=link.closest('.question-card[id]');if(card){var here=new URL(window.location.href);here.hash=card.id;try{sessionStorage.setItem(key,here.href);}catch(e){}}return;}if(!link.classList.contains('back-btn'))return;if(event.defaultPrevented||event.button!==0)return;if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;var stored=null;try{stored=sessionStorage.getItem(key);}catch(e){}if(stored&&sameOrigin(stored)){event.preventDefault();try{sessionStorage.removeItem(key);}catch(e){}go(stored);return;}if(document.referrer&&sameOrigin(document.referrer)){event.preventDefault();history.back();}},true);})();</script></body>
+<script id="study-hub-smart-back">(function(){var key='studyHubReturnTo';function sameOrigin(url){try{return new URL(url,window.location.href).origin===window.location.origin;}catch(e){return false;}}function go(url){document.body.classList.remove('page-transition-ready');document.body.classList.add('page-transition-leaving');window.setTimeout(function(){window.location.href=url;},160);}document.addEventListener('click',function(event){var link=event.target.closest('a[href]');if(!link)return;if(link.classList.contains('topic-link')){var card=link.closest('.question-card[id]');if(card){var here=new URL(window.location.href);here.hash=card.id;try{sessionStorage.setItem(key,here.href);}catch(e){}}return;}if(!link.classList.contains('back-btn'))return;if(event.defaultPrevented||event.button!==0)return;if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;var stored=null;try{stored=sessionStorage.getItem(key);}catch(e){}if(stored&&sameOrigin(stored)){event.preventDefault();try{sessionStorage.removeItem(key);}catch(e){}go(stored);return;}if(document.referrer&&sameOrigin(document.referrer)){event.preventDefault();history.back();}},true);})();</script><script id="study-hub-math-renderer">(function(){if(window.__studyHubMathRenderer)return;window.__studyHubMathRenderer=true;window.MathJax=window.MathJax||{};window.MathJax.tex={inlineMath:[["\\(","\\)"],["$math(",")math$"]],displayMath:[["\\[","\\]"],["$display(",")display$"]],processEscapes:true};window.MathJax.options={skipHtmlTags:['script','noscript','style','textarea','pre','code']};var busy=false;function makeNode(kind,tex){var span=document.createElement('span');span.className=kind==='display'?'math-display':'math-inline';span.textContent=kind==='display'?'\\['+tex+'\\]':'\\('+tex+'\\)';return span;}function normalize(root){if(!root||busy)return;busy=true;var walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:function(node){var parent=node.parentNode;if(!parent)return NodeFilter.FILTER_REJECT;var tag=parent.nodeName.toLowerCase();if(['script','style','textarea','pre','code'].indexOf(tag)!==-1)return NodeFilter.FILTER_REJECT;return node.nodeValue.indexOf('[[math:')!==-1||node.nodeValue.indexOf('[[display:')!==-1?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT;}});var nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);nodes.forEach(function(node){var text=node.nodeValue;var frag=document.createDocumentFragment();var re=/[[(math|display):([ S]*?)]]/g;var last=0;var match;while((match=re.exec(text))){if(match.index>last)frag.appendChild(document.createTextNode(text.slice(last,match.index)));frag.appendChild(makeNode(match[1],match[2]));last=re.lastIndex;}if(last<text.length)frag.appendChild(document.createTextNode(text.slice(last)));node.parentNode.replaceChild(frag,node);});busy=false;}function typeset(root){normalize(root||document.body);if(window.MathJax&&window.MathJax.typesetPromise){window.MathJax.typesetPromise(root?[root]:undefined).catch(function(){});}}window.studyHubTypesetMath=typeset;function boot(){typeset(document.body);var observer=new MutationObserver(function(records){if(busy)return;records.forEach(function(record){record.addedNodes.forEach(function(node){if(node.nodeType===1)typeset(node);else if(node.nodeType===3&&node.nodeValue.indexOf('[[')!==-1&&node.parentNode)typeset(node.parentNode);});});});observer.observe(document.body,{childList:true,subtree:true});}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',boot);}else{boot();}if(!document.getElementById('mathjax-script')){var script=document.createElement('script');script.id='mathjax-script';script.async=true;script.src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js';document.head.appendChild(script);}})();</script></body>
 </html>

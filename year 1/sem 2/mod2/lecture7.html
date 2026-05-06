@@ -154,7 +154,7 @@ ul.standard li{margin-bottom:.45rem}
   <p>The finance principle is the same as for bonds: today’s value equals the present value of future cash flows. For equity, the difficulty is that cash flows are uncertain, dividends may change, and firms may retain earnings rather than distribute them immediately.</p>
   <div class="formula-box">
     <div class="formula-label">One-period share price</div>
-    <div class="formula">P0 = (D1 + P1) / (1 + r)</div>
+    <div class="formula">[[display:\frac{P0 = (D1 + P1)}{(1 + r)}]]</div>
     <p><strong>D1</strong> is the dividend expected in one year, <strong>P1</strong> is the expected sale price in one year, and <strong>r</strong> is the required return for shares of similar risk.</p>
   </div>
   <p>If the market price is below the present value implied by the required return, the share is underpriced. If the market price is above that value, it is overpriced. The lecture slide example uses a dividend of 10p, sale price of 200p, and required return of 16.67%: the fair price is about 180p, so a market price of 190p would be too high.</p>
@@ -167,8 +167,8 @@ ul.standard li{margin-bottom:.45rem}
   <p>The dividend discount model values a share as the present value of all expected future dividends. It is easiest to use when dividends grow at a constant rate forever.</p>
   <div class="formula-box">
     <div class="formula-label">Constant-growth DDM</div>
-    <div class="formula">P0 = D1 / (r - g)</div>
-    <div class="formula">r = D1 / P0 + g</div>
+    <div class="formula">[[display:\frac{P0 = D1}{(r - g)}]]</div>
+    <div class="formula">[[display:\frac{r = D1}{P0 + g}]]</div>
     <p><strong>D1</strong> is next year’s dividend, <strong>g</strong> is the constant dividend growth rate, and <strong>r</strong> must be greater than <strong>g</strong>.</p>
   </div>
   <p>The model also separates total expected return into two pieces: dividend yield and capital gains yield. A high-growth company may have a low dividend yield but a high expected capital gain. A no-growth company may have a high dividend yield and no capital gain.</p>
@@ -188,14 +188,14 @@ ul.standard li{margin-bottom:.45rem}
   <p>The P/E ratio compares a firm’s share price with its expected earnings per share. If a company is expected to produce EPS of 10p and the share price is 200p, its P/E is 20. Investors are paying 20 times earnings for the share.</p>
   <div class="formula-box">
     <div class="formula-label">P/E multiple</div>
-    <div class="formula">P/E = Share price / Earnings per share</div>
-    <div class="formula">Equity value = Comparator P/E x Total earnings</div>
+    <div class="formula">[[display:\frac{P/E = Share price}{Earnings per share}]]</div>
+    <div class="formula">[[display:Equity value = Comparator P/E x Total earnings]]</div>
     <p>A comparator multiple is only useful if the comparator has similar risk, growth prospects, accounting quality, and business model.</p>
   </div>
   <p>A high P/E can indicate strong growth prospects, but it can also happen because current earnings are temporarily depressed. A low P/E can indicate weak prospects, high risk, or simply a temporarily high level of earnings. The lecture’s warning is important: <strong>do not interpret P/E mechanically.</strong></p>
   <div class="formula-box">
     <div class="formula-label">No-growth P/E</div>
-    <div class="formula">If g = 0 and all earnings are paid out: P0 = EPS1 / r, so P/E = 1 / r</div>
+    <div class="formula">[[display:\frac{If g = 0 and all earnings are paid out: P0 = EPS1}{r, so P/E = 1 / r}]]</div>
     <p>With a 12% discount rate, no-growth P/E is 1 / 0.12 = 8.33. If the discount rate falls to 10%, P/E rises to 10. Lower risk or lower required return raises valuation multiples.</p>
   </div>
   <div class="mistake-box"><div class="mistake-label">Common mistake</div><p>Do not say “high P/E means good company” without qualification. A high P/E means the market price is high relative to current earnings; the reason could be good growth, low risk, accounting effects, or temporarily depressed earnings.</p></div>
@@ -207,9 +207,9 @@ ul.standard li{margin-bottom:.45rem}
   <p>For firms to grow internally, earnings have to be retained and invested. The simple sustainable-growth relationship used across the seminars is:</p>
   <div class="formula-box">
     <div class="formula-label">Growth from reinvestment</div>
-    <div class="formula">g = plowback ratio x ROE</div>
-    <div class="formula">plowback ratio = 1 - payout ratio</div>
-    <div class="formula">payout ratio = dividend per share / earnings per share</div>
+    <div class="formula">[[display:g = plowback ratio x ROE]]</div>
+    <div class="formula">[[display:plowback ratio = 1 - payout ratio]]</div>
+    <div class="formula">[[display:\frac{payout ratio = dividend per share}{earnings per share}]]</div>
   </div>
   <p>Retention is not automatically good. It creates value only if the firm earns a return on retained funds above the shareholders’ required return. If ROE is below the cost of equity, more reinvestment can reduce value even though it increases accounting growth.</p>
   <table class="compare-table">
@@ -227,7 +227,7 @@ ul.standard li{margin-bottom:.45rem}
   <p>PVGO is the part of the share price attributable to future growth opportunities. The lecture frames equity value as value from existing assets plus the present value of future investments.</p>
   <div class="formula-box">
     <div class="formula-label">Earnings model</div>
-    <div class="formula">P0 = EPS1 / r + PVGO</div>
+    <div class="formula">[[display:\frac{P0 = EPS1}{r + PVGO}]]</div>
     <p><strong>EPS1 / r</strong> is the value per share if the firm pays out all earnings and undertakes no new investments. <strong>PVGO</strong> adds the value created by future positive-NPV projects.</p>
   </div>
   <p>This is why growth is not the same as value creation. A firm can grow by reinvesting at poor returns, but that destroys value. A firm can also pay high dividends and still be valuable if its current assets generate durable earnings.</p>
@@ -249,8 +249,8 @@ ul.standard li{margin-bottom:.45rem}
   <p>Many firms do not have one stable growth rate forever. A firm may grow quickly for a few years, then settle into mature growth. Multi-stage valuation handles this by valuing explicit dividends first and then adding a terminal or horizon value.</p>
   <div class="formula-box">
     <div class="formula-label">Two-stage DDM structure</div>
-    <div class="formula">P0 = PV(explicit dividends) + PV(horizon value)</div>
-    <div class="formula">Horizon value at time T = D(T+1) / (r - stable g)</div>
+    <div class="formula">[[display:P0 = PV(explicit dividends) + PV(horizon value)]]</div>
+    <div class="formula">[[display:\frac{Horizon value at time T = D(T+1)}{(r - stable g)}]]</div>
   </div>
   <div class="steps">
     <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Forecast explicit dividends:</strong> calculate each dividend during the high-growth or transition period.</div></div>
@@ -267,14 +267,14 @@ ul.standard li{margin-bottom:.45rem}
   <p>Some companies do not pay dividends, especially firms with many growth opportunities. They are not worth zero. Instead, analysts often value free cash flow, which captures cash available after operating and investment needs.</p>
   <div class="formula-box">
     <div class="formula-label">Free cash flow</div>
-    <div class="formula">FCF = Cash flow from operations - Cash flow from investing activities</div>
-    <div class="formula">If interest is included in CFO: FCF = CFO - investing cash flow + net interest paid x (1 - tax rate)</div>
+    <div class="formula">[[display:FCF = Cash flow from operations - Cash flow from investing activities]]</div>
+    <div class="formula">[[display:If interest is included in CFO: FCF = CFO - investing cash flow + net interest paid x (1 - tax rate)]]</div>
   </div>
   <p>The lecture’s cash-flow example adds back after-tax interest where interest has been included in cash flow from operations, because interest is a cash flow available to capital providers before being paid to debt holders.</p>
   <div class="formula-box">
     <div class="formula-label">DCF value</div>
-    <div class="formula">Company value = PV(forecast FCFs) + PV(horizon value)</div>
-    <div class="formula">Horizon value = FCF(T+1) / (r - g)</div>
+    <div class="formula">[[display:Company value = PV(forecast FCFs) + PV(horizon value)]]</div>
+    <div class="formula">[[display:\frac{Horizon value = FCF(T+1)}{(r - g)}]]</div>
   </div>
   <div class="eval-box"><div class="eval-label">When FCF is useful</div><p>FCF valuation is especially useful when dividends are zero, unstable, or not representative of the firm’s capacity to generate cash. Dividend models are easier, but FCF is often more informative for growth firms and firms changing payout policy.</p></div>
 </div>
@@ -396,5 +396,5 @@ ul.standard li{margin-bottom:.45rem}
   });
 })();
 </script>
-<script id="study-hub-smart-back">(function(){var key='studyHubReturnTo';function sameOrigin(url){try{return new URL(url,window.location.href).origin===window.location.origin;}catch(e){return false;}}function go(url){document.body.classList.remove('page-transition-ready');document.body.classList.add('page-transition-leaving');window.setTimeout(function(){window.location.href=url;},160);}document.addEventListener('click',function(event){var link=event.target.closest('a[href]');if(!link)return;if(link.classList.contains('topic-link')){var card=link.closest('.question-card[id]');if(card){var here=new URL(window.location.href);here.hash=card.id;try{sessionStorage.setItem(key,here.href);}catch(e){}}return;}if(!link.classList.contains('back-btn'))return;if(event.defaultPrevented||event.button!==0)return;if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;var stored=null;try{stored=sessionStorage.getItem(key);}catch(e){}if(stored&&sameOrigin(stored)){event.preventDefault();try{sessionStorage.removeItem(key);}catch(e){}go(stored);return;}if(document.referrer&&sameOrigin(document.referrer)){event.preventDefault();history.back();}},true);})();</script></body>
+<script id="study-hub-smart-back">(function(){var key='studyHubReturnTo';function sameOrigin(url){try{return new URL(url,window.location.href).origin===window.location.origin;}catch(e){return false;}}function go(url){document.body.classList.remove('page-transition-ready');document.body.classList.add('page-transition-leaving');window.setTimeout(function(){window.location.href=url;},160);}document.addEventListener('click',function(event){var link=event.target.closest('a[href]');if(!link)return;if(link.classList.contains('topic-link')){var card=link.closest('.question-card[id]');if(card){var here=new URL(window.location.href);here.hash=card.id;try{sessionStorage.setItem(key,here.href);}catch(e){}}return;}if(!link.classList.contains('back-btn'))return;if(event.defaultPrevented||event.button!==0)return;if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;var stored=null;try{stored=sessionStorage.getItem(key);}catch(e){}if(stored&&sameOrigin(stored)){event.preventDefault();try{sessionStorage.removeItem(key);}catch(e){}go(stored);return;}if(document.referrer&&sameOrigin(document.referrer)){event.preventDefault();history.back();}},true);})();</script><script id="study-hub-math-renderer">(function(){if(window.__studyHubMathRenderer)return;window.__studyHubMathRenderer=true;window.MathJax=window.MathJax||{};window.MathJax.tex={inlineMath:[["\\(","\\)"],["$math(",")math$"]],displayMath:[["\\[","\\]"],["$display(",")display$"]],processEscapes:true};window.MathJax.options={skipHtmlTags:['script','noscript','style','textarea','pre','code']};var busy=false;function makeNode(kind,tex){var span=document.createElement('span');span.className=kind==='display'?'math-display':'math-inline';span.textContent=kind==='display'?'\\['+tex+'\\]':'\\('+tex+'\\)';return span;}function normalize(root){if(!root||busy)return;busy=true;var walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:function(node){var parent=node.parentNode;if(!parent)return NodeFilter.FILTER_REJECT;var tag=parent.nodeName.toLowerCase();if(['script','style','textarea','pre','code'].indexOf(tag)!==-1)return NodeFilter.FILTER_REJECT;return node.nodeValue.indexOf('[[math:')!==-1||node.nodeValue.indexOf('[[display:')!==-1?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT;}});var nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);nodes.forEach(function(node){var text=node.nodeValue;var frag=document.createDocumentFragment();var re=/[[(math|display):([ S]*?)]]/g;var last=0;var match;while((match=re.exec(text))){if(match.index>last)frag.appendChild(document.createTextNode(text.slice(last,match.index)));frag.appendChild(makeNode(match[1],match[2]));last=re.lastIndex;}if(last<text.length)frag.appendChild(document.createTextNode(text.slice(last)));node.parentNode.replaceChild(frag,node);});busy=false;}function typeset(root){normalize(root||document.body);if(window.MathJax&&window.MathJax.typesetPromise){window.MathJax.typesetPromise(root?[root]:undefined).catch(function(){});}}window.studyHubTypesetMath=typeset;function boot(){typeset(document.body);var observer=new MutationObserver(function(records){if(busy)return;records.forEach(function(record){record.addedNodes.forEach(function(node){if(node.nodeType===1)typeset(node);else if(node.nodeType===3&&node.nodeValue.indexOf('[[')!==-1&&node.parentNode)typeset(node.parentNode);});});});observer.observe(document.body,{childList:true,subtree:true});}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',boot);}else{boot();}if(!document.getElementById('mathjax-script')){var script=document.createElement('script');script.id='mathjax-script';script.async=true;script.src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js';document.head.appendChild(script);}})();</script></body>
 </html>
