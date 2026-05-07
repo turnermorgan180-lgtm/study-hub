@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learning System — Study Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#0e0f11;
+  --surface:#16181c;
+  --surface2:#1d2026;
+  --border:rgba(255,255,255,0.07);
+  --border2:rgba(255,255,255,0.12);
+  --text:#f0ede8;
+  --muted:#7a7d85;
+  --accent:#c9a84c;
+  --accent2:#e8c97a;
+  --blue:#5b8fa8;
+  --green:#4a9e7f;
+  --hot:#c0574a;
+  --purple:#8f7ac8;
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+body {
+  background:var(--bg);
+  color:var(--text);
+  font-family:'DM Sans',sans-serif;
+  font-size:15px;
+  line-height:1.6;
+  min-height:100vh;
+  transition:opacity .22s ease, transform .22s ease;
+}
+body::before {
+  content:'';
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 0%, rgba(201,168,76,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 100%, rgba(91,143,168,0.05) 0%, transparent 60%);
+  pointer-events:none;
+  z-index:0;
+}
+.container { max-width:980px; margin:0 auto; padding:3rem 2rem 5rem; position:relative; z-index:1; }
+.back-btn {
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:var(--surface);
+  border:0.5px solid var(--border2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  color:var(--accent);
+  font-family:'DM Mono',monospace;
+  font-size:1rem;
+  box-shadow:0 10px 20px rgba(0,0,0,0.18);
+  transition:transform 0.15s, background 0.15s, border-color 0.15s;
+  margin-bottom:1.5rem;
+}
+.back-btn:hover { transform:translateY(-1px); background:var(--surface2); border-color:rgba(255,255,255,0.18); }
+.eyebrow,.meta,.tag,.section-label,.pill,.stage-label,.small-label {
+  font-family:'DM Mono',monospace;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+}
+.eyebrow { font-size:11px; color:var(--accent); margin-bottom:0.6rem; }
+h1 { font-family:'Playfair Display',serif; font-size:2.55rem; line-height:1.1; margin-bottom:0.65rem; }
+h2 { font-size:1.02rem; font-weight:500; margin-bottom:0.35rem; }
+h3 { font-size:0.95rem; font-weight:500; margin-bottom:0.25rem; }
+.subtitle { color:var(--muted); font-size:14px; max-width:760px; margin-bottom:2rem; }
+.top-grid { display:grid; grid-template-columns:1.2fr .8fr; gap:1rem; align-items:start; margin-bottom:1.4rem; }
+.panel {
+  padding:0;
+}
+.module-card,.topic-card,.queue-card {
+  background:var(--surface);
+  border:0.5px solid var(--border);
+  border-radius:10px;
+  padding:1rem 1.1rem;
+}
+.panel p,.module-card p,.topic-card p,.queue-card p { color:var(--muted); font-size:13.5px; }
+.section-head { display:flex; align-items:center; gap:10px; margin:2rem 0 0.8rem; }
+.section-label { font-size:10px; color:var(--muted); }
+.pill {
+  font-size:10px;
+  padding:2px 8px;
+  border-radius:20px;
+  font-weight:500;
+  background:rgba(91,143,168,0.15);
+  color:#7fb8d4;
+  border:0.5px solid rgba(91,143,168,0.3);
+}
+.routine { display:grid; grid-template-columns:repeat(4, 1fr); gap:0.75rem; }
+.routine-step {
+  background:var(--surface2);
+  border:0.5px solid var(--border);
+  border-radius:8px;
+  padding:0.85rem;
+  min-height:132px;
+}
+.stage-label { font-size:10px; color:var(--accent); margin-bottom:0.45rem; }
+.routine-step strong { display:block; font-size:13.5px; margin-bottom:0.35rem; }
+.routine-step span { display:block; color:var(--muted); font-size:12.5px; line-height:1.5; }
+.module-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:0.85rem; }
+.module-card { display:flex; flex-direction:column; gap:0.75rem; min-height:100%; }
+.tag { font-size:10px; color:var(--accent); margin-bottom:0.15rem; }
+.meta { font-size:10px; color:var(--accent2); }
+.link-row { display:flex; flex-wrap:wrap; gap:0.45rem; margin-top:auto; }
+.tool-link,.mini-btn,.review-btn {
+  border:0.5px solid var(--border2);
+  border-radius:7px;
+  background:var(--surface2);
+  color:var(--text);
+  text-decoration:none;
+  font-family:'DM Mono',monospace;
+  font-size:10px;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  padding:0.48rem 0.55rem;
+  cursor:pointer;
+}
+.tool-link:hover,.mini-btn:hover,.review-btn:hover { border-color:rgba(255,255,255,0.22); background:#242832; }
+.topic-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:0.75rem; }
+.topic-card { position:relative; }
+.topic-top { display:flex; align-items:flex-start; justify-content:space-between; gap:0.75rem; margin-bottom:0.45rem; }
+.topic-links { display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:0.75rem; }
+.checkbox-line { display:flex; align-items:flex-start; gap:0.55rem; margin-top:0.6rem; color:var(--muted); font-size:13px; }
+.checkbox-line input { margin-top:0.22rem; accent-color:var(--accent); }
+.confidence { display:flex; gap:0.4rem; flex-wrap:wrap; margin-top:0.7rem; }
+.review-btn[data-level="again"] { color:#ff9b8f; }
+.review-btn[data-level="good"] { color:#8ec1d9; }
+.review-btn[data-level="easy"] { color:#8fd7b9; }
+.due { color:#8fd7b9; }
+.late { color:#ff9b8f; }
+.today-grid { display:grid; grid-template-columns:1fr 1fr; gap:0.85rem; }
+.queue-list { display:grid; gap:0.65rem; }
+.queue-card { padding:0.9rem 1rem; }
+.queue-card a { color:var(--accent2); text-decoration:none; }
+.queue-card a:hover { text-decoration:underline; }
+.progress-shell { background:var(--surface2); border-radius:999px; height:9px; overflow:hidden; margin-top:0.75rem; border:0.5px solid var(--border); }
+.progress-bar { height:100%; width:0%; background:linear-gradient(90deg, var(--accent), var(--green)); transition:width .2s ease; }
+.progress-text { color:var(--muted); font-size:12px; margin-top:0.45rem; }
+.exam-loop {
+  display:grid;
+  grid-template-columns:repeat(5, 1fr);
+  gap:0.65rem;
+}
+.exam-step {
+  border:0.5px solid var(--border);
+  border-radius:8px;
+  padding:0.8rem;
+  background:var(--surface2);
+}
+.exam-step strong { display:block; font-size:13px; margin-bottom:0.3rem; }
+.exam-step span { color:var(--muted); font-size:12.5px; line-height:1.45; display:block; }
+.footer { margin-top:2rem; padding-top:1rem; border-top:0.5px solid var(--border); color:var(--muted); font-size:12px; }
+.page-transition-init { opacity:0; transform:translateY(8px); }
+.page-transition-ready { opacity:1; transform:none; }
+.page-transition-leaving { opacity:0; transform:translateY(6px); pointer-events:none; }
+@media (prefers-reduced-motion: reduce) { body,.page-transition-init,.page-transition-ready,.page-transition-leaving { transition:none !important; transform:none !important; } }
+@media (max-width: 820px) {
+  .top-grid,.module-grid,.topic-grid,.today-grid { grid-template-columns:1fr; }
+  .routine,.exam-loop { grid-template-columns:repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .container { padding:2rem 1.25rem 4rem; }
+  h1 { font-size:2rem; }
+  .routine,.exam-loop { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <a class="back-btn" href="index.html" aria-label="Back to Semester 2 page">←</a>
+
+  <div class="eyebrow">Study Hub · Learning System</div>
+  <h1>Learn, Recall, Reinforce</h1>
+  <div class="subtitle">A single workflow for Business Economics, Finance Fundamentals, and Quantitative Analysis. Use it to learn a topic properly, test active recall, then push weak areas back through flashcards, notes, formulas, and exam walkthroughs until they are exam-ready.</div>
+
+  <div class="top-grid">
+    <section class="panel">
+      <h2>Daily Study Cycle</h2>
+      <p>Do one new topic, one recall block, one reinforcement block, and one short exam task. The system below tracks completion and schedules review dates in this browser.</p>
+      <div class="routine" style="margin-top:0.85rem;">
+        <div class="routine-step"><div class="stage-label">01 Learn</div><strong>Build understanding</strong><span>Read the lecture note slowly. Write the definitions, diagrams, formulas, assumptions, and examiner trigger words.</span></div>
+        <div class="routine-step"><div class="stage-label">02 Recall</div><strong>Close the notes</strong><span>Use flashcards and write the answer from memory before revealing anything. Mark honestly.</span></div>
+        <div class="routine-step"><div class="stage-label">03 Reinforce</div><strong>Fix the gaps</strong><span>Return to the relevant note section, formula sheet, seminar answer, or worked example for every weak card.</span></div>
+        <div class="routine-step"><div class="stage-label">04 Exam</div><strong>Apply under pressure</strong><span>Use drills and walkthroughs. Every answer needs method, working, interpretation, and evaluation where relevant.</span></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Progress</h2>
+      <p>Tick topics after you can explain them without the notes and answer exam-style questions on them.</p>
+      <div class="progress-shell"><div class="progress-bar" id="progress-bar"></div></div>
+      <div class="progress-text" id="progress-text">Loading progress...</div>
+      <div class="link-row" style="margin-top:0.9rem;">
+        <button class="mini-btn" type="button" id="show-due">Due reviews</button>
+        <button class="mini-btn" type="button" id="show-all">All topics</button>
+        <button class="mini-btn" type="button" id="reset-view">Reset filter</button>
+      </div>
+    </section>
+  </div>
+
+  <div class="section-head"><span class="section-label">Today</span><span class="pill">Queue + reinforcement</span></div>
+  <div class="today-grid">
+    <section class="panel">
+      <h2>Due Review Queue</h2>
+      <p>Anything marked hard comes back tomorrow. Good returns in three days. Easy returns in seven days.</p>
+      <div class="queue-list" id="due-queue" style="margin-top:0.85rem;"></div>
+    </section>
+    <section class="panel">
+      <h2>Exam Reinforcement Loop</h2>
+      <p>Use this loop after every drill, walkthrough, seminar question, or past-paper question.</p>
+      <div class="exam-loop" style="margin-top:0.85rem;">
+        <div class="exam-step"><strong>Attempt</strong><span>Do it first with no notes.</span></div>
+        <div class="exam-step"><strong>Compare</strong><span>Read the model answer and markscheme.</span></div>
+        <div class="exam-step"><strong>Diagnose</strong><span>Name the missing topic, formula, step, or explanation.</span></div>
+        <div class="exam-step"><strong>Relearn</strong><span>Open the linked note section and flashcards.</span></div>
+        <div class="exam-step"><strong>Repeat</strong><span>Re-answer from a blank page 24-72 hours later.</span></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="section-head"><span class="section-label">Modules</span><span class="pill">Start routes</span></div>
+  <div class="module-grid">
+    <section class="module-card">
+      <div><div class="tag">mod1</div><h2>Business Economics</h2><p>Micro and macro theory, diagrams, market structures, intervention, international trade, money, unemployment, inflation, and AD/AS.</p></div>
+      <div class="meta">92 flashcards · 17 lectures · 2 walkthroughs</div>
+      <div class="link-row">
+        <a class="tool-link" href="mod1/index.html">Hub</a>
+        <a class="tool-link" href="mod1/flashcards.html">Flashcards</a>
+        <a class="tool-link" href="mod1/exam-qs/mcq-drill.html">MCQs</a>
+        <a class="tool-link" href="mod1/exam-qs/written-answers.html">Written</a>
+      </div>
+    </section>
+    <section class="module-card">
+      <div><div class="tag">mod2</div><h2>Finance Fundamentals</h2><p>Time value of money, markets, bonds, equity valuation, returns, risk, diversification, CAPM, and personal finance.</p></div>
+      <div class="meta">79 flashcards · 10 lectures · 9 seminars</div>
+      <div class="link-row">
+        <a class="tool-link" href="mod2/index.html">Hub</a>
+        <a class="tool-link" href="mod2/flashcards.html">Flashcards</a>
+        <a class="tool-link" href="mod2/formula-sheet.html">Formula</a>
+        <a class="tool-link" href="mod2/exam-qs/walkthrough-2024-25.html">Walkthrough</a>
+      </div>
+    </section>
+    <section class="module-card">
+      <div><div class="tag">mod3</div><h2>Quantitative Analysis</h2><p>Descriptive statistics, probability, distributions, confidence intervals, hypothesis tests, chi-squared, ANOVA, regression, and SPSS.</p></div>
+      <div class="meta">81 flashcards · 10 lectures · 9 seminars</div>
+      <div class="link-row">
+        <a class="tool-link" href="mod3/index.html">Hub</a>
+        <a class="tool-link" href="mod3/flashcards.html">Flashcards</a>
+        <a class="tool-link" href="mod3/formula-sheet.html">Formula</a>
+        <a class="tool-link" href="mod3/exam-qs/walkthrough-closed-2024-25.html">Walkthrough</a>
+      </div>
+    </section>
+  </div>
+
+  <div class="section-head"><span class="section-label">Topic Tracker</span><span class="pill">Exam coverage map</span></div>
+  <div class="topic-grid" id="topic-grid"></div>
+
+  <div class="footer">Learning system · Browser-saved progress · Semester 2 modules</div>
+</div>
+
+<script>
+(function(){
+  document.body.classList.add('page-transition-init');
+  window.addEventListener('load', function(){
+    requestAnimationFrame(function(){
+      document.body.classList.remove('page-transition-init');
+      document.body.classList.add('page-transition-ready');
+    });
+  });
+  document.addEventListener('click', function(event){
+    var link = event.target.closest('a[href]');
+    if (!link) return;
+    if (event.defaultPrevented || event.button !== 0) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (link.target && link.target !== '_self') return;
+    if (link.hasAttribute('download')) return;
+    var href = link.getAttribute('href');
+    if (!href || href.charAt(0) === '#') return;
+    if (/^(mailto:|tel:|javascript:)/i.test(href)) return;
+    var url = new URL(link.href, window.location.href);
+    if (url.origin !== window.location.origin) return;
+    if (url.pathname === window.location.pathname && url.search === window.location.search && url.hash) return;
+    event.preventDefault();
+    document.body.classList.remove('page-transition-ready');
+    document.body.classList.add('page-transition-leaving');
+    window.setTimeout(function(){ window.location.href = url.href; }, 180);
+  });
+})();
+</script>
+<script>
+(function(){
+  var storageKey = 'studyHubLearningSystemV1';
+  var topics = [
+    { id:'be-demand-supply', module:'Business Economics', label:'Demand, supply and market equilibrium', note:'mod1/lecture2.html', cards:'mod1/flashcards.html', exam:'mod1/exam-qs/mcq-drill.html', focus:'Shifts, movements, equilibrium change, consumer and producer surplus.' },
+    { id:'be-elasticity-consumer', module:'Business Economics', label:'Elasticity, demand and consumer theory', note:'mod1/lecture4.html', cards:'mod1/flashcards.html', exam:'mod1/exam-qs/written-answers.html', focus:'PED, YED, XED, revenue logic, marginal utility and consumer choice.' },
+    { id:'be-costs-profit', module:'Business Economics', label:'Costs, revenue and profit maximisation', note:'mod1/lecture5.html', cards:'mod1/flashcards.html', exam:'mod1/exam-qs/written-answers.html', focus:'Fixed, variable, marginal and average cost; MR = MC; normal and abnormal profit.' },
+    { id:'be-market-structures', module:'Business Economics', label:'Competition, monopoly and imperfect competition', note:'mod1/lecture7.html', cards:'mod1/flashcards.html', exam:'mod1/exam-qs/walkthrough-2022-23.html', focus:'Perfect competition, monopoly, price discrimination, oligopoly and welfare diagrams.' },
+    { id:'be-game-pricing', module:'Business Economics', label:'Game theory and pricing strategy', note:'mod1/lecture9.html', cards:'mod1/flashcards.html', exam:'mod1/exam-qs/written-answers.html', focus:'Dominant strategy, Nash equilibrium, prisoner dilemma, strategic pricing and evaluation.' },
+    { id:'be-intervention-macro', module:'Business Economics', label:'Government intervention and macro environment', note:'mod1/lecture11.html', cards:'mod1/flashcards.html', exam:'mod1/exam-qs/walkthrough-2021-22.html', focus:'Taxes, subsidies, price controls, externalities, fiscal policy and AD/AS reasoning.' },
+    { id:'be-trade-money-labour', module:'Business Economics', label:'Trade, exchange rates, money and labour markets', note:'mod1/lecture14.html', cards:'mod1/flashcards.html', exam:'mod1/exam-qs/walkthrough-2022-23.html', focus:'International trade, balance of payments, exchange rates, interest rates, unemployment and inflation.' },
+    { id:'ff-corporate-finance', module:'Finance Fundamentals', label:'Corporate finance foundations and markets', note:'mod2/lecture1.html', cards:'mod2/flashcards.html', exam:'mod2/exam-qs/written-answers.html', focus:'Shareholder wealth, agency, real and financial assets, financial intermediaries and market roles.' },
+    { id:'ff-tvm', module:'Finance Fundamentals', label:'Time value of money and annuities', note:'mod2/lecture2.html', cards:'mod2/flashcards.html', exam:'mod2/exam-qs/calculation-drill.html', focus:'PV, FV, annuities, perpetuities, compounding frequency, mortgages and rate matching.' },
+    { id:'ff-bonds', module:'Finance Fundamentals', label:'Bond pricing, yields and convertibles', note:'mod2/lecture4.html', cards:'mod2/flashcards.html', exam:'mod2/exam-qs/walkthrough-2024-25.html', focus:'Coupon bonds, zero-coupon bonds, YTM, current yield, price-yield inverse relation and conversion value.' },
+    { id:'ff-equity', module:'Finance Fundamentals', label:'Equity valuation and growth', note:'mod2/lecture7.html', cards:'mod2/flashcards.html', exam:'mod2/exam-qs/walkthrough-2024-25.html', focus:'Dividend discount model, Gordon growth, PVGO, P/E, EPS and valuation interpretation.' },
+    { id:'ff-risk-return', module:'Finance Fundamentals', label:'Risk, return, portfolios and CAPM', note:'mod2/lecture9.html', cards:'mod2/flashcards.html', exam:'mod2/exam-qs/calculation-drill.html', focus:'Expected return, variance, standard deviation, covariance, correlation, beta and SML.' },
+    { id:'ff-personal', module:'Finance Fundamentals', label:'Personal finance and financial decisions', note:'mod2/lecture10.html', cards:'mod2/flashcards.html', exam:'mod2/exam-qs/written-answers.html', focus:'Loans, leases, retirement planning, opportunity cost, affordability and PV decision rules.' },
+    { id:'qa-descriptive', module:'Quantitative Analysis', label:'Descriptive statistics and charts', note:'mod3/lecture1.html', cards:'mod3/flashcards.html', exam:'mod3/exam-qs/written-answers.html', focus:'Mean, median, quartiles, IQR, standard deviation, boxplots, charts, outliers and interpretation.' },
+    { id:'qa-probability', module:'Quantitative Analysis', label:'Probability, expected value and Bayes', note:'mod3/lecture2.html', cards:'mod3/flashcards.html', exam:'mod3/exam-qs/calculation-drill.html', focus:'Addition, multiplication, conditional probability, Bayes, complements and expected value.' },
+    { id:'qa-distributions', module:'Quantitative Analysis', label:'Distributions and normal calculations', note:'mod3/lecture3.html', cards:'mod3/flashcards.html', exam:'mod3/exam-qs/calculation-drill.html', focus:'Bernoulli, binomial, normal distribution, z-scores and table interpretation.' },
+    { id:'qa-ci-tests', module:'Quantitative Analysis', label:'Sampling, confidence intervals and hypothesis tests', note:'mod3/lecture5.html', cards:'mod3/flashcards.html', exam:'mod3/exam-qs/walkthrough-mock-2024-25.html', focus:'CLT, standard error, confidence intervals, null and alternative hypotheses, p-values and conclusions.' },
+    { id:'qa-chi-anova', module:'Quantitative Analysis', label:'Chi-squared tests and ANOVA', note:'mod3/lecture6.html', cards:'mod3/flashcards.html', exam:'mod3/exam-qs/walkthrough-closed-2024-25.html', focus:'Observed vs expected counts, independence, goodness of fit, F statistic and group-mean interpretation.' },
+    { id:'qa-regression-spss', module:'Quantitative Analysis', label:'Regression, correlation and SPSS test selection', note:'mod3/lecture8.html', cards:'mod3/flashcards.html', exam:'mod3/exam-qs/walkthrough-closed-2024-25.html', focus:'Correlation, regression equation, slope, R-squared, causation warning and selecting SPSS tests.' }
+  ];
+
+  function loadState(){
+    try { return JSON.parse(localStorage.getItem(storageKey)) || {}; }
+    catch (error) { return {}; }
+  }
+  function saveState(state){
+    localStorage.setItem(storageKey, JSON.stringify(state));
+  }
+  function todayStamp(){
+    var d = new Date();
+    d.setHours(0,0,0,0);
+    return d.getTime();
+  }
+  function addDays(days){
+    return todayStamp() + days * 86400000;
+  }
+  function formatDate(stamp){
+    if (!stamp) return 'Not scheduled';
+    return new Date(stamp).toLocaleDateString('en-GB', { day:'2-digit', month:'short' });
+  }
+  function escapeHtml(value){
+    return String(value).replace(/[&<>"']/g, function(ch){
+      return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[ch];
+    });
+  }
+
+  var state = loadState();
+  var grid = document.getElementById('topic-grid');
+  var dueQueue = document.getElementById('due-queue');
+  var progressBar = document.getElementById('progress-bar');
+  var progressText = document.getElementById('progress-text');
+  var activeFilter = 'all';
+
+  function topicState(topic){
+    if (!state[topic.id]) state[topic.id] = { done:false, nextReview:0, level:'' };
+    return state[topic.id];
+  }
+  function setReview(topicId, level){
+    var days = level === 'again' ? 1 : (level === 'good' ? 3 : 7);
+    if (!state[topicId]) state[topicId] = {};
+    state[topicId].nextReview = addDays(days);
+    state[topicId].level = level;
+    saveState(state);
+    render();
+  }
+  function setDone(topicId, checked){
+    if (!state[topicId]) state[topicId] = {};
+    state[topicId].done = checked;
+    if (checked && !state[topicId].nextReview) state[topicId].nextReview = addDays(3);
+    saveState(state);
+    render();
+  }
+  function isDue(topic){
+    var item = topicState(topic);
+    return Boolean(item.nextReview && item.nextReview <= todayStamp());
+  }
+  function renderProgress(){
+    var done = topics.filter(function(topic){ return topicState(topic).done; }).length;
+    var pct = Math.round((done / topics.length) * 100);
+    progressBar.style.width = pct + '%';
+    progressText.textContent = done + ' of ' + topics.length + ' topic blocks exam-ready · ' + pct + '% complete';
+  }
+  function renderQueue(){
+    var due = topics.filter(isDue);
+    if (!due.length) {
+      dueQueue.innerHTML = '<div class="queue-card"><h3>No due reviews yet</h3><p>Mark a topic hard, good, or easy after a flashcard or exam block and it will appear here on the right day.</p></div>';
+      return;
+    }
+    dueQueue.innerHTML = due.map(function(topic){
+      return '<article class="queue-card"><h3>'+escapeHtml(topic.label)+'</h3><p>'+escapeHtml(topic.module)+' · '+escapeHtml(topic.focus)+'</p><p><a href="'+topic.cards+'">Open flashcards</a> · <a href="'+topic.note+'">Open notes</a> · <a href="'+topic.exam+'">Exam practice</a></p></article>';
+    }).join('');
+  }
+  function renderTopics(){
+    var filtered = topics.filter(function(topic){
+      if (activeFilter === 'due') return isDue(topic);
+      return true;
+    });
+    grid.innerHTML = filtered.map(function(topic){
+      var item = topicState(topic);
+      var dueClass = item.nextReview && item.nextReview <= todayStamp() ? 'late' : 'due';
+      return '<article class="topic-card" data-topic-id="'+escapeHtml(topic.id)+'">'+
+        '<div class="topic-top"><div><div class="tag">'+escapeHtml(topic.module)+'</div><h3>'+escapeHtml(topic.label)+'</h3></div><div class="meta '+dueClass+'">'+escapeHtml(formatDate(item.nextReview))+'</div></div>'+
+        '<p>'+escapeHtml(topic.focus)+'</p>'+
+        '<label class="checkbox-line"><input type="checkbox" data-done="'+escapeHtml(topic.id)+'" '+(item.done?'checked':'')+'> <span>I can explain this from memory and answer exam-style questions on it.</span></label>'+
+        '<div class="confidence"><button class="review-btn" type="button" data-review="'+escapeHtml(topic.id)+'" data-level="again">Hard</button><button class="review-btn" type="button" data-review="'+escapeHtml(topic.id)+'" data-level="good">Good</button><button class="review-btn" type="button" data-review="'+escapeHtml(topic.id)+'" data-level="easy">Easy</button></div>'+
+        '<div class="topic-links"><a class="tool-link" href="'+topic.note+'">Notes</a><a class="tool-link" href="'+topic.cards+'">Cards</a><a class="tool-link" href="'+topic.exam+'">Exam</a></div>'+
+      '</article>';
+    }).join('');
+  }
+  function render(){
+    renderProgress();
+    renderQueue();
+    renderTopics();
+  }
+
+  document.addEventListener('change', function(event){
+    var id = event.target.getAttribute('data-done');
+    if (!id) return;
+    setDone(id, event.target.checked);
+  });
+  document.addEventListener('click', function(event){
+    var reviewId = event.target.getAttribute('data-review');
+    if (reviewId) {
+      setReview(reviewId, event.target.getAttribute('data-level'));
+      return;
+    }
+    if (event.target.id === 'show-due') {
+      activeFilter = 'due';
+      renderTopics();
+      return;
+    }
+    if (event.target.id === 'show-all' || event.target.id === 'reset-view') {
+      activeFilter = 'all';
+      renderTopics();
+    }
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
