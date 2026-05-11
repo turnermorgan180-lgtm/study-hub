@@ -6,7 +6,7 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 .back-btn,.tool-btn,.source-link{border-radius:999px;background:var(--surface);border:.5px solid var(--border2);display:inline-flex;align-items:center;justify-content:center;text-decoration:none;color:var(--accent);font-family:'DM Mono',monospace;box-shadow:0 10px 20px rgba(0,0,0,.18);transition:transform .15s,background .15s,border-color .15s}
 .back-btn{width:42px;height:42px;font-size:1rem;margin-bottom:1.5rem}
 .back-btn:hover,.tool-btn:hover,.source-link:hover{transform:translateY(-1px);background:var(--surface2);border-color:rgba(255,255,255,.18)}
-.eyebrow,.stat-label,.tool-btn,.filter-label,.q-topic,.q-meta,.source-link,.format-pill{font-family:'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase}
+.eyebrow,.stat-label,.tool-btn,.filter-label,.q-topic,.q-meta,.source-link,.format-pill,.workbook-check{font-family:'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase}
 .eyebrow{font-size:11px;color:var(--accent);margin-bottom:.6rem}
 h1{font-family:'Playfair Display',serif;font-size:2.55rem;line-height:1.1;margin-bottom:.65rem}
 .subtitle{color:var(--muted);font-size:14px;max-width:780px;margin-bottom:2rem}
@@ -22,6 +22,9 @@ h1{font-family:'Playfair Display',serif;font-size:2.55rem;line-height:1.1;margin
 .tool-row{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
 .tool-btn{height:38px;padding:0 .9rem;font-size:10px;cursor:pointer}
 .tool-btn.is-active{background:rgba(201,168,76,.16);border-color:rgba(201,168,76,.45);color:var(--accent2)}
+.workbook-row{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;padding-top:.15rem}
+.workbook-check{display:inline-flex;align-items:center;gap:.45rem;color:var(--muted);font-size:10px}
+.workbook-check input{accent-color:var(--accent)}
 .question-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
 .question-card{background:var(--surface);border:.5px solid var(--border);border-radius:12px;padding:1rem 1.1rem;display:flex;flex-direction:column;gap:.8rem;min-height:285px}
 .q-top{display:flex;justify-content:space-between;align-items:flex-start;gap:.75rem}
