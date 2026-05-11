@@ -32,6 +32,8 @@ h1{font-family:'Playfair Display',serif;font-size:2.55rem;line-height:1.1;margin
 .scenario{color:#d6d0c7;font-size:13.5px}
 .answer-plan{display:none;border-top:.5px solid var(--border);padding-top:.75rem;color:#d6d0c7;font-size:13.5px}
 .answer-plan.visible{display:block}
+.model-answer{display:grid;gap:.55rem;margin:.55rem 0 .8rem}
+.model-answer p{color:#d6d0c7;font-size:13.5px}
 .answer-plan ul{margin:.35rem 0 0 1.1rem}
 .answer-plan li{margin-bottom:.25rem}
 .q-actions{margin-top:auto;display:flex;justify-content:space-between;gap:.75rem;align-items:center}
