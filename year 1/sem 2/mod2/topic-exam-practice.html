@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finance Fundamentals Topic Exam Practice</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../topic-exam-practice.css">
+</head>
+<body>
+<div class="container">
+  <a class="back-btn" href="index.html" aria-label="Back to Finance Fundamentals hub">←</a>
+  <div class="eyebrow" id="module-eyebrow">Study Hub · Topic exam practice</div>
+  <h1 id="module-title">Finance Fundamentals Topic Exam Practice</h1>
+  <div class="subtitle" id="module-subtitle">Five exam-style practice questions for every Finance Fundamentals lecture topic. These include calculation setup, interpretation and written-answer prompts.</div>
+  <div class="stats"><div class="stat"><div class="stat-num" id="question-count">0</div><div class="stat-label">Questions</div></div><div class="stat"><div class="stat-num" id="shown-count">0</div><div class="stat-label">Shown Now</div></div><div class="stat"><div class="stat-num" id="topic-count">0</div><div class="stat-label">Topics</div></div><div class="stat"><div class="stat-num">5</div><div class="stat-label">Per Topic</div></div></div>
+  <div class="toolbar"><div><div class="filter-label">Search and filters</div><div class="search-row"><input id="practice-search" type="search" placeholder="Search valuation, bonds, CAPM, formulas, or topics"><select id="topic-filter"></select><select id="format-filter"></select></div></div><div class="tool-row"><button class="tool-btn" id="shuffle" type="button">Shuffle</button><button class="tool-btn" id="clear" type="button">Clear</button><span class="stat-label" id="deck-meta">Loading questions...</span></div></div>
+  <div class="question-list" id="question-list"></div>
+  <div class="footer">Finance Fundamentals topic exam practice · 5 questions per topic</div>
+</div>
+<script>
+(function(){
+  var topics=[
+    ['L1 Corporate finance foundations','lecture1.html','shareholder wealth, agency problems, real assets, financial assets, investment decisions and financing decisions'],
+    ['L2 Time value of money','lecture2.html','present value, future value, annuities, perpetuities, compounding frequency and rate matching'],
+    ['L3 Financial markets','lecture3.html','primary markets, secondary markets, intermediaries, risk transfer, liquidity and efficient allocation'],
+    ['L4 Bond pricing','lecture4.html','coupon bonds, zero-coupon bonds, yield to maturity, current yield, price-yield relation and duration intuition'],
+    ['L5 Convertibles and short-term finance','lecture5.html','conversion value, conversion premium, overdrafts, trade credit, factoring, leasing and treasury management'],
+    ['L6 Introduction to equity','lecture6.html','ordinary shares, dividends, preference shares, voting rights, equity risk and market valuation'],
+    ['L7 Equity valuation','lecture7.html','dividend discount model, Gordon growth, required return, PVGO, EPS and P/E interpretation'],
+    ['L8 Risk and return','lecture8.html','expected return, holding-period return, arithmetic return, geometric return, variance and standard deviation'],
+    ['L9 Portfolios and CAPM','lecture9.html','diversification, covariance, correlation, portfolio variance, beta, CAPM and security market line'],
+    ['L10 Personal finance','lecture10.html','mortgages, retirement saving, leasing, borrowing costs, affordability and present-value decision rules']
+  ];
+  function questions(t){
+    var topic=t[0], source=t[1], focus=t[2];
+    return [
+      {topic:topic,source:source,format:'Concept explanation',marks:'6 marks',prompt:'Explain the main financial principle behind '+topic+' and why it matters for investors or firms.',scenario:'Focus area: '+focus+'.',plan:['Define the principle accurately.','Explain timing, risk or cash-flow logic where relevant.','Link the concept to a financial decision.','State the interpretation in investor or firm language.']},
+      {topic:topic,source:source,format:'Calculation setup',marks:'10 marks',prompt:'Set up the calculation needed for an exam question on '+topic+', defining every variable before substituting numbers.',scenario:'Do not skip the formula route. The mark focus is method, units and interpretation.',plan:['Write the correct formula.','Define each input and match rate to period.','Show the substitution or decision rule.','Explain what the resulting value, yield, return or risk would mean.']},
+      {topic:topic,source:source,format:'Applied decision',marks:'10 marks',prompt:'A finance manager must choose between two alternatives linked to '+topic+'. Explain how the decision should be made.',scenario:'Use value creation, cost of finance, risk or affordability as the decision basis.',plan:['Identify the objective of the decision.','Compare alternatives using the appropriate finance method.','Consider risk, timing and opportunity cost.','State a clear recommendation.']},
+      {topic:topic,source:source,format:'Interpretation',marks:'8 marks',prompt:'After completing a calculation on '+topic+', write the interpretation an examiner would expect.',scenario:'Assume the numerical answer has been found. Your task is to explain what it means.',plan:['Name the metric calculated.','Say whether the result is high, low, acceptable, value-creating or risky.','Tie the result to the investor, lender, shareholder or firm.','Mention one caveat or assumption.']},
+      {topic:topic,source:source,format:'Section B/C style',marks:'15 marks',prompt:'Evaluate the usefulness of '+topic+' in making real financial decisions.',scenario:'Write this as a longer written answer with formulas or examples where relevant.',plan:['Open with a direct judgement.','Use at least two analytical points.','Include calculation logic or a finance example.','Discuss limitations such as assumptions, market conditions or estimation error.','Finish with a balanced conclusion.']}
+    ];
+  }
+  window.STUDY_HUB_TOPIC_PRACTICE={title:'Finance Fundamentals Topic Exam Practice',eyebrow:'Study Hub · Year 1 · Semester 2 · mod2',subtitle:'Five exam-style practice questions for every Finance Fundamentals lecture topic, with calculation, interpretation and written-answer formats.',questions:topics.flatMap(questions)};
+})();
+</script>
+<script src="../topic-exam-practice.js"></script>
+</body>
+</html>

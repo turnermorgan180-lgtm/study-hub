@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Economics Topic Exam Practice</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../topic-exam-practice.css">
+</head>
+<body>
+<div class="container">
+  <a class="back-btn" href="index.html" aria-label="Back to Business Economics hub">←</a>
+  <div class="eyebrow" id="module-eyebrow">Study Hub · Topic exam practice</div>
+  <h1 id="module-title">Business Economics Topic Exam Practice</h1>
+  <div class="subtitle" id="module-subtitle">Five exam-style practice questions for every Business Economics lecture topic. These are written in the style of the module, but are not copied from past papers.</div>
+  <div class="stats"><div class="stat"><div class="stat-num" id="question-count">0</div><div class="stat-label">Questions</div></div><div class="stat"><div class="stat-num" id="shown-count">0</div><div class="stat-label">Shown Now</div></div><div class="stat"><div class="stat-num" id="topic-count">0</div><div class="stat-label">Topics</div></div><div class="stat"><div class="stat-num">5</div><div class="stat-label">Per Topic</div></div></div>
+  <div class="toolbar"><div><div class="filter-label">Search and filters</div><div class="search-row"><input id="practice-search" type="search" placeholder="Search topics, wording, diagrams, or evaluation"><select id="topic-filter"></select><select id="format-filter"></select></div></div><div class="tool-row"><button class="tool-btn" id="shuffle" type="button">Shuffle</button><button class="tool-btn" id="clear" type="button">Clear</button><span class="stat-label" id="deck-meta">Loading questions...</span></div></div>
+  <div class="question-list" id="question-list"></div>
+  <div class="footer">Business Economics topic exam practice · 5 questions per topic</div>
+</div>
+<script>
+(function(){
+  var topics=[
+    ['L1 Economics and business','lecture1.html','scarcity, opportunity cost, factors of production, rational choice and business objectives'],
+    ['L2 Supply and demand','lecture2.html','demand, supply, equilibrium, shortages, surpluses and market adjustment'],
+    ['L3 Elasticity','lecture3.html','PED, income elasticity, cross elasticity, revenue effects and pricing decisions'],
+    ['L4 Demand and the consumer','lecture4.html','marginal utility, consumer choice, demand curves and behavioural limits'],
+    ['L5 Costs of production','lecture5.html','fixed cost, variable cost, marginal cost, average cost, economies of scale and shutdown logic'],
+    ['L6 Revenue and profit','lecture6.html','total revenue, marginal revenue, accounting profit, economic profit and profit maximisation'],
+    ['L7 Perfect competition and monopoly','lecture7.html','perfect competition, monopoly power, barriers to entry, welfare and efficiency'],
+    ['L8 Imperfect competition','lecture8.html','monopolistic competition, oligopoly, concentration, non-price competition and interdependence'],
+    ['L9 Game theory','lecture9.html','payoff matrices, dominant strategies, Nash equilibrium, collusion and prisoner dilemma logic'],
+    ['L10 Pricing strategy','lecture10.html','price discrimination, peak-load pricing, bundling, mark-up pricing and strategic pricing'],
+    ['L11 Government intervention','lecture11.html','taxes, subsidies, price controls, externalities, regulation and market failure'],
+    ['L12 Macroeconomic environment','lecture12-13.html','GDP, economic growth, business cycles, aggregate demand, aggregate supply and business confidence'],
+    ['L13 Aggregate demand and supply','lecture12-13.html','AD/AS diagrams, demand-side shocks, supply-side shocks, macro equilibrium and policy trade-offs'],
+    ['L14 International trade','lecture14.html','comparative advantage, tariffs, quotas, protectionism, terms of trade and trade gains'],
+    ['L15 Balance of payments and exchange rates','lecture15.html','current account, capital flows, appreciation, depreciation and exchange-rate effects'],
+    ['L16 Financial system, money and interest rates','lecture16.html','money, banks, financial intermediation, central banks, interest rates and credit'],
+    ['L17 Business activity, unemployment and inflation','lecture17.html','unemployment types, inflation causes, Phillips curve logic and AD/AS effects']
+  ];
+  function questions(t){
+    var topic=t[0], source=t[1], focus=t[2];
+    return [
+      {topic:topic,source:source,format:'Definition and explanation',marks:'6 marks',prompt:'Define two core concepts in '+topic+' and explain how they affect business decision-making.',scenario:'Your answer should use the topic focus: '+focus+'.',plan:['Define both concepts accurately.','Explain the economic mechanism rather than listing terms.','Apply the ideas to a firm, consumer, market or government decision.','End with a clear business consequence.']},
+      {topic:topic,source:source,format:'Applied scenario',marks:'8 marks',prompt:'A firm faces a sudden change in market conditions linked to '+topic+'. Explain the likely effect on price, output, costs, revenue or profit.',scenario:'Use a realistic business example and make the direction of change explicit.',plan:['Identify the shock or decision.','Use the correct diagram or chain of reasoning.','Explain short-run and, where relevant, long-run effects.','Use business language: costs, demand, margins, investment, hiring or risk.']},
+      {topic:topic,source:source,format:'Diagram or calculation',marks:'10 marks',prompt:'Construct the appropriate diagram, calculation or logical model for a question on '+topic+' and explain what each part shows.',scenario:'The examiner is testing whether you can move from theory to method, not just remember a definition.',plan:['Choose the correct diagram, formula or model.','Label axes, curves, variables or strategic choices.','Show the before-and-after position or substituted working.','Interpret the result in words.']},
+      {topic:topic,source:source,format:'Evaluation',marks:'12 marks',prompt:'Evaluate the usefulness of '+topic+' theory for understanding real business behaviour.',scenario:'Your answer should include at least one limitation, assumption or counterargument.',plan:['Make a clear main argument.','Apply it to firms, consumers, markets or policy.','Add a limitation such as information problems, time horizon, market power or uncertainty.','Finish with a balanced judgement.']},
+      {topic:topic,source:source,format:'Essay synthesis',marks:'15 marks',prompt:'To what extent is '+topic+' the most important factor in explaining business outcomes in a market?',scenario:'Build a structured answer that links theory, application and evaluation.',plan:['Start with a direct judgement.','Develop two strong analytical points.','Compare with another relevant topic from the module.','Use evidence or examples.','Conclude by weighing conditions under which the argument is strongest.']}
+    ];
+  }
+  window.STUDY_HUB_TOPIC_PRACTICE={title:'Business Economics Topic Exam Practice',eyebrow:'Study Hub · Year 1 · Semester 2 · mod1',subtitle:'Five exam-style practice questions for every Business Economics lecture topic, organised for topic-by-topic revision or shuffled whole-module practice.',questions:topics.flatMap(questions)};
+})();
+</script>
+<script src="../topic-exam-practice.js"></script>
+</body>
+</html>

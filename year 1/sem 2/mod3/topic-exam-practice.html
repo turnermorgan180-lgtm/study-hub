@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quantitative Analysis Topic Exam Practice</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../topic-exam-practice.css">
+</head>
+<body>
+<div class="container">
+  <a class="back-btn" href="index.html" aria-label="Back to Quantitative Analysis hub">←</a>
+  <div class="eyebrow" id="module-eyebrow">Study Hub · Topic exam practice</div>
+  <h1 id="module-title">Quantitative Analysis Topic Exam Practice</h1>
+  <div class="subtitle" id="module-subtitle">Five exam-style practice questions for every Quantitative Analysis lecture topic. These focus on method choice, calculation, SPSS output and interpretation.</div>
+  <div class="stats"><div class="stat"><div class="stat-num" id="question-count">0</div><div class="stat-label">Questions</div></div><div class="stat"><div class="stat-num" id="shown-count">0</div><div class="stat-label">Shown Now</div></div><div class="stat"><div class="stat-num" id="topic-count">0</div><div class="stat-label">Topics</div></div><div class="stat"><div class="stat-num">5</div><div class="stat-label">Per Topic</div></div></div>
+  <div class="toolbar"><div><div class="filter-label">Search and filters</div><div class="search-row"><input id="practice-search" type="search" placeholder="Search tests, p-values, SPSS, formulas, or topics"><select id="topic-filter"></select><select id="format-filter"></select></div></div><div class="tool-row"><button class="tool-btn" id="shuffle" type="button">Shuffle</button><button class="tool-btn" id="clear" type="button">Clear</button><span class="stat-label" id="deck-meta">Loading questions...</span></div></div>
+  <div class="question-list" id="question-list"></div>
+  <div class="footer">Quantitative Analysis topic exam practice · 5 questions per topic</div>
+</div>
+<script>
+(function(){
+  var topics=[
+    ['L1 Descriptive statistics','lecture1.html','mean, median, standard deviation, IQR, boxplots, charts, outliers and business interpretation'],
+    ['L2 Probability','lecture2.html','addition rule, multiplication rule, conditional probability, Bayes theorem, complements and expected value'],
+    ['L3 Distributions','lecture3.html','Bernoulli, binomial, normal distribution, z-scores, table use and probability interpretation'],
+    ['L4 Sampling and confidence intervals','lecture4.html','sampling variability, central limit theorem, standard error, confidence intervals and margin of error'],
+    ['L5 Hypothesis testing','lecture5.html','null hypothesis, alternative hypothesis, test statistic, p-value, critical value and contextual conclusion'],
+    ['L6 Chi-squared tests','lecture6.html','goodness of fit, independence, observed counts, expected counts, degrees of freedom and chi-squared statistic'],
+    ['L7 ANOVA','lecture7.html','between-group variation, within-group variation, F statistic, p-value and comparison of group means'],
+    ['L8 Correlation and regression','lecture8.html','scatterplots, correlation, regression equation, slope, intercept, R-squared and causation limits'],
+    ['L9 SPSS practical','lecture9.html','data entry, variable types, charts, descriptives, crosstabs, Explore and output interpretation'],
+    ['L10 SPSS hypothesis tests','lecture10.html','one-sample t-test, paired t-test, independent t-test, ANOVA, chi-squared and test selection']
+  ];
+  function questions(t){
+    var topic=t[0], source=t[1], focus=t[2];
+    return [
+      {topic:topic,source:source,format:'Method selection',marks:'6 marks',prompt:'Choose the correct quantitative method for a business question involving '+topic+' and justify the choice.',scenario:'Focus area: '+focus+'.',plan:['Identify the variable type or data structure.','State the method or test.','Explain why alternatives are less appropriate.','Mention the decision rule or output needed.']},
+      {topic:topic,source:source,format:'Calculation',marks:'10 marks',prompt:'Set out the calculation route for an exam question on '+topic+', including the formula and interpretation.',scenario:'You do not need invented data; write the exact steps an answer would follow.',plan:['Write the relevant formula or SPSS procedure.','Define each symbol or output column.','Show the order of calculation.','State how to round and interpret the result.']},
+      {topic:topic,source:source,format:'SPSS/output interpretation',marks:'8 marks',prompt:'You are given SPSS output linked to '+topic+'. Explain which values you would report and what conclusion you would draw.',scenario:'Focus on the wording of the conclusion, not just naming the statistic.',plan:['Identify the key output value such as Sig., mean, coefficient, F, chi-squared or R-squared.','Compare with the correct benchmark where relevant.','State reject or fail to reject when testing.','Translate the result into business language.']},
+      {topic:topic,source:source,format:'Assumptions and traps',marks:'8 marks',prompt:'Explain two common mistakes students make when answering exam questions on '+topic+' and how to avoid them.',scenario:'Use this as a self-check before doing timed practice.',plan:['Name two specific traps.','Explain why each trap loses marks.','State the correct method or wording.','Include one interpretation warning.']},
+      {topic:topic,source:source,format:'Exam synthesis',marks:'12 marks',prompt:'A manager asks whether the evidence from '+topic+' is strong enough to support a business decision. Write the answer structure.',scenario:'Your answer should combine method, calculation/output, decision and limitation.',plan:['State the business question and statistical method.','Report the calculation or output evidence.','Make the statistical decision.','Give a contextual conclusion.','Add one limitation such as sample size, assumptions, outliers or causation.']}
+    ];
+  }
+  window.STUDY_HUB_TOPIC_PRACTICE={title:'Quantitative Analysis Topic Exam Practice',eyebrow:'Study Hub · Year 1 · Semester 2 · mod3',subtitle:'Five exam-style practice questions for every Quantitative Analysis lecture topic, with method, calculation, SPSS and interpretation formats.',questions:topics.flatMap(questions)};
+})();
+</script>
+<script src="../topic-exam-practice.js"></script>
+</body>
+</html>
