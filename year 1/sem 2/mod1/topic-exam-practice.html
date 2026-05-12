@@ -60,5 +60,91 @@
 })();
 </script>
 <script src="../topic-exam-practice.js"></script>
+<script id="study-hub-navigation-fix">
+(function(){
+  if (window.__studyHubNavigationFix) return;
+  window.__studyHubNavigationFix = true;
+  var MAP_KEY = 'studyHubBackMap';
+  function sameOrigin(url){try{return new URL(url, window.location.href).origin === window.location.origin;}catch(e){return false;}}
+  function clean(url){var u = new URL(url, window.location.href); u.hash = ''; return u.href;}
+  function currentClean(){return clean(window.location.href);}
+  function readMap(){try{return JSON.parse(sessionStorage.getItem(MAP_KEY) || '{}') || {};}catch(e){return {};}}
+  function writeMap(map){try{sessionStorage.setItem(MAP_KEY, JSON.stringify(map));}catch(e){}}
+  function resetTransition(){
+    document.body.classList.remove('page-transition-init','page-transition-leaving');
+    document.body.classList.add('page-transition-ready');
+  }
+  function go(url){
+    if (!url) return;
+    document.body.classList.remove('page-transition-init','page-transition-ready');
+    document.body.classList.add('page-transition-leaving');
+    window.setTimeout(function(){ window.location.href = url; }, 80);
+  }
+  function meaningfulHere(link){
+    var here = new URL(window.location.href);
+    var card = link && link.closest && link.closest('.question-card[id], .exam-q[id]');
+    if (card && (link.classList.contains('topic-link') || /lecture|formula|summary|flashcard|topic/i.test(link.textContent || ''))) here.hash = card.id;
+    return here.href;
+  }
+  function remember(link){
+    if (!link || link.classList.contains('back-btn')) return;
+    if (link.target && link.target !== '_self') return;
+    if (link.hasAttribute('download')) return;
+    var href = link.getAttribute('href');
+    if (!href || href.charAt(0) === '#') return;
+    if (/^(mailto:|tel:|javascript:)/i.test(href)) return;
+    var dest;
+    try { dest = new URL(link.href, window.location.href); } catch(e) { return; }
+    if (dest.origin !== window.location.origin) return;
+    var here = meaningfulHere(link);
+    var map = readMap();
+    map[clean(dest.href)] = here;
+    writeMap(map);
+  }
+  function storedReturn(){
+    var map = readMap();
+    var mapped = map[currentClean()];
+    if (mapped && sameOrigin(mapped) && clean(mapped) !== currentClean()) return mapped;
+    return null;
+  }
+  function isEditable(el){return el && (el.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/i.test(el.tagName));}
+  function handleBack(fallbackHref){
+    var target = storedReturn();
+    if (target) { go(target); return; }
+    if (document.referrer && sameOrigin(document.referrer) && history.length > 1) {
+      var before = window.location.href;
+      history.back();
+      window.setTimeout(function(){ if (window.location.href === before && fallbackHref) go(fallbackHref); }, 350);
+      return;
+    }
+    if (fallbackHref) go(fallbackHref);
+  }
+  window.addEventListener('pageshow', resetTransition);
+  window.addEventListener('popstate', resetTransition);
+  document.addEventListener('visibilitychange', function(){ if (!document.hidden) resetTransition(); });
+  document.addEventListener('click', function(event){
+    var link = event.target.closest && event.target.closest('a[href]');
+    if (!link) return;
+    if (link.classList.contains('back-btn')) {
+      if (event.defaultPrevented || event.button !== 0) return;
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      handleBack(link.href);
+      return;
+    }
+    remember(link);
+  }, true);
+  document.addEventListener('keydown', function(event){
+    if (event.key !== 'Backspace') return;
+    if (event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
+    if (isEditable(document.activeElement)) return;
+    var fallback = document.querySelector('a.back-btn[href]');
+    if (!fallback) return;
+    event.preventDefault();
+    handleBack(fallback.href);
+  });
+  resetTransition();
+})();
+</script>
 </body>
 </html>
